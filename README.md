@@ -1,6 +1,8 @@
 # Coherent Capture Theory — Empirical Test Series
 
-**Certan (2025)**
+*Stars carry a permanent chemical record of their birth. This repository contains the analysis that demonstrated it.*
+
+**Certan (2026)**
 
 Multi-instrument empirical analysis of chemical coherence in open clusters and the Milky Way field star population, using GALAH DR4 (917,588 stars) and APOGEE DR17 (OCCAM VAC, 2,515 stars).
 
