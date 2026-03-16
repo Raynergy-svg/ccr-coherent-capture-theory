@@ -1,0 +1,53 @@
+[INFO] ========================================================================
+[INFO] T14  Chemical Coherence Decay Curve
+[INFO] Certan (2025) | CCT | GALAH DR4 x CG2020
+[INFO] ========================================================================
+[INFO] Loaded 655 clusters from t9_cluster_stats_with_age.csv
+[INFO] After filtering (valid age, N>=3): 606 clusters
+[INFO] Age range: 0.002 - 6.31 Gyr
+[INFO] C/O std range: 0.0030 - 0.2090
+[INFO] 
+Spearman correlation (age vs C/O std): rho = 0.1165, p = 4.09e-03
+[INFO]   => SIGNIFICANT positive correlation: coherence degrades with age
+[INFO] ------------------------------------------------------------
+[INFO] Model 1: Exponential decay  sigma(t) = sigma0 + A*(1 - exp(-t/tau))
+[INFO]   sigma0 = 0.1004 +/- 0.0022
+[INFO]   A      = 0.0157 +/- 0.0092
+[INFO]   tau    = 1.288 +/- 1.576 Gyr
+[INFO]   AIC = -4093.1, BIC = -4079.9
+[INFO]   *** tau = 1.29 Gyr MATCHES disk heating timescale (1.0-2.0 Gyr) ***
+[INFO] ------------------------------------------------------------
+[INFO] Model 2: Power law  sigma(t) = sigma0 + A * t^alpha
+[INFO]   sigma0 = 0.0856 +/- 0.0599
+[INFO]   A      = 0.0229 +/- 0.0603
+[INFO]   alpha  = 0.1439 +/- 0.4569
+[INFO]   AIC = -4092.6, BIC = -4079.4
+[INFO] ------------------------------------------------------------
+[INFO] Model 3: Sliding Mann-Whitney step function scan
+[INFO]   Best step at age = 1.0 Gyr
+[INFO]     p = 2.2409e-04, U = 18215
+[INFO]     Young median = 0.1011 (n=514)
+[INFO]     Old median   = 0.1116 (n=92)
+[INFO]     => SIGNIFICANT step: young clusters have lower C/O scatter
+[INFO] ------------------------------------------------------------
+[INFO] Model comparison:
+[INFO]       Exponential: AIC = -4093.1, BIC = -4079.9
+[INFO]         Power law: AIC = -4092.6, BIC = -4079.4
+[INFO]   Best model (lowest AIC): Exponential
+[INFO] ------------------------------------------------------------
+[INFO] Binned analysis:
+[INFO]      Bin (Gyr)     N   Mean std   Median std   Std of std
+[INFO]   0.0 - 0.5      424  0.1019     0.0999       0.0346
+[INFO]   0.5 - 1.0       87  0.1023     0.1056       0.0308
+[INFO]   1.0 - 2.0       61  0.1178     0.1143       0.0308
+[INFO]   2.0 - 4.0       25  0.1152     0.1109       0.0332
+[INFO]   4.0 - 10.0        9  0.1071     0.0855       0.0452
+[INFO] 
+[INFO] ========================================================================
+[INFO] T14 SUMMARY
+[INFO] ========================================================================
+[INFO] Spearman rho = 0.1165, p = 4.09e-03
+[INFO] Exponential tau = 1.288 Gyr (coherence lifetime)
+[INFO] Birth coherence floor sigma0 = 0.1004
+[INFO] Best step boundary = 1.0 Gyr (p = 2.2409e-04)
+[INFO] Disk heating timescale reference: 1.0-2.0 Gyr

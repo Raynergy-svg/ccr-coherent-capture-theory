@@ -1,0 +1,59 @@
+Some IP addresses of users launching heavy query showers have temporarily been disabled. Please contact the Gaia helpdesk (https://www.cosmos.esa.int/web/gaia/gaia-helpdesk) for advice. Workaround solutions for the Gaia Archive issues following the infrastructure upgrade: https://www.cosmos.esa.int/web/gaia/news#WorkaroundArchive
+
+Please note the system will be unavailable on Thursday 5 from 11:00 to 12:00 CET for maintenance reasons.
+[INFO] Coherent stars loaded: 4744
+[INFO] Columns available: ['sobject_id', 'tmass_id', 'gaiadr3_source_id', 'survey_name', 'field_id', 'setup', 'mjd', 'ra', 'dec', 'flag_sp']
+[INFO] Running Gaia DR3 positional crossmatch (1 arcsec radius)...
+[INFO] This may take a few minutes for 4744 stars...
+INFO: Query finished. [astroquery.utils.tap.core]
+[INFO] Gaia matches returned: 4741
+[INFO] Columns returned: ['row_id', 'source_id', 'ra', 'dec', 'pmra', 'pmdec', 'pmra_error', 'pmdec_error', 'parallax', 'parallax_error', 'radial_velocity', 'radial_velocity_error', 'ruwe']
+[INFO] After dedup: 4731
+[INFO] Stars with proper motions: 4731/4744
+[INFO] Saved: t6b_coherent_stars_with_pm.csv
+[INFO] Per-group PM availability:
+[INFO]  chem_group   N  pmra_mean  pmra_std  pmdec_mean  pmdec_std
+          4 141  -2.355301  6.495183    0.042919   6.301445
+          5  65  -2.223223  5.660788   -0.169334   6.431148
+          8  55  -2.843882  4.829529   -1.917861   5.418867
+          9 456  -1.879695  5.914990   -0.528301   6.220678
+         14 119  -2.534392  5.843406   -2.666197   6.192650
+         18  93  -2.313133  5.652162   -1.699579   5.367686
+         22  64  -1.208017 16.070011   -7.990881  11.204213
+         23  73  -3.683627  6.749638   -1.986416   6.648086
+         25  68  -2.353100  5.130103   -0.910493   4.902417
+         26 156  -2.889870  6.026622   -0.561820   6.145991
+         40  93  -2.092486  5.326950    1.104979   5.868605
+         41  54  -2.957459  8.988163   -3.777867   8.549002
+         50  97  -1.649998  5.263980   -2.764485   8.323422
+         64  68  -1.568674  6.877179   -1.670946   5.829992
+         65  62  -2.522712  5.842576   -0.038979   6.447501
+         85  53  -2.155049 12.135747   -3.467196   8.740654
+         86  80  -0.545825  9.640566   -4.712517   9.217934
+         94 183  -3.215248  5.555806    0.540142   5.742214
+         96  83  -3.746290 17.683354   -6.508565  12.999994
+        106  50  -1.853681  9.987332   -2.056538   7.689272
+        128  64  -1.572679 11.783545   -7.366193  11.679464
+        134 450  -2.201451 11.393758   -5.065487  11.606291
+        135 104  -2.514548 11.028401   -2.552790  11.936469
+        136 307  -2.367566 10.548695   -5.961408  10.453538
+        150  61   1.163440 13.929135   -3.205464  10.125467
+        153  60   0.430394  9.906767   -3.871373  10.717997
+        188 306  -0.894187 15.161550   -8.012656  13.477468
+        214  82  -1.573004  5.549256   -0.535503   6.019771
+        219 113  -2.563003  9.531484   -1.728235   9.017194
+        252  91  -0.910954  5.540554    1.127705   5.712022
+        256 106  -3.249161  8.622843   -2.315811   8.908591
+        296  65  -2.275747  5.255669   -0.779896   6.141559
+        343  77  -1.252706  9.468748   -4.225697   9.174780
+        376  54  -1.614893  9.048594   -1.151630   6.603762
+        384  60  -2.760866  6.317310   -1.358784   7.790490
+        408  55  -1.939541  6.324392   -1.716661   5.738081
+        410  91  -1.580231  4.559828   -1.050438   5.341083
+        430  63  -2.071404  8.041062   -1.750222   6.807881
+        455  88  -2.114761  6.754440   -3.226172   7.032893
+        479  80  -1.662959  5.793780    0.362738   6.015569
+        500 140  -1.771264  5.762116   -1.018132   6.554918
+        531 101  -4.095856  7.527514   -3.202024   7.176145
+[INFO] Saved: t6b_coherent_pm_summary.csv
+[INFO] DONE

@@ -1,0 +1,324 @@
+[INFO] ========================================================================
+[INFO] T20b  Find One Star: NGC 6791
+[INFO] Certan (2025) | CCT | GALAH DR4 × Gaia DR3
+[INFO] ========================================================================
+[INFO] [Fe/H]=+0.30 | Age=8 Gyr | The most metal-rich old cluster
+[INFO] 
+APOGEE members: 67
+[INFO] APOGEE template:
+[INFO]   c_fe: +0.0859
+[INFO]   o_fe: +0.0679
+[INFO]   mg_fe: +0.0665
+[INFO]   si_fe: +0.0096
+[INFO]   fe_h: +0.3023
+[INFO] GALAH-calibrated template:
+[INFO]   c_fe: +0.1558
+[INFO]   o_fe: +0.1727
+[INFO]   mg_fe: +0.1398
+[INFO]   si_fe: +0.0796
+[INFO]   fe_h: +0.2121
+[INFO]   C/O: 0.5280
+[INFO] Template scatter: {'C_O': 0.04, 'mg_fe': np.float64(0.023127129466068548), 'si_fe': np.float64(0.02355890158783948), 'fe_h': np.float64(0.053440077681601084)}
+[INFO] Matching tolerances: {'C_O': 0.08, 'mg_fe': 0.05, 'si_fe': 0.05, 'fe_h': np.float64(0.10688015536320217)}
+[INFO] 
+Loading GALAH DR4...
+[INFO] Field stars: 535598
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 1: Chemical matching
+[INFO] Stars with [Fe/H] > 0.2: 41614/535598 (7.77%)
+[INFO] Chemical matches: 768
+[INFO]   [Fe/H] range: 0.105 to 0.318
+[INFO]   C/O range: 0.448 to 0.608
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 2: Distance filter
+[INFO] NGC 6791 parallax: 0.243 mas (4 pc)
+[INFO] With valid parallax: 768
+[INFO] Parallax-consistent: 59
+[INFO]   Parallax range: 0.0959 - 0.8945
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 3: RV filter
+[INFO] NGC 6791 RV: -47.0 km/s
+[INFO] With RV: 59
+[INFO] RV-consistent (±15 km/s): 11
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 4: Gaia proper motion query
+[INFO] Querying Gaia for 59 stars...
+[INFO] Gaia results: 59
+[INFO] PM-consistent (within 3.0 mas/yr): 18
+[INFO] 
+Closest 10 by PM offset:
+[INFO]   source_id=6721901376213883904: PM=(-0.408,-1.977), offset=0.303, plx=0.2204, RV=-117.6, G=10.75
+[INFO]   source_id=6237882858581105664: PM=(-0.320,-3.231), offset=0.956, plx=0.3036, RV=51.1, G=10.89
+[INFO]   source_id=6655595533652992000: PM=(-1.104,-3.165), offset=1.118, plx=0.2733, RV=4.7, G=13.47
+[INFO]   source_id=4075002680571578368: PM=(-1.041,-3.494), offset=1.363, plx=0.2183, RV=-25.2, G=13.60
+[INFO]   source_id=5930429583268799488: PM=(-0.388,-3.661), offset=1.382, plx=0.1916, RV=5.0, G=11.70
+[INFO]   source_id=4253706713425796608: PM=(+0.709,-3.401), offset=1.591, plx=0.2883, RV=34.4, G=12.73
+[INFO]   source_id=4073165705875469312: PM=(+0.223,-0.684), offset=1.721, plx=0.1981, RV=30.4, G=13.05
+[INFO]   source_id=4471727572727081984: PM=(+1.181,-2.918), offset=1.723, plx=0.2322, RV=-15.5, G=11.13
+[INFO]   source_id=4047762344383477760: PM=(-1.075,-4.149), offset=1.980, plx=0.3265, RV=-5.8, G=13.45
+[INFO]   source_id=4073170241360403456: PM=(-0.455,-4.314), offset=2.034, plx=0.1657, RV=-11.9, G=14.11
+[INFO] 
+========================================================================
+[INFO] CANDIDATE DISSOLVED NGC 6791 MEMBERS: 18
+[INFO] ========================================================================
+[INFO] 
+  --- Candidate 1 ---
+[INFO]   Gaia DR3: 6237882858581105664
+[INFO]   Position: (232.87138, -25.67732)
+[INFO]   Sep from NGC 6791: 78.0°
+[INFO]   Parallax: 0.3036 ± 0.0463 mas (NGC 6791: 0.243)
+[INFO]   PM: (-0.320, -3.231) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 0.956 mas/yr
+[INFO]   RV (GALAH): +49.73 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +51.06 km/s
+[INFO]   G mag: 10.89
+[INFO]   Chemistry: C/O=0.4877, [Mg/Fe]=+0.1048, [Si/Fe]=+0.0766, [Fe/H]=+0.2463
+[INFO]   Teff=3627 K, logg=0.77
+[INFO] 
+  --- Candidate 2 ---
+[INFO]   Gaia DR3: 4047762344383477760
+[INFO]   Position: (278.01090, -30.36549)
+[INFO]   Sep from NGC 6791: 68.8°
+[INFO]   Parallax: 0.3265 ± 0.0177 mas (NGC 6791: 0.243)
+[INFO]   PM: (-1.075, -4.149) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.980 mas/yr
+[INFO]   RV (GALAH): -5.43 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -5.81 km/s
+[INFO]   G mag: 13.45
+[INFO]   Chemistry: C/O=0.5636, [Mg/Fe]=+0.0919, [Si/Fe]=+0.1274, [Fe/H]=+0.1249
+[INFO]   Teff=4628 K, logg=2.51
+[INFO] 
+  --- Candidate 3 ---
+[INFO]   Gaia DR3: 5720819133161696256
+[INFO]   Position: (122.58023, -17.19230)
+[INFO]   Sep from NGC 6791: 143.5°
+[INFO]   Parallax: 0.2820 ± 0.0157 mas (NGC 6791: 0.243)
+[INFO]   PM: (-0.233, +0.447) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.734 mas/yr
+[INFO]   RV (GALAH): +61.53 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +63.76 km/s
+[INFO]   G mag: 13.56
+[INFO]   Chemistry: C/O=0.4594, [Mg/Fe]=+0.1318, [Si/Fe]=+0.1042, [Fe/H]=+0.3080
+[INFO]   Teff=4579 K, logg=2.52
+[INFO] 
+  --- Candidate 4 ---
+[INFO]   Gaia DR3: 4220100071796012032
+[INFO]   Position: (301.54873, -5.90487)
+[INFO]   Sep from NGC 6791: 44.6°
+[INFO]   Parallax: 0.3088 ± 0.0140 mas (NGC 6791: 0.243)
+[INFO]   PM: (+2.439, -2.730) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.894 mas/yr
+[INFO]   RV (GALAH): -48.77 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -49.88 km/s
+[INFO]   G mag: 13.19
+[INFO]   Chemistry: C/O=0.4500, [Mg/Fe]=+0.0988, [Si/Fe]=+0.0816, [Fe/H]=+0.1091
+[INFO]   Teff=4297 K, logg=2.18
+[INFO] 
+  --- Candidate 5 ---
+[INFO]   Gaia DR3: 4253706713425796608
+[INFO]   Position: (284.34799, -6.52406)
+[INFO]   Sep from NGC 6791: 44.5°
+[INFO]   Parallax: 0.2883 ± 0.0206 mas (NGC 6791: 0.243)
+[INFO]   PM: (+0.709, -3.401) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.591 mas/yr
+[INFO]   RV (GALAH): +37.19 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +34.39 km/s
+[INFO]   G mag: 12.73
+[INFO]   Chemistry: C/O=0.5566, [Mg/Fe]=+0.0920, [Si/Fe]=+0.0868, [Fe/H]=+0.1125
+[INFO]   Teff=4356 K, logg=1.94
+[INFO] 
+  --- Candidate 6 ---
+[INFO]   Gaia DR3: 3254686462692005888
+[INFO]   Position: (66.79865, 0.32237)
+[INFO]   Sep from NGC 6791: 180.5°
+[INFO]   Parallax: 0.2828 ± 0.0170 mas (NGC 6791: 0.243)
+[INFO]   PM: (+2.427, -1.720) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.902 mas/yr
+[INFO]   RV (GALAH): +77.14 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +76.94 km/s
+[INFO]   G mag: 13.23
+[INFO]   Chemistry: C/O=0.5835, [Mg/Fe]=+0.1109, [Si/Fe]=+0.1014, [Fe/H]=+0.1619
+[INFO]   Teff=4317 K, logg=2.18
+[INFO] 
+  --- Candidate 7 ---
+[INFO]   Gaia DR3: 4471727572727081984
+[INFO]   Position: (273.13766, 5.80792)
+[INFO]   Sep from NGC 6791: 34.7°
+[INFO]   Parallax: 0.2322 ± 0.0214 mas (NGC 6791: 0.243)
+[INFO]   PM: (+1.181, -2.918) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.723 mas/yr
+[INFO]   RV (GALAH): -14.20 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -15.55 km/s
+[INFO]   G mag: 11.13
+[INFO]   Chemistry: C/O=0.4667, [Mg/Fe]=+0.1325, [Si/Fe]=+0.0984, [Fe/H]=+0.2241
+[INFO]   Teff=3735 K, logg=0.86
+[INFO] 
+  --- Candidate 8 ---
+[INFO]   Gaia DR3: 4073170241360403456
+[INFO]   Position: (281.79743, -25.87725)
+[INFO]   Sep from NGC 6791: 64.0°
+[INFO]   Parallax: 0.1657 ± 0.0218 mas (NGC 6791: 0.243)
+[INFO]   PM: (-0.455, -4.314) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.034 mas/yr
+[INFO]   RV (GALAH): -13.80 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -11.89 km/s
+[INFO]   G mag: 14.11
+[INFO]   Chemistry: C/O=0.5330, [Mg/Fe]=+0.1249, [Si/Fe]=+0.0794, [Fe/H]=+0.1302
+[INFO]   Teff=4657 K, logg=2.43
+[INFO] 
+  --- Candidate 9 ---
+[INFO]   Gaia DR3: 5915205917021096960
+[INFO]   Position: (254.62822, -59.41604)
+[INFO]   Sep from NGC 6791: 101.2°
+[INFO]   Parallax: 0.2841 ± 0.0164 mas (NGC 6791: 0.243)
+[INFO]   PM: (-2.081, -3.951) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.357 mas/yr
+[INFO]   RV (GALAH): +70.43 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +70.98 km/s
+[INFO]   G mag: 13.68
+[INFO]   Chemistry: C/O=0.5756, [Mg/Fe]=+0.0935, [Si/Fe]=+0.0820, [Fe/H]=+0.2534
+[INFO]   Teff=4409 K, logg=2.37
+[INFO] 
+  --- Candidate 10 ---
+[INFO]   Gaia DR3: 6721901376213883904
+[INFO]   Position: (278.38605, -42.76096)
+[INFO]   Sep from NGC 6791: 81.1°
+[INFO]   Parallax: 0.2204 ± 0.0212 mas (NGC 6791: 0.243)
+[INFO]   PM: (-0.408, -1.977) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 0.303 mas/yr
+[INFO]   RV (GALAH): -115.75 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -117.58 km/s
+[INFO]   G mag: 10.75
+[INFO]   Chemistry: C/O=0.6066, [Mg/Fe]=+0.1816, [Si/Fe]=+0.0620, [Fe/H]=+0.1840
+[INFO]   Teff=3590 K, logg=0.67
+[INFO] 
+  --- Candidate 11 ---
+[INFO]   Gaia DR3: 6655595533652992000
+[INFO]   Position: (278.30437, -50.85957)
+[INFO]   Sep from NGC 6791: 89.1°
+[INFO]   Parallax: 0.2733 ± 0.0143 mas (NGC 6791: 0.243)
+[INFO]   PM: (-1.104, -3.165) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.118 mas/yr
+[INFO]   RV (GALAH): +5.70 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +4.65 km/s
+[INFO]   G mag: 13.47
+[INFO]   Chemistry: C/O=0.5265, [Mg/Fe]=+0.1656, [Si/Fe]=+0.0475, [Fe/H]=+0.1379
+[INFO]   Teff=4682 K, logg=2.51
+[INFO] 
+  --- Candidate 12 ---
+[INFO]   Gaia DR3: 5888866119581726720
+[INFO]   Position: (230.98137, -52.43818)
+[INFO]   Sep from NGC 6791: 101.6°
+[INFO]   Parallax: 0.2486 ± 0.0172 mas (NGC 6791: 0.243)
+[INFO]   PM: (-2.608, -2.742) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.236 mas/yr
+[INFO]   RV (GALAH): -66.18 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -66.20 km/s
+[INFO]   G mag: 13.68
+[INFO]   Chemistry: C/O=0.5085, [Mg/Fe]=+0.1252, [Si/Fe]=+0.0840, [Fe/H]=+0.2351
+[INFO]   Teff=4774 K, logg=2.35
+[INFO] 
+  --- Candidate 13 ---
+[INFO]   Gaia DR3: 4075002680571578368
+[INFO]   Position: (281.35485, -24.69380)
+[INFO]   Sep from NGC 6791: 62.9°
+[INFO]   Parallax: 0.2183 ± 0.0250 mas (NGC 6791: 0.243)
+[INFO]   PM: (-1.041, -3.494) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.363 mas/yr
+[INFO]   RV (GALAH): -23.49 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -25.19 km/s
+[INFO]   G mag: 13.60
+[INFO]   Chemistry: C/O=0.4626, [Mg/Fe]=+0.1480, [Si/Fe]=+0.1180, [Fe/H]=+0.1144
+[INFO]   Teff=4784 K, logg=2.50
+[INFO] 
+  --- Candidate 14 ---
+[INFO]   Gaia DR3: 4294455134076217856
+[INFO]   Position: (293.21924, 6.31350)
+[INFO]   Sep from NGC 6791: 31.5°
+[INFO]   Parallax: 0.2989 ± 0.0146 mas (NGC 6791: 0.243)
+[INFO]   PM: (-2.699, -4.112) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.924 mas/yr
+[INFO]   RV (GALAH): +21.09 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +20.48 km/s
+[INFO]   G mag: 12.70
+[INFO]   Chemistry: C/O=0.4967, [Mg/Fe]=+0.1282, [Si/Fe]=+0.1001, [Fe/H]=+0.1501
+[INFO]   Teff=4379 K, logg=1.98
+[INFO] 
+  --- Candidate 15 ---
+[INFO]   Gaia DR3: 4073165705875469312
+[INFO]   Position: (281.92857, -25.96101)
+[INFO]   Sep from NGC 6791: 64.1°
+[INFO]   Parallax: 0.1981 ± 0.0179 mas (NGC 6791: 0.243)
+[INFO]   PM: (+0.223, -0.684) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.721 mas/yr
+[INFO]   RV (GALAH): +36.74 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +30.36 km/s
+[INFO]   G mag: 13.05
+[INFO]   Chemistry: C/O=0.4823, [Mg/Fe]=+0.1017, [Si/Fe]=+0.0610, [Fe/H]=+0.1755
+[INFO]   Teff=4248 K, logg=1.80
+[INFO] 
+  --- Candidate 16 ---
+[INFO]   Gaia DR3: 5822083668745864192
+[INFO]   Position: (240.06121, -67.25559)
+[INFO]   Sep from NGC 6791: 112.3°
+[INFO]   Parallax: 0.3320 ± 0.0130 mas (NGC 6791: 0.243)
+[INFO]   PM: (-2.903, -0.679) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.954 mas/yr
+[INFO]   RV (GALAH): -19.38 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -24.54 km/s
+[INFO]   G mag: 12.78
+[INFO]   Chemistry: C/O=0.4978, [Mg/Fe]=+0.0907, [Si/Fe]=+0.1227, [Fe/H]=+0.2397
+[INFO]   Teff=4524 K, logg=2.36
+[INFO] 
+  --- Candidate 17 ---
+[INFO]   Gaia DR3: 5930429583268799488
+[INFO]   Position: (248.50580, -54.48072)
+[INFO]   Sep from NGC 6791: 98.0°
+[INFO]   Parallax: 0.1916 ± 0.0227 mas (NGC 6791: 0.243)
+[INFO]   PM: (-0.388, -3.661) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 1.382 mas/yr
+[INFO]   RV (GALAH): +4.88 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): +5.02 km/s
+[INFO]   G mag: 11.70
+[INFO]   Chemistry: C/O=0.5869, [Mg/Fe]=+0.1079, [Si/Fe]=+0.0324, [Fe/H]=+0.2965
+[INFO]   Teff=3733 K, logg=0.82
+[INFO] 
+  --- Candidate 18 ---
+[INFO]   Gaia DR3: 5815238113660186624
+[INFO]   Position: (254.90806, -65.65737)
+[INFO]   Sep from NGC 6791: 107.1°
+[INFO]   Parallax: 0.2899 ± 0.0131 mas (NGC 6791: 0.243)
+[INFO]   PM: (-2.392, -3.972) mas/yr (NGC 6791: -0.420, -2.280)
+[INFO]   PM offset: 2.598 mas/yr
+[INFO]   RV (GALAH): -27.36 km/s (NGC 6791: -47.0)
+[INFO]   RV (Gaia): -29.93 km/s
+[INFO]   G mag: 13.21
+[INFO]   Chemistry: C/O=0.5150, [Mg/Fe]=+0.1202, [Si/Fe]=+0.0880, [Fe/H]=+0.1293
+[INFO]   Teff=4761 K, logg=2.51
+[INFO] 
+Saved: t20b_candidates.csv
+[INFO] 
+------------------------------------------------------------
+[INFO] FALSE POSITIVE ESTIMATE
+[INFO]   P(chem): 0.001434 (768/535598)
+[INFO]   P(plx|chem): 0.0768
+[INFO]   P(PM|plx+chem): 0.3051
+[INFO]   Combined: 3.36e-05
+[INFO]   Expected random in 535598: 18.00
+[INFO] 
+Generating plot...
+[INFO] Saved: t20b_ngc6791_plot.png
+[INFO] 
+========================================================================
+[INFO] T20b SUMMARY — NGC 6791
+[INFO] ========================================================================
+[INFO] Chemical matches: 768
+[INFO] Parallax-consistent: 59
+[INFO] PM-consistent: 18
+[INFO] FINAL CANDIDATES: 18
+[INFO] 
+T20b complete.

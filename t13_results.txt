@@ -1,0 +1,22 @@
+CCT T13 - Off-locus Mg/Fe vs Fe/H Anomaly Test
+==================================================
+
+Clusters: 655
+On: 625
+Off: 30 (high=15 low=15)
+
+Locus resid std: 0.0326 dex
+
+T1 C/O p=0.419395
+T2 Age p=0.566389
+T4 r=0.216 p=0.0
+
+Multi-element deltas:
+  si_fe: delta=0.0067 p=0.2697
+  al_fe: delta=0.0187 p=0.1594
+  ba_fe: delta=-0.0617 p=0.022
+  eu_fe: delta=0.015 p=0.3615
+  mn_fe: delta=-0.0142 p=0.0251
+  ni_fe: delta=0.0018 p=0.976
+
+Verdict: CCT PARTIAL - weak off-locus signal

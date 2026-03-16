@@ -1,0 +1,37 @@
+[INFO] Loading GALAH DR4...
+[INFO] Raw rows: 917588
+[INFO] After quality cuts: 214104
+[INFO] Chemistry cols: ['fe_h', 'c_fe', 'o_fe', 'mg_fe', 'si_fe', 'al_fe']
+[INFO] Stars with clean full chemistry: 210763
+[INFO] After C/O sanity filter: 209100
+[INFO] Stars after kinematic filter (parallax>0.5): 130490
+[INFO] Running UMAP 6D -> 2D  (n_neighbors=30, min_dist=0.05)...
+/root/ccr_crossmatch/ccr_venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+[INFO] UMAP done.
+[INFO] Running HDBSCAN on embedding (min_cluster=200, min_samples=10)...
+[INFO] HDBSCAN: 2 clusters | 125920 assigned | 4570 noise (3.5%)
+[INFO] Final: 2 groups, 125920 stars
+[INFO]   Group 0: N=3889
+[INFO]   Group 1: N=122031
+[INFO] Computing per-group statistics...
+[INFO] Group statistics:
+ group      N  C_O_mean  C_O_std  intrinsic_scatter  feh_mean  feh_std  mg_mean
+     0   3889    0.5049   0.0983             0.0000     0.011    0.147   -0.023
+     1 122031    0.3789   0.1456             0.0861    -0.084    0.229    0.069
+[INFO] Kruskal-Wallis (C/O) H=1050.344  p=0.0
+[INFO] Levene (variance)    W=641.008  p=0.0
+[INFO] CCR=0.731  within=0.122  between=0.0891
+[INFO] KCR=0.074  within_rv=37.98 km/s  between_rv=2.81 km/s
+[INFO] KW(RV) H=38.125  p=0.0
+[INFO] RESULT: KCR<1 kinematics mixed
+[INFO] Coherent groups (<0.05 dex): 0/2
+[INFO] Plot saved: t6b_umap_cluster_plot.png
+[INFO] Results saved: t6b_umap_cluster.csv
+[INFO] === T6b SUMMARY ===
+[INFO] Method: UMAP+HDBSCAN
+[INFO] N groups: 2  |  N stars: 125920
+[INFO] CCR=0.731  [NO SIGNAL]
+[INFO] KCR=0.074  [MIXED]
+[INFO] Coherent groups (<0.05 dex): 0/2
+[INFO] DONE

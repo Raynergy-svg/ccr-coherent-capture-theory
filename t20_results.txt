@@ -1,0 +1,52 @@
+[INFO] ========================================================================
+[INFO] T20  Find One Star — Dissolved Praesepe Member Recovery
+[INFO] Certan (2025) | CCT | GALAH DR4 × Gaia DR3
+[INFO] ========================================================================
+[INFO] Praesepe members in T9: 15
+[INFO] Chemical centroid: C/O=0.4474, Mg/Fe=0.0527, Si/Fe=0.0679, Fe/H=-0.1464
+[INFO] Internal scatter:  C/O=0.1576, Mg/Fe=0.0722, Si/Fe=0.0825, Fe/H=0.2048
+[INFO] 
+Loading GALAH DR4 with Gaia cross-match info...
+[INFO] GALAH total: 917588
+[INFO] After quality cuts: 535598
+[INFO] After excluding within 5.0° of Praesepe: 532757
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 1: Chemical matching (fixed threshold)
+[INFO] Chemical matches: 22327
+[INFO] C/O range of matches: 0.367 - 0.527
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 2: Parallax filter (distance consistency with Praesepe)
+[INFO] Praesepe parallax: 5.37 mas (186 pc)
+[INFO] Tolerance: ±3.0σ (σ = max(Gaia_error, 0.3 mas))
+[INFO] With valid parallax: 22311
+[INFO] Parallax-consistent: 198
+[INFO]   Parallax range: 3.776 - 6.262 mas
+[INFO]   Distance range: 160 - 265 pc
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 3: Gaia DR3 proper motion query
+[INFO] Querying Gaia DR3 for 198 source IDs...
+[INFO]   Queried 198/198...
+[INFO] Gaia results: 198 stars
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 4: Proper motion filter
+[INFO] Praesepe PM: μα*=-36.09, μδ=-12.92 mas/yr
+[INFO] Tolerance: ±3.0 × 1.5 mas/yr
+[INFO] PM-consistent candidates: 0
+[INFO] No candidates passed PM filter.
+[INFO] 
+Generating plot...
+[INFO] Saved: t20_find_one_star_plot.png
+[INFO] 
+========================================================================
+[INFO] T20 SUMMARY
+[INFO] ========================================================================
+[INFO] Praesepe template: 15 members
+[INFO] Chemical matches: 22327
+[INFO] Parallax-consistent: 198
+[INFO] PM-consistent: 0
+[INFO] 
+T20 complete.

@@ -1,0 +1,123 @@
+[INFO] ========================================================================
+[INFO] T19  The Galactic Radius Coherence Gradient
+[INFO] Certan (2025) | CCT | GALAH DR4
+[INFO] ========================================================================
+[INFO] T9 stars: 10573, clusters: 655
+[INFO] Unique clusters with positions: 722
+[INFO] Distance range: 0.036 – 21.06 kpc
+[INFO] 
+Computing Galactocentric coordinates...
+[INFO] R_gal range: 3.13 – 27.79 kpc
+[INFO] R_gal median: 8.01 kpc
+[INFO] |Z| range: 0.000 – 7.91 kpc
+[INFO] 
+Clusters with R_gal + valid stats: 655
+[INFO] Coherent (C/O std < 0.05): 34/655
+[INFO] 
+------------------------------------------------------------
+[INFO] COHERENCE BY GALACTOCENTRIC RADIUS
+[INFO] 
+Radial bin                    N   Coh    Frac   Med std  Med age
+[INFO] Inner disk (R < 7 kpc)       38     0    0.0%    0.1344    0.200
+[INFO] Inner solar (7–8 kpc)       284    15    5.3%    0.1077    0.151
+[INFO] Outer solar (8–9 kpc)       310    16    5.2%    0.0978    0.275
+[INFO] Outer disk (R > 9 kpc)       22     2    9.1%    0.0857    0.034
+[INFO] 
+------------------------------------------------------------
+[INFO] STATISTICAL TESTS
+[INFO] 
+Inner (R < 7.5 kpc): N=85
+[INFO] Solar (7.5-8.5 kpc): N=501
+[INFO] Outer (R > 8.5 kpc): N=69
+[INFO] 
+Mann-Whitney (inner vs outer C/O scatter):
+[INFO]   Inner median: 0.1305
+[INFO]   Outer median: 0.0937
+[INFO]   U=4476, p=2.0909e-08
+[INFO]   => SIGNIFICANT: outer disk clusters MORE coherent
+[INFO] 
+Kruskal-Wallis across radial bins: H=36.961, p=4.6888e-08
+[INFO]   => SIGNIFICANT: C/O scatter differs across Galactocentric radius
+[INFO] 
+Fisher exact (coherent fraction inner vs outer):
+[INFO]   Inner: 2/85 = 2.4%
+[INFO]   Outer: 9/69 = 13.0%
+[INFO]   OR=0.16, p=1.2667e-02
+[INFO] 
+Spearman (R_gal vs C/O scatter): ρ=-0.2284, p=3.3662e-09
+[INFO]   => C/O scatter DECREASES with R_gal (outer disk more coherent)
+[INFO] 
+------------------------------------------------------------
+[INFO] DECAY RATE BY RADIAL ZONE
+[INFO] Testing whether τ varies with Galactocentric radius...
+[INFO] 
+  Inner (R < 8 kpc) (N=306):
+[INFO]     Spearman (age vs scatter): ρ=0.1099, p=5.4854e-02
+[INFO]     Exp fit: σ0=0.1065, A=0.0254, τ=1.702±2.891 Gyr
+[INFO] 
+  Outer (R ≥ 8 kpc) (N=299):
+[INFO]     Spearman (age vs scatter): ρ=0.1826, p=1.5179e-03
+[INFO]     Exp fit: σ0=0.0919, A=0.0194, τ=1.177±1.254 Gyr
+[INFO] 
+  Decay timescale comparison:
+[INFO]     Inner (R < 8 kpc): τ = 1.702 ± 2.891 Gyr
+[INFO]     Outer (R ≥ 8 kpc): τ = 1.177 ± 1.254 Gyr
+[INFO]   => Similar decay rates across radial zones
+[INFO] 
+------------------------------------------------------------
+[INFO] METALLICITY GRADIENT CHECK
+[INFO] Is the coherence gradient driven by metallicity rather than dynamics?
+[INFO] Spearman (R_gal vs [Fe/H]):    ρ=-0.5248, p=1.2376e-47
+[INFO] Spearman ([Fe/H] vs C/O std):  ρ=-0.0319, p=4.1478e-01
+[INFO] 
+Partial correlation (R_gal vs C/O std | [Fe/H]):
+[INFO]   ρ_partial = -0.2881, p = 5.4569e-14
+[INFO]   => Radial coherence gradient PERSISTS after controlling for metallicity
+[INFO]      The gradient is not simply a metallicity effect
+[INFO] 
+------------------------------------------------------------
+[INFO] DISK HEIGHT CHECK: |Z| vs coherence
+[INFO] Spearman (|Z| vs C/O scatter): ρ=0.1201, p=2.0693e-03
+[INFO] Thin disk (|Z|<0.3 kpc, N=608): median std = 0.1028
+[INFO] Thick disk (|Z|≥0.3 kpc, N=47): median std = 0.1085
+[INFO] Mann-Whitney: U=12690, p=2.0134e-01
+[INFO] 
+------------------------------------------------------------
+[INFO] Saving outputs...
+[INFO] Saved: t19_cluster_rgal.csv
+[INFO] Generating plot...
+[INFO] Saved: t19_galactic_radius_plot.png
+[INFO] 
+========================================================================
+[INFO] T19 SUMMARY
+[INFO] ========================================================================
+[INFO] Clusters analyzed: 655
+[INFO] R_gal range: 3.77 – 27.79 kpc
+[INFO] 
+[INFO] Spearman (R_gal vs C/O scatter): ρ=-0.2284, p=3.3662e-09
+[INFO] 
+Coherent fractions by zone:
+[INFO]   Inner disk (R < 7 kpc)   : 0.0% (N=38)
+[INFO]   Inner solar (7–8 kpc)    : 5.3% (N=284)
+[INFO]   Outer solar (8–9 kpc)    : 5.2% (N=310)
+[INFO]   Outer disk (R > 9 kpc)   : 9.1% (N=22)
+[INFO] 
+Decay timescales by zone:
+[INFO]   Inner (R < 8 kpc): τ = 1.702 ± 2.891 Gyr
+[INFO]   Outer (R ≥ 8 kpc): τ = 1.177 ± 1.254 Gyr
+[INFO] 
+Partial correlation (controlling for [Fe/H]): ρ=-0.2881, p=5.4569e-14
+[INFO]   Radial gradient persists after metallicity correction
+[INFO] 
+|Z| vs coherence: ρ=0.1201, p=2.0693e-03
+[INFO] 
+=> KEY RESULT: C/O scatter decreases with Galactocentric radius (ρ=-0.2284)
+[INFO]    Outer disk clusters are MORE coherent — quieter dynamical environment
+[INFO]    preserves coherence longer, or lower metallicity reduces abundance scatter.
+[INFO] 
+Output files:
+[INFO]   t19_results.txt
+[INFO]   t19_cluster_rgal.csv
+[INFO]   t19_galactic_radius_plot.png
+[INFO] 
+T19 complete.

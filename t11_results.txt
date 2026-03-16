@@ -1,0 +1,17 @@
+CCT T11 - Multi-Element Fingerprinting
+=============================================
+Clusters: 722
+Young (<1 Gyr): 511
+Old (>=1 Gyr): 95
+
+Per-element MWU (young < old dispersion):
+  Ba/Fe: young=0.1877 old=0.186 p=0.5541 ns
+  Eu/Fe: young=0.176 old=0.1846 p=0.0333 *
+  Ce/Fe: young=0.1322 old=0.1293 p=0.7166 ns
+  Y/Fe: young=0.1408 old=0.135 p=0.7809 ns
+  La/Fe: young=0.1477 old=0.1465 p=0.5554 ns
+
+Age vs N_coherent_elements: r=0.0035 p=0.9315
+C/O std vs N_coherent: r=-0.1589 p=0.0
+
+Significant elements: ['Eu/Fe']

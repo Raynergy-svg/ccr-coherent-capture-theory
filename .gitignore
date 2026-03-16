@@ -1,0 +1,17 @@
+# Large data files (not suitable for git)
+*.fits
+*.fits.*
+ccr_venv/
+__pycache__/
+wget-log*
+
+# Large match output files (regenerable from scripts)
+t16_field_matches.csv
+t16b_field_matches.csv
+
+# Intermediate star-level data >5MB (regenerable)
+t6b_coherent_stars.csv
+t6b_coherent_stars_with_pm.csv
+t7_coherent_stars_uvw.csv
+t8_young_stars_uvw.csv
+t8_young_clustered.csv

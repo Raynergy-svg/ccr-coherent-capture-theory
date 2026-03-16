@@ -1,0 +1,105 @@
+[INFO] ========================================================================
+[INFO] T15  Multi-Element Simultaneous Coherence Analysis
+[INFO] Certan (2025) | CCT | APOGEE DR17 OCCAM
+[INFO] ========================================================================
+[INFO] Loaded 2515 stars, 85 clusters
+[INFO] C/O-coherent clusters (std < 0.05): 41
+[INFO] ------------------------------------------------------------
+[INFO] Computing per-cluster scatter for each abundance ratio...
+[INFO]   C/O:   85 clusters
+[INFO]   Mg/Fe: 85 clusters
+[INFO]   Si/Fe: 85 clusters
+[INFO]   Al/Fe: 81 clusters
+[INFO]   Fe/H:  85 clusters
+[INFO] ------------------------------------------------------------
+[INFO] Spearman rank correlations among element scatter values:
+[INFO]   Clusters with all 5 scatter values: 81
+[INFO] 
+[INFO]                  C/O     Mg/Fe     Si/Fe     Al/Fe      Fe/H
+[INFO]        C/O     1.000     0.576     0.535     0.410     0.379
+[INFO]      Mg/Fe     0.576     1.000     0.684     0.405     0.417
+[INFO]      Si/Fe     0.535     0.684     1.000     0.421     0.480
+[INFO]      Al/Fe     0.410     0.405     0.421     1.000     0.523
+[INFO]       Fe/H     0.379     0.417     0.480     0.523     1.000
+[INFO] 
+[INFO]     C/O vs Mg/Fe: rho=+0.576  p=1.90e-08  ***
+[INFO]     C/O vs Si/Fe: rho=+0.535  p=2.63e-07  ***
+[INFO]     C/O vs Al/Fe: rho=+0.410  p=1.44e-04  ***
+[INFO]     C/O vs Fe/H : rho=+0.379  p=4.78e-04  ***
+[INFO]   Mg/Fe vs Si/Fe: rho=+0.684  p=1.93e-12  ***
+[INFO]   Mg/Fe vs Al/Fe: rho=+0.405  p=1.76e-04  ***
+[INFO]   Mg/Fe vs Fe/H : rho=+0.417  p=1.06e-04  ***
+[INFO]   Si/Fe vs Al/Fe: rho=+0.421  p=9.26e-05  ***
+[INFO]   Si/Fe vs Fe/H : rho=+0.480  p=5.80e-06  ***
+[INFO]   Al/Fe vs Fe/H : rho=+0.523  p=5.34e-07  ***
+[INFO] ------------------------------------------------------------
+[INFO] Simultaneous coherence analysis:
+[INFO]   C/O  coherent: 39/81 = 48.1%
+[INFO]   Mg/Fe coherent: 50/81 = 61.7%
+[INFO]   Si/Fe coherent: 49/81 = 60.5%
+[INFO]   Al/Fe coherent: 46/81 = 56.8%
+[INFO]   Fe/H  coherent: 41/81 = 50.6%
+[INFO] 
+  Among 39 C/O-coherent clusters:
+[INFO]     Also Mg/Fe coherent: 31 (79%)
+[INFO]     Also Si/Fe coherent: 27 (69%)
+[INFO]     Also Al/Fe coherent: 28 (72%)
+[INFO]     Also Fe/H coherent:  24 (62%)
+[INFO]     All 3 (Mg+Si+Al):    18 (46%)
+[INFO] 
+  Expected if independent:
+[INFO]     C/O & Mg/Fe: 24.1  (observed: 31)
+[INFO]     C/O & all-3: 8.3  (observed: 18)
+[INFO]     Enrichment C/O&Mg/Fe: 1.3x over random
+[INFO]     Enrichment all-4:     2.2x over random
+[INFO] ------------------------------------------------------------
+[INFO] Fisher's exact test: C/O coherence vs Mg/Fe coherence
+[INFO]                     Mg/Fe coh   Mg/Fe NOT
+[INFO]     C/O coherent        31           8
+[INFO]     C/O NOT             19          23
+[INFO]   Odds ratio = 4.69,  p = 2.6673e-03
+[INFO]   => SIGNIFICANT
+[INFO] 
+[INFO] Fisher's exact test: C/O coherence vs Si/Fe coherence
+[INFO]   Odds ratio = 2.05,  p = 1.7235e-01
+[INFO] ------------------------------------------------------------
+[INFO] Multi-element coherence score (lower = more coherent):
+[INFO]   Top 15 most multi-element-coherent clusters:
+[INFO]   Rank  Cluster                 Score      CO    MgFe    SiFe    AlFe     FeH   CCT
+[INFO]      1  NGC 2447               0.0513 0.0325  0.0022  0.0067  0.0169  0.0131    YES
+[INFO]      2  NGC 6866               0.0890 0.0379  0.0168  0.0047  0.0207  0.0158    YES
+[INFO]      3  FSR 0394               0.0925 0.0294  0.0020  0.0187  0.0372  0.0155    YES
+[INFO]      4  Berkeley 98            0.0972 0.0320  0.0208  0.0083  0.0156  0.0155    YES
+[INFO]      5  NGC 1907               0.1033 0.0594  0.0079  0.0137  0.0321  0.0072     no
+[INFO]      6  Berkeley 75            0.1140 0.0496  0.0146  0.0151  0.0142  0.0172    YES
+[INFO]      7  Czernik 20             0.1150 0.0531  0.0167  0.0161  0.0143  0.0109    YES
+[INFO]      8  IC 1369                0.1169 0.0297  0.0107  0.0076  0.0367  0.0386    YES
+[INFO]      9  Czernik 21             0.1184 0.0346  0.0191  0.0201  0.0246  0.0080    YES
+[INFO]     10  NGC 1193               0.1214 0.0241  0.0136  0.0026  0.0950  0.0179    YES
+[INFO]     11  Trumpler 20            0.1242 0.0409  0.0141  0.0142  0.0333  0.0223    YES
+[INFO]     12  King 5                 0.1307 0.0448  0.0032  0.0218  0.0457  0.0235    YES
+[INFO]     13  Berkeley 17            0.1385 0.0282  0.0176  0.0151  0.0364  0.0319    YES
+[INFO]     14  NGC 2324               0.1411 0.0772  0.0101  0.0129  0.0389  0.0195     no
+[INFO]     15  Trumpler 5             0.1418 0.0282  0.0290  0.0122  0.0476  0.0145    YES
+[INFO] 
+  Of top 10 multi-element-coherent: 9/10 are C/O-coherent
+[INFO] ------------------------------------------------------------
+[INFO] Mann-Whitney U: C/O-coherent vs C/O-incoherent scatter
+[INFO]   Mg/Fe: coh median=0.0203(n=41)  inc median=0.0365(n=44)  U=482 p=1.1238e-04 ***
+[INFO]   Si/Fe: coh median=0.0201(n=41)  inc median=0.0290(n=44)  U=554 p=1.1208e-03 **
+[INFO]   Al/Fe: coh median=0.0439(n=39)  inc median=0.0543(n=42)  U=605 p=2.1794e-02 *
+[INFO]    Fe/H: coh median=0.0282(n=41)  inc median=0.0356(n=44)  U=675 p=2.3184e-02 *
+[INFO] 
+[INFO] ========================================================================
+[INFO] T15 SUMMARY
+[INFO] ========================================================================
+[INFO] Mean Spearman rho across all scatter pairs: 0.483
+[INFO] C/O-coherent also Mg/Fe coherent: 31/39 (79%)
+[INFO] C/O-coherent also Si/Fe coherent: 27/39 (69%)
+[INFO] C/O-coherent also Al/Fe coherent: 28/39 (72%)
+[INFO] Simultaneously coherent in all 4: 18/39
+[INFO] Fisher (C/O vs Mg/Fe): OR=4.69, p=2.6673e-03
+[INFO] Top cluster: NGC 2447 (score=0.0513)
+[INFO] => STRONG multi-element coherence: clusters tight in one channel
+[INFO]    are tight in ALL channels. Multi-dimensional chemical fingerprint CONFIRMED.
+[INFO] Saved: t15_coherence_matrix.csv

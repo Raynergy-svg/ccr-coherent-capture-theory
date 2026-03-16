@@ -1,0 +1,22 @@
+CCT T10 - Mantel Test
+========================================
+N clusters: 655
+N pairs:    214185
+Mantel r:   -0.010083
+p-value:    0.596
+Sig:        ns p>=0.05
+Partial r (age): -0.009189
+
+Verdict: CCT CONSISTENT - chemistry spatially independent
+
+Decay bins:
+  0.08 kpc | 0.0692 +/- 0.0004
+  0.21 kpc | 0.0736 +/- 0.0004
+  0.31 kpc | 0.0768 +/- 0.0004
+  0.41 kpc | 0.0797 +/- 0.0004
+  0.53 kpc | 0.0833 +/- 0.0004
+  0.68 kpc | 0.0824 +/- 0.0004
+  0.9 kpc | 0.0804 +/- 0.0004
+  1.24 kpc | 0.0796 +/- 0.0004
+  1.87 kpc | 0.0768 +/- 0.0004
+  14.08 kpc | 0.0799 +/- 0.0005

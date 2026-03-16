@@ -1,0 +1,117 @@
+[INFO] ========================================================================
+[INFO] T17  The Coherence Lifetime Ladder
+[INFO] Certan (2025) | CCT | APOGEE DR17 OCCAM
+[INFO] ========================================================================
+[INFO] Loaded 85 clusters from T15 coherence matrix
+[INFO] Clusters with ages: 72
+[INFO] Age range: 0.009 - 7.24 Gyr
+[INFO] Complete (all 5 elements + age): 69
+[INFO] 
+------------------------------------------------------------
+[INFO] Defining coherence levels...
+[INFO] 
+Overall coherence fractions (69 clusters):
+[INFO]   C/O only            :  35/69 = 50.7%
+[INFO]   C/O + 1α            :  32/69 = 46.4%
+[INFO]   C/O + 2α            :  29/69 = 42.0%
+[INFO]   C/O + 3α (all)      :  17/69 = 24.6%
+[INFO]   All 5 elements      :  13/69 = 18.8%
+[INFO] 
+------------------------------------------------------------
+[INFO] Binned coherence fractions by age...
+[INFO] 
+     Age bin     N      C/O only      C/O + 1α      C/O + 2α  C/O + 3α (all)  All 5 elements
+[INFO]   0.0-0.5 Gyr    20         15.0%         15.0%         15.0%         10.0%          5.0%
+[INFO]   0.5-1.0 Gyr    13         38.5%         38.5%         23.1%         15.4%         15.4%
+[INFO]   1.0-2.0 Gyr    19         68.4%         52.6%         52.6%         36.8%         31.6%
+[INFO]   2.0-4.0 Gyr     9         77.8%         77.8%         77.8%         44.4%         33.3%
+[INFO]   4.0-10.0 Gyr     8         87.5%         87.5%         75.0%         25.0%         12.5%
+[INFO] 
+------------------------------------------------------------
+[INFO] Continuous analysis: multi-element coherence score vs age
+[INFO] Clusters with coherence score + age: 69
+[INFO] Spearman (age vs coherence_score): rho = -0.3649, p = 2.0495e-03
+[INFO]   => SIGNIFICANT: coherence score DECREASES with age (more coherent — selection effect?)
+[INFO] 
+Element-by-element Spearman correlations (scatter vs age):
+[INFO]     C/O scatter vs age: rho=-0.4457  p=1.2414e-04  ***
+[INFO]   Mg/Fe scatter vs age: rho=-0.3727  p=1.6105e-03  **
+[INFO]   Si/Fe scatter vs age: rho=-0.2484  p=3.9573e-02  *
+[INFO]   Al/Fe scatter vs age: rho=-0.0539  p=6.6027e-01  n.s.
+[INFO]    Fe/H scatter vs age: rho=-0.2728  p=2.3355e-02  *
+[INFO] 
+------------------------------------------------------------
+[INFO] Fitting exponential survival curves...
+[INFO] Model: f(t) = f0 * exp(-t/τ)
+[INFO]   C/O only: no decline detected (flat or increasing)
+[INFO]   C/O + 1α: no decline detected (flat or increasing)
+[INFO]   C/O + 2α: no decline detected (flat or increasing)
+[INFO]   C/O + 3α (all): no decline detected (flat or increasing)
+[INFO]   All 5 elements: no decline detected (flat or increasing)
+[INFO] 
+------------------------------------------------------------
+[INFO] Fitting coherence score decay curve...
+[INFO] Model: score(t) = s0 + A*(1 - exp(-t/τ))  [score increases = less coherent]
+[INFO]   s0  = 0.2679 ± 0.0279
+[INFO]   A   = 0.0000 ± 0.6494
+[INFO]   τ   = 50.000 ± 0.000 Gyr
+[INFO]   R²  = -0.0000
+[INFO] 
+------------------------------------------------------------
+[INFO] COHERENCE LIFETIME COMPARISON
+[INFO] 
+Level                   τ (Gyr)   t½ (Gyr)       f0
+[INFO] C/O only                      ∞         --    0.150
+[INFO] C/O + 1α                      ∞         --    0.150
+[INFO] C/O + 2α                      ∞         --    0.150
+[INFO] C/O + 3α (all)                ∞         --    0.100
+[INFO] All 5 elements                ∞         --    0.050
+[INFO] 
+Multi-element score τ = 50.000 Gyr
+[INFO] 
+T14 reference (C/O only, GALAH 655 clusters): τ = 1.288 Gyr
+[INFO] Disk heating timescale (Binney & Tremaine): τ = 1.0–2.0 Gyr
+[INFO] 
+------------------------------------------------------------
+[INFO] Bootstrap confidence intervals on binned fractions (1000 resamples)...
+[INFO] 
+------------------------------------------------------------
+[INFO] Saving outputs...
+[INFO] Saved: t17_ladder_data.csv
+[INFO] Saved: t17_results.txt
+[INFO] Generating plot...
+[INFO] Saved: t17_coherence_ladder_plot.png
+[INFO] 
+========================================================================
+[INFO] T17 SUMMARY
+[INFO] ========================================================================
+[INFO] Clusters analyzed: 69 (with all 5 elements + age)
+[INFO] Age range: 0.009 – 7.24 Gyr
+[INFO] 
+[INFO] Coherence fractions (overall):
+[INFO]   C/O only            : 35/69 = 50.7%
+[INFO]   C/O + 1α            : 32/69 = 46.4%
+[INFO]   C/O + 2α            : 29/69 = 42.0%
+[INFO]   C/O + 3α (all)      : 17/69 = 24.6%
+[INFO]   All 5 elements      : 13/69 = 18.8%
+[INFO] 
+Coherence score vs age: ρ = -0.3649, p = 2.0495e-03
+[INFO] Score decay τ = 50.000 Gyr
+[INFO] 
+Survival fit τ values:
+[INFO]   C/O only            : τ = ∞ (no decline detected)
+[INFO]   C/O + 1α            : τ = ∞ (no decline detected)
+[INFO]   C/O + 2α            : τ = ∞ (no decline detected)
+[INFO]   C/O + 3α (all)      : τ = ∞ (no decline detected)
+[INFO]   All 5 elements      : τ = ∞ (no decline detected)
+[INFO] 
+Reference:
+[INFO]   T14 (C/O only, GALAH):  τ = 1.288 Gyr
+[INFO]   Disk heating:           τ = 1.0–2.0 Gyr
+[INFO] 
+Output files:
+[INFO]   t17_results.txt
+[INFO]   t17_ladder_data.csv
+[INFO]   t17_coherence_ladder_plot.png
+[INFO] 
+T17 complete.

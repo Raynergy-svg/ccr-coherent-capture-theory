@@ -1,0 +1,3 @@
+group,N,C_O_mean,C_O_std,intrinsic_scatter,feh_mean,feh_std,rv_mean,rv_std,parallax_mean
+0,24893,0.4587,0.0784,0.0,0.001,0.117,2.93,35.0,1.017
+1,1564,0.4724,0.0549,0.0,-0.063,0.163,1.16,37.69,0.798

@@ -1,0 +1,42 @@
+[INFO] ========================================================================
+[INFO] T20c  Find One Star: NGC 6253 (6D + Age)
+[INFO] Certan (2025) | CCT | GALAH DR4 × Gaia DR3
+[INFO] ========================================================================
+[INFO] [Fe/H]=+0.36-0.43 | Age=3-5 Gyr | Most metal-rich old OC in GALAH
+[INFO] 
+All T9 members: 80
+[INFO] Metal-rich members ([Fe/H]>0.10): 31
+[INFO] Clean members with all 5D: 31
+[INFO]   C_O: +0.6532 ± 0.1283
+[INFO]   mg_fe: +0.0252 ± 0.0473
+[INFO]   si_fe: +0.0760 ± 0.0341
+[INFO]   fe_h: +0.2106 ± 0.0701
+[INFO]   al_fe: +0.0946 ± 0.0816
+[INFO]   RV: -31.31 ± 17.74 km/s (N=29)
+[INFO]   PM: (-4.537, -5.280) mas/yr
+[INFO]   Distance: 0.563 kpc (parallax: 1.776 mas)
+[INFO] 
+Matching tolerances:
+[INFO]   C_O: ±0.3208
+[INFO]   mg_fe: ±0.1183
+[INFO]   si_fe: ±0.0853
+[INFO]   fe_h: ±0.1753
+[INFO]   al_fe: ±0.2039
+[INFO] 
+Loading GALAH DR4...
+[INFO] Field stars (5D valid, cluster-excluded): 497037
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 1: 5D Chemical matching
+[INFO] Stars with [Fe/H] > 0.15: 62330/497037 (12.54%)
+[INFO] 5D chemical matches: 80456
+[INFO]   [Fe/H] range: 0.035 to 0.386
+[INFO] 
+------------------------------------------------------------
+[INFO] STEP 2: Gaia DR3 kinematics + age
+[INFO] 
+Saving...
+[INFO] Saved: t20c_results.txt
+[INFO] Saved: t20c_ngc6253_plot.png
+[INFO] 
+T20c complete.

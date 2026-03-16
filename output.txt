@@ -1,0 +1,25 @@
+/root/ccr_crossmatch/cross_match_ccr.py:161: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax2.boxplot([an[an["obs_geometry"]==g]["CCR"].values for g in geoms],labels=geoms,patch_artist=True)
+[INFO] Loading LExACoM...
+[INFO] LExACoM rows: 67
+[INFO] Loading NASA snapshot...
+[INFO] NASA planets: 21037
+[INFO] Matching stellar C/O from literature...
+[INFO] Matched rows: 62
+[INFO] Unique planets: 42
+[INFO] Spearman rho=-0.3137  p=0.013036
+[INFO] CCR by geometry:
+[INFO]   Direct  N=17  mean=0.0853
+[INFO]   Eclipse  N=26  mean=0.1327
+[INFO]   Transit  N=19  mean=0.3645
+[INFO] Mann-Whitney p=0.0202
+[INFO] Plot saved: CCR_gradient_plot.png
+[INFO] Results saved: matched_ccr_systems.csv
+[INFO] === SUMMARY ===
+[INFO] CAPTURE  N=27  CCR_mean=0.042
+[INFO] GRAY_ZONE  N=28  CCR_mean=0.184
+[INFO] DISK  N=7  CCR_mean=0.792
+[INFO] Exoplanet CCR mean=0.191
+[INFO] Solar rocky CCR=0.518  Gap=0.327 dex
+[INFO] GRADIENT: SIGNIFICANT
+[INFO] DONE

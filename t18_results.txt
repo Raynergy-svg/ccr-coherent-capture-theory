@@ -1,0 +1,125 @@
+[INFO] ========================================================================
+[INFO] T18  The Nucleosynthetic Timestamp Test
+[INFO] Certan (2025) | CCT | GALAH DR4
+[INFO] ========================================================================
+[INFO] T9 matched stars: 10573 in 722 clusters
+[INFO] T9 cluster stats: 655
+[INFO] 
+Loading GALAH DR4 for s-process abundances...
+[INFO] GALAH loaded: 917588 stars, 29 columns
+[INFO] 
+Cross-matching T9 cluster stars with GALAH by position...
+[INFO] Matched: 10573/10573 stars within 0.5 arcsec
+[INFO] Stars with Ba/Fe: 10570
+[INFO] Stars with Ce/Fe: 10572
+[INFO] Stars with Y/Fe:  10573
+[INFO] Stars with Eu/Fe: 9984
+[INFO] 
+Applying quality cuts...
+[INFO]   After SNR > 30: 10573
+[INFO]   After flag_sp == 0: 10573
+[INFO]   Total removed: 0
+[INFO] 
+------------------------------------------------------------
+[INFO] Computing per-cluster element scatter...
+[INFO]   Alpha elements:
+[INFO]     Mg/Fe: 593 clusters
+[INFO]     Si/Fe: 593 clusters
+[INFO]   S-process elements:
+[INFO]     Ba/Fe: 592 clusters
+[INFO]     Ce/Fe: 434 clusters
+[INFO]   R-process elements:
+[INFO]     Eu/Fe: 569 clusters
+[INFO] 
+------------------------------------------------------------
+[INFO] Building nucleosynthetic coherence table...
+[INFO] Total clusters: 593
+[INFO] With alpha + s-process: 592
+[INFO] With alpha + s-process + age: 547
+[INFO] 
+------------------------------------------------------------
+[INFO] CORE ANALYSIS: Alpha vs S-process Coherence
+[INFO] 
+Using 592 clusters with both alpha and s-process scatter
+[INFO] 
+Overall statistics:
+[INFO]   Alpha scatter  (Mg+Si mean std): median=0.0731, mean=0.0753
+[INFO]   S-proc scatter (Ba+Ce mean std): median=0.1585, mean=0.1682
+[INFO] 
+Wilcoxon signed-rank (alpha < s-process): W=210, p=1.7522e-98
+[INFO]   => SIGNIFICANT: alpha elements are tighter than s-process across clusters
+[INFO]   Fraction where alpha < s-process: 98.1%
+[INFO] 
+------------------------------------------------------------
+[INFO] AGE-DEPENDENT ANALYSIS: Alpha/S-process ratio vs cluster age
+[INFO] Clusters with ratio + age: 547
+[INFO] 
+Spearman (age vs alpha/s-process ratio): ρ = 0.0529, p = 2.1704e-01
+[INFO]   => Not significant at p < 0.05
+[INFO] 
+Individual element scatter vs age:
+[INFO]   Alpha (Mg+Si)     : ρ=+0.0171  p=6.8937e-01  n.s.
+[INFO]   S-process (Ba+Ce) : ρ=-0.0556  p=1.9414e-01  n.s.
+[INFO]   Mg/Fe             : ρ=-0.0157  p=7.1338e-01  n.s.
+[INFO]   Si/Fe             : ρ=+0.0302  p=4.8093e-01  n.s.
+[INFO]   Ba/Fe             : ρ=-0.0390  p=3.6253e-01  n.s.
+[INFO]   Ce/Fe             : ρ=-0.0130  p=7.9541e-01  n.s.
+[INFO]   Eu/Fe             : ρ=+0.0668  p=1.2581e-01  n.s.
+[INFO] 
+Binned alpha/s-process ratio:
+[INFO]        Age bin     N   Alpha std   S-proc std     Ratio   α<s frac
+[INFO]   0.0-0.3 Gyr   329      0.0734       0.1586     0.450      99.1%
+[INFO]   0.3-0.7 Gyr    92      0.0673       0.1609     0.403     100.0%
+[INFO]   0.7-1.5 Gyr    72      0.0761       0.1615     0.447      97.2%
+[INFO]   1.5-3.0 Gyr    38      0.0777       0.1511     0.466      97.4%
+[INFO]   3.0-10.0 Gyr    16      0.0765       0.1418     0.503     100.0%
+[INFO] 
+Mann-Whitney (young<1Gyr vs old>=1Gyr ratio): U=18680, p=1.3312e-01
+[INFO]   Young median ratio: 0.446 (N=456)
+[INFO]   Old median ratio:   0.460 (N=91)
+[INFO] 
+------------------------------------------------------------
+[INFO] Cross-channel correlation: alpha scatter vs s-process scatter
+[INFO] Spearman (alpha vs s-process scatter): ρ = 0.0681, p = 9.7847e-02
+[INFO]   => No significant cross-channel correlation
+[INFO] 
+Detailed cross-channel Spearman correlations:
+[INFO]   Mg/Fe vs Ba/Fe      : ρ=+0.0718  p=8.0905e-02  n.s.
+[INFO]   Mg/Fe vs Ce/Fe      : ρ=+0.0194  p=6.8675e-01  n.s.
+[INFO]   Si/Fe vs Ba/Fe      : ρ=+0.0455  p=2.6851e-01  n.s.
+[INFO]   Si/Fe vs Ce/Fe      : ρ=+0.1262  p=8.4734e-03  **
+[INFO]   Mg/Fe vs Eu/Fe      : ρ=+0.0638  p=1.2857e-01  n.s.
+[INFO]   Ba/Fe vs Eu/Fe      : ρ=-0.0211  p=6.1569e-01  n.s.
+[INFO] 
+------------------------------------------------------------
+[INFO] Saving outputs...
+[INFO] Saved: t18_cluster_nucleosynthetic.csv
+[INFO] Saved: t18_results.txt
+[INFO] Generating plot...
+[INFO] Saved: t18_nucleosynthetic_timestamp_plot.png
+[INFO] 
+========================================================================
+[INFO] T18 SUMMARY
+[INFO] ========================================================================
+[INFO] Clusters analyzed: 592 (with alpha + s-process scatter)
+[INFO] With ages: 547
+[INFO] 
+[INFO] Alpha scatter median:    0.0731
+[INFO] S-process scatter median: 0.1585
+[INFO] Alpha < S-process: 98.1% of clusters
+[INFO] Wilcoxon (alpha < s-proc): p = 1.7522e-98
+[INFO] 
+[INFO] Cross-channel (alpha vs s-proc): ρ = 0.0681, p = 9.7847e-02
+[INFO] Ratio vs age: ρ = 0.0529, p = 2.1704e-01
+[INFO] 
+[INFO] => Alpha elements (CCSNe, ~10 Myr) are TIGHTER than s-process (AGB, ~1-3 Gyr)
+[INFO]    across open clusters. This is consistent with the nucleosynthetic timeline:
+[INFO]    CCSNe enrich the birth cloud rapidly and homogeneously before star formation,
+[INFO]    while AGB enrichment is still inhomogeneous at the time of cluster formation.
+[INFO] 
+Output files:
+[INFO]   t18_results.txt
+[INFO]   t18_cluster_nucleosynthetic.csv
+[INFO]   t18_nucleosynthetic_timestamp_plot.png
+[INFO] 
+T18 complete.
