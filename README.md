@@ -4,6 +4,8 @@
 
 **Certan (2026)**
 
+[![DOI](https://zenodo.org/badge/1182786158.svg)](https://doi.org/10.5281/zenodo.19043096)
+
 Multi-instrument empirical analysis of chemical coherence in open clusters and the Milky Way field star population, using GALAH DR4 (917,588 stars) and APOGEE DR17 (OCCAM VAC, 2,515 stars).
 
 ## Summary of Results
