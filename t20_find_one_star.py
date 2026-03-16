@@ -2,7 +2,7 @@
 """
 T20 — Find One Star
 =====================
-Certan (2025) | Coherent Capture Theory | GALAH DR4 × Gaia DR3
+Certan (2026) | Coherent Capture Theory | GALAH DR4 × Gaia DR3
 
 Takes GALAH field stars that chemically match the Praesepe (NGC 2632)
 template. Cross-matches against Gaia DR3 for proper motions and parallaxes.
@@ -64,7 +64,7 @@ def info(msg):
 
 info("=" * 72)
 info("T20  Find One Star — Dissolved Praesepe Member Recovery")
-info("Certan (2025) | CCT | GALAH DR4 × Gaia DR3")
+info("Certan (2026) | CCT | GALAH DR4 × Gaia DR3")
 info("=" * 72)
 
 # 1. Build Praesepe chemical template
@@ -330,7 +330,7 @@ else:
 info("\nGenerating plot...")
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 fig.suptitle("T20: Find One Star — Dissolved Praesepe Member Recovery\n"
-             "Certan (2025) | GALAH DR4 × Gaia DR3",
+             "Certan (2026) | GALAH DR4 × Gaia DR3",
              fontsize=13, fontweight="bold", y=0.99)
 
 # P1: Chemistry space showing Praesepe template and matches

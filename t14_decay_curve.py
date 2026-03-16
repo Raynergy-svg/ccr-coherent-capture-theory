@@ -2,7 +2,7 @@
 """
 T14 — Chemical Coherence Decay Curve
 ======================================
-Certan (2025) | CCT | GALAH DR4 x Cantat-Gaudin 2020
+Certan (2026) | CCT | GALAH DR4 x Cantat-Gaudin 2020
 
 Maps C/O scatter as a continuous function of cluster age.
 Fits decay models to extract chemical coherence lifetime tau.
@@ -39,7 +39,7 @@ def main():
 
     info("=" * 72)
     info("T14  Chemical Coherence Decay Curve")
-    info("Certan (2025) | CCT | GALAH DR4 x CG2020")
+    info("Certan (2026) | CCT | GALAH DR4 x CG2020")
     info("=" * 72)
 
     df = pd.read_csv(INPUT_FILE)
@@ -194,7 +194,7 @@ def main():
     # PLOT (4 panels)
     info("Generating plots...")
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-    fig.suptitle("T14 Chemical Coherence Decay Curve | Certan (2025) | GALAH DR4 x CG2020",
+    fig.suptitle("T14 Chemical Coherence Decay Curve | Certan (2026) | GALAH DR4 x CG2020",
                  fontsize=14, fontweight="bold", y=0.98)
 
     # Panel 1: Scatter + fitted curves

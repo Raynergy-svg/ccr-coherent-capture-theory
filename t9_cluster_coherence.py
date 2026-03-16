@@ -258,7 +258,7 @@ else:
         transform=ax3.transAxes, fontsize=12, color="gray")
 
 plt.suptitle(
-    "T9 Open Cluster Chemical Coherence  |  Certan (2025)  |  Cantat-Gaudin 2020\n"
+    "T9 Open Cluster Chemical Coherence  |  Certan (2026)  |  Cantat-Gaudin 2020\n"
     "CCR=" + str(round(CCR, 3)) +
     "  |  N_clusters=" + str(len(cl_df)) +
     "  |  Coherent=" + str(n_coherent) + "/" + str(len(cl_df)) +

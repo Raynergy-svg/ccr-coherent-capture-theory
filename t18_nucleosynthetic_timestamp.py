@@ -2,7 +2,7 @@
 """
 T18 — The Nucleosynthetic Timestamp Test
 ==========================================
-Certan (2025) | Coherent Capture Theory | GALAH DR4
+Certan (2026) | Coherent Capture Theory | GALAH DR4
 
 Within open clusters, tests whether alpha-element coherence (Mg/Fe, Si/Fe —
 core-collapse SNe, ~10 Myr delay) is tighter than s-process coherence
@@ -57,7 +57,7 @@ def info(msg):
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T18  The Nucleosynthetic Timestamp Test")
-info("Certan (2025) | CCT | GALAH DR4")
+info("Certan (2026) | CCT | GALAH DR4")
 info("=" * 72)
 
 t9_stars = pd.read_csv(T9_STARS)
@@ -421,7 +421,7 @@ info(f"Saved: {RESULTS_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T18 Nucleosynthetic Timestamp Test | Certan (2025) | GALAH DR4\n"
+fig.suptitle("T18 Nucleosynthetic Timestamp Test | Certan (2026) | GALAH DR4\n"
              "Alpha-element (CCSNe, ~10 Myr) vs S-process (AGB, ~1-3 Gyr) coherence in open clusters",
              fontsize=12, fontweight="bold", y=0.99)
 

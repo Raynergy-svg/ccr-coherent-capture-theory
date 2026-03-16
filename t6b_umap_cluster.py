@@ -273,7 +273,7 @@ method  = ("UMAP+" + ("HDBSCAN" if HAS_HDBSCAN else "KMeans")) if HAS_UMAP else 
 kw_str  = "p<0.0001" if kw_p < 0.0001 else "p=" + str(round(kw_p, 4))
 kcr_str = "KCR=" + str(round(KCR, 3)) if KCR is not None else "no kinematics"
 plt.suptitle(
-    "T6b Chemistry-First Cluster Coherence  |  Certan (2025)  |  " + method + "\n"
+    "T6b Chemistry-First Cluster Coherence  |  Certan (2026)  |  " + method + "\n"
     "KW(C/O) " + kw_str + "  |  CCR=" + str(round(CCR, 3)) +
     "  |  " + kcr_str + "  |  N=" + str(len(galah_cl)) +
     " stars  |  " + str(n_coherent) + "/" + str(N_GROUPS) + " groups <0.05 dex",

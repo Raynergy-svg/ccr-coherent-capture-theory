@@ -2,7 +2,7 @@
 """
 T16e — Kinematic Traceback Test
 =================================
-Certan (2025) | CCT | GALAH DR4
+Certan (2026) | CCT | GALAH DR4
 
 Tests whether chemically matched field stars share kinematics (RV) with
 their parent cluster more than random field stars. Stratifies by age to
@@ -40,7 +40,7 @@ def info(msg):
 
 info("=" * 72)
 info("T16e  Kinematic Traceback Test")
-info("Certan (2025) | CCT | GALAH DR4")
+info("Certan (2026) | CCT | GALAH DR4")
 info("=" * 72)
 
 # 1. Load T9 data
@@ -230,7 +230,7 @@ with open("t16e_results.txt", "w") as f:
 
 # 6. Plot
 fig, axes = plt.subplots(2, 3, figsize=(20, 12))
-fig.suptitle("T16e Kinematic Traceback | Certan (2025) | GALAH DR4\n"
+fig.suptitle("T16e Kinematic Traceback | Certan (2026) | GALAH DR4\n"
              "Do chemically matched field stars share kinematics with parent cluster?",
              fontsize=13, fontweight="bold", y=0.99)
 

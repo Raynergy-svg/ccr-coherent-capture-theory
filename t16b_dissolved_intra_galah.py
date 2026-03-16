@@ -2,7 +2,7 @@
 """
 T16-Revised — Intra-GALAH Dissolved Cluster Recovery
 ======================================================
-Certan (2025) | Coherent Capture Theory | GALAH DR4
+Certan (2026) | Coherent Capture Theory | GALAH DR4
 
 Searches for dissolved cluster members in the GALAH field star population
 using chemical templates built entirely within GALAH — zero cross-survey
@@ -76,7 +76,7 @@ def save_results():
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T16-Revised  Intra-GALAH Dissolved Cluster Recovery")
-info("Certan (2025) | CCT | GALAH DR4 (single-survey)")
+info("Certan (2026) | CCT | GALAH DR4 (single-survey)")
 info("=" * 72)
 
 t9_stars = pd.read_csv(T9_STARS)
@@ -656,7 +656,7 @@ info(f"Saved: {RESULTS_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T16-Revised: Intra-GALAH Dissolved Cluster Recovery | Certan (2025)\n"
+fig.suptitle("T16-Revised: Intra-GALAH Dissolved Cluster Recovery | Certan (2026)\n"
              f"Alpha-weighted Mahalanobis matching | {len(templates)} templates × "
              f"{n_field} field stars",
              fontsize=12, fontweight="bold", y=0.99)

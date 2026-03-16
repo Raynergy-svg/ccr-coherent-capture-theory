@@ -2,7 +2,7 @@
 """
 T20c — Find One Star: NGC 6253 (6D + Age)
 ============================================
-Certan (2025) | CCT | GALAH DR4 × Gaia DR3
+Certan (2026) | CCT | GALAH DR4 × Gaia DR3
 
 NGC 6253: [Fe/H]=+0.36-0.43, age=3-5 Gyr, distance ~1.5 kpc
 Among the most metal-rich open clusters known.
@@ -41,7 +41,7 @@ def info(msg):
 
 info("=" * 72)
 info("T20c  Find One Star: NGC 6253 (6D + Age)")
-info("Certan (2025) | CCT | GALAH DR4 × Gaia DR3")
+info("Certan (2026) | CCT | GALAH DR4 × Gaia DR3")
 info("=" * 72)
 info("[Fe/H]=+0.36-0.43 | Age=3-5 Gyr | Most metal-rich old OC in GALAH")
 

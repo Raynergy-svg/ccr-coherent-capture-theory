@@ -2,7 +2,7 @@
 """
 T16c — The Permanence Test
 ============================
-Certan (2025) | Coherent Capture Theory | GALAH DR4
+Certan (2026) | Coherent Capture Theory | GALAH DR4
 
 The decisive test: does the chemical fingerprint decay or is it permanent?
 
@@ -78,7 +78,7 @@ def save_results():
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T16c  The Permanence Test")
-info("Certan (2025) | CCT | GALAH DR4")
+info("Certan (2026) | CCT | GALAH DR4")
 info("=" * 72)
 info("Question: Is the chemical fingerprint eternal or does it decay?")
 info(f"Method: Fixed matching threshold for ALL clusters")
@@ -413,7 +413,7 @@ info(f"Saved: {RESULTS_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T16c: The Permanence Test | Certan (2025) | GALAH DR4\n"
+fig.suptitle("T16c: The Permanence Test | Certan (2026) | GALAH DR4\n"
              "Fixed-threshold chemical matching — does the fingerprint decay?",
              fontsize=13, fontweight="bold", y=0.99)
 

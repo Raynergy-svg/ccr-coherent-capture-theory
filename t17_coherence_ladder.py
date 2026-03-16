@@ -2,7 +2,7 @@
 """
 T17 — The Coherence Lifetime Ladder
 =====================================
-Certan (2025) | Coherent Capture Theory | APOGEE DR17 OCCAM
+Certan (2026) | Coherent Capture Theory | APOGEE DR17 OCCAM
 
 Extends T14 (single-element C/O decay curve) using the full multi-element
 coherence score from T15. Tracks how the fraction of coherent clusters
@@ -77,7 +77,7 @@ def stretched_exp(t, f0, tau, beta):
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T17  The Coherence Lifetime Ladder")
-info("Certan (2025) | CCT | APOGEE DR17 OCCAM")
+info("Certan (2026) | CCT | APOGEE DR17 OCCAM")
 info("=" * 72)
 
 matrix = pd.read_csv(MATRIX_FILE)
@@ -380,7 +380,7 @@ info(f"Saved: {RESULTS_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T17 Coherence Lifetime Ladder | Certan (2025) | APOGEE DR17 OCCAM\n"
+fig.suptitle("T17 Coherence Lifetime Ladder | Certan (2026) | APOGEE DR17 OCCAM\n"
              "Multi-element coherence survival as a function of cluster age",
              fontsize=13, fontweight="bold", y=0.99)
 

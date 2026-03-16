@@ -172,7 +172,7 @@ ax3.grid(True, alpha=0.15)
 
 kw_str = "p=" + str(round(kw_p,4)) if kw_p >= 0.0001 else "p<0.0001"
 plt.suptitle(
-    "T5 Birth Cluster Coherence Test  |  Certan (2025)\n"
+    "T5 Birth Cluster Coherence Test  |  Certan (2026)\n"
     "Kruskal-Wallis " + kw_str + "  |  "
     "Coherence ratio=" + str(round(coherence_ratio,2)) + "  |  "
     "N=" + str(len(galah)) + " stars  |  "

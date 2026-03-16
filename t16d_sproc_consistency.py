@@ -2,7 +2,7 @@
 """
 T16d — S-process Consistency Check
 =====================================
-Certan (2025) | CCT | GALAH DR4
+Certan (2026) | CCT | GALAH DR4
 
 Tests whether field stars that match a cluster template in 4 primary
 dimensions (C/O, Mg/Fe, Si/Fe, Fe/H) ALSO align in Ba/Fe — an element
@@ -40,7 +40,7 @@ def info(msg):
 
 info("=" * 72)
 info("T16d  S-process Consistency Check")
-info("Certan (2025) | CCT | GALAH DR4")
+info("Certan (2026) | CCT | GALAH DR4")
 info("=" * 72)
 info("Question: do 4D-matched field stars ALSO align in Ba/Fe (5th dimension)?")
 
@@ -256,7 +256,7 @@ rdf.to_csv("t16d_sproc_data.csv", index=False)
 
 # Plot
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T16d S-process Consistency Check | Certan (2025) | GALAH DR4\n"
+fig.suptitle("T16d S-process Consistency Check | Certan (2026) | GALAH DR4\n"
              "Do 4D-matched field stars also align in Ba/Fe (independent 5th dimension)?",
              fontsize=13, fontweight="bold", y=0.99)
 

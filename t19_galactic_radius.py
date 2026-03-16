@@ -2,7 +2,7 @@
 """
 T19 — The Galactic Radius Coherence Gradient
 ==============================================
-Certan (2025) | Coherent Capture Theory | GALAH DR4
+Certan (2026) | Coherent Capture Theory | GALAH DR4
 
 Tests whether clusters at different Galactocentric radii have different
 coherence properties. Inner disk (R < 7 kpc) has higher SFR, more
@@ -60,7 +60,7 @@ def info(msg):
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T19  The Galactic Radius Coherence Gradient")
-info("Certan (2025) | CCT | GALAH DR4")
+info("Certan (2026) | CCT | GALAH DR4")
 info("=" * 72)
 
 stars = pd.read_csv(T9_STARS)
@@ -344,7 +344,7 @@ info(f"Saved: {CSV_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T19 Galactic Radius Coherence Gradient | Certan (2025) | GALAH DR4\n"
+fig.suptitle("T19 Galactic Radius Coherence Gradient | Certan (2026) | GALAH DR4\n"
              f"C/O coherence vs Galactocentric radius across {len(valid)} open clusters",
              fontsize=13, fontweight="bold", y=0.99)
 

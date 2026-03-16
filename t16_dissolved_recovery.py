@@ -2,7 +2,7 @@
 """
 T16 — Dissolved Cluster Recovery in Field Stars
 =================================================
-Certan (2025) | Coherent Capture Theory | APOGEE DR17 × GALAH DR4
+Certan (2026) | Coherent Capture Theory | APOGEE DR17 × GALAH DR4
 
 Uses the 39 C/O-coherent APOGEE clusters as multi-dimensional chemical
 templates (C/Fe, O/Fe, Mg/Fe, Si/Fe, Al/Fe, Fe/H). Searches the full
@@ -67,7 +67,7 @@ def info(msg):
 # ---------------------------------------------------------------------------
 info("=" * 72)
 info("T16  Dissolved Cluster Recovery in Field Stars")
-info("Certan (2025) | CCT | APOGEE DR17 × GALAH DR4")
+info("Certan (2026) | CCT | APOGEE DR17 × GALAH DR4")
 info("=" * 72)
 
 apogee_stars = pd.read_csv(APOGEE_STARS)
@@ -512,7 +512,7 @@ info(f"Saved: {RESULTS_FILE}")
 info("Generating plot...")
 
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-fig.suptitle("T16 Dissolved Cluster Recovery in Field Stars | Certan (2025)\n"
+fig.suptitle("T16 Dissolved Cluster Recovery in Field Stars | Certan (2026)\n"
              f"APOGEE DR17 templates × GALAH DR4 field stars | {NDIM}D chemical matching",
              fontsize=13, fontweight="bold", y=0.99)
 

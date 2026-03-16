@@ -177,7 +177,7 @@ ax3.set_xticks(range(N_GROUPS)); ax3.set_xticklabels([str(g) for g in group_ids]
 ax3.legend(fontsize=8); ax3.grid(True, alpha=0.12, axis="y")
 
 method = "HDBSCAN" if USE_HDBSCAN else "KMeans"
-plt.suptitle("T6 Chemistry-First | Certan (2025) | " + method + " | CCR=" + str(round(CCR,3)) + " | " + kv_str, fontsize=10, y=1.02)
+plt.suptitle("T6 Chemistry-First | Certan (2026) | " + method + " | CCR=" + str(round(CCR,3)) + " | " + kv_str, fontsize=10, y=1.02)
 plt.tight_layout()
 plt.savefig(OUTPUT_PLOT, dpi=300, bbox_inches="tight", facecolor="white")
 plt.close()

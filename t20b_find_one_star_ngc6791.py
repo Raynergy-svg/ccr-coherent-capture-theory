@@ -2,7 +2,7 @@
 """
 T20b — Find One Star: NGC 6791
 =================================
-Certan (2025) | CCT | GALAH DR4 × Gaia DR3
+Certan (2026) | CCT | GALAH DR4 × Gaia DR3
 
 NGC 6791 is ideal because:
   - [Fe/H] = +0.30 — among the most metal-rich clusters known
@@ -51,7 +51,7 @@ def info(msg):
 
 info("=" * 72)
 info("T20b  Find One Star: NGC 6791")
-info("Certan (2025) | CCT | GALAH DR4 × Gaia DR3")
+info("Certan (2026) | CCT | GALAH DR4 × Gaia DR3")
 info("=" * 72)
 info("[Fe/H]=+0.30 | Age=8 Gyr | The most metal-rich old cluster")
 

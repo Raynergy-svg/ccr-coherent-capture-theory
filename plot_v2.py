@@ -89,7 +89,7 @@ ax2.grid(True,alpha=0.15,axis="y")
 ax2.set_ylim(-0.08,2.1)
 ax2.tick_params(labelsize=10)
 
-plt.suptitle("Certan (2025) - Carbon-to-Oxygen Ratio Coherence in Exoplanet Atmospheres",
+plt.suptitle("Certan (2026) - Carbon-to-Oxygen Ratio Coherence in Exoplanet Atmospheres",
     fontsize=10,style="italic",color="gray",y=1.01)
 plt.tight_layout()
 plt.savefig("CCR_gradient_plot_v2.png",dpi=300,bbox_inches="tight",facecolor="white")

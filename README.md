@@ -74,15 +74,30 @@ These are not included in the repository due to size. Obtain from:
 | `t20b_find_one_star_ngc6791.py` | Individual star recovery — NGC 6791 |
 | `t20c_ngc6253.py` | Individual star recovery — NGC 6253 (6D + age) |
 
-## Follow-up Observation Target
+## Individual Star Recovery (T20)
 
-**Gaia DR3 5953941329394191360** — Candidate dissolved NGC 6253 member
-- G = 9.46 (bright, easily observable)
-- Parallax matches NGC 6253 to 1.2%
-- 5D chemistry match (GALAH)
-- Independently confirmed metal-rich by Gaia GSP-Spec ([M/H] = +0.14)
-- Requires UVES/HARPS spectrum for age determination and [Al/Fe] at 0.01 dex
+Three clusters tested through a 6D+age pipeline (chemistry → parallax → PM → RV → age):
+
+| Target | Chemical Matches | Final Candidates | Outcome |
+|--------|-----------------|-----------------|---------|
+| Praesepe (NGC 2632) | 22,327 | 0 | PM insufficiently distinctive at 186 pc |
+| NGC 6791 | 768 | 18 | 4.1 kpc too distant for kinematic discrimination |
+| NGC 6253 | 2,149 | 4 | Best candidate eliminated by asteroseismic age |
+
+**HD 163560** (Gaia DR3 5953941329394191360, TIC 24212134) — the strongest candidate:
+- G = 9.46, parallax matches NGC 6253 to 1.2%, 5D chemistry match
+- TESS asteroseismic mass: 1.69 ± 0.18 M☉ → age 1.7 Gyr
+- NGC 6253 age: 3–5 Gyr — **eliminated by age mismatch**
+- Demonstrates pipeline sensitivity and that age is the binding constraint
+
+**Conclusion:** Individual recovery at 0.05 dex precision requires age as a sixth filter dimension. At 0.02 dex precision combined with asteroseismic ages (4MOST + TESS), the false positive rate collapses below 1 per cluster.
+
+## Paper
+
+MNRAS-format manuscript available in [`paper/`](paper/):
+- [`certan2026_cct.tex`](paper/certan2026_cct.tex) — full LaTeX source
+- [`certan2026_cct.bib`](paper/certan2026_cct.bib) — bibliography
 
 ## Author
 
-Certan (2025)
+Certan (2026)

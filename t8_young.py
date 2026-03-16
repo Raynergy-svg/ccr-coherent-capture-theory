@@ -343,7 +343,7 @@ ax3.grid(True, alpha=0.12)
 method = ("UMAP+" + ("HDBSCAN" if HAS_HDBSCAN else "KMeans")) if HAS_UMAP else "KMeans"
 kcr_str = "KCR=" + str(round(KCR, 3)) if KCR is not None else "no kinematics"
 plt.suptitle(
-    "T8 Young Star Chemistry Coherence  |  Certan (2025)  |  age<=" +
+    "T8 Young Star Chemistry Coherence  |  Certan (2026)  |  age<=" +
     str(AGE_MAX) + " Gyr  |  " + method + "\n" +
     "CCR=" + str(round(CCR,3)) + "  |  " + kcr_str +
     "  |  N=" + str(len(galah_cl)) + " stars  |  " +

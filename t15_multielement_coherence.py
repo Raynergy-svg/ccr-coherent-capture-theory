@@ -2,7 +2,7 @@
 """
 T15 — Multi-Element Simultaneous Coherence Analysis
 =====================================================
-Certan (2025) | Coherent Capture Theory | APOGEE DR17 OCCAM
+Certan (2026) | Coherent Capture Theory | APOGEE DR17 OCCAM
 
 Tests whether the 41 C/O-coherent APOGEE clusters are SIMULTANEOUSLY
 coherent across multiple abundance ratios (C/O, Mg/Fe, Si/Fe, Al/Fe, Fe/H).
@@ -49,7 +49,7 @@ def main():
 
     info("=" * 72)
     info("T15  Multi-Element Simultaneous Coherence Analysis")
-    info("Certan (2025) | CCT | APOGEE DR17 OCCAM")
+    info("Certan (2026) | CCT | APOGEE DR17 OCCAM")
     info("=" * 72)
 
     stars  = pd.read_csv(STAR_FILE)
@@ -275,7 +275,7 @@ def main():
     # PLOT
     info("Generating plots...")
     fig, axes = plt.subplots(2, 2, figsize=(16, 14))
-    fig.suptitle("T15 Multi-Element Simultaneous Coherence | Certan (2025) | APOGEE DR17 OCCAM",
+    fig.suptitle("T15 Multi-Element Simultaneous Coherence | Certan (2026) | APOGEE DR17 OCCAM",
                  fontsize=14, fontweight="bold", y=0.98)
 
     # Panel 1: Correlation heatmap

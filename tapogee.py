@@ -8,7 +8,7 @@ OCCAM (Open Cluster Chemical Abundances and Mapping) VAC member catalog.
 Tests whether open clusters show age-dependent chemical coherence in C/O ratios,
 as predicted by Coherent Capture Theory (CCT).
 
-Author: Certan (2025)
+Author: Certan (2026)
 Data:   APOGEE DR17 allStar + OCCAM member catalog (Donor et al.)
 Ages:   Cantat-Gaudin & Anders (2020), VizieR J/A+A/640/A1
 """
@@ -668,7 +668,7 @@ else:
 
 # Suptitle
 plt.suptitle(
-    "T-APOGEE Open Cluster Chemical Coherence | Certan (2025) | OCCAM DR17\n"
+    "T-APOGEE Open Cluster Chemical Coherence | Certan (2026) | OCCAM DR17\n"
     "CCR=" + str(round(CCR, 4)) +
     "  |  N_clusters=" + str(len(cl_df)) +
     "  |  Coherent=" + str(n_coherent) + "/" + str(len(cl_df)) +
