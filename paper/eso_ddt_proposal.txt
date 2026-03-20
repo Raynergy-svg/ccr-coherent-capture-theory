@@ -1,0 +1,78 @@
+ESO Director's Discretionary Time Proposal
+============================================
+
+Title: High-Resolution Confirmation of a Chemical Tagging Candidate
+       — First Individual Dissolved Cluster Member Recovery
+
+PI: David Certan
+Instrument: UVES (CD#3 580nm setting, R=47,000) or FEROS (R=48,000)
+Time Requested: 0.5 hours (including overheads)
+
+Target:
+  Name: HD 163560
+  Gaia DR3: 5953941329394191360
+  TIC: 24212134
+  2MASS: J17590615-4643499
+  RA: 17:59:06.15  DEC: -46:43:49.9  (J2000)
+  V ~ 10.3, G = 9.46
+  Spectral Type: G8/K1 III (SIMBAD)
+
+Scientific Justification:
+
+HD 163560 was identified through a 6-dimensional chemical fingerprinting
+pipeline as a candidate dissolved member of the open cluster NGC 6253
+([Fe/H] = +0.27, age = 3-5 Gyr). The pipeline searched 519,547 GALAH DR4
+field stars against 253 cluster chemical templates, narrowing to 4
+candidates through sequential chemistry (5D) + parallax + proper motion
++ radial velocity filters (Certan 2026, in preparation; code and data at
+https://github.com/Raynergy-svg/ccr-coherent-capture-theory).
+
+The candidate was subsequently eliminated by TESS asteroseismic mass
+(1.69 ± 0.18 M_sun → age ~1.7 Gyr, inconsistent with NGC 6253's 3-5 Gyr).
+However, the elimination relied on asteroseismic scaling relations with
+~30% age uncertainty. A high-resolution spectrum would provide:
+
+1. Precise Teff, logg, [Fe/H] for isochrone age determination (±1 Gyr),
+   independent of asteroseismology
+2. [Al/Fe] at 0.01 dex precision — currently discrepant between GALAH
+   pipeline (+0.323 raw, +0.138 catalog) and LAMOST-derived (+0.054).
+   This 0.27 dex pipeline offset is a known GALAH systematic for cool
+   giants, resolvable only with higher-resolution data
+3. Individual element abundances (Li, Ba, Y, Eu) constraining age
+   indicators and nucleosynthetic channels independently
+
+This observation represents the first attempt to spectroscopically confirm
+or reject an individually identified dissolved cluster member found through
+chemical fingerprinting of a large survey. The result — positive or negative
+— establishes the precision threshold for individual stellar archaeology.
+
+The underlying statistical framework is validated:
+- 3× enrichment of dissolved cluster chemistry in field stars (p < 10^-41)
+- No decay over 0-10 Gyr (permanence test, AIC favors flat model)
+- Ba/Fe independently confirms 97.2% of clusters (5th dimension)
+- Kinematic residual at p = 10^-37
+
+Technical Feasibility:
+
+At G = 9.46 (V ~ 10.3), UVES with the 580nm CD#3 setting achieves
+SNR > 100 per pixel in ~20 minutes. FEROS achieves comparable SNR in
+~30 minutes. The Al I 6696/6698 Å doublet falls cleanly in the red arm.
+Total time including acquisition and overheads: 0.5 hours.
+
+The GALAH spectrum (R~28,000, SNR~50 at CCD3) is available for comparison.
+The Al I line is detected at EW ~ 190 mÅ with 27% depth — well within
+UVES/FEROS capability for precise measurement.
+
+Scheduling: No time constraints. Target is observable from Paranal/La Silla
+year-round (DEC = -46.7°). Suitable as a filler/backup target.
+
+Data Products Requested:
+- Reduced 1D spectrum (pipeline reduction sufficient)
+- No proprietary period needed — immediate public release acceptable
+
+References:
+Certan, D. (2026). "The Chemical Memory of the Milky Way: Permanent
+  Multi-Element Fingerprints in Open Clusters and Their Dissolved Field
+  Star Populations." In preparation.
+  Data: https://github.com/Raynergy-svg/ccr-coherent-capture-theory
+  DOI: 10.5281/zenodo.19043096
