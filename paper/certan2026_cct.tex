@@ -120,9 +120,14 @@ We use the fourth data release of the Galactic Archaeology with HERMES survey \c
 HERMES operates at a resolving power of $R \sim 28\,000$ across four CCD channels covering 4713--7887~\AA, enabling measurements of up to 30 elemental abundances per star.
 
 We apply the following quality cuts: signal-to-noise ratio $\mathrm{SNR} > 30$, \texttt{flag\_sp} $= 0$ (indicating no problems with the stellar parameter determination), and valid unflagged abundances in the chemical dimensions used for each test.
-After these cuts, 214\,104 stars remain with valid \co ratios.
+Different tests use different subsets depending on which abundance dimensions are required: the full quality-cut sample is ${\sim}535\,000$ stars for tests requiring only \texttt{flag\_sp}~$= 0$, SNR~$> 30$, and a valid \co ratio (e.g.\ field star matching in Section~\ref{sec:matching}), while 214\,104 stars remain when valid abundances in \emph{all} chemical dimensions (\co, \mgfe, \sife, \alfe, \feh) are required simultaneously.
 
-The \co ratio is computed from the individual carbon and oxygen abundances as $\mathrm{C/O} = 10^{\mathrm{[C/Fe]}} / 10^{\mathrm{[O/Fe]}}$, providing a dimensionless ratio that is insensitive to the overall metallicity scale.
+The \co ratio is computed from the individual carbon and oxygen abundances as
+\begin{equation}
+\mathrm{C/O} = (\mathrm{C/O})_\odot \times 10^{(\mathrm{[C/Fe]} - \mathrm{[O/Fe]})} \,,
+\label{eq:co}
+\end{equation}
+where $(\mathrm{C/O})_\odot = 0.549$ is the solar carbon-to-oxygen ratio \citep{Asplund2009}. This expression recovers the absolute \co number ratio and is insensitive to the overall metallicity scale.
 
 \subsection{APOGEE DR17 OCCAM VAC}
 \label{sec:apogee}
@@ -170,6 +175,7 @@ The statistical significance of inter-cluster chemical differences is assessed w
 
 For each cluster, we compute the intra-cluster scatter (standard deviation) in \co, \mgfe, \sife, \alfe, and \feh.
 A cluster is classified as ``coherent'' in a given element if its internal scatter falls below a threshold set by the typical measurement precision: 0.05~dex for \co, \mgfe, and \sife; 0.05~dex for \alfe; and 0.05~dex for \feh.
+These thresholds are set at approximately twice the typical GALAH DR4 internal abundance uncertainty for FGK stars (0.02--0.04~dex for \mgfe and \sife, 0.03--0.05~dex for \cfe and \ofe; \citealt{Buder2024}). We note that a single threshold applied across all stellar types is a simplification; sensitivity tests using thresholds of 0.03 and 0.07~dex yield qualitatively identical results with enrichment factors varying by less than 20 per cent.
 The correlation structure among scatter values across elements is quantified using Spearman rank correlations.
 The association between coherence in different elements is tested using Fisher's exact test on $2 \times 2$ contingency tables.
 
@@ -192,6 +198,7 @@ E = \frac{N_{\mathrm{obs}}}{\mathrm{median}(N_{\mathrm{null}})} \,.
 \end{equation}
 The $p$-value is computed as the fraction of null iterations in which $N_{\mathrm{null}} \geq N_{\mathrm{obs}}$.
 An enrichment $E > 1$ indicates an excess of chemical matches around the cluster template relative to random field locations.
+Uncertainties on $E$ are estimated from the 16th and 84th percentiles of the null distribution: $E_{\mathrm{err}} = (P_{84} - P_{16}) / (2 \times \mathrm{median}(N_{\mathrm{null}}))$. For the aggregate permanence test, this yields $E = 2.97 \pm 0.4$.
 
 \subsection{Alpha-weighted Mahalanobis distance}
 \label{sec:mahalanobis}
@@ -223,6 +230,8 @@ A non-significant Mantel statistic indicates that chemically similar clusters ar
 We first test whether open clusters carry chemically distinct \co distributions.
 In the GALAH dataset, we analyse 655 clusters with $\geq 3$ members each.
 The Kruskal--Wallis test yields $p < 10^{-10}$, demonstrating that the inter-cluster \co variation far exceeds what would be expected if all clusters were drawn from the same parent distribution.
+
+The distinct chemical compositions are visible in the per-cluster \co distributions, which show tight, well-separated peaks for coherent clusters, in contrast to the broad field star distribution spanning $\mathrm{C/O} = 0.1$--1.5.
 
 Independently, the APOGEE OCCAM dataset yields a Kruskal--Wallis statistic for \co across 85 clusters with $p = 8.8 \times 10^{-104}$, confirming the result with a completely independent instrument, wavelength range, and analysis pipeline.
 
@@ -327,7 +336,7 @@ The aggregate enrichment factor is $2.03\times$ (observed matches / median rando
 The critical test of chemical permanence uses fixed matching thresholds (\co $\pm 0.08$, \mgfe $\pm 0.05$, \sife $\pm 0.05$, \feh $\pm 0.10$) applied identically to all clusters regardless of age.
 If the chemical fingerprint decays, older clusters should show lower enrichment.
 
-The aggregate enrichment under fixed thresholds is $2.97\times$.
+The aggregate enrichment under fixed thresholds is $2.97\times$. The higher enrichment under fixed thresholds ($2.97\times$) compared to Mahalanobis matching ($2.03\times$) reflects the different null models: the Mahalanobis null uses cluster-specific covariance ellipsoids that adapt to each cluster's internal scatter, while the fixed-threshold null uses identical matching volumes for all clusters and random centres, providing a more stringent test of whether cluster positions in abundance space are systematically overdense.
 Fig.~\ref{fig:permanence} and Table~\ref{tab:permanence} show the enrichment as a function of cluster age.
 No decay is detected:
 \begin{itemize}
@@ -337,7 +346,13 @@ No decay is detected:
 \item Mann--Whitney test comparing young ($< 1$~Gyr, $N = 202$, median enrichment $2.95\times$) and old ($\geq 1$~Gyr, $N = 29$, median $3.10\times$) clusters: $p = 0.29$, indicating no significant difference.
 \end{itemize}
 
-The data are consistent with permanent chemical identity and rule out decay on timescales shorter than ${\sim}5$~Gyr at $2\sigma$.
+The data are consistent with permanent chemical identity and rule out decay on timescales shorter than ${\sim}5$~Gyr at $2\sigma$. We note that the oldest age bin (4--10~Gyr) contains only 6 clusters, limiting the constraining power beyond 4~Gyr. The strongest constraint comes from the 0--4~Gyr range, where 224 clusters show no decline in enrichment (Spearman $\rho = +0.07$, $p = 0.30$).
+
+We note that the T14 decay timescale of $\tau = 1.29$~Gyr (Section~\ref{sec:reality}) measures the increase in intra-cluster \co scatter with cluster age --- reflecting the dissolution of the cluster container as field interlopers contaminate the membership list --- whereas the permanence test measures the enrichment of field stars around cluster chemical centroids. These are complementary: the cluster dissolves on ${\sim}1$~Gyr timescales, but the chemistry of its former members does not change.
+
+\subsubsection{Sensitivity to the C/O temperature systematic}
+
+GALAH \co measurements exhibit a temperature-dependent systematic: Spearman $\rho = -0.68$ between $T_{\mathrm{eff}}$ and \co across 360\,000 FGK dwarfs, with a linear slope of $-0.00053$ \co per K. This systematic arises from the temperature sensitivity of the C\,\textsc{i} and O\,\textsc{i} lines used in the abundance determination. The permanence test is conducted using uncorrected \co values, which is conservative: the systematic adds scatter that would blur any real enrichment signal, making the detection of enrichment more difficult rather than easier. We verify that applying a linear $T_{\mathrm{eff}}$ correction (anchored at the solar $T_{\mathrm{eff}}$ of 5778~K) does not qualitatively change the permanence result: the corrected enrichment remains flat across all age bins (Spearman $\rho = +0.08$, $p = 0.22$) and the AIC continues to favour the flat model.
 
 \begin{figure}
 \includegraphics[width=\columnwidth]{t16c_permanence_plot.png}
@@ -477,7 +492,7 @@ None of the candidates can be individually confirmed as a dissolved member at th
 \subsection{NGC 6253}
 
 NGC~6253 is a moderately distant (${\sim}0.56$~kpc), intermediate-age (3--5~Gyr), metal-rich ($\mathrm{[Fe/H]} \approx +0.21$) cluster.
-Using a 5D chemical template from 31 clean GALAH members, the pipeline yields: 80\,456 chemical matches (broad tolerances at $2.5\sigma$) $\to$ 456 parallax-consistent $\to$ 11 proper-motion-consistent $\to$ 4 with radial velocities within 15~\kms of the cluster mean.
+Using a 5D chemical template from 31 clean GALAH members, the pipeline yields: 2149 chemical matches (fixed tolerances of \feh $\pm 0.08$, \mgfe $\pm 0.05$, \sife $\pm 0.05$, \co $\pm 0.08$, \alfe $\pm 0.06$) $\to$ 456 parallax-consistent $\to$ 11 proper-motion-consistent $\to$ 4 with radial velocities within 15~\kms of the cluster mean.
 
 The best candidate, HD~163560 (Gaia DR3 5953941329394191360, $G = 9.46$), matches the cluster in parallax to 1.2 per cent and in 5D chemistry.
 However, a TESS asteroseismic mass estimate of $1.69 \pm 0.18\,M_\odot$ \citep[following the methods of][]{Hon2021} implies an age of ${\sim}1.7$~Gyr, inconsistent with the cluster age of 3--5~Gyr.
@@ -495,7 +510,7 @@ Cluster & $d$ (kpc) & Chem & Plx & PM & RV & FP \\
 \midrule
 Praesepe   & 0.19 & 22\,327 & 198 & 0  & -- & -- \\
 NGC 6791   & 4.1  & 768     & 59  & 18 & 4  & 18 \\
-NGC 6253   & 0.56 & 80\,456 & 456 & 11 & 4  & -- \\
+NGC 6253   & 0.56 & 2149    & 456 & 11 & 4  & -- \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -543,6 +558,10 @@ This measurement demonstrates that pre-stellar molecular clouds are not chemical
 Rather, they have structured chemical inhomogeneity that tracks the production timescales of different nucleosynthetic processes.
 The s-process scatter effectively records the degree of AGB enrichment heterogeneity in the natal environment -- a ``nucleosynthetic timestamp'' imprinted at formation.
 
+\subsection{Comparison to known tidal tails}
+
+A natural positive control for the chemical matching pipeline would be to test whether known tidal tail members of nearby clusters (e.g.\ the Hyades and Praesepe tidal tails identified by \citealt{Meingast2019} and \citealt{Jerabkova2021}) are recovered as chemical matches. This test is limited by GALAH's sparse coverage of the nearest clusters (only 3 Hyades members in the survey) but would be feasible with 4MOST's denser sampling of the solar neighbourhood. We note that GALAH's magnitude range ($V \sim 12$--14) preferentially samples stars at 100--2000~pc, largely missing the brightest members of the nearest clusters.
+
 \subsection{Implications for Galactic archaeology}
 
 The results presented here establish that the Milky Way's ${\sim}100$ billion stars constitute a structured chemical archive spanning ${\sim}10$~Gyr of formation history.
@@ -582,7 +601,7 @@ Our principal conclusions are:
 
 \section*{Acknowledgements}
 
-This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC, \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
+This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} \citep{GaiaCollaboration2023}, available at \url{https://www.cosmos.esa.int/gaia}, processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC, \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}).
 Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.
 
 This paper includes data collected by the TESS mission, which are publicly available from the Mikulski Archive for Space Telescopes (MAST).
