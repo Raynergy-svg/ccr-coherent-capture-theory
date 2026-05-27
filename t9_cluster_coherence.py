@@ -58,7 +58,15 @@ name_col = next((c for c in cg20.columns if c.lower() in ["cluster","name"]),   
 pmra_col = next((c for c in cg20.columns if "pmra" in c.lower()),                      None)
 pmdec_col= next((c for c in cg20.columns if "pmde" in c.lower() or "pmdec" in c.lower()), None)
 age_col  = next((c for c in cg20.columns if "logage" in c.lower() or "log_age" in c.lower()), None)
-dist_col = next((c for c in cg20.columns if "dist" in c.lower() or "plx" in c.lower()), None)
+# Distance: CG2020 exposes BOTH `plx` (mas) and `DistPc` (pc). Pick the
+# distance-in-pc column explicitly; only fall back to parallax if absent.
+# (Bug fix: the old `"dist" in c or "plx" in c` substring match silently
+#  grabbed `plx`, so dist_cl became the parallax in mas mislabeled as kpc,
+#  inverting the near/far cluster ordering downstream.)
+dist_pc_col = next((c for c in cg20.columns
+                    if c.lower() in ("distpc", "dist", "dist50", "distance")
+                    or ("dist" in c.lower() and "pc" in c.lower())), None)
+plx_col = next((c for c in cg20.columns if c.lower() in ("plx", "parallax")), None)
 log("Mapped: RA=" + str(ra_col) + " Dec=" + str(dec_col) +
     " Name=" + str(name_col) + " pmRA=" + str(pmra_col) +
     " age=" + str(age_col))
@@ -70,8 +78,18 @@ if name_col: rename[name_col] = "cluster_name"
 if pmra_col: rename[pmra_col] = "pmra_cl"
 if pmdec_col:rename[pmdec_col]= "pmdec_cl"
 if age_col:  rename[age_col]  = "logage_cl"
-if dist_col: rename[dist_col] = "dist_cl"
 cg20 = cg20.rename(columns=rename).dropna(subset=["ra_cl","dec_cl"]).copy()
+
+# dist_cl stored in kpc: prefer DistPc (pc -> kpc), else 1/parallax (mas -> kpc)
+if dist_pc_col is not None:
+    cg20["dist_cl"] = pd.to_numeric(cg20[dist_pc_col], errors="coerce") / 1000.0
+    log("dist_cl from '" + dist_pc_col + "' (pc->kpc)")
+elif plx_col is not None:
+    cg20["dist_cl"] = 1.0 / pd.to_numeric(cg20[plx_col], errors="coerce")
+    log("dist_cl from '" + plx_col + "' (1/plx mas->kpc)")
+else:
+    cg20["dist_cl"] = np.nan
+    log("WARNING: no distance or parallax column found for clusters")
 
 if "logage_cl" in cg20.columns:
     cg20["age_gyr"] = 10.0 ** (cg20["logage_cl"].astype(float) - 9.0)
