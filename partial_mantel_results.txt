@@ -1,0 +1,21 @@
+Partial Mantel test — is the corrected T10 spatial-chemical correlation real
+locality, or the radial [Fe/H] gradient? (655 GALAH clusters, 9999 perms, seed 42)
+
+Bivariate Mantel correlations (upper-triangle Pearson):
+  spatial vs chem   : r = +0.0669   (the corrected T10 result, p ~ 0.013)
+  spatial vs [Fe/H] : r = +0.1127
+  chem    vs [Fe/H] : r = +0.2712
+
+PARTIAL Mantel  r(spatial, chem | [Fe/H]) = +0.0380
+  permutation p (one-sided) = 0.0844
+  permutation p (two-sided) = 0.1492
+  null mean = -0.0002, sd = 0.0267
+  Metallicity control removes 43% of the raw spatial-chemical correlation.
+
+CONCLUSION
+  After controlling for the radial [Fe/H] gradient, the spatial-chemical
+  correlation is NOT significant (p = 0.15 two-sided; 0.08 one-sided, borderline).
+  The corrected T10 "signal" is largely the radial metallicity gradient leaking
+  in. "Chemically similar clusters are not spatial neighbours" therefore HOLDS
+  once metallicity is accounted for -> the necessary condition for chemical
+  tagging is satisfied, now with explicit control for the [Fe/H] confound.

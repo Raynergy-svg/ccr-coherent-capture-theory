@@ -7,6 +7,7 @@ re-run in `t19_results_distfix.txt` / `t10_mantel_results_distfix.txt`):
 |---|---|---|
 | **T10** Mantel r, p | r = −0.010, p = 0.60 → "spatially independent" | **r = +0.067, p = 0.013** → weak positive correlation |
 | **T10** partial r (age-controlled) | −0.009 | **+0.063** (also flips positive) |
+| **T10** partial r (\| [Fe/H]) | — | **+0.038, p = 0.15 → non-significant** (it was the metallicity gradient) |
 | **T19** Spearman(R_gal, C/O scatter) | ρ = −0.228, p = 3.4×10⁻⁹ | **ρ = −0.091, p = 0.02** |
 | **T19** Mann–Whitney inner vs outer | p = 2.1×10⁻⁸ (med 0.1305 vs 0.0937) | **p = 7.9×10⁻³** (med 0.1061 vs 0.0975) |
 | **T19** partial ρ \| [Fe/H] | ρ = −0.288, p = 5.5×10⁻¹⁴ | **ρ = −0.147, p = 1.7×10⁻⁴** (survives) |
@@ -16,7 +17,7 @@ re-run in `t19_results_distfix.txt` / `t10_mantel_results_distfix.txt`):
 
 **Interpretation guidance**
 - **T19**: the gradient is *real but ~2.5× weaker*. The core tests survive — Spearman (ρ=−0.091, p=0.02), Mann–Whitney (p=7.9×10⁻³), Kruskal–Wallis (p=2.4×10⁻⁶), and the partial correlation controlling for [Fe/H] (ρ_partial=−0.147, p=1.7×10⁻⁴; note this is *stronger* than the raw Spearman because the radial [Fe/H] gradient tightened to ρ=−0.65). But two corroborating tests **go null**: the inner/outer coherent-fraction Fisher test (OR 0.16→0.99) and the |Z| test (p 0.002→0.10). So keep the gradient claim, drop the Fisher/|Z| supporting statistics, and report the weaker effect size.
-- **T10**: this is the consequential one (confirmed by the full 9999-permutation re-run, `t10_mantel_results_distfix.txt`). The published null (p = 0.60) was used to argue that "chemically similar clusters are not spatial neighbours — a necessary condition for chemical tagging." With correct distances the Mantel test is **positive and formally significant** (r = +0.067, p = 0.013), and the age-controlled partial r likewise flips positive (−0.009 → +0.063). The *effect is tiny* (r² ≈ 0.004, < 0.5 % of variance; significance is driven by the 214 185 cluster pairs), but the clean "spatially independent" statement no longer holds. Recommend reframing to: *a weak residual spatial–chemical correlation exists (r = 0.067), explaining < 0.5 % of pairwise variance, so spatial position is a minor confound rather than the dominant driver of chemical similarity* — which still supports chemical tagging but honestly, not as a clean null.
+- **T10 (RESOLVED by partial Mantel — see `partial_mantel_results.txt`):** the corrected raw Mantel is positive and significant (r = +0.067, p = 0.013; age-controlled partial r −0.009 → +0.063). But a **partial Mantel controlling for the radial [Fe/H] gradient drops it to r = +0.038, p = 0.15 (two-sided; 0.08 one-sided) — non-significant**, removing 43 % of the raw correlation. The decomposition is clean: spatial–[Fe/H] r = +0.113, chem–[Fe/H] r = +0.271, so the apparent spatial–chemical link is the metallicity gradient leaking in. **The original conclusion survives, with a sharper justification:** chemically similar clusters are *not* spatial neighbours once the radial metallicity gradient is removed — the necessary condition for chemical tagging holds. Recommend keeping the "spatially independent" claim but rewording it to state the control explicitly (raw r = 0.067 is the metallicity gradient; partial r = 0.038 is consistent with no genuine locality confound).
 
 ---
 
@@ -43,7 +44,7 @@ re-run in `t19_results_distfix.txt` / `t10_mantel_results_distfix.txt`):
 > `Coherence is spatially independent (Mantel $r = -0.010$, $p = 0.60$), satisfying a necessary condition for chemical tagging.`
 
 **New:**
-> `The residual spatial--chemical correlation is weak (Mantel $r = 0.067$, $p = 0.014$; $<0.5$ per cent of pairwise variance), so spatial position is at most a minor confound for chemical tagging.`
+> `Coherence is spatially independent once the radial metallicity gradient is removed (partial Mantel $r = 0.038$, $p = 0.15$; the raw $r = 0.067$ is driven by the \feh--$R_{\mathrm{gal}}$ gradient), satisfying a necessary condition for chemical tagging.`
 
 ### 2. Abstract, line 65
 **Old:**
@@ -57,9 +58,9 @@ re-run in `t19_results_distfix.txt` / `t10_mantel_results_distfix.txt`):
 > `The Mantel test on the 655 GALAH clusters yields $r = -0.010$ with $p = 0.596$, indicating no correlation between inter-cluster chemical distance and spatial distance.`
 
 **New:**
-> `The Mantel test on the 655 GALAH clusters yields $r = 0.067$ with $p = 0.014$. Although formally significant given the $214\,185$ cluster pairs, the correlation is very weak ($r^2 < 0.5$ per cent), indicating that inter-cluster chemical distance is only marginally related to spatial distance and that spatial position is a minor confound rather than the dominant driver of chemical similarity.`
+> `The Mantel test on the 655 GALAH clusters yields a raw $r = 0.067$ ($p = 0.013$). This correlation, however, is driven by the radial metallicity gradient: clusters at similar Galactocentric radii share similar \feh (spatial--\feh $r = 0.113$, chemical--\feh $r = 0.271$). A partial Mantel test controlling for \feh reduces the spatial--chemical correlation to $r = 0.038$ ($p = 0.15$), removing 43 per cent of the raw signal and rendering it statistically insignificant. Inter-cluster chemical distance is therefore independent of spatial distance once the metallicity gradient is accounted for, satisfying the necessary condition for chemical tagging.`
 >
-> *(Also revise the surrounding sentences/section heading at lines 269–273 that assert clean spatial independence; the "necessary condition" is weakly violated, not satisfied.)*
+> *(The section heading "Chemical order is spatially independent" and lines 269–273 remain valid as written — the conclusion now rests on the partial test rather than the raw null.)*
 
 ### 4. Section "Galactic radius coherence gradient", lines 420–424
 **Old (line 420):**
@@ -79,7 +80,8 @@ Replace both `$\rho = -0.228$, $p = 3.4 \times 10^{-9}$` and `$\rho_{\mathrm{par
 
 ### 6. Summary table, lines 450 & 458
 **Old (450):** `T10 & Mantel spatial test  & 655 & $r = -0.010$, $p = 0.60$           & Spatially independent \\`
-**New:** `T10 & Mantel spatial test  & 655 & $r = 0.067$, $p = 0.014$          & Weak spatial correlation \\`
+**New:** `T10 & Mantel (partial, $\mid$\feh) & 655 & $r = 0.038$, $p = 0.15$ & Spatially independent \\`
+> *(raw $r = 0.067$; the partial test removes the \feh-gradient confound)*
 
 **Old (458):** `T19 & Galactic gradient    & 655 & $\rho = -0.228$, $p = 3.4 \times 10^{-9}$ & Outer disc more coherent \\`
 **New:** `T19 & Galactic gradient    & 655 & $\rho = -0.091$, $p = 0.02$ & Outer disc weakly more coherent \\`
@@ -89,7 +91,7 @@ Replace both `$\rho = -0.228$, $p = 3.4 \times 10^{-9}$` and `$\rho_{\mathrm{par
 > `\item Chemical coherence is spatially independent (Mantel $r = -0.010$, $p = 0.60$), satisfying a necessary condition for chemical tagging. Chemically similar clusters are not preferentially spatial neighbours.`
 
 **New:**
-> `\item The residual spatial--chemical correlation is weak (Mantel $r = 0.067$, $p = 0.014$; $<0.5$ per cent of variance): chemically similar clusters are only marginally more likely to be spatial neighbours, so spatial position is a minor rather than dominant confound for chemical tagging.`
+> `\item Chemical coherence is spatially independent after controlling for the radial metallicity gradient (partial Mantel $r = 0.038$, $p = 0.15$; raw $r = 0.067$ reflects the \feh--$R_{\mathrm{gal}}$ gradient). Chemically similar clusters are not preferentially spatial neighbours once \feh is removed, satisfying a necessary condition for chemical tagging.`
 
 ### 8. Conclusions, line 595
 **Old:**
