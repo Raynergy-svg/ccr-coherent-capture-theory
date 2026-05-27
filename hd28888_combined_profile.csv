@@ -1,0 +1,113 @@
+block,field,value,source,note
+ID,common_name,HD 28888,SIMBAD,
+ID,gaia_dr3_source_id,3312653647717790720,Gaia DR3,
+ID,tmass_id,04333861+1557416,GALAH DR4,
+Astrometry,ra_deg,68.41124363572398,Gaia DR3,
+Astrometry,dec_deg,15.961256676018776,Gaia DR3,
+Astrometry,parallax_mas,10.000773994527352,Gaia DR3,
+Astrometry,parallax_error_mas,0.024161762,Gaia DR3,
+Astrometry,distance_pc_1/plx,99.99226065374765,derived,naive 1/parallax
+Astrometry,distance_gspphot_pc,99.562,Gaia DR3,
+Astrometry,pmra_mas_yr,65.22837692734834,Gaia DR3,
+Astrometry,pmdec_mas_yr,-55.77929544357106,Gaia DR3,
+Astrometry,ruwe,0.984787,Gaia DR3,single if <1.4
+Astrometry,non_single_star,0,Gaia DR3,0 = no NSS flag
+Photometry,phot_g_mean_mag,8.237693,Gaia DR3,
+Photometry,bp_rp,0.8159838,Gaia DR3,
+RV,rv_gaia_km_s,53.70128,Gaia DR3,
+RV,rv_gaia_err_km_s,0.13967045,Gaia DR3,
+RV,rv_galah_km_s,53.70128,GALAH DR4,rv_gaia_dr3 col
+Params,teff_K_galah,5734.0254,GALAH DR4,
+Params,teff_K_gspphot,5704.693,Gaia DR3,
+Params,teff_K_gspspec,5761.0,Gaia DR3,
+Params,logg_galah,3.9375741,GALAH DR4,
+Params,logg_gspphot,4.0435,Gaia DR3,
+Params,feh_galah,0.12957397,GALAH DR4,
+Params,mh_gspphot,-0.0989,Gaia DR3,
+Params,mh_gspspec,0.06,Gaia DR3,
+Params,vmic_km_s,1.3239089,GALAH DR4,
+Params,vsini_km_s,5.538312,GALAH DR4,
+Params,mass_msun_galah,1.1499472,GALAH DR4,
+Params,mass_msun_flame,1.1727481,Gaia DR3,
+Params,lbol_lsun,3.5451686,GALAH DR4,
+Age,age_gyr_galah,6.3121543,GALAH DR4,
+Age,age_gyr_flame,6.04879,Gaia DR3,FLAME
+Quality,flag_sp,0,GALAH DR4,0 = clean
+Quality,flag_fe_h,0,GALAH DR4,0 = clean
+Quality,snr_ccd3,294.745,GALAH DR4,green CCD S/N
+Abundance,[C/Fe],-0.0715446,GALAH DR4,err=0.020031523 flag=0
+Abundance,[N/Fe],0.37618434,GALAH DR4,err=0.052345455 flag=0
+Abundance,[O/Fe],0.18021967,GALAH DR4,err=0.023582548 flag=0
+Abundance,[Na/Fe],0.10520673,GALAH DR4,err=0.009628561 flag=0
+Abundance,[Mg/Fe],0.020332545,GALAH DR4,err=0.010406437 flag=0
+Abundance,[Al/Fe],0.08610666,GALAH DR4,err=0.019315911 flag=0
+Abundance,[Si/Fe],0.005609162,GALAH DR4,err=0.005421673 flag=0
+Abundance,[K/Fe],-0.111132994,GALAH DR4,err=0.022414358 flag=0
+Abundance,[Ca/Fe],-0.042535856,GALAH DR4,err=0.019475464 flag=0
+Abundance,[Sc/Fe],0.03784337,GALAH DR4,err=0.013811309 flag=0
+Abundance,[Ti/Fe],-0.028853284,GALAH DR4,err=0.007809014 flag=0
+Abundance,[V/Fe],0.015363157,GALAH DR4,err=0.013913973 flag=0
+Abundance,[Cr/Fe],-0.0020818303,GALAH DR4,err=0.005943448 flag=0
+Abundance,[Mn/Fe],0.039540388,GALAH DR4,err=0.006659708 flag=0
+Abundance,[Co/Fe],0.021540143,GALAH DR4,err=0.0113552455 flag=0
+Abundance,[Ni/Fe],0.051463626,GALAH DR4,err=0.0054147225 flag=0
+Abundance,[Cu/Fe],0.07988115,GALAH DR4,err=0.015039962 flag=0
+Abundance,[Zn/Fe],-0.009968467,GALAH DR4,err=0.0144682145 flag=0
+Abundance,[Rb/Fe],,GALAH DR4,err=None flag=2
+Abundance,[Sr/Fe],,GALAH DR4,err=None flag=2
+Abundance,[Y/Fe],-0.06935767,GALAH DR4,err=0.016118849 flag=0
+Abundance,[Zr/Fe],-0.5984141,GALAH DR4,err=0.051749215 flag=0
+Abundance,[Mo/Fe],,GALAH DR4,err=None flag=2
+Abundance,[Ru/Fe],,GALAH DR4,err=None flag=2
+Abundance,[Ba/Fe],-0.039925143,GALAH DR4,err=0.03233052 flag=0
+Abundance,[La/Fe],0.2566279,GALAH DR4,err=0.01968161 flag=0
+Abundance,[Ce/Fe],-0.10639306,GALAH DR4,err=0.03032598 flag=0
+Abundance,[Nd/Fe],0.15183988,GALAH DR4,err=0.026800135 flag=0
+Abundance,[Sm/Fe],0.04930267,GALAH DR4,err=0.037837595 flag=0
+Abundance,[Eu/Fe],,GALAH DR4,err=None flag=2
+Abundance,A(Li),2.25514,GALAH DR4,flag=0
+Derived,C/O_number_ratio,0.3080338326404016,derived,solar C/O=0.55; 10^(logCO_sun+[C/Fe]-[O/Fe])
+Derived,Mg/Si_number_ratio,1.0862072121367583,derived,solar Mg/Si=1.05; 10^(logMgSi_sun+[Mg/Fe]-[Si/Fe])
+Derived,[Mg/Fe],0.020332545,GALAH DR4,alpha balance
+Derived,[Si/Fe],0.005609162,GALAH DR4,alpha balance
+Derived,[Fe/H],0.12957397,GALAH DR4,bulk metallicity
+Derived,[Ba/Fe]_sproc,-0.039925143,GALAH DR4,s-process volatile proxy
+Derived,[Y/Fe]_sproc,-0.06935767,GALAH DR4,s-process
+Derived,[Eu/Fe]_rproc,,GALAH DR4,r-process reference
+Gaia-GSPSpec,teff_gspspec_K,5761.0,Gaia DR3,
+Gaia-GSPSpec,logg_gspspec,3.8,Gaia DR3,
+Gaia-GSPSpec,[M/H]_gspspec,0.06,Gaia DR3,
+Gaia-GSPSpec,[alpha/Fe]_gspspec,0.02,Gaia DR3,
+Gaia-GSPSpec,[Mg/Fe]_gspspec,0.1,Gaia DR3,
+Gaia-GSPSpec,[Si/Fe]_gspspec,0.03,Gaia DR3,
+Gaia-GSPSpec,[Ca/Fe]_gspspec,0.01,Gaia DR3,
+Gaia-GSPSpec,[Ti/Fe]_gspspec,0.16,Gaia DR3,
+Gaia-GSPSpec,[Cr/Fe]_gspspec,,Gaia DR3,
+Gaia-GSPSpec,[Ni/Fe]_gspspec,0.01,Gaia DR3,
+Gaia-GSPSpec,[N/Fe]_gspspec,0.12,Gaia DR3,
+Gaia-GSPSpec,[Ce/Fe]_gspspec,,Gaia DR3,
+Gaia-GSPSpec,[Nd/Fe]_gspspec,,Gaia DR3,
+Gaia-GSPSpec,[Zr/Fe]_gspspec,,Gaia DR3,
+Gaia-GSPSpec,[Fe/M]_gspspec,-0.12,Gaia DR3,
+Gaia-FLAME,mass_msun,1.1727481,Gaia DR3,FLAME
+Gaia-FLAME,age_gyr,6.04879,Gaia DR3,FLAME
+Gaia-FLAME,radius_rsun,1.9900023,Gaia DR3,FLAME
+Gaia-FLAME,lum_lsun,3.7841847,Gaia DR3,FLAME
+Lithium,A(Li)_3D_NLTE,2.25514,GALAH DR4 VAC,3D NLTE
+Lithium,A(Li)_upp_lim,,GALAH DR4 VAC,
+Lithium,EW_Li_mA,51.371044,GALAH DR4 VAC,
+Kinematics,X_kpc,-0.09295778,GALAH DR4 VAC,Galactocentric
+Kinematics,Y_kpc,-0.0017396254,GALAH DR4 VAC,
+Kinematics,Z_kpc,-0.035719953,GALAH DR4 VAC,height above plane
+Kinematics,R_gal_kpc,,GALAH DR4 VAC,guiding radius proxy
+Kinematics,U_km_s,-52.336872,GALAH DR4 VAC,
+Kinematics,V_km_s,-40.72369,GALAH DR4 VAC,
+Kinematics,W_km_s,-11.891901,GALAH DR4 VAC,
+Kinematics,eccentricity,0.16495173,GALAH DR4 VAC,orbital
+Kinematics,z_max_kpc,0.06341427,GALAH DR4 VAC,max excursion
+Kinematics,R_peri_kpc,6.3298373,GALAH DR4 VAC,
+Kinematics,R_apo_kpc,8.830573,GALAH DR4 VAC,
+Kinematics,J_R,34.399086,GALAH DR4 VAC,radial action
+Kinematics,J_Z,0.1352433,GALAH DR4 VAC,vertical action
+Kinematics,L_Z,1723.343,GALAH DR4 VAC,ang. momentum
+Kinematics,orbital_energy,-160679.39,GALAH DR4 VAC,

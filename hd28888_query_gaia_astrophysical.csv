@@ -1,0 +1,2 @@
+source_id,teff_gspphot,logg_gspphot,mh_gspphot,distance_gspphot,radius_gspphot,ag_gspphot,teff_gspspec,logg_gspspec,mh_gspspec,alphafe_gspspec,fem_gspspec,cafe_gspspec,mgfe_gspspec,sife_gspspec,sfe_gspspec,tife_gspspec,crfe_gspspec,nife_gspspec,nfe_gspspec,cefe_gspspec,ndfe_gspspec,zrfe_gspspec,flags_gspspec,mass_flame,age_flame,radius_flame,lum_flame,evolstage_flame
+3312653647717790720,5704.693,4.0435,-0.0989,99.562,1.9974,0.0229,5761.0,3.8,0.06,0.02,-0.12,0.01,0.1,0.03,-0.04,0.16,,0.01,0.12,,,,1010000000109900000099999995,1.1727481,6.04879,1.9900023,3.7841847,456

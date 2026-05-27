@@ -1,0 +1,2 @@
+source_id,ra,dec,ref_epoch,parallax,parallax_error,parallax_over_error,pmra,pmra_error,pmdec,pmdec_error,radial_velocity,radial_velocity_error,rv_nb_transits,ruwe,phot_g_mean_mag,phot_bp_mean_mag,phot_rp_mean_mag,bp_rp,ag_gspphot,distance_gspphot,non_single_star,in_qso_candidates,in_galaxy_candidates
+3312653647717790720,68.41124363572398,15.961256676018776,2016.0,10.000773994527352,0.024161762,413.90915,65.22837692734834,0.029680083,-55.77929544357106,0.020366874,53.70128,0.13967045,22,0.984787,8.237693,8.559022,7.743038,0.8159838,0.0229,99.562,0,False,False
