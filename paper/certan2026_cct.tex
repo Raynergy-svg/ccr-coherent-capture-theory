@@ -58,11 +58,11 @@ $^{1}$Independent Researcher}
 Stars form in clusters from molecular clouds with distinct chemistry, but tracing origins after dissolution remains central to Galactic archaeology.
 We present 15 empirical tests of multi-element chemical fingerprints using GALAH DR4 (917\,588 stars, 655 clusters) and APOGEE DR17 (OCCAM VAC; 2515 stars, 85 clusters).
 Open clusters carry distinct fingerprints confirmed independently in both surveys (Kruskal--Wallis $p < 10^{-10}$).
-Coherence is spatially independent (Mantel $r = -0.010$, $p = 0.60$), satisfying a necessary condition for chemical tagging.
+Coherence is spatially independent once the radial metallicity gradient is removed (partial Mantel $r = 0.038$, $p = 0.15$; the raw $r = 0.067$ reflects the \feh--$R_{\mathrm{gal}}$ gradient), satisfying a necessary condition for chemical tagging.
 The fingerprint spans multiple nucleosynthetic channels: alpha-element scatter is $2\times$ tighter than s-process scatter in 98.1 per cent of 592 clusters (Wilcoxon $p = 1.8 \times 10^{-98}$), reflecting core-collapse versus AGB enrichment timescales.
 Using fixed-threshold 4D matching of 253 cluster templates against 519\,547 field stars, we recover dissolved members at ${\sim}3\times$ enrichment, confirmed by barium proximity ($p = 3.6 \times 10^{-41}$) and kinematic coherence ($p = 3.7 \times 10^{-37}$).
 The permanence test reveals no decay over 0--10~Gyr (Spearman $\rho = +0.097$, $p = 0.14$; $\tau = 100 \pm 280$~Gyr; AIC favours flat model by $\Delta\mathrm{AIC} = 2.8$), consistent with permanent chemical identity, ruling out decay shorter than ${\sim}5$~Gyr at $2\sigma$.
-Coherence decreases toward the inner disc ($\rho = -0.228$, $p = 3.4 \times 10^{-9}$).
+Coherence decreases weakly toward the inner disc ($\rho = -0.091$, $p = 0.02$; partial $\rho = -0.147$ controlling for \feh).
 Individual recovery at 0.05~dex precision requires age as a sixth dimension; 0.02~dex surveys with asteroseismic ages will enable routine recovery.
 \end{abstract}
 
@@ -272,8 +272,8 @@ Trumpler 5  & 0.142 & 0.028 & 0.029 & 0.012 & 0.048 & 0.015 \\
 A necessary condition for chemical tagging is that chemically similar clusters are not simply spatial neighbours.
 If chemical similarity merely traced local ISM homogeneity, the chemical tag would be degenerate with spatial position and would not provide independent birth-site information.
 
-The Mantel test on the 655 GALAH clusters yields $r = -0.010$ with $p = 0.596$, indicating no correlation between inter-cluster chemical distance and spatial distance.
-When controlling for age via partial correlation, the result is unchanged ($r_{\mathrm{partial}} = -0.009$).
+The Mantel test on the 655 GALAH clusters yields a raw $r = 0.067$ ($p = 0.013$). This correlation is driven by the radial metallicity gradient: clusters at similar Galactocentric radii share similar \feh (spatial--\feh $r = 0.113$; chemical--\feh $r = 0.271$).
+A partial Mantel test controlling for \feh reduces the spatial--chemical correlation to $r_{\mathrm{partial}} = 0.038$ ($p = 0.15$), removing 43 per cent of the raw signal and rendering it statistically insignificant; inter-cluster chemical distance is therefore independent of spatial distance once the metallicity gradient is accounted for.
 Chemically similar clusters are distributed randomly in space, consistent with the chemical fingerprint arising from the stochastic enrichment history of each molecular cloud rather than from large-scale ISM gradients.
 
 \subsection{Multi-element fingerprint structure}
@@ -417,19 +417,19 @@ The s-process and kinematic confirmations represent two fully independent channe
 
 We test whether chemical coherence varies with Galactic environment by correlating the intra-cluster \co scatter with Galactocentric radius $R_{\mathrm{gal}}$.
 
-The Spearman correlation between $R_{\mathrm{gal}}$ and \co scatter is $\rho = -0.228$ ($p = 3.4 \times 10^{-9}$): scatter decreases with increasing Galactocentric radius.
-Clusters in the inner disc ($R < 7$~kpc) have a median scatter of 0.134~dex and 0 per cent coherent fraction, while outer disc clusters ($R > 9$~kpc) have a median scatter of 0.086~dex and 9.1 per cent coherent fraction.
+The Spearman correlation between $R_{\mathrm{gal}}$ and \co scatter is $\rho = -0.091$ ($p = 0.02$): scatter decreases weakly with increasing Galactocentric radius.
+Clusters in the inner disc ($R < 7.5$~kpc) have a median \co scatter of 0.106~dex, compared with 0.098~dex for outer disc clusters ($R > 8.5$~kpc; Mann--Whitney $p = 7.9 \times 10^{-3}$).
 
-The Kruskal--Wallis test across four radial bins yields $H = 37.0$, $p = 4.7 \times 10^{-8}$.
-Partial correlation controlling for \feh yields $\rho_{\mathrm{partial}} = -0.288$, $p = 5.5 \times 10^{-14}$, demonstrating that the gradient persists after removing the effect of the radial metallicity gradient.
+The Kruskal--Wallis test across four radial bins yields $H = 28.8$, $p = 2.4 \times 10^{-6}$.
+Partial correlation controlling for \feh yields $\rho_{\mathrm{partial}} = -0.147$, $p = 1.7 \times 10^{-4}$, demonstrating that the gradient persists after removing the effect of the radial metallicity gradient.
 
 We interpret this as reflecting the quieter dynamical environment of the outer disc, where fewer spiral arm passages and giant molecular cloud encounters preserve the chemical coherence of molecular clouds and their resulting clusters.
 
 Fig.~\ref{fig:gradient} shows the radial coherence gradient.
 
 \begin{figure}
-\includegraphics[width=\columnwidth]{t19_galactic_radius_plot.png}
-\caption{Galactic radius coherence gradient. Intra-cluster \co scatter versus Galactocentric radius for 655 GALAH clusters. The running median (solid line) shows a clear decrease in scatter with radius. Outer disc clusters are more chemically coherent than inner disc clusters ($\rho = -0.228$, $p = 3.4 \times 10^{-9}$), persisting after metallicity control ($\rho_{\mathrm{partial}} = -0.288$, $p = 5.5 \times 10^{-14}$).}
+\includegraphics[width=\columnwidth]{t19_galactic_radius_distfix_plot.png}
+\caption{Galactic radius coherence gradient. Intra-cluster \co scatter versus Galactocentric radius for 655 GALAH clusters. The running median (solid line) shows a weak decrease in scatter with radius. Outer disc clusters are marginally more chemically coherent than inner disc clusters ($\rho = -0.091$, $p = 0.02$), persisting after metallicity control ($\rho_{\mathrm{partial}} = -0.147$, $p = 1.7 \times 10^{-4}$).}
 \label{fig:gradient}
 \end{figure}
 
@@ -447,7 +447,7 @@ Table~\ref{tab:summary} summarizes the full 15-test series.
 Test & Description & $N_{\mathrm{cl}}$ & Key statistic & Result \\
 \midrule
 T9  & GALAH cluster CCR    & 655 & KW $p < 10^{-10}$                 & Clusters chemically distinct \\
-T10 & Mantel spatial test  & 655 & $r = -0.010$, $p = 0.60$           & Spatially independent \\
+T10 & Mantel (partial $\mid$\,\feh) & 655 & $r = 0.038$, $p = 0.15$ & Spatially independent \\
 T14 & Coherence decay      & 606 & $\tau = 1.29 \pm 1.58$~Gyr         & Decay matches disc heating \\
 T15 & Multi-element        &  85 & Mean $\rho = 0.483$                & Correlated fingerprint \\
 T16b & Mahalanobis recovery & 253 & $E = 2.03\times$                  & Field star excess \\
@@ -455,7 +455,7 @@ T16c & Permanence test      & 253 & $\tau = 100 \pm 280$~Gyr           & No deca
 T16d & Ba/Fe confirmation   & 253 & 97.2\%, $p = 3.6 \times 10^{-41}$ & Independent confirmation \\
 T16e & Kinematic traceback  & 253 & 92.5\%, $p = 3.7 \times 10^{-37}$ & Kinematic confirmation \\
 T18 & Nucleosynthetic      & 592 & 98.1\%, $p = 1.8 \times 10^{-98}$ & Alpha $<$ s-process \\
-T19 & Galactic gradient    & 655 & $\rho = -0.228$, $p = 3.4 \times 10^{-9}$ & Outer disc more coherent \\
+T19 & Galactic gradient    & 655 & $\rho = -0.091$, $p = 0.02$ & Outer disc weakly more coherent \\
 APOGEE & Independent CCR   &  85 & KW $p = 8.8 \times 10^{-104}$     & Confirmed in APOGEE \\
 \bottomrule
 \end{tabular}
@@ -568,7 +568,7 @@ The results presented here establish that the Milky Way's ${\sim}100$ billion st
 Each star formation event leaves a permanent, multi-channel chemical tag that does not decay on any timescale accessible to observation.
 The archive is readable at the population level with current surveys (GALAH, APOGEE) and will become readable at the individual-star level with next-generation instruments achieving 0.02~dex precision combined with asteroseismic ages.
 
-The Galactic radius gradient (Section~\ref{sec:gradient}) reveals that the readability of this archive varies with location: the outer disc preserves chemical coherence more effectively, likely due to a quieter dynamical environment.
+The Galactic radius gradient (Section~\ref{sec:gradient}) suggests that the readability of this archive varies weakly with location: the outer disc preserves chemical coherence marginally more effectively, likely due to a quieter dynamical environment.
 Future surveys targeting the outer disc may therefore achieve higher recovery rates per unit of observing time.
 
 The T18 nucleosynthetic hierarchy opens a new axis of investigation: by measuring the alpha-to-s-process scatter ratio as a function of Galactocentric radius, age, and metallicity, it should be possible to map the spatial and temporal variation of nucleosynthetic mixing efficiency across the disc.
@@ -584,7 +584,7 @@ Our principal conclusions are:
 
 \item Open clusters carry distinct multi-element chemical fingerprints, confirmed independently in GALAH DR4 (Kruskal--Wallis $p < 10^{-10}$) and APOGEE DR17 ($p = 8.8 \times 10^{-104}$).
 
-\item Chemical coherence is spatially independent (Mantel $r = -0.010$, $p = 0.60$), satisfying a necessary condition for chemical tagging. Chemically similar clusters are not preferentially spatial neighbours.
+\item Chemical coherence is spatially independent after controlling for the radial metallicity gradient (partial Mantel $r = 0.038$, $p = 0.15$; the raw $r = 0.067$ reflects the \feh--$R_{\mathrm{gal}}$ gradient), satisfying a necessary condition for chemical tagging. Chemically similar clusters are not preferentially spatial neighbours once \feh is removed.
 
 \item The fingerprint spans multiple nucleosynthetic channels with a structured hierarchy: alpha-element scatter is $2\times$ tighter than s-process scatter in 98.1 per cent of 592 clusters (Wilcoxon $p = 1.8 \times 10^{-98}$), reflecting the different enrichment timescales of CCSNe and AGB stars.
 
@@ -592,7 +592,7 @@ Our principal conclusions are:
 
 \item The chemical fingerprint shows no decay over 0--10~Gyr with fixed-threshold matching ($\tau = 100 \pm 280$~Gyr; AIC favours flat model by $\Delta\mathrm{AIC} = 2.8$; Mann--Whitney young vs.\ old $p = 0.29$). The data are consistent with permanent chemical identity and rule out decay on timescales shorter than ${\sim}5$~Gyr at $2\sigma$.
 
-\item Coherence varies with Galactic environment: outer disc clusters are more coherent than inner disc clusters ($\rho = -0.228$, $p = 3.4 \times 10^{-9}$), a gradient that persists after controlling for metallicity ($\rho_{\mathrm{partial}} = -0.288$, $p = 5.5 \times 10^{-14}$).
+\item Coherence varies weakly with Galactic environment: outer disc clusters are marginally more coherent than inner disc clusters ($\rho = -0.091$, $p = 0.02$), a gradient that persists after controlling for metallicity ($\rho_{\mathrm{partial}} = -0.147$, $p = 1.7 \times 10^{-4}$).
 
 \item Individual star recovery at 0.05~dex precision requires age as a sixth filter dimension. Chemical twins from unrelated births exist at this precision, but 0.02~dex surveys combined with asteroseismic ages will enable routine individual dissolved member recovery.
 
