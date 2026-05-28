@@ -491,12 +491,11 @@ None of the candidates can be individually confirmed as a dissolved member at th
 
 \subsection{NGC 6253}
 
-NGC~6253 is a moderately distant (${\sim}0.56$~kpc), intermediate-age (3--5~Gyr), metal-rich ($\mathrm{[Fe/H]} \approx +0.21$) cluster.
-Using a 5D chemical template from 31 clean GALAH members, the pipeline yields: 2149 chemical matches (fixed tolerances of \feh $\pm 0.08$, \mgfe $\pm 0.05$, \sife $\pm 0.05$, \co $\pm 0.08$, \alfe $\pm 0.06$) $\to$ 456 parallax-consistent $\to$ 11 proper-motion-consistent $\to$ 4 with radial velocities within 15~\kms of the cluster mean.
+NGC~6253 is a distant (${\sim}1.65$~kpc), intermediate-age (3--5~Gyr), metal-rich ($\mathrm{[Fe/H]} \approx +0.21$) cluster.
+Using a 5D chemical template from 31 clean GALAH members (fixed tolerances of \feh $\pm 0.08$, \mgfe $\pm 0.05$, \sife $\pm 0.05$, \co $\pm 0.08$, \alfe $\pm 0.06$), the pipeline yields: 3598 chemical matches $\to$ 1908 parallax-consistent $\to$ 361 also proper-motion-consistent $\to$ 120 also radial-velocity-consistent (within 15~\kms) $\to$ 7 also age-consistent (2--7~Gyr).
+This final count matches the ${\sim}7$ false positives expected by chance in the field pool, so no candidate can be confidently identified as a dissolved member.
 
-The best candidate, HD~163560 (Gaia DR3 5953941329394191360, $G = 9.46$), matches the cluster in parallax to 1.2 per cent and in 5D chemistry.
-However, a TESS asteroseismic mass estimate of $1.69 \pm 0.18\,M_\odot$ \citep[following the methods of][]{Hon2021} implies an age of ${\sim}1.7$~Gyr, inconsistent with the cluster age of 3--5~Gyr.
-This candidate is therefore eliminated.
+One chemically consistent match, HD~163560 (Gaia DR3 5953941329394191360, $G = 9.46$), illustrates the kinematic filter: although it lies within the 5D chemical template, its parallax ($1.83$~mas, ${\sim}547$~pc) is incompatible with the cluster distance ($0.61$~mas, $1.65$~kpc), so it is rejected at the parallax stage as a foreground star.
 
 Table~\ref{tab:pipeline} summarizes the pipeline results.
 
@@ -510,7 +509,7 @@ Cluster & $d$ (kpc) & Chem & Plx & PM & RV & FP \\
 \midrule
 Praesepe   & 0.19 & 22\,327 & 198 & 0  & -- & -- \\
 NGC 6791   & 4.1  & 768     & 59  & 18 & 4  & 18 \\
-NGC 6253   & 0.56 & 2149    & 456 & 11 & 4  & -- \\
+NGC 6253   & 1.65 & 3598    & 1908 & 361 & 120 & 7 \\
 \bottomrule
 \end{tabular}
 \end{table}
