@@ -1,0 +1,5 @@
+sector,offset_arcsec,target_offset_arcsec,verdict
+31,14.930167395964993,1.2001162899677225,INCONCLUSIVE: <1 pixel offset (within PSF)
+38,15.73721349070239,0.7148526187126738,INCONCLUSIVE: <1 pixel offset (within PSF)
+87,36.415117631557706,0.10508477444271691,FAIL: diff-image centroid >1 pixel from target (likely blended source)
+94,25.648084544527872,0.38696477290416414,FAIL: diff-image centroid >1 pixel from target (likely blended source)

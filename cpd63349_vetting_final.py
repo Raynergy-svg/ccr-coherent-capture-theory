@@ -1,0 +1,96 @@
+"""Final consolidated summary of all three vetting tests."""
+out = open("cpd63349_vetting.md", "a")
+def md(s=""): print(s); out.write(s+"\n")
+
+md("\n---\n")
+md("## FINAL VETTING SUMMARY")
+md("")
+md("| Test | Sub-test | Result | Notes |")
+md("|------|----------|--------|-------|")
+md("| **1** | NASA TOI / CTOI | **PASS** | 0 records for TIC 38877496 |")
+md("|       | ExoFOP-TESS direct | PASS | 0 TOI, 0 CTOI, 0 imaging, 0 spec, 0 time-series logs |")
+md("|       | NASA confirmed planets | PASS | no match at position |")
+md("|       | Gaia DR3 NSS (3 tables) | PASS | 0 entries |")
+md("|       | Gaia DR3 EB classifier | PASS | 0 entries |")
+md("|       | AAVSO VSX, Prsa+2022/24 TESS EB | PASS | no match within 42″ |")
+md("|       | ASAS-SN / ATLAS variables | PASS | no match |")
+md("|       | SIMBAD | PASS | no entry at all |")
+md("|       | **TEST 1 OVERALL** | **PASS** | **signal is not previously known to community** |")
+md("|       |  |  |  |")
+md("| **2** | S31 diff-image centroid | INCONC | 14.9″ offset (0.71 pix), NE direction |")
+md("|       | S38 diff-image centroid | INCONC | 15.7″ offset (0.75 pix), N direction |")
+md("|       | S87 diff-image centroid | FAIL  | 36.4″ offset (1.73 pix), SW direction |")
+md("|       | S94 diff-image centroid | FAIL  | 25.6″ offset (1.22 pix), SW direction |")
+md("|       | sector-to-sector direction consistency | FAIL | centroids scatter randomly (NE/N/SW/SW) |")
+md("|       | Gaia neighbours within 42″ | NEUTRAL | one G=12.99 at 10.4″; could host signal as 6.2% diluted EB |")
+md("|       | **TEST 2 OVERALL** | **INCONCLUSIVE** | **signal too weak to centroid (~1.6σ per pixel); centroid offsets scatter randomly, not pointing coherently to any specific neighbour. We cannot prove on-target nor rule out BEB** |")
+md("|       |  |  |  |")
+md("| **3** | SDE(2P)/SDE(1P) = 0.58 | PASS | BLS prefers 1P (planet) over 2P (EB) |")
+md("|       | 2P-fold primary/secondary asymmetry | INCONC | 188 vs 600 ppm at 5.9σ bootstrap, but N=4 |")
+md("|       | Per-transit odd-even (bootstrap) | FAIL→PASS | bootstrap 3.9σ → empirical-RMS 0.72σ |")
+md("|       | Duration vs stellar density | PASS | 7.2 h obs vs 9.5 h central (b≈0.6) |")
+md("|       | Implied companion radius | PASS | 1.89 R⊕ even at higher 600-ppm depth = 2.65 R⊕, planet-sized |")
+md("|       | **TEST 3 OVERALL** | **PASS (cautiously)** | **with proper red-noise accounting, no EB signature remains. The 2P-fold asymmetry and per-transit scatter are consistent with N=4 noise-dominated sampling.** |")
+md("")
+md("## OVERALL DISPOSITION")
+md("")
+md("**INCONCLUSIVE — leaning PLANET CANDIDATE, blocked by sample size and centroid S/N**")
+md("")
+md("Strong-positive arguments for planet:")
+md("- BLS detection statistic (SDE 16.29 narrow-scan) is well above threshold")
+md("- 4/4 visible predicted transit windows show positive depth (53, 324, 585, 762 ppm)")
+md("- BLS power ratio favours P=190 d (1P) over 380.95 d (2P)")
+md("- Transit duration consistent with stellar density and b ≈ 0.6")
+md("- Implied R_p ≈ 1.9-2.7 R⊕ across the depth range — well within planet regime")
+md("- Gaia DR3 metadata is textbook clean (RUWE 0.88, no NSS, isolated, dwarf)")
+md("- No prior community vetting / variable / EB classification")
+md("")
+md("Argument against discovery claim:")
+md("- N=4 transits in TESS coverage is too few to discriminate EB-at-2P vs planet-at-1P "
+   "definitively. The observed depth scatter (53-762 ppm) is consistent with planet + "
+   "noise or with EB primary+secondary at 188/600 ppm.")
+md("- Difference-image centroid offsets (~1 TESS pixel median) are at the noise floor "
+   "for our per-pixel S/N (~1.6σ). We cannot localise the signal to confirm on-target "
+   "origin nor identify a specific blended source.")
+md("- A G=12.99 neighbour at 10.4″ could host the eclipse as a 6%-deep diluted EB; "
+   "current centroid data don't exclude this.")
+md("")
+md("## NEXT STEPS (to settle the disposition)")
+md("")
+md("1. **Ground-based photometric follow-up at the next predicted transit**")
+md("   - Next transit (cycle 14) ≈ BTJD 4060.58 ≈ JD 2461060 ≈ early Jan 2026")
+md("   - Following cycle (15) ≈ BTJD 4251.05 ≈ Jun 2026")
+md("   - A 0.5-1 m class telescope with 1% photometry should resolve the 354 ppm depth "
+   "and immediately test the transit hypothesis")
+md("   - More importantly: a successful ground detection at the PREDICTED time + "
+   "duration confirms planet; a deeper/shallower or earlier/later detection points to "
+   "EB or signal at wrong period")
+md("")
+md("2. **RV monitoring via HARPS or ESPRESSO**")
+md("   - At G=10.04 V≈10.5, dec=-63°, this is a reasonable ESO target")
+md("   - Planet hypothesis (R_p=1.9 R⊕, P=190 d, M*=1 M_sun): expected M_p≈4-8 M⊕, K≈0.6-1.3 m/s")
+md("   - EB hypothesis (M-dwarf or BD companion at 190 or 380 d): K~100-1000 m/s")
+md("   - 10-20 RV epochs at 1-2 m/s precision settles it definitively")
+md("")
+md("3. **High-resolution imaging** (e.g. SOAR HRCam speckle or Gemini-S NIRI)")
+md("   - Detect or rule out any blended source within 1 arcsec that Gaia missed")
+md("")
+md("4. **Stacked difference image across all 4 sectors after de-rotation**")
+md("   - Increases diff-image S/N by sqrt(4)=2x")
+md("   - Could marginally tighten the centroid test")
+md("")
+md("## CONCLUSION")
+md("")
+md("CPD-63 349 b is a **plausible planet candidate** that survives Test 1 (no community "
+   "vetting / EB catalog), passes the basic Test 3 EB diagnostics (SDE ratio, duration, "
+   "companion size, properly-accounted odd-even), but FAILS to be confirmed by Test 2 "
+   "(difference-image centroid) because the signal is at the per-pixel noise floor. "
+   "The candidate disposition is INCONCLUSIVE and the system should be flagged for "
+   "near-term follow-up (next predicted transit Jan 2026, RV characterization).")
+md("")
+md("**This is NOT a discovery.** The TESS BLS detection statistic alone, while well "
+   "above threshold, has 4 in-data transits with substantial per-event depth scatter. "
+   "The dwarf survey BLS catch may be real or may be a BEB at half-period. Settling "
+   "this requires additional photometry or RV.")
+out.close()
+print("Final summary appended.")
