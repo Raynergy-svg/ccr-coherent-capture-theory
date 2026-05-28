@@ -1,0 +1,66 @@
+FGK multi: 255  single: 541
+FGK field pool: 159277
+strict-matched control for multi:  2490
+strict-matched control for single: 5256
+  median match distance (multi):  0.163
+  median match distance (single): 0.165
+
+STRICT match KS diagnostic (Teff, logg, [Fe/H]):
+  multi vs ctrl [Teff]: D=0.012  p=1.000e+00  OK
+  single vs ctrl [Teff]: D=0.010  p=1.000e+00  OK
+  multi vs ctrl [logg]: D=0.026  p=9.966e-01  OK
+  single vs ctrl [logg]: D=0.016  p=9.991e-01  OK
+  multi vs ctrl [[Fe/H]]: D=0.018  p=1.000e+00  OK
+  single vs ctrl [[Fe/H]]: D=0.012  p=1.000e+00  OK
+
+==============================================================================
+STRICT-MATCHED LEVENE TESTS -- multi vs strict-match
+==============================================================================
+alpha (Bonferroni) = 0.00417
+
+element      n_multi   n_match   sigma_multi  sigma_match  ratio   Levene_p  pass
+  FE_H            255     2490       0.1743       0.1748  0.997  8.784e-01  ----
+  MG_FE           255     2490       0.0729       0.0725  1.006  9.446e-01  ----
+  SI_FE           255     2490       0.0529       0.0537  0.986  4.802e-01  ----
+  CA_FE           255     2489       0.0501       0.0552  0.909  5.100e-01  ----
+  AL_FE           255     2488       0.0914       0.0984  0.929  8.926e-01  ----
+  TI_FE           243     2397       0.2010       0.1933  1.040  1.988e-01  ----
+  MN_FE           255     2490       0.0615       0.0672  0.915  1.007e-01  ----
+  NI_FE           255     2490       0.0427       0.0444  0.963  1.983e-01  ----
+  C_FE            255     2490       0.0723       0.0766  0.944  1.788e-01  ----
+  O_FE            254     2489       0.0978       0.0976  1.002  9.408e-01  ----
+  N_FE            245     2390       0.2106       0.2061  1.022  6.141e-01  ----
+  ALPHA_M         255     2490       0.0419       0.0432  0.969  5.437e-01  ----
+
+STRICT match: 0 of 12 elements pass at p<0.00417
+  REJECTED after strict matching -> the unstricted finding was [Fe/H] artifact
+
+==============================================================================
+STRICT-MATCHED LEVENE TESTS -- single vs strict-match
+==============================================================================
+element      n_single  n_match   sigma_single sigma_match  ratio   Levene_p
+  FE_H            541     5256       0.1711       0.1711  1.000  9.869e-01  ns
+  MG_FE           541     5256       0.0803       0.0774  1.037  2.683e-01  ns
+  SI_FE           541     5256       0.0531       0.0547  0.971  7.401e-01  ns
+  CA_FE           541     5255       0.0601       0.0589  1.020  6.547e-01  ns
+  AL_FE           540     5251       0.1014       0.0896  1.132  7.345e-03  ns
+  TI_FE           524     5099       0.2011       0.1992  1.009  6.724e-01  ns
+  MN_FE           541     5256       0.0668       0.0681  0.980  7.536e-01  ns
+  NI_FE           541     5256       0.0405       0.0431  0.940  1.751e-01  ns
+  C_FE            541     5256       0.0731       0.0783  0.933  1.985e-01  ns
+  O_FE            541     5246       0.1045       0.1036  1.009  2.494e-01  ns
+  N_FE            529     5135       0.2141       0.2038  1.051  2.958e-01  ns
+  ALPHA_M         541     5256       0.0491       0.0485  1.012  8.995e-01  ns
+
+==============================================================================
+FINAL VERDICT (strict matching)
+==============================================================================
+
+Elements with sigma_multi < sigma_match at Bonferroni: []
+Elements with sigma_single < sigma_match at Bonferroni: []
+
+>> Coherence signal disappears after strict matching.
+>> The unstricted finding was a metallicity-distribution artifact.
+>> CCT-coherence REJECTED at population level.
+
+DONE

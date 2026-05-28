@@ -1,0 +1,98 @@
+Pre-registered: 12 elements, Bonferroni alpha = 0.00417
+
+[1] Loading hosts and field (from cct_test_hosts.csv, cct_test_field.csv)...
+  all hosts in APOGEE: 877
+  field pool:          159277
+
+[2] Pulling per-planet count from NEA pscomppars...
+  per-planet rows: 6291, distinct hosts: 4709
+
+[3] FGK restriction (Teff 4500-7000, logg > 3.8)...
+  FGK hosts: 796
+  FGK multi-planet hosts (n>=2): 255
+  FGK single-planet hosts (n=1): 541
+
+[4] FGK field pool (Teff 4500-7000, logg > 3.8, SNR > 70)...
+  FGK field pool: 159277
+
+[5] Nearest-neighbour matched control: k=10 per host, dist on (Teff/100, logg/0.1)...
+  matched control for multi: 2521 (deduplicated from 2550 draws)
+  matched control for single: 5261 (deduplicated from 5410 draws)
+
+[6] KS diagnostic: are matched controls well-matched on (Teff, logg, [Fe/H])?
+  multi vs matched_control [Teff]: D=0.007  p=1.000e+00  (higher p = better matched)
+  single vs matched_control [Teff]: D=0.006  p=1.000e+00  (higher p = better matched)
+  multi vs matched_control [logg]: D=0.010  p=1.000e+00  (higher p = better matched)
+  single vs matched_control [logg]: D=0.008  p=1.000e+00  (higher p = better matched)
+  multi vs matched_control [[Fe/H]]: D=0.209  p=2.615e-09  (higher p = better matched)
+  single vs matched_control [[Fe/H]]: D=0.191  p=3.494e-16  (higher p = better matched)
+
+==============================================================================
+[7] LEVENE TESTS -- multi vs matched control (PRE-REGISTERED)
+==============================================================================
+  alpha (Bonferroni over 12 elements) = 0.00417
+
+  element     n_multi   n_match   sigma_multi  sigma_match  ratio   Levene_p  pass?
+  FE_H            255     2521       0.1743       0.2180  0.800  1.561e-03  PASS
+  MG_FE           255     2521       0.0729       0.0879  0.830  7.476e-03  ----
+  SI_FE           255     2521       0.0529       0.0624  0.849  1.337e-02  ----
+  CA_FE           255     2520       0.0501       0.0694  0.722  2.329e-03  PASS
+  AL_FE           255     2509       0.0914       0.0956  0.956  2.522e-01  ----
+  TI_FE           243     2425       0.2010       0.2069  0.971  7.945e-01  ----
+  MN_FE           255     2519       0.0615       0.0812  0.757  3.311e-04  PASS
+  NI_FE           255     2521       0.0427       0.0469  0.910  2.174e-01  ----
+  C_FE            255     2520       0.0723       0.0833  0.868  1.295e-02  ----
+  O_FE            254     2517       0.0978       0.1109  0.882  6.097e-02  ----
+  N_FE            245     2409       0.2106       0.2251  0.936  5.069e-01  ----
+  ALPHA_M         255     2521       0.0419       0.0578  0.725  7.387e-05  PASS
+
+==============================================================================
+[8] AUXILIARY: single-planet hosts vs matched control (gradient)
+==============================================================================
+  element     n_single  n_match   sigma_single  sigma_match  ratio   Levene_p
+  FE_H            541     5261       0.1711       0.2137  0.801  3.305e-07
+  MG_FE           541     5260       0.0803       0.0942  0.852  1.705e-03
+  SI_FE           541     5261       0.0531       0.0642  0.828  1.713e-03
+  CA_FE           541     5257       0.0601       0.0684  0.878  3.134e-04
+  AL_FE           540     5252       0.1014       0.0958  1.059  2.869e-01
+  TI_FE           524     5048       0.2011       0.2064  0.975  8.522e-01
+  MN_FE           541     5260       0.0668       0.0900  0.742  2.818e-04
+  NI_FE           541     5260       0.0405       0.0490  0.826  2.977e-02
+  C_FE            541     5257       0.0731       0.0852  0.857  5.219e-03
+  O_FE            541     5253       0.1045       0.1121  0.933  3.078e-01
+  N_FE            529     5135       0.2141       0.2219  0.965  5.325e-01
+  ALPHA_M         541     5261       0.0491       0.0635  0.773  8.843e-06
+
+==============================================================================
+[9] AUXILIARY: multi vs single direct (no field control)
+==============================================================================
+  element      n_multi   n_single  sigma_multi  sigma_single  ratio    Levene_p
+  FE_H             255       541       0.1743        0.1711  1.019  8.014e-01
+  MG_FE            255       541       0.0729        0.0803  0.909  1.821e-01
+  SI_FE            255       541       0.0529        0.0531  0.996  5.091e-01
+  CA_FE            255       541       0.0501        0.0601  0.835  2.928e-01
+  AL_FE            255       540       0.0914        0.1014  0.902  1.035e-01
+  TI_FE            243       524       0.2010        0.2011  1.000  7.212e-01
+  MN_FE            255       541       0.0615        0.0668  0.920  2.195e-01
+  NI_FE            255       541       0.0427        0.0405  1.055  9.386e-01
+  C_FE             255       541       0.0723        0.0731  0.990  3.868e-01
+  O_FE             254       541       0.0978        0.1045  0.936  2.393e-01
+  N_FE             245       529       0.2106        0.2141  0.983  9.785e-01
+  ALPHA_M          255       541       0.0419        0.0491  0.853  8.250e-02
+
+==============================================================================
+PRE-REGISTERED VERDICT
+==============================================================================
+
+elements passing (sigma_multi < sigma_match at p < 0.00417): 4/12
+
+  *** CCT COHERENCE CONFIRMED (>=4 of 12 elements pass) ***
+  Passing elements:
+    FE_H: sigma_multi/sigma_match = 0.800  p = 1.561e-03
+    CA_FE: sigma_multi/sigma_match = 0.722  p = 2.329e-03
+    MN_FE: sigma_multi/sigma_match = 0.757  p = 3.311e-04
+    ALPHA_M: sigma_multi/sigma_match = 0.725  p = 7.387e-05
+
+  CSV outputs: cct_coherence_*.csv
+
+DONE
