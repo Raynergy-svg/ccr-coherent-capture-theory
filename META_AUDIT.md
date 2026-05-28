@@ -18,8 +18,8 @@ has a more honest framing that makes the claim defensible.
 | **T15** | Multi-element fingerprint (C/O predicts Mg/Fe Fisher OR=4.69, p=2.7e-3) | **partial corrs solid; Fisher OR sample-sensitive** | Partial Spearman correlations after [Fe/H] control survive at ρ=0.17–0.48 (all p<10⁻⁴, N=593). But the Fisher OR drops to 2.83/p=0.06 on a broader sample — the published OR=4.69 depends on the specific 81-cluster selection. |
 | **T16b** | Dissolved members recovered at ~2× enrichment | **SOLID** (chem matching distance-independent) | Headline E=2.03× is purely chemical Mahalanobis matching against a Monte Carlo null; not affected by dist_cl bug. The radial sub-stratification uses dist_cl but is secondary. |
 | **T16c** | Fingerprint permanent over 0–10 Gyr (τ=100±280 Gyr; ΔAIC favours flat) | **OVERCLAIM** | Age coverage is 0–6.3 Gyr (NOT 0–10), with 87 % of clusters in 0–1 Gyr and zero above 8 Gyr. Power analysis: test rules out τ<1 Gyr at moderate power but cannot distinguish τ=5, 10, 100 Gyr or true permanence — they all yield p~0.1 with this sample. Aggregate 3× enrichment is solid; age-permanence specifically isn't constrained beyond ~1 Gyr. |
-| **T16d** | Ba/Fe blind cross-check (97.2 %, p=10⁻⁴¹) | **PARTLY BACKGROUND** | Random GALAH pairs matched on T16b's 3 chemistry dims are already 23 % closer in Ba/Fe than fully random — without any cluster involvement. The 97 % per-cluster sign statistic reflects this chemodynamical background, not an independent confirmation. |
-| **T16e** | Kinematic 5.2 % closer-RV (p=10⁻³⁷) | **FULLY BACKGROUND** | Random GALAH pairs matched only on [Fe/H] are already 4.5 % closer in RV; full chemistry-matching gives 8 % closer. T16e's 5.2 % sits inside this background. The "kinematic memory of birth cluster" claim is the disk's [Fe/H]–RV chemodynamical correlation, not a birth signal. |
+| **T16d** | Ba/Fe blind cross-check (97.2 %, p=10⁻⁴¹) | **REAL signal, smaller than headline** | The published 97% vs whole-field control double-counts the chemodynamical background. Proper placebo-controlled test (matched-to-X vs random other-cluster Ba/Fe) gives a real residual: 10 % closer to true cluster, 69 % of clusters, Wilcoxon p = 7×10⁻⁵. Genuine independent confirmation, just smaller than headline. |
+| **T16e** | Kinematic 5.2 % closer-RV (p=10⁻³⁷) | **MARGINAL, needs better data** | Published 5.2 % is the [Fe/H]-matched chemodynamical background (random GALAH [Fe/H]-matched pairs are 5 % closer in RV). Proper placebo test (only 25 clusters with stable mean RV) shows 16 % median hint but Wilcoxon n.s. (p=0.18). Deferred until Gaia DR4 / dedicated RV follow-up. |
 | **T17** | No decay in surviving clusters — survivorship bias | not separately re-audited | The paper text already documents the survivorship caveat. C_O_std<0.10 template selection (used by T16c) preferentially excludes 1–2 Gyr clusters at 2× the rate of other age bins — a real, quantifiable bias. |
 | **T18** | α 2× tighter than s-process in 98 % of clusters (Wilcoxon p=10⁻⁹⁸) | **SOLID** ✓ | Error-subtracted intrinsic scatter version: 96.4 %, Wilcoxon p=2×10⁻⁹⁷. Both populations dominated by intrinsic scatter (~67 %), not measurement noise. The cleanest audit win of the session. |
 | **T19** | Outer disc more coherent (ρ=−0.228, p=10⁻⁹) | **WAS A BUG → FIXED, weaker** | dist_cl bug inverted radii. Post-fix: ρ=−0.108 (p=0.008), partial controlling [Fe/H] = −0.177 (p=1.1e-5). Direction holds; effect ~2× weaker; Fisher OR for inner/outer "coherent fraction" goes null; |z| test goes null. |
@@ -51,21 +51,29 @@ clusters that are *already* chemically tight. At 1–2 Gyr the pass rate is
 the only test that explicitly grapples with this; the others assume it
 away.
 
-**(4) Chemodynamical-disk-background mistaken for birth-cluster signal.**
-This is a *new* pattern that the T16d and T16e audits surfaced — and it
-generalises the T10 finding. Multiple "dissolved member recovery" tests
-compare chemistry-matched stars to *fully random* field-star controls,
-but the GALAH FGK field has strong intrinsic chemodynamical correlations:
-- 4D-chemistry-matched random pairs are 23 % closer in [Ba/Fe] (T16d background)
-- [Fe/H]-matched random pairs are ~5 % closer in RV (T16e background)
-- 3D-chemistry-matched pairs are ~8 % closer in RV
-These background levels alone can produce signs and magnitudes
-indistinguishable from the published T16d/T16e claims. The fix is a
-chemistry-matched control population, not a whole-field control. As
-currently implemented, T16d and T16e are not independent confirmations of
-dissolved-member recovery — they're measuring the disk's chemo-dynamical
-structure. **Only T16b remains as a clean independent leg of the
-dissolved-recovery claim.**
+**(4) Whole-field controls inflate dissolved-recovery signals.** The
+T16d/T16e audits surfaced — and the T10 finding generalised — a recurring
+pattern: tests that compare chemistry-matched stars to *fully random*
+field-star controls double-count the disk's intrinsic chemodynamical
+correlations (4D-chemistry-matched random pairs are 23 % closer in
+[Ba/Fe], 5–8 % closer in RV, etc.). The fix is a chemistry-matched control
+population.
+
+**Result of the proper test (placebo: compare to random other-cluster
+centroid instead of whole-field):**
+- T10 raw → partial Mantel controlling for [Fe/H] (already fixed).
+- T16d: real residual signal of ~10 % survives the proper test
+  (Wilcoxon p = 7×10⁻⁵ over 140 clusters) — Ba/Fe IS an independent
+  confirmation of dissolved-member recovery, just smaller than the
+  published 97 % / 10⁻⁴¹ headline.
+- T16e: marginal at best (16 % median hint, Wilcoxon p = 0.18 over 25
+  clusters with stable mean RV). The published 5 % is fully background;
+  the proper test needs more data.
+
+**Net for dissolved-recovery story: two clean independent legs (T16b
+Mahalanobis E~2×, T16d ~10 % residual Ba/Fe alignment) + T16e deferred
+until Gaia DR4 / dedicated RV follow-up.** Down from the published three
+clean legs, but still genuinely multi-channel.
 
 ## What's solid headline-and-all
 
