@@ -1,0 +1,34 @@
+==============================================================================
+FOLLOW-UP: HD 180950  Gaia 4186063147481113472  P~1.8567 d candidate (SDE=14.09)
+==============================================================================
+
+[1] Loading HLSP TESS-SPOC FFI LCs from cache...
+  loaded 2 sectors
+  detrended: 9148 pts, baseline 736 d, RMS 693 ppm
+  sectors covered: [np.int64(54), np.int64(80)]
+
+[2] Refined BLS around P=1.857 d (P+-0.01 d)...
+  refined: P=1.856077 d  T0=2771.7080  dur=1.92 h  depth=214 ppm  SDE=3.46
+
+[3] Per-sector independent BLS at refined P:
+  sector 54: power=0.0000  depth=+152 ppm  n_pts=1935
+  sector 80: power=0.0000  depth=+229 ppm  n_pts=7213
+
+[4] Odd-even depths: even=287 ppm (n=202), odd=103 ppm (n=191)
+   diff = 184 ppm
+
+[5] Secondary depth at phase 0.5: -19 ppm  (n=388)
+
+plot saved: hd180950_followup_plot.png
+
+==============================================================================
+PLANET CANDIDATE PARAMETERS (if real)
+==============================================================================
+  host:   R*=1.376 R_sun  M*=1.11  Teff=6010.0 K
+  P    :  1.85608 d
+  dur  :  1.92 h
+  depth:  214 ppm
+  R_p  :  2.20 R_Earth
+  a    :  0.0306 AU
+  T_eq :  1943 K  (NOT habitable -- HOT)
+  status:  CANDIDATE (SDE 14 with multi-sector consistency check above)

@@ -1,0 +1,79 @@
+==============================================================================
+DEEP FOLLOW-UP: CPD-63 349 (TIC 38877496) -- P~190.4839 d candidate
+==============================================================================
+
+[1] Downloading SPOC LCs from MAST...
+  loaded 39 usable sectors
+  detrended: 615948 cadences, baseline 2606 d, RMS 832 ppm
+
+[2] Refined BLS scan around P=190 d (200000 trials, +/- 2 d window)...
+  refined: P=190.47612 d  T0=1393.9178  dur=7.20h  depth=354 ppm  SDE=16.29
+
+[3] Predicted transit times in baseline:
+  expected 14 transits in baseline
+    transit 1: BTJD 1393.918  pts_in_window=0  sectors=[]
+    transit 2: BTJD 1584.394  pts_in_window=0  sectors=[]
+    transit 3: BTJD 1774.870  pts_in_window=0  sectors=[]
+    transit 4: BTJD 1965.346  pts_in_window=0  sectors=[]
+    transit 5: BTJD 2155.822  pts_in_window=360  sectors=[np.int64(31)]
+    transit 6: BTJD 2346.298  pts_in_window=196  sectors=[np.int64(38)]
+    transit 7: BTJD 2536.774  pts_in_window=0  sectors=[]
+    transit 8: BTJD 2727.251  pts_in_window=0  sectors=[]
+    transit 9: BTJD 2917.727  pts_in_window=0  sectors=[]
+    transit 10: BTJD 3108.203  pts_in_window=0  sectors=[]
+    transit 11: BTJD 3298.679  pts_in_window=0  sectors=[]
+    transit 12: BTJD 3489.155  pts_in_window=0  sectors=[]
+    transit 13: BTJD 3679.631  pts_in_window=288  sectors=[np.int64(87)]
+    transit 14: BTJD 3870.107  pts_in_window=174  sectors=[np.int64(94)]
+
+[4] Per-transit depth from local fit:
+    BTJD 2155.82: in-tr 216 pts, out-tr 504 pts, depth = +53 ppm
+    BTJD 2346.30: in-tr 133 pts, out-tr 235 pts, depth = +585 ppm
+    BTJD 3679.63: in-tr 216 pts, out-tr 252 pts, depth = +324 ppm
+    BTJD 3870.11: in-tr 102 pts, out-tr 252 pts, depth = +762 ppm
+  median local depth: 455 ppm
+  spread: 268 ppm   (BLS depth: 354 ppm)
+  fraction with positive (transit-like) depth: 1.00
+
+[5] Odd-even depth check:
+  even-transit depth: 239 ppm  (n=324)
+  odd-transit depth:  390 ppm  (n=343)
+  diff: -151 ppm (large diff => suspect EB)
+
+[6] Secondary eclipse check (phase=0.5):
+  secondary depth: -93 ppm  (n=1013)  (non-zero => suspect EB)
+
+[7] Centroid shift in-transit vs out-of-transit:
+  X centroid shift: 30705.93 milli-pix  (large shift = contamination by nearby source)
+  Y centroid shift: -144036.84 milli-pix
+
+[8] Period harmonic check:
+  P/2 = 95.2381 d -> BLS power 0.000011  depth 166 ppm
+  2P = 380.9522 d -> BLS power 0.000047  depth 629 ppm
+
+[9] Generating diagnostic plot...
+  plot saved: cpd63349_followup_plot.png
+
+==============================================================================
+VERDICT
+==============================================================================
+  Refined period:         P = 190.47612 d
+  Refined depth (BLS):    354 ppm
+  Per-transit median:     455 ppm (n_visible=4)
+  Local depth spread:     268 ppm
+  Positive-depth fraction:1.00
+  SDE (refined):          16.29
+  Even-odd depth diff:    -151 ppm
+  Secondary depth:        -93 ppm
+
+  PLANET PARAMS (if real):
+    R_p = 1.89 R_Earth
+    a   = 0.654 AU
+    T_eq= 328 K
+
+  KOPPARAPU (2013) HZ FOR THIS STAR:
+    optimistic HZ:   0.682 - 1.608 AU
+    conservative HZ: 0.864 - 1.524 AU
+    candidate a:     0.654 AU
+    IN CONSERVATIVE HZ: False
+    IN OPTIMISTIC HZ:   False

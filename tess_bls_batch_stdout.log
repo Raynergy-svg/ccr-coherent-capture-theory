@@ -1,0 +1,237 @@
+==============================================================================
+BATCH BLS TRANSIT SEARCH on 20 TESS-covered actionable dwarfs
+==============================================================================
+target order (by n_sectors descending):
+   1. CPD-63   349           G=10.04  d=105 pc  hab8=0.992  n_sec=41
+   2. CD-60  1593            G=10.89  d=151 pc  hab8=0.993  n_sec=21
+   3. HD 271308              G=9.90  d=184 pc  hab8=0.994  n_sec=9
+   4. BD-02  3362            G=10.27  d=154 pc  hab8=0.994  n_sec=3
+   5. HD 178528B             G=10.29  d=159 pc  hab8=0.988  n_sec=2
+   6. TYC 7413-1369-1        G=10.59  d=147 pc  hab8=0.995  n_sec=1
+   7. TYC 7915-779-1         G=10.26  d=151 pc  hab8=0.993  n_sec=1
+   8. TYC 9263-701-1         G=10.48  d=157 pc  hab8=0.992  n_sec=1
+   9. TYC 8351-1776-1        G=10.94  d=187 pc  hab8=0.991  n_sec=1
+  10. BD-08  6091            G=10.35  d=152 pc  hab8=0.991  n_sec=1
+  11. HD 183193              G=8.78  d=75 pc  hab8=0.991  n_sec=1
+  12. HD 217340              G=9.94  d=131 pc  hab8=0.992  n_sec=1
+  13. BD-06  6123            G=10.20  d=158 pc  hab8=0.990  n_sec=1
+  14. TYC 5248-636-1         G=10.86  d=184 pc  hab8=0.990  n_sec=1
+  15. HD  13684A             G=9.81  d=186 pc  hab8=0.990  n_sec=1
+  16. TYC 8351-2149-1        G=10.58  d=181 pc  hab8=0.990  n_sec=1
+  17. HD  13767              G=10.09  d=130 pc  hab8=0.990  n_sec=1
+  18. CD-47  7291            G=10.37  d=192 pc  hab8=0.990  n_sec=1
+  19. TYC 9271-1853-1        G=11.62  d=177 pc  hab8=0.989  n_sec=1
+  20. TYC  105-2108-1        G=10.72  d=160 pc  hab8=0.989  n_sec=1
+
+==============================================================================
+[1/20] CPD-63   349   Gaia 4677014433801899392   (RA,Dec)=(69.17225,-62.91497)   n_sec=41
+==============================================================================
+  download: 39 usable sectors of 39 downloads in 48s
+  detrended: 615948 pts, baseline 2606 d, RMS 832 ppm
+  BLS done: peak P=190.4839 d  dur=4.80 h  depth=395 ppm  SDE=8.10  (115s)
+  if-real: R_p=2.17 R_Earth  a=0.648 AU  T_eq=338 K
+  per-sector at P=190.4839: depths(ppm) [586, 488, 602, 441, 199, 635, 1244, 471, 302, 816, 274, 976, 498, 532, 630, 909, 444, 351, 316, 528, 235, 579, 620, 484, 512, 552, 952, 466, 517, 638, 777, 510, 498, 286, 594, 451, 630, 361, 928], powers ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+  *** SDE = 8.10 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[2/20] CD-60  1593   Gaia 5479947952629976576   (RA,Dec)=(103.38058,-60.31139)   n_sec=21
+==============================================================================
+  download: 21 usable sectors of 21 downloads in 43s
+  detrended: 324586 pts, baseline 2608 d, RMS 1269 ppm
+  BLS done: peak P=244.2530 d  dur=4.80 h  depth=915 ppm  SDE=5.78  (72s)
+  if-real: R_p=3.30 R_Earth  a=0.765 AU  T_eq=304 K
+  per-sector at P=244.2530: depths(ppm) [859, 505, 426, 537, 896, 551, 448, 788, 729, 614, 690, 563, 840, 367, 663, 716, 817, 1709, 562, 1114, 645], powers ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+  marginal SDE 5.78 -- below 7 but worth a manual look
+
+==============================================================================
+[3/20] HD 271308   Gaia 4660360749704988672   (RA,Dec)=(82.44338,-66.04164)   n_sec=9
+==============================================================================
+  download: 9 usable sectors of 9 downloads in 52s
+  detrended: 135061 pts, baseline 328 d, RMS 871 ppm
+  BLS done: peak P=34.2714 d  dur=2.40 h  depth=290 ppm  SDE=8.21  (32s)
+  if-real: R_p=1.86 R_Earth  a=0.206 AU  T_eq=670 K
+  per-sector at P=34.2714: depths(ppm) [983, 599, 617, 239, 273, 270, 581, 236, 523], powers ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+  *** SDE = 8.21 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[4/20] BD-02  3362   Gaia 3787168403447234688   (RA,Dec)=(172.62450,-3.47847)   n_sec=3
+==============================================================================
+  download: 3 usable sectors of 3 downloads in 4s
+  detrended: 49159 pts, baseline 1034 d, RMS 971 ppm
+  BLS done: peak P=59.3341 d  dur=1.20 h  depth=719 ppm  SDE=7.56  (21s)
+  if-real: R_p=2.93 R_Earth  a=0.298 AU  T_eq=520 K
+  per-sector at P=59.3341: depths(ppm) [667, 652, 676], powers ['0.0000', '0.0000', '0.0000']
+  *** SDE = 7.56 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[5/20] HD 178528B   Gaia 6762301045488196864   (RA,Dec)=(287.52484,-29.11025)   n_sec=2
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 4s
+  detrended: 15045 pts, baseline 25 d, RMS 1249 ppm
+  BLS done: peak P=6.2851 d  dur=2.40 h  depth=432 ppm  SDE=5.22  (0s)
+  if-real: R_p=2.27 R_Earth  a=0.067 AU  T_eq=1107 K
+  marginal SDE 5.22 -- below 7 but worth a manual look
+
+==============================================================================
+[6/20] TYC 7413-1369-1   Gaia 6756649036022752640   (RA,Dec)=(285.33700,-33.27778)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 17222 pts, baseline 25 d, RMS 1218 ppm
+  BLS done: peak P=4.6412 d  dur=1.92 h  depth=361 ppm  SDE=4.26  (0s)
+  if-real: R_p=2.07 R_Earth  a=0.054 AU  T_eq=1190 K
+
+==============================================================================
+[7/20] TYC 7915-779-1   Gaia 6728919696365591040   (RA,Dec)=(281.34625,-39.06639)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 17215 pts, baseline 25 d, RMS 1059 ppm
+  BLS done: peak P=6.7033 d  dur=1.20 h  depth=473 ppm  SDE=4.85  (0s)
+  if-real: R_p=2.38 R_Earth  a=0.070 AU  T_eq=1074 K
+
+==============================================================================
+[8/20] TYC 9263-701-1   Gaia 5820151934211076736   (RA,Dec)=(231.48750,-69.41509)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 8s
+  detrended: 13196 pts, baseline 24 d, RMS 1358 ppm
+  BLS done: peak P=0.5762 d  dur=4.80 h  depth=105 ppm  SDE=4.57  (0s)
+  if-real: R_p=1.12 R_Earth  a=0.014 AU  T_eq=2428 K
+
+==============================================================================
+[9/20] TYC 8351-1776-1   Gaia 5946498361543836928   (RA,Dec)=(265.89300,-50.48775)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 6s
+  detrended: 18213 pts, baseline 28 d, RMS 1441 ppm
+  BLS done: peak P=0.5636 d  dur=4.80 h  depth=93 ppm  SDE=7.27  (1s)
+  if-real: R_p=1.05 R_Earth  a=0.013 AU  T_eq=2464 K
+  *** SDE = 7.27 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[10/20] BD-08  6091   Gaia 2630796837510460416   (RA,Dec)=(349.97660,-7.36747)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 2s
+  detrended: 9035 pts, baseline 22 d, RMS 1017 ppm
+  BLS done: peak P=0.6286 d  dur=4.80 h  depth=120 ppm  SDE=6.56  (0s)
+  if-real: R_p=1.20 R_Earth  a=0.014 AU  T_eq=2374 K
+  marginal SDE 6.56 -- below 7 but worth a manual look
+
+==============================================================================
+[11/20] HD 183193   Gaia 6771181697822279936   (RA,Dec)=(292.32450,-24.32333)   n_sec=1
+==============================================================================
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025127075000-s0092-0000000169309109-0289-s/tess2025127075000-s0092-0000000169309109-0289-s_lc.fits with expected size 1949760. [astroquery.query]
+  download: 1 usable sectors of 1 downloads in 2s
+  detrended: 15693 pts, baseline 25 d, RMS 477 ppm
+  BLS done: peak P=0.5813 d  dur=4.80 h  depth=41 ppm  SDE=7.68  (0s)
+  if-real: R_p=0.70 R_Earth  a=0.014 AU  T_eq=2426 K
+  *** SDE = 7.68 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[12/20] HD 217340   Gaia 2634966799782787584   (RA,Dec)=(345.03870,-6.07944)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 13479 pts, baseline 24 d, RMS 890 ppm
+  BLS done: peak P=9.5094 d  dur=2.40 h  depth=3056 ppm  SDE=6.80  (0s)
+  if-real: R_p=6.04 R_Earth  a=0.088 AU  T_eq=961 K
+  marginal SDE 6.80 -- below 7 but worth a manual look
+
+==============================================================================
+[13/20] BD-06  6123   Gaia 2634917910170903040   (RA,Dec)=(345.32037,-6.08600)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 9419 pts, baseline 23 d, RMS 1135 ppm
+  BLS done: peak P=2.8899 d  dur=3.60 h  depth=334 ppm  SDE=4.73  (0s)
+  if-real: R_p=1.99 R_Earth  a=0.040 AU  T_eq=1440 K
+
+==============================================================================
+[14/20] TYC 5248-636-1   Gaia 2634849942312584960   (RA,Dec)=(346.27200,-5.80944)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 9136 pts, baseline 22 d, RMS 1299 ppm
+  BLS done: peak P=0.6265 d  dur=4.80 h  depth=139 ppm  SDE=4.86  (0s)
+  if-real: R_p=1.29 R_Earth  a=0.014 AU  T_eq=2367 K
+
+==============================================================================
+[15/20] HD  13684A   Gaia 5118120941037811584   (RA,Dec)=(33.22504,-25.80490)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 13023 pts, baseline 20 d, RMS 873 ppm
+  BLS done: peak P=4.4182 d  dur=1.20 h  depth=353 ppm  SDE=5.87  (0s)
+  if-real: R_p=2.05 R_Earth  a=0.053 AU  T_eq=1355 K
+  marginal SDE 5.87 -- below 7 but worth a manual look
+
+==============================================================================
+[16/20] TYC 8351-2149-1   Gaia 5946718401318557440   (RA,Dec)=(265.19995,-49.09372)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 4s
+  detrended: 14181 pts, baseline 24 d, RMS 1388 ppm
+  BLS done: peak P=3.7079 d  dur=1.92 h  depth=443 ppm  SDE=5.23  (0s)
+  if-real: R_p=2.30 R_Earth  a=0.047 AU  T_eq=1358 K
+  marginal SDE 5.23 -- below 7 but worth a manual look
+
+==============================================================================
+[17/20] HD  13767   Gaia 5118127744266022912   (RA,Dec)=(33.38813,-25.76615)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 3s
+  detrended: 13020 pts, baseline 20 d, RMS 1064 ppm
+  BLS done: peak P=0.8081 d  dur=4.80 h  depth=136 ppm  SDE=6.23  (0s)
+  if-real: R_p=1.27 R_Earth  a=0.017 AU  T_eq=2169 K
+  marginal SDE 6.23 -- below 7 but worth a manual look
+
+==============================================================================
+[18/20] CD-47  7291   Gaia 5371291464801734912   (RA,Dec)=(179.87546,-48.24131)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 5s
+  detrended: 15465 pts, baseline 24 d, RMS 1107 ppm
+  BLS done: peak P=0.5184 d  dur=1.92 h  depth=150 ppm  SDE=7.43  (0s)
+  if-real: R_p=1.34 R_Earth  a=0.013 AU  T_eq=2581 K
+  *** SDE = 7.43 >= 7 -- CANDIDATE -- per-sector follow-up required ***
+
+==============================================================================
+[19/20] TYC 9271-1853-1   Gaia 5794269018162164096   (RA,Dec)=(231.21625,-73.73422)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 6s
+  detrended: 19336 pts, baseline 28 d, RMS 2126 ppm
+  BLS done: peak P=9.1676 d  dur=1.20 h  depth=1168 ppm  SDE=5.58  (1s)
+  if-real: R_p=3.73 R_Earth  a=0.086 AU  T_eq=888 K
+  marginal SDE 5.58 -- below 7 but worth a manual look
+
+==============================================================================
+[20/20] TYC  105-2108-1   Gaia 3236036890058556544   (RA,Dec)=(82.45463,3.64575)   n_sec=1
+==============================================================================
+  download: 1 usable sectors of 1 downloads in 10s
+  detrended: 14540 pts, baseline 22 d, RMS 1164 ppm
+  BLS done: peak P=5.5558 d  dur=1.92 h  depth=411 ppm  SDE=4.71  (0s)
+  if-real: R_p=2.21 R_Earth  a=0.061 AU  T_eq=1136 K
+
+==============================================================================
+BATCH BLS COMPLETE -- 20 targets processed
+==============================================================================
+
+Targets sorted by SDE:
+           name  n_sectors  baseline_d        P_d  dur_h   depth_ppm      sde  R_p_Rearth      T_eq_K                     status
+      HD 271308          9  327.595509  34.271359   2.40  290.288832 8.212380    1.860535  669.719854 DETECTION_CANDIDATE_SDE_OK
+   CPD-63   349         39 2606.387803 190.483949   4.80  395.010753 8.097095    2.170337  337.901414 DETECTION_CANDIDATE_SDE_OK
+      HD 183193          1   25.164410   0.581329   4.80   41.396062 7.684690    0.702590 2425.791457 DETECTION_CANDIDATE_SDE_OK
+    BD-02  3362          3 1034.495422  59.334061   1.20  719.257339 7.560199    2.928632  519.691806 DETECTION_CANDIDATE_SDE_OK
+    CD-47  7291          1   24.206909   0.518370   1.92  150.349054 7.429258    1.338977 2580.960369 DETECTION_CANDIDATE_SDE_OK
+TYC 8351-1776-1          1   27.755887   0.563630   4.80   93.209698 7.271576    1.054273 2463.565586 DETECTION_CANDIDATE_SDE_OK
+      HD 217340          1   23.801701   9.509402   2.40 3056.243164 6.799492    6.036936  961.069728           marginal_SDE_5_7
+    BD-08  6091          1   22.332234   0.628634   4.80  120.021273 6.559816    1.196332 2374.038314           marginal_SDE_5_7
+      HD  13767          1   20.265502   0.808128   4.80  136.188650 6.226941    1.274363 2169.218166           marginal_SDE_5_7
+     HD  13684A          1   20.265496   4.418172   1.20  353.129136 5.873448    2.052057 1355.262005           marginal_SDE_5_7
+    CD-60  1593         21 2607.838750 244.252992   4.80  915.441919 5.783011    3.303985  303.799830           marginal_SDE_5_7
+TYC 9271-1853-1          1   27.945658   9.167578   1.20 1168.291659 5.580909    3.732487  887.951267           marginal_SDE_5_7
+TYC 8351-2149-1          1   24.322667   3.707903   1.92  443.438594 5.228057    2.299532 1357.538388           marginal_SDE_5_7
+     HD 178528B          1   25.368451   6.285051   2.40  431.965014 5.224275    2.269587 1107.261694           marginal_SDE_5_7
+
+SDE>=7 candidates: 6
+           name        P_d      sde  depth_ppm  R_p_Rearth      T_eq_K
+   CPD-63   349 190.483949 8.097095 395.010753    2.170337  337.901414
+      HD 271308  34.271359 8.212380 290.288832    1.860535  669.719854
+    BD-02  3362  59.334061 7.560199 719.257339    2.928632  519.691806
+TYC 8351-1776-1   0.563630 7.271576  93.209698    1.054273 2463.565586
+      HD 183193   0.581329 7.684690  41.396062    0.702590 2425.791457
+    CD-47  7291   0.518370 7.429258 150.349054    1.338977 2580.960369
+
+results -> tess_bls_batch_results.csv
+log     -> tess_bls_batch_log.txt
+DONE

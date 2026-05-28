@@ -1,0 +1,119 @@
+==============================================================================
+DEEP FOLLOW-UP: CPD-63 349 (TIC 38877496) -- P~190.4839 d candidate
+==============================================================================
+
+[1] Downloading SPOC LCs from MAST...
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020186164531-s0027-0000000038877496-0189-s/tess2020186164531-s0027-0000000038877496-0189-s_lc.fits with expected size 1785600. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020212050318-s0028-0000000038877496-0190-s/tess2020212050318-s0028-0000000038877496-0190-s_lc.fits with expected size 1848960. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020238165205-s0029-0000000038877496-0193-s/tess2020238165205-s0029-0000000038877496-0193-s_lc.fits with expected size 1915200. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020294194027-s0031-0000000038877496-0198-s/tess2020294194027-s0031-0000000038877496-0198-s_lc.fits with expected size 1860480. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020324010417-s0032-0000000038877496-0200-s/tess2020324010417-s0032-0000000038877496-0200-s_lc.fits with expected size 1903680. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2020351194500-s0033-0000000038877496-0203-s/tess2020351194500-s0033-0000000038877496-0203-s_lc.fits with expected size 1892160. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021014023720-s0034-0000000038877496-0204-s/tess2021014023720-s0034-0000000038877496-0204-s_lc.fits with expected size 1854720. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021039152502-s0035-0000000038877496-0205-s/tess2021039152502-s0035-0000000038877496-0205-s_lc.fits with expected size 1828800. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021065132309-s0036-0000000038877496-0207-s/tess2021065132309-s0036-0000000038877496-0207-s_lc.fits with expected size 1837440. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2018206045859-s0001-0000000038877496-0120-s/tess2018206045859-s0001-0000000038877496-0120-s_lc.fits with expected size 2039040. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2018234235059-s0002-0000000038877496-0121-s/tess2018234235059-s0002-0000000038877496-0121-s_lc.fits with expected size 2004480. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2018292075959-s0004-0000000038877496-0124-s/tess2018292075959-s0004-0000000038877496-0124-s_lc.fits with expected size 1897920. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021091135823-s0037-0000000038877496-0208-s/tess2021091135823-s0037-0000000038877496-0208-s_lc.fits with expected size 1854720. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2018319095959-s0005-0000000038877496-0125-s/tess2018319095959-s0005-0000000038877496-0125-s_lc.fits with expected size 1923840. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021118034608-s0038-0000000038877496-0209-s/tess2021118034608-s0038-0000000038877496-0209-s_lc.fits with expected size 1952640. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021146024351-s0039-0000000038877496-0210-s/tess2021146024351-s0039-0000000038877496-0210-s_lc.fits with expected size 2041920. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2018349182500-s0006-0000000038877496-0126-s/tess2018349182500-s0006-0000000038877496-0126-s_lc.fits with expected size 1598400. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019006130736-s0007-0000000038877496-0131-s/tess2019006130736-s0007-0000000038877496-0131-s_lc.fits with expected size 1791360. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019032160000-s0008-0000000038877496-0136-s/tess2019032160000-s0008-0000000038877496-0136-s_lc.fits with expected size 1805760. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019058134432-s0009-0000000038877496-0139-s/tess2019058134432-s0009-0000000038877496-0139-s_lc.fits with expected size 1848960. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019085135100-s0010-0000000038877496-0140-s/tess2019085135100-s0010-0000000038877496-0140-s_lc.fits with expected size 1920960. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019112060037-s0011-0000000038877496-0143-s/tess2019112060037-s0011-0000000038877496-0143-s_lc.fits with expected size 1984320. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023018032328-s0061-0000000038877496-0250-s/tess2023018032328-s0061-0000000038877496-0250-s_lc.fits with expected size 1860480. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023043185947-s0062-0000000038877496-0254-s/tess2023043185947-s0062-0000000038877496-0254-s_lc.fits with expected size 1880640. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023069172124-s0063-0000000038877496-0255-s/tess2023069172124-s0063-0000000038877496-0255-s_lc.fits with expected size 1941120. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023096110322-s0064-0000000038877496-0257-s/tess2023096110322-s0064-0000000038877496-0257-s_lc.fits with expected size 1969920. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023124020739-s0065-0000000038877496-0259-s/tess2023124020739-s0065-0000000038877496-0259-s_lc.fits with expected size 2039040. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023181235917-s0067-0000000038877496-0261-s/tess2023181235917-s0067-0000000038877496-0261-s_lc.fits with expected size 2027520. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023153011303-s0066-0000000038877496-0260-s/tess2023153011303-s0066-0000000038877496-0260-s_lc.fits with expected size 2099520. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023209231226-s0068-0000000038877496-0262-s/tess2023209231226-s0068-0000000038877496-0262-s_lc.fits with expected size 2013120. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023237165326-s0069-0000000038877496-0264-s/tess2023237165326-s0069-0000000038877496-0264-s_lc.fits with expected size 1886400. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024353092137-s0087-0000000038877496-0284-s/tess2024353092137-s0087-0000000038877496-0284-s_lc.fits with expected size 1967040. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025014115807-s0088-0000000038877496-0285-s/tess2025014115807-s0088-0000000038877496-0285-s_lc.fits with expected size 2030400. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025042113628-s0089-0000000038877496-0286-s/tess2025042113628-s0089-0000000038877496-0286-s_lc.fits with expected size 2105280. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025071122000-s0090-0000000038877496-0287-s/tess2025071122000-s0090-0000000038877496-0287-s_lc.fits with expected size 2041920. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025154050500-s0093-0000000038877496-0290-s/tess2025154050500-s0093-0000000038877496-0290-s_lc.fits with expected size 1915200. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025180145000-s0094-0000000038877496-0291-s/tess2025180145000-s0094-0000000038877496-0291-s_lc.fits with expected size 1892160. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025206162959-s0095-0000000038877496-0292-s/tess2025206162959-s0095-0000000038877496-0292-s_lc.fits with expected size 1846080. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2025232030459-s0096-0000000038877496-0293-s/tess2025232030459-s0096-0000000038877496-0293-s_lc.fits with expected size 1877760. [astroquery.query]
+  loaded 39 usable sectors
+  detrended: 615948 cadences, baseline 2606 d, RMS 832 ppm
+
+[2] Refined BLS scan around P=190 d (200000 trials, +/- 2 d window)...
+  refined: P=190.47612 d  T0=1393.9178  dur=7.20h  depth=354 ppm  SDE=16.29
+
+[3] Predicted transit times in baseline:
+  expected 14 transits in baseline
+    transit 1: BTJD 1393.918  pts_in_window=0  sectors=[]
+    transit 2: BTJD 1584.394  pts_in_window=0  sectors=[]
+    transit 3: BTJD 1774.870  pts_in_window=0  sectors=[]
+    transit 4: BTJD 1965.346  pts_in_window=0  sectors=[]
+    transit 5: BTJD 2155.822  pts_in_window=360  sectors=[np.int64(31)]
+    transit 6: BTJD 2346.298  pts_in_window=196  sectors=[np.int64(38)]
+    transit 7: BTJD 2536.774  pts_in_window=0  sectors=[]
+    transit 8: BTJD 2727.251  pts_in_window=0  sectors=[]
+    transit 9: BTJD 2917.727  pts_in_window=0  sectors=[]
+    transit 10: BTJD 3108.203  pts_in_window=0  sectors=[]
+    transit 11: BTJD 3298.679  pts_in_window=0  sectors=[]
+    transit 12: BTJD 3489.155  pts_in_window=0  sectors=[]
+    transit 13: BTJD 3679.631  pts_in_window=288  sectors=[np.int64(87)]
+    transit 14: BTJD 3870.107  pts_in_window=174  sectors=[np.int64(94)]
+
+[4] Per-transit depth from local fit:
+    BTJD 2155.82: in-tr 216 pts, out-tr 504 pts, depth = +53 ppm
+    BTJD 2346.30: in-tr 133 pts, out-tr 235 pts, depth = +585 ppm
+    BTJD 3679.63: in-tr 216 pts, out-tr 252 pts, depth = +324 ppm
+    BTJD 3870.11: in-tr 102 pts, out-tr 252 pts, depth = +762 ppm
+  median local depth: 455 ppm
+  spread: 268 ppm   (BLS depth: 354 ppm)
+  fraction with positive (transit-like) depth: 1.00
+
+[5] Odd-even depth check:
+  even-transit depth: 239 ppm  (n=324)
+  odd-transit depth:  390 ppm  (n=343)
+  diff: -151 ppm (large diff => suspect EB)
+
+[6] Secondary eclipse check (phase=0.5):
+  secondary depth: -93 ppm  (n=1013)  (non-zero => suspect EB)
+
+[7] Centroid shift in-transit vs out-of-transit:
+  X centroid shift: 30705.93 milli-pix  (large shift = contamination by nearby source)
+  Y centroid shift: -144036.84 milli-pix
+
+[8] Period harmonic check:
+  P/2 = 95.2381 d -> BLS power 0.000011  depth 166 ppm
+  2P = 380.9522 d -> BLS power 0.000047  depth 629 ppm
+
+[9] Generating diagnostic plot...
+  plot saved: cpd63349_followup_plot.png
+
+==============================================================================
+VERDICT
+==============================================================================
+  Refined period:         P = 190.47612 d
+  Refined depth (BLS):    354 ppm
+  Per-transit median:     455 ppm (n_visible=4)
+  Local depth spread:     268 ppm
+  Positive-depth fraction:1.00
+  SDE (refined):          16.29
+  Even-odd depth diff:    -151 ppm
+  Secondary depth:        -93 ppm
+
+  PLANET PARAMS (if real):
+    R_p = 1.89 R_Earth
+    a   = 0.654 AU
+    T_eq= 328 K
+
+  KOPPARAPU (2013) HZ FOR THIS STAR:
+    optimistic HZ:   0.682 - 1.608 AU
+    conservative HZ: 0.864 - 1.524 AU
+    candidate a:     0.654 AU
+    IN CONSERVATIVE HZ: False
+    IN OPTIMISTIC HZ:   False
+DONE

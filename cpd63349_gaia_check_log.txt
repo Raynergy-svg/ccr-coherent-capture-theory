@@ -1,0 +1,35 @@
+==============================================================================
+CPD-63 349 Gaia DR3 metadata + neighbor scan
+==============================================================================
+
+[1] MAIN STAR Gaia DR3 source 4677014433801899392:
+  parallax     : 9.5525 +/- 0.0101 mas -> d = 104.7 pc
+  G            : 10.040
+  BP-RP        : 0.836
+  RUWE         : 0.883  (>1.4 = suspect unresolved binary)
+  variable flag: NOT_AVAILABLE
+  NSS (DR3)    : 0
+  IPD multi-pk : 0
+  IPD GoF harm : 0.019174159
+  ast excess   : 0.065  sig=5.376
+  GSP-Phot Teff: 5779  logg=4.51  [M/H]=-0.01
+  RV           : 17.62 +/- 0.24 km/s
+
+[2] Neighbors within TESS 21 arcsec aperture:
+  2 sources within 21''
+  rank  source_id            sep    G      dG_vs_target
+  (1) 4.677014433801899e+18   0.63''  G=10.04  (target)
+   2. 4.6770144338019e+18  10.37''  G=12.99  dG=+2.95
+
+[3] Aperture flux dilution from neighbors:
+  F_neighbors / F_target = 0.0663
+  negligible dilution: <10% of target flux from neighbors
+
+[4] Gaia DR3 variability tables:
+  vari_summary: no entry (not flagged as variable in DR3)
+
+[5] Summary:
+  Use the above metadata for false-positive assessment of the BLS candidate.
+  Key red flags: high RUWE, NSS solution, variable flag, bright neighbor
+  Clean signals: RUWE~1, no variable flag, isolated source
+DONE

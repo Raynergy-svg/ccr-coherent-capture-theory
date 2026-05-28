@@ -1,0 +1,88 @@
+12 dwarfs with no SPOC LC but FFI data available
+
+=== BD-03  3321  Gaia 3680522166465341056  RA,Dec=(189.2827,-4.0816)  n_ffi=2 ===
+  timeseries products by provenance: {'QLP': np.int64(2), 'K2': np.int64(1), 'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  HLSP timeseries: 6 rows
+  HLSP providers: {'QLP': np.int64(2), 'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== CD-30  7056  Gaia 5629444975252369024  RA,Dec=(134.8300,-30.6372)  n_ffi=5 ===
+  timeseries products by provenance: {'QLP': np.int64(5), 'TESS-SPOC': np.int64(3), 'GSFC-ELEANOR-LITE': np.int64(1), 'T16': np.int64(1), 'TARS': np.int64(1), 'TGLC': np.int64(1), 'TEQUILA': np.int64(1)}
+  HLSP timeseries: 13 rows
+  HLSP providers: {'QLP': np.int64(5), 'TESS-SPOC': np.int64(3), 'GSFC-ELEANOR-LITE': np.int64(1), 'T16': np.int64(1), 'TARS': np.int64(1), 'TGLC': np.int64(1), 'TEQUILA': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 1071-934-1  Gaia 4299049512104000128  RA,Dec=(300.1696,8.3835)  n_ffi=2 ===
+  timeseries products by provenance: {'QLP': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  HLSP timeseries: 2 rows
+  HLSP providers: {'QLP': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 6897-1616-1  Gaia 6765392391143702400  RA,Dec=(293.9616,-27.2211)  n_ffi=1 ===
+  timeseries products by provenance: {'QLP': np.int64(1)}
+  HLSP timeseries: 1 rows
+  HLSP providers: {'QLP': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 5606-1113-1  Gaia 6266047329961009408  RA,Dec=(231.3518,-14.0886)  n_ffi=1 ===
+  timeseries products by provenance: {'K2': np.int64(1), 'EVEREST': np.int64(1), 'K2SFF': np.int64(1), 'QLP': np.int64(1)}
+  HLSP timeseries: 3 rows
+  HLSP providers: {'EVEREST': np.int64(1), 'K2SFF': np.int64(1), 'QLP': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== HD 271200  Gaia 4660544333766391424  RA,Dec=(80.5494,-66.1106)  n_ffi=44 ===
+  timeseries products by provenance: {'QLP': np.int64(41), 'TESS-SPOC': np.int64(32), 'GSFC-ELEANOR-LITE': np.int64(12), 'TARS': np.int64(10), 'TGLC': np.int64(10), 'TEQUILA': np.int64(8), 'T16': np.int64(7), 'TASOC': np.int64(5)}
+  HLSP timeseries: 125 rows
+  HLSP providers: {'QLP': np.int64(41), 'TESS-SPOC': np.int64(32), 'GSFC-ELEANOR-LITE': np.int64(12), 'TARS': np.int64(10), 'TGLC': np.int64(10), 'TEQUILA': np.int64(8), 'T16': np.int64(7), 'TASOC': np.int64(5)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== HD 122625  Gaia 6300979810806953216  RA,Dec=(210.8274,-15.3799)  n_ffi=1 ===
+  timeseries products by provenance: {'K2': np.int64(1), 'hlsp_polar': np.int64(1), 'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'QLP': np.int64(1)}
+  HLSP timeseries: 4 rows
+  HLSP providers: {'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'QLP': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 5232-208-1  Gaia 2621655046865027712  RA,Dec=(337.3688,-7.3184)  n_ffi=2 ===
+  timeseries products by provenance: {'QLP': np.int64(2), 'hlsp_kegs': np.int64(1), 'K2': np.int64(1), 'hlsp_polar': np.int64(1), 'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'K2VARCAT': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  HLSP timeseries: 7 rows
+  HLSP providers: {'QLP': np.int64(2), 'EVEREST': np.int64(1), 'K2SC': np.int64(1), 'K2SFF': np.int64(1), 'K2VARCAT': np.int64(1), 'TESS-SPOC': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 5606-566-1  Gaia 6308062830354023808  RA,Dec=(230.2034,-14.2745)  n_ffi=1 ===
+  timeseries products by provenance: {'QLP': np.int64(1)}
+  HLSP timeseries: 1 rows
+  HLSP providers: {'QLP': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== HD 180950  Gaia 4186063147481113472  RA,Dec=(289.7552,-12.5323)  n_ffi=3 ===
+  timeseries products by provenance: {'QLP': np.int64(3), 'TESS-SPOC': np.int64(2)}
+  HLSP timeseries: 5 rows
+  HLSP providers: {'QLP': np.int64(3), 'TESS-SPOC': np.int64(2)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== TYC 6883-1588-1  Gaia 6768942714192339584  RA,Dec=(289.6107,-26.7631)  n_ffi=1 ===
+  timeseries products by provenance: {'QLP': np.int64(1)}
+  HLSP timeseries: 1 rows
+  HLSP providers: {'QLP': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+=== BD+20  2167  Gaia 664430104958271616  RA,Dec=(130.1144,20.3831)  n_ffi=5 ===
+  timeseries products by provenance: {'QLP': np.int64(4), 'TESS-SPOC': np.int64(4), 'CDIPS': np.int64(3), 'K2': np.int64(2), 'EVEREST': np.int64(2), 'K2SFF': np.int64(2), 'hlsp_polar': np.int64(1), 'K2SC': np.int64(1), 'PSFK2': np.int64(1)}
+  HLSP timeseries: 17 rows
+  HLSP providers: {'QLP': np.int64(4), 'TESS-SPOC': np.int64(4), 'CDIPS': np.int64(3), 'EVEREST': np.int64(2), 'K2SFF': np.int64(2), 'K2SC': np.int64(1), 'PSFK2': np.int64(1)}
+  product list error: 'MaskedColumn' object has no attribute 'str'
+
+saved 12 -> ffi_hlsp_availability.csv
+           name                gaia  n_ffi  n_ts_total  n_hlsp                                                                           hlsp_providers
+    BD-03  3321 3680522166465341056      2           7       6                                          QLP(2)|EVEREST(1)|K2SC(1)|K2SFF(1)|TESS-SPOC(1)
+    CD-30  7056 5629444975252369024      5          13      13               QLP(5)|TESS-SPOC(3)|GSFC-ELEANOR-LITE(1)|T16(1)|TARS(1)|TGLC(1)|TEQUILA(1)
+ TYC 1071-934-1 4299049512104000128      2           2       2                                                                      QLP(1)|TESS-SPOC(1)
+TYC 6897-1616-1 6765392391143702400      1           1       1                                                                                   QLP(1)
+TYC 5606-1113-1 6266047329961009408      1           4       3                                                               EVEREST(1)|K2SFF(1)|QLP(1)
+      HD 271200 4660544333766391424     44         125     125 QLP(41)|TESS-SPOC(32)|GSFC-ELEANOR-LITE(12)|TARS(10)|TGLC(10)|TEQUILA(8)|T16(7)|TASOC(5)
+      HD 122625 6300979810806953216      1           6       4                                                       EVEREST(1)|K2SC(1)|K2SFF(1)|QLP(1)
+ TYC 5232-208-1 2621655046865027712      2          10       7                              QLP(2)|EVEREST(1)|K2SC(1)|K2SFF(1)|K2VARCAT(1)|TESS-SPOC(1)
+ TYC 5606-566-1 6308062830354023808      1           1       1                                                                                   QLP(1)
+      HD 180950 4186063147481113472      3           5       5                                                                      QLP(3)|TESS-SPOC(2)
+TYC 6883-1588-1 6768942714192339584      1           1       1                                                                                   QLP(1)
+    BD+20  2167  664430104958271616      5          20      17                        QLP(4)|TESS-SPOC(4)|CDIPS(3)|EVEREST(2)|K2SFF(2)|K2SC(1)|PSFK2(1)
