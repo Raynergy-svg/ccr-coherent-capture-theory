@@ -1,0 +1,166 @@
+==============================================================================
+CCT DIAGNOSTIC SWEEP
+==============================================================================
+
+==============================================================================
+[1] DIMENSION ABLATION (which dimension carries the signal?)
+==============================================================================
+
+--- category: HZ_rocky (n=7) ---
+  dim           field_med   host_med     shift    sig
+  C/O              1.0000     0.3333   -0.6667    *  
+  Mg/Si            0.9495     0.9060   -0.0435    ns 
+  [Fe/H]           0.8960     0.5744   -0.3217    *  
+  [Mg/Fe]          0.9512     0.8540   -0.0972    ns 
+  [Si/Fe]          0.8981     0.8713   -0.0268    ns 
+  [Ca/Fe]          0.9849     0.9751   -0.0098    ns 
+  [Al/Fe]          0.8722     0.8000   -0.0722    ns 
+  Volatile         0.7000     0.7000   +0.0000    ns 
+  Age              0.7000     1.0000   +0.3000    ***
+
+--- category: non_HZ_rocky (n=301) ---
+  dim           field_med   host_med     shift    sig
+  C/O              1.0000     1.0000   +0.0000    ns 
+  Mg/Si            0.9495     0.9688   +0.0193    *  
+  [Fe/H]           0.8960     0.9361   +0.0400    ***
+  [Mg/Fe]          0.9512     0.9546   +0.0033    ns 
+  [Si/Fe]          0.8981     0.9151   +0.0170    *  
+  [Ca/Fe]          0.9849     0.9920   +0.0071    ** 
+  [Al/Fe]          0.8722     0.8850   +0.0128    ns 
+  Volatile         0.7000     0.7000   +0.0000    ns 
+  Age              0.7000     1.0000   +0.3000    ***
+
+--- category: sub_Neptune (n=447) ---
+  dim           field_med   host_med     shift    sig
+  C/O              1.0000     1.0000   +0.0000    ns 
+  Mg/Si            0.9495     0.9569   +0.0074    ns 
+  [Fe/H]           0.8960     0.9370   +0.0410    ***
+  [Mg/Fe]          0.9512     0.9588   +0.0076    *  
+  [Si/Fe]          0.8981     0.9291   +0.0310    ***
+  [Ca/Fe]          0.9849     0.9910   +0.0061    ** 
+  [Al/Fe]          0.8722     0.8843   +0.0121    *  
+  Volatile         0.7000     0.7000   +0.0000    ns 
+  Age              0.7000     1.0000   +0.3000    ***
+
+--- category: hot_Jupiter (n=56) ---
+  dim           field_med   host_med     shift    sig
+  C/O              1.0000     1.0000   +0.0000    *  
+  Mg/Si            0.9495     0.9040   -0.0455    *  
+  [Fe/H]           0.8960     0.8548   -0.0412    ns 
+  [Mg/Fe]          0.9512     0.9435   -0.0077    ns 
+  [Si/Fe]          0.8981     0.8930   -0.0051    ns 
+  [Ca/Fe]          0.9849     0.9906   +0.0057    *  
+  [Al/Fe]          0.8722     0.8356   -0.0367    ns 
+  Volatile         0.7000     0.7000   +0.0000    ** 
+  Age              0.7000     1.0000   +0.3000    ***
+
+==============================================================================
+[2] FUNCTIONAL FORM: 9D nonlinear vs linear-9 vs [Fe/H] only
+==============================================================================
+(cross-validated AIC to avoid overfitting bias from 7 positives)
+
+--- positive class: sub_Neptune ---
+  9D-nonlinear (hab_score only)           : mean CV log-loss = -0.65905  (higher=better)
+  Fe/H alone                              : mean CV log-loss = -0.67765  (higher=better)
+  linear-9 raw inputs                     : mean CV log-loss = -0.54655  (higher=better)
+
+--- positive class: non_HZ_rocky ---
+  9D-nonlinear (hab_score only)           : mean CV log-loss = -0.66537  (higher=better)
+  Fe/H alone                              : mean CV log-loss = -0.67725  (higher=better)
+  linear-9 raw inputs                     : mean CV log-loss = -0.62920  (higher=better)
+
+--- positive class: HZ_rocky ---
+  9D-nonlinear (hab_score only)           : mean CV log-loss = -0.67390  (higher=better)
+  Fe/H alone                              : mean CV log-loss = -0.56275  (higher=better)
+  linear-9 raw inputs                     : mean CV log-loss = -0.28550  (higher=better)
+
+==============================================================================
+[3] FGK-ONLY RESTRICTED TEST
+==============================================================================
+  FGK-only hosts: 796 (of 877)
+  FGK-only by category:
+host_category
+sub_Neptune     417
+non_HZ_rocky    271
+other            57
+hot_Jupiter      48
+HZ_rocky          3
+  HZ_rocky       : n=  3  median_shift=-0.1316  p_MW=9.873e-01
+  non_HZ_rocky   : n=271  median_shift=+0.0536  p_MW=9.794e-25
+  sub_Neptune    : n=417  median_shift=+0.0574  p_MW=2.099e-39
+  hot_Jupiter    : n= 48  median_shift=+0.0417  p_MW=1.758e-03
+
+==============================================================================
+[4] MULTI-PLANET vs SINGLE-PLANET hosts
+==============================================================================
+  This needs the full per-planet table -- approximate from category mix
+  Test deferred -- need to pull per-planet multiplicity (NEA query)
+
+==============================================================================
+[5] RAW ABUNDANCE SHIFTS (no scoring -- which elements ARE different in hosts?)
+==============================================================================
+
+--- category: HZ_rocky (n=7) ---
+  element     field_med   host_med     shift    sig
+  FE_H          -0.0664    -0.3159   -0.2496    *  
+  MG_FE          0.0239    -0.0015   -0.0254    ns 
+  SI_FE          0.0672    -0.0226   -0.0898    ns 
+  CA_FE         -0.0015     0.0061   +0.0076    ns 
+  C_FE          -0.0193    -0.0334   -0.0141    ns 
+  O_FE           0.0710    -0.0101   -0.0812    ns 
+  TI_FE         -0.0440    -0.0969   -0.0529    ns 
+  NI_FE          0.0169    -0.0066   -0.0235    ns 
+  MN_FE         -0.0012    -0.0360   -0.0347    ns 
+  ALPHA_M        0.0116    -0.0136   -0.0253    ns 
+
+--- category: non_HZ_rocky (n=301) ---
+  element     field_med   host_med     shift    sig
+  FE_H          -0.0664     0.0070   +0.0734    ***
+  MG_FE          0.0239     0.0084   -0.0155    ***
+  SI_FE          0.0672     0.0553   -0.0119    ***
+  CA_FE         -0.0015    -0.0143   -0.0128    ** 
+  AL_FE          0.1153     0.1024   -0.0129    *  
+  C_FE          -0.0193    -0.0307   -0.0114    *  
+  O_FE           0.0710     0.0708   -0.0003    ns 
+  N_FE           0.0291     0.0228   -0.0063    ns 
+  TI_FE         -0.0440    -0.0625   -0.0185    *  
+  NI_FE          0.0169     0.0208   +0.0039    ns 
+  MN_FE         -0.0012     0.0143   +0.0155    ** 
+  CE_FE         -0.1508    -0.1122   +0.0385    ns 
+  ALPHA_M        0.0116    -0.0002   -0.0119    ***
+
+--- category: sub_Neptune (n=447) ---
+  element     field_med   host_med     shift    sig
+  FE_H          -0.0664     0.0039   +0.0702    ***
+  MG_FE          0.0239     0.0099   -0.0140    ***
+  SI_FE          0.0672     0.0530   -0.0142    ***
+  CA_FE         -0.0015    -0.0083   -0.0068    ** 
+  AL_FE          0.1153     0.0918   -0.0235    ** 
+  C_FE          -0.0193    -0.0255   -0.0062    *  
+  O_FE           0.0710     0.0660   -0.0051    ns 
+  N_FE           0.0291     0.0388   +0.0097    *  
+  TI_FE         -0.0440    -0.0646   -0.0205    *  
+  NI_FE          0.0169     0.0194   +0.0025    ns 
+  MN_FE         -0.0012     0.0148   +0.0160    ***
+  CE_FE         -0.1508    -0.1952   -0.0444    ns 
+  ALPHA_M        0.0116     0.0017   -0.0100    ***
+
+--- category: hot_Jupiter (n=56) ---
+  element     field_med   host_med     shift    sig
+  FE_H          -0.0664     0.1647   +0.2311    ***
+  MG_FE          0.0239    -0.0132   -0.0371    ** 
+  SI_FE          0.0672     0.0713   +0.0041    ns 
+  CA_FE         -0.0015    -0.0187   -0.0172    *  
+  AL_FE          0.1153     0.1365   +0.0212    ns 
+  C_FE          -0.0193    -0.0491   -0.0298    *  
+  O_FE           0.0710     0.0603   -0.0107    ns 
+  N_FE           0.0291     0.1947   +0.1656    ** 
+  TI_FE         -0.0440    -0.0655   -0.0215    ns 
+  NI_FE          0.0169     0.0362   +0.0193    *  
+  MN_FE         -0.0012     0.0429   +0.0441    ***
+  CE_FE         -0.1508    -0.3184   -0.1676    ns 
+  ALPHA_M        0.0116    -0.0108   -0.0224    ***
+
+==============================================================================
+DIAGNOSTIC SWEEP DONE
+==============================================================================

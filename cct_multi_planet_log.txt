@@ -1,0 +1,83 @@
+==============================================================================
+MULTI-PLANET vs SINGLE-PLANET host chemistry test
+==============================================================================
+  per-planet rows: 6291
+  host multiplicity distribution:
+n_planets
+1    3656
+2     709
+3     219
+4      82
+5      29
+6      12
+7       1
+8       1
+
+  APOGEE-matched hosts: 877
+  multiplicity distribution in APOGEE sample:
+n_planets
+1    602
+2    174
+3     61
+4     28
+5      9
+6      3
+
+  field median hab_score: 0.8166
+  single (n=1)          : n= 602  median_shift=+0.0352  p_MW=2.369e-27
+  multi (n>=2)          : n= 275  median_shift=+0.0500  p_MW=2.058e-21
+  high-mult (n>=4)      : n=  40  median_shift=+0.0321  p_MW=1.213e-02
+
+  Score-distribution scatter test (CCT coherence): IQR of hab_score per group
+  field: IQR = 0.1163
+  single            : n= 602  IQR=0.1071
+  multi >=2         : n= 275  IQR=0.1037
+  high-mult >=4     : n=  40  IQR=0.1375
+
+  Raw chemistry scatter: standard dev of each element per multiplicity bin
+
+  --- ap_FE_H ---
+  field    n=159277  std=0.2296
+  single         n= 602  std=0.1757  Levene p=2.869e-10
+  multi >=2      n= 275  std=0.1793  Levene p=1.108e-04
+  high-mult >=4  n=  40  std=0.1943  Levene p=2.204e-01
+
+  --- ap_MG_FE ---
+  field    n=159228  std=0.0997
+  single         n= 602  std=0.0831  Levene p=3.335e-03
+  multi >=2      n= 275  std=0.0745  Levene p=4.140e-04
+  high-mult >=4  n=  40  std=0.0832  Levene p=6.482e-01
+
+  --- ap_SI_FE ---
+  field    n=159250  std=0.0687
+  single         n= 602  std=0.0608  Levene p=3.829e-02
+  multi >=2      n= 275  std=0.0588  Levene p=9.494e-03
+  high-mult >=4  n=  40  std=0.0613  Levene p=3.851e-01
+
+  --- ap_CA_FE ---
+  field    n=158836  std=0.0850
+  single         n= 592  std=0.0588  Levene p=8.523e-09
+  multi >=2      n= 271  std=0.0495  Levene p=3.556e-06
+  high-mult >=4  n=  40  std=0.0531  Levene p=8.955e-02
+
+  --- ap_AL_FE ---
+  field    n=158920  std=0.1050
+  single         n= 553  std=0.1008  Levene p=3.004e-01
+  multi >=2      n= 258  std=0.0913  Levene p=1.382e-02
+  high-mult >=4  n=  36  std=0.0930  Levene p=2.906e-01
+
+  --- ap_TI_FE ---
+  field    n=150969  std=0.2225
+  single         n= 574  std=0.1964  Levene p=2.598e-02
+  multi >=2      n= 259  std=0.1967  Levene p=2.712e-01
+  high-mult >=4  n=  38  std=0.1626  Levene p=2.996e-01
+
+  --- ap_ALPHA_M ---
+  field    n=159253  std=0.0659
+  single         n= 602  std=0.0501  Levene p=1.616e-06
+  multi >=2      n= 275  std=0.0426  Levene p=1.243e-06
+  high-mult >=4  n=  40  std=0.0437  Levene p=1.166e-01
+
+==============================================================================
+MULTI-PLANET TEST DONE
+==============================================================================
