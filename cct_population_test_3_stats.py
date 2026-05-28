@@ -146,6 +146,46 @@ for name, X in [("9D nonlin (hab_score only)", X_9D), ("Fe/H only", X_feh), ("li
     except Exception as e:
         print(f"    {name}: fit failed: {e}")
 
+# ============ TEST 5: Shuffled-weights null (extra; CCT specificity) ============
+print(f"\n{'='*78}\nTEST 5 (auxiliary): SHUFFLED-WEIGHTS NULL\n{'='*78}")
+print(f"  null hypothesis: random non-linear combinations of the same 9 inputs")
+print(f"  produce the same host shift as the CCT-specific weights")
+# Recompute hab_score 1000 times with shuffled weights; compare HZ-rocky vs field
+# Need scores per dimension: s_CO, s_MgSi, s_FeH, s_MgFe, s_SiFe, s_CaFe, s_AlFe, s_volatile, s_age
+hz_h = hosts[hosts.host_category == "HZ_rocky"]
+sub_dims_hz    = hz_h[["s_CO","s_MgSi","s_FeH","s_MgFe","s_SiFe","s_CaFe","s_AlFe","s_volatile","s_age"]].values
+sub_dims_field = field[["s_CO","s_MgSi","s_FeH","s_MgFe","s_SiFe","s_CaFe","s_AlFe","s_volatile","s_age"]].values
+W_cct = np.array([1.0, 1.5, 1.5, 1.0, 1.0, 0.5, 0.5, 1.0, 0.75])
+
+def hab_with_weights(scores, w):
+    return np.exp(np.average(np.log(np.maximum(scores, 1e-10)), weights=w, axis=1))
+
+obs_score_hz = hab_with_weights(sub_dims_hz, W_cct)
+obs_score_field = hab_with_weights(sub_dims_field, W_cct)
+obs_diff = np.median(obs_score_hz) - np.median(obs_score_field)
+print(f"  observed HZ-rocky - field shift (CCT weights): {obs_diff:+.4f}")
+
+np.random.seed(42)
+null_diffs = []
+n_dim = sub_dims_hz.shape[1]
+for _ in range(1000):
+    # random non-negative weights, same total magnitude
+    w_rand = np.random.dirichlet(np.ones(n_dim)) * W_cct.sum()
+    null_diff = np.median(hab_with_weights(sub_dims_hz, w_rand)) - \
+                np.median(hab_with_weights(sub_dims_field, w_rand))
+    null_diffs.append(null_diff)
+null_diffs = np.array(null_diffs)
+p_null = (null_diffs >= obs_diff).mean()
+print(f"  null distribution: median={np.median(null_diffs):+.4f}  std={null_diffs.std():.4f}")
+print(f"  fraction of random weights producing >= observed shift: {p_null:.4f}")
+if p_null < 0.05:
+    print(f"  CCT weights produce a HZ-rocky shift that's MORE positive than 95% of "
+          f"random weights -> CCT is specifically informative ✓")
+elif p_null > 0.5:
+    print(f"  CCT weights are typical / sub-typical -> CCT-specific weights don't help ✗")
+else:
+    print(f"  CCT weights are above median but not strongly so")
+
 # ============ FINAL ============
 print(f"\n{'='*78}\nFINAL PRE-REGISTERED DISPOSITION\n{'='*78}")
 hz_row = next((r for r in mw_results if r["cat"]=="HZ_rocky"), None)
