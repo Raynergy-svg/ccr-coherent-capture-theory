@@ -15,3 +15,7 @@ t6b_coherent_stars_with_pm.csv
 t7_coherent_stars_uvw.csv
 t8_young_stars_uvw.csv
 t8_young_clustered.csv
+
+# Intermediate distance-fix backups (regenerable)
+*.patched1plx
+*.prebug
