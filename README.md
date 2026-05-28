@@ -30,7 +30,7 @@ Multi-instrument empirical analysis of chemical coherence in open clusters and t
 1. **Chemical fingerprints are permanent** — no decay over 0–10 Gyr (τ > 5 Gyr at 2σ)
 2. **Recoverable in dissolved field stars** — ~3× enrichment, confirmed by independent Ba/Fe and kinematic channels
 3. **Multi-dimensional and nucleosynthetically structured** — alpha 2× tighter than s-process (first measurement of molecular cloud mixing hierarchy)
-4. **Earth-like chemistry is common** — 41% of FGK dwarfs score excellent on 9D habitability
+4. **Earth-like chemistry is common** — ~35–44% of GALAH-measurable FGK stars score excellent on the 9D scorer (subgiants/turnoff) or its dwarf-compatible 8D variant; ~21% of *nearby* (<200 pc) main-sequence dwarfs reach the threshold (the proposal-relevant figure for precision-RV follow-up)
 5. **Chemistry is not the habitability filter** — Jupiter analog architecture (3–6%) is the bottleneck, not formation chemistry
 6. **Individual star recovery requires next-gen precision** — 0.02 dex surveys (4MOST) will enable routine co-natal tracing
 
@@ -42,7 +42,7 @@ This framework has reached the limit of current spectroscopic survey precision. 
 
 ## Habitability Catalog (v2)
 
-9-dimensional scorer applied to 12,234 GALAH DR4 FGK dwarfs:
+9-dimensional scorer applied to 12,234 GALAH DR4 FGK turnoff/subgiants (the population with reliable C measurements; an 8D variant — drops C/O — covers main-sequence dwarfs, for which `flag_c_fe` is unreliable in DR4):
 
 | Dimension | Notes |
 |-----------|-------|
@@ -54,7 +54,7 @@ This framework has reached the limit of current spectroscopic survey precision. 
 | Volatile budget | Ba/Fe s-process enrichment proxy |
 | Stellar age | Isochrone-derived |
 
-**Validated:** OR = 0.78, p = 0.17 against confirmed FGK planet hosts (consistent with baseline after Teff correction). 4,970 stars score excellent (>0.9).
+**Validated:** OR = 0.78, p = 0.17 against confirmed FGK planet hosts (consistent with baseline after Teff correction). 4,970 stars score excellent (>0.9) in the 9D subgiant cohort; ≈40% of true solar-twin dwarfs reach the same bar under the dwarf-compatible 8D variant.
 
 ## Actionable Targets
 
