@@ -106,7 +106,13 @@ with fits.open(APOGEE_FILE, memmap=True) as hdul:
     missing = [c for c in keep_cols if c not in cols]
     print(f"  keeping {len(actual_keep)} of {len(keep_cols)} preferred columns")
     if missing: print(f"  missing: {missing}")
-    apg = pd.DataFrame({c: np.array(data[c]) for c in actual_keep})
+    apg_dict = {}
+    for c in actual_keep:
+        arr = np.array(data[c])
+        if arr.dtype.byteorder == ">":
+            arr = arr.byteswap().view(arr.dtype.newbyteorder())
+        apg_dict[c] = arr
+    apg = pd.DataFrame(apg_dict)
     print(f"  APOGEE rows: {len(apg)}")
     print(f"  RA range: {apg.RA.min():.2f} to {apg.RA.max():.2f}")
 
@@ -116,12 +122,16 @@ print(f"  TEFF finite: {apg.TEFF.between(3500, 8000).sum()}")
 print(f"  LOGG finite: {apg.LOGG.between(0, 6).sum()}")
 print(f"  FE_H finite: {apg.FE_H.between(-2, 1).sum()}")
 qual = (apg.TEFF.between(3500, 8000) & apg.LOGG.between(0, 6) & apg.FE_H.between(-2, 1) &
-        (apg.SNR > 70) & ((apg.ASPCAPFLAG.astype("int64") & (1 << 23)) == 0))   # STARBAD bit 23 in ASPCAPFLAG
+        (apg.SNR > 70) & ((apg.ASPCAPFLAG.astype("int64") & (1 << 23)) == 0) &
+        apg.RA.between(0, 360) & apg.DEC.between(-90, 90))   # STARBAD bit 23 + finite RA/Dec
 apg = apg[qual].reset_index(drop=True)
 print(f"  after quality cuts: {len(apg)}")
 
 # 5. Cross-match hosts → APOGEE
 print(f"\n[5] Cross-matching {len(hosts)} hosts -> APOGEE ({len(apg)})...")
+# drop hosts with NaN coords
+hosts = hosts.dropna(subset=["ra","dec"]).reset_index(drop=True)
+print(f"  hosts with valid coords: {len(hosts)}")
 hosts_coords = SkyCoord(hosts.ra.values*u.deg, hosts.dec.values*u.deg)
 apg_coords = SkyCoord(apg.RA.values*u.deg, apg.DEC.values*u.deg)
 idx, sep, _ = hosts_coords.match_to_catalog_sky(apg_coords)

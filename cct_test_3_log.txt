@@ -1,0 +1,69 @@
+==============================================================================
+CCT POPULATION TEST -- STAGE 3: pre-registered statistical tests
+==============================================================================
+
+  hosts: 877  field: 159277
+  hosts by category:
+host_category
+sub_Neptune     447
+non_HZ_rocky    301
+other            66
+hot_Jupiter      56
+HZ_rocky          7
+
+==============================================================================
+TEST 1: MANN-WHITNEY U (per category vs field)
+==============================================================================
+  field n=159277, median=0.8166, IQR=0.1163
+  HZ_rocky       : n=   7  median=0.6883  shift=-0.1283  effect_sigma=-1.49  U=194853  p_MW=9.992e-01
+  non_HZ_rocky   : n= 301  median=0.8598  shift=+0.0431  effect_sigma=+0.50  U=30808458  p_MW=5.499e-18
+  sub_Neptune    : n= 447  median=0.8662  shift=+0.0495  effect_sigma=+0.57  U=47030626  p_MW=3.805e-32
+  hot_Jupiter    : n=  56  median=0.8352  shift=+0.0185  effect_sigma=+0.21  U=5003483  p_MW=5.706e-02
+
+  Bonferroni alpha = 0.05/4 = 0.0125; >5sigma threshold p < 1.43e-07
+
+==============================================================================
+TEST 2: PERMUTATION NULL (10^4 shuffles)
+==============================================================================
+  HZ_rocky       : obs_diff=-0.1283  perm_p(>=obs)=9.8410e-01
+  non_HZ_rocky   : obs_diff=+0.0431  perm_p(>=obs)=0.0000e+00
+  sub_Neptune    : obs_diff=+0.0495  perm_p(>=obs)=0.0000e+00
+  hot_Jupiter    : obs_diff=+0.0185  perm_p(>=obs)=1.3110e-01
+
+==============================================================================
+TEST 3: KS TEST -- selectivity (HZ rocky vs other categories)
+==============================================================================
+  N_HZ_rocky = 7
+  HZ_rocky vs non_HZ_rocky   : D=0.827 p=1.406e-05
+  HZ_rocky vs sub_Neptune    : D=0.850 p=4.780e-06
+  HZ_rocky vs hot_Jupiter    : D=0.768 p=3.520e-04
+
+==============================================================================
+TEST 4: LOGISTIC -- 9D nonlinear vs [Fe/H]-only vs linear-9
+==============================================================================
+  rows used: 159284 (HZ rocky + field)
+  HZ rocky / field in usable: 7 / 159277
+    9D nonlin (hab_score only)    : logL=-107501.39  k=2  AIC=215006.79
+    Fe/H only                     : logL=-89471.48  k=2  AIC=178946.96
+    linear-9 elements             : logL=-42747.39  k=10  AIC=85514.78
+
+==============================================================================
+TEST 5 (auxiliary): SHUFFLED-WEIGHTS NULL
+==============================================================================
+  null hypothesis: random non-linear combinations of the same 9 inputs
+  produce the same host shift as the CCT-specific weights
+  observed HZ-rocky - field shift (CCT weights): -0.1283
+  null distribution: median=-0.0861  std=0.0742
+  fraction of random weights producing >= observed shift: 0.6930
+  CCT weights are typical / sub-typical -> CCT-specific weights don't help ✗
+
+==============================================================================
+FINAL PRE-REGISTERED DISPOSITION
+==============================================================================
+
+  Criterion 1 (HZ rocky MW-U p < 1.43e-07):  obs=9.992e-01  -> FAIL
+  Criterion 2 (effect HZ-rocky > hot-Jupiter + 0.3sigma):  -1.49 vs 0.21  -> FAIL
+
+  PRE-REGISTERED RESULT: **CCT NOT CONFIRMED (at this sample size)**
+
+DONE

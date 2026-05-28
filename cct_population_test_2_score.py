@@ -95,9 +95,12 @@ def apply_scorer(df, c_fe_col, o_fe_col, mg_fe_col, si_fe_col, fe_h_col,
     # Volatile: in APOGEE use [Ce/Fe]; fall back to 0.7 if missing
     ce_valid = df[ce_fe_col].notna() & (df[ce_fe_col] > -1.5) & (df[ce_fe_col] < 1.5)
     df["s_volatile"] = np.where(ce_valid, score_volatile(df[ce_fe_col].fillna(0).values), 0.7)
-    # Age: fall back to 0.7 if missing
-    age_valid = df[age_col].notna() & (df[age_col] > 0) & (df[age_col] < 15)
-    df["s_age"] = np.where(age_valid, score_age(df[age_col].fillna(5.0).values), 0.7)
+    # Age: fall back to 0.7 if missing or no age column
+    if age_col is None or age_col not in df.columns:
+        df["s_age"] = 0.7
+    else:
+        age_valid = df[age_col].notna() & (df[age_col] > 0) & (df[age_col] < 15)
+        df["s_age"] = np.where(age_valid, score_age(df[age_col].fillna(5.0).values), 0.7)
 
     scores = np.column_stack([df.s_CO, df.s_MgSi, df.s_FeH, df.s_MgFe, df.s_SiFe,
                               df.s_CaFe, df.s_AlFe, df.s_volatile, df.s_age])

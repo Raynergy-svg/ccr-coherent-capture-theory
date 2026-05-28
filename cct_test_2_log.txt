@@ -1,0 +1,31 @@
+==============================================================================
+CCT POPULATION TEST -- STAGE 2: apply frozen scorer
+==============================================================================
+
+[1] Loading hosts and field...
+  hosts in APOGEE: 877
+  field control:   159277
+
+[2] Apply scorer to hosts...
+  hosts with valid C/O computation: 876 / 877
+  saved -> cct_test_hosts_scored.csv
+
+[3] Apply scorer to field control...
+  field stars with valid C/O: 158481 / 159277
+  saved -> cct_test_field_scored.csv
+
+==============================================================================
+SCORED DISTRIBUTIONS SUMMARY
+==============================================================================
+
+Field (n=159277):
+  hab_score median: 0.8166
+  hab_score mean:   0.7772
+  hab_score IQR:    [0.7548, 0.8710]
+
+Hosts by category:
+  HZ_rocky (n=7):  median=0.6883  mean=0.6767  IQR=[0.6813,0.7353]
+  non_HZ_rocky (n=301):  median=0.8598  mean=0.8362  IQR=[0.7964,0.9075]
+  sub_Neptune (n=447):  median=0.8662  mean=0.8412  IQR=[0.8049,0.9042]
+  hot_Jupiter (n=56):  median=0.8352  mean=0.8150  IQR=[0.7747,0.8739]
+  other (n=66):  median=0.8429  mean=0.8100  IQR=[0.7891,0.8907]

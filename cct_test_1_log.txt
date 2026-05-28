@@ -1,0 +1,66 @@
+==============================================================================
+CCT POPULATION TEST -- STAGE 1: cross-match data pull
+==============================================================================
+
+[1] Querying NEA pscomppars for confirmed planet hosts...
+  confirmed planets with R_p and T_eq: 4678
+  unique hosts: 3526
+
+  category counts (per planet):
+category
+sub_Neptune     2346
+non_HZ_rocky    1031
+hot_Jupiter      691
+other            574
+HZ_rocky          36
+
+  unique hosts: 3526
+  host category counts:
+category
+sub_Neptune     1589
+non_HZ_rocky     835
+hot_Jupiter      679
+other            394
+HZ_rocky          29
+
+[2] Downloading APOGEE DR17 allStar (only chemistry & coordinates cols)...
+  already have /tmp/allStar-dr17-synspec_rev1.fits
+
+[3] Reading APOGEE allStar...
+  HDU 1 dimensions: 733901 rows
+  total columns: 234
+  keeping 26 of 26 preferred columns
+  APOGEE rows: 733901
+  RA range: 0.00 to 360.00
+
+[4] APOGEE quality cuts...
+  TEFF finite: 654796
+  LOGG finite: 687590
+  FE_H finite: 644945
+  after quality cuts: 552528
+
+[5] Cross-matching 3526 hosts -> APOGEE (552528)...
+  hosts with valid coords: 3526
+  matches within 5'': 877
+  match rate: 24.9%
+  saved -> cct_test_hosts.csv (877 rows)
+
+  matched-host category counts:
+host_category
+sub_Neptune     447
+non_HZ_rocky    301
+other            66
+hot_Jupiter      56
+HZ_rocky          7
+
+[6] Building APOGEE field control (FGK dwarfs not in host list)...
+  FGK dwarfs total: 160155
+  field control sample (FGK dwarfs not near hosts): 159277
+  saved -> cct_test_field.csv
+
+==============================================================================
+STAGE 1 COMPLETE
+  hosts in APOGEE: 877
+  field control:   159277
+  ready for STAGE 2 (apply frozen scorer)
+==============================================================================
