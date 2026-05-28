@@ -14,12 +14,12 @@ Multi-instrument empirical analysis of chemical coherence in open clusters and t
 |------|---------|--------------|
 | **T9** | Open clusters carry distinct C/O fingerprints (GALAH, 655 clusters) | KW p < 10⁻¹⁰ |
 | **T-APOGEE** | Confirmed independently in APOGEE (85 clusters) | KW p = 8.8×10⁻¹⁰⁴ |
-| **T10** | Chemical coherence is spatially independent (after [Fe/H] control) | Partial Mantel r = 0.038, p = 0.15 |
+| **T10** | Chemical coherence is spatially independent (after [Fe/H] control) | Partial Mantel r = 0.018, p = 0.46 |
 | **T14** | Coherence degrades on τ = 1.29 Gyr (cluster dissolution timescale) | Spearman p = 4×10⁻³ |
 | **T15** | Multi-element fingerprint: C/O predicts Mg/Fe (Fisher OR = 4.69) | p = 2.7×10⁻³ |
 | **T17** | No decay in surviving clusters — survivorship bias | All ρ negative |
 | **T18** | Alpha 2× tighter than s-process in 98% of clusters | Wilcoxon p = 10⁻⁹⁸ |
-| **T19** | Outer disk weakly more coherent; persists after [Fe/H] control | Spearman ρ = −0.09, p = 0.02 (partial ρ = −0.15) |
+| **T19** | Outer disk weakly more coherent; persists after [Fe/H] control | Spearman ρ = −0.11, p = 0.008 (partial ρ = −0.18) |
 | **T16b** | 2× enrichment of dissolved members in field (intra-GALAH) | 5 clusters sig |
 | **T16c** | Enrichment flat 0–10 Gyr — fingerprint is permanent (τ > 10 Gyr) | AIC favors flat |
 | **T16d** | Ba/Fe (5th dim, not used in matching) confirms 97.2% of clusters | Wilcoxon p = 10⁻⁴¹ |
