@@ -1,0 +1,102 @@
+==============================================================================
+PRE-REGISTERED TEST #5: outward falsification audit
+Bonferroni alpha = 0.0125, held-out threshold = +0.02
+==============================================================================
+FGK hosts: 796, FGK field pool: 159277
+
+==============================================================================
+CLAIM A: Adibekyan 2012 -- Mg/Si lower in hot Jupiter hosts
+==============================================================================
+
+--- Mg/Si in hot Jupiter hosts (predicted: host < control) ---
+  N_host = 48, N_ctrl = 480
+  KS Teff:   D=0.0396  p=1.000e+00
+  KS logg:   D=0.0583  p=9.969e-01
+  KS [Fe/H]: D=0.0458  p=1.000e+00
+  shift (host - ctrl): -0.0151   effect: -0.13
+  MW one-sided (less): p = 1.597e-01  (FAIL Bonferroni)
+  held-out log-loss: [Fe/H] alone = -0.69341, +Mg_Si = -0.69386
+  delta = -0.00045  (FAIL threshold 0.02)
+  within-[Fe/H]-bin sanity: 5/5 bins direction-consistent (1.00)  (PASS)
+    bin [Fe/H]=-0.1: n_h=  3  n_c=  24  shift=-0.0276  OK
+    bin [Fe/H]=-0.0: n_h=  9  n_c=  95  shift=-0.0309  OK
+    bin [Fe/H]=+0.1: n_h= 13  n_c= 132  shift=-0.0107  OK
+    bin [Fe/H]=+0.2: n_h= 12  n_c= 125  shift=-0.0224  OK
+    bin [Fe/H]=+0.3: n_h=  5  n_c=  46  shift=-0.0236  OK
+  >>> verdict: REJECTED
+
+==============================================================================
+CLAIM B: Adibekyan 2012 -- [Mg/Fe] higher in small planet hosts at [Fe/H] < -0.2
+==============================================================================
+  small planet (R<4 R_E) hosts at [Fe/H]<-0.2: 94
+  field pool at [Fe/H]<-0.2: 44960
+
+--- [Mg/Fe] in small planet hosts at [Fe/H]<-0.2 (predicted: host > control) ---
+  N_host = 94, N_ctrl = 936
+  KS Teff:   D=0.0186  p=1.000e+00
+  KS logg:   D=0.0275  p=1.000e+00
+  KS [Fe/H]: D=0.0313  p=1.000e+00
+  shift (host - ctrl): -0.0052   effect: -0.06
+  MW one-sided (greater): p = 5.254e-01  (FAIL Bonferroni)
+  held-out log-loss: [Fe/H] alone = -0.69315, +ap_MG_FE = -0.69508
+  delta = -0.00193  (FAIL threshold 0.02)
+  within-[Fe/H]-bin sanity: 2/4 bins direction-consistent (0.50)  (PASS)
+    bin [Fe/H]=-0.6: n_h=  3  n_c=  28  shift=+0.0458  OK
+    bin [Fe/H]=-0.5: n_h=  9  n_c=  95  shift=-0.0226  --
+    bin [Fe/H]=-0.4: n_h= 29  n_c= 268  shift=+0.0066  OK
+    bin [Fe/H]=-0.3: n_h= 52  n_c= 534  shift=-0.0076  --
+  >>> verdict: REJECTED (direction)
+
+==============================================================================
+CLAIM C: Brewer & Fischer 2018 -- C/O lower in any planet host
+==============================================================================
+
+--- C/O in any planet host (predicted: host < control) ---
+  N_host = 796, N_ctrl = 7610
+  KS Teff:   D=0.0110  p=1.000e+00
+  KS logg:   D=0.0175  p=9.769e-01
+  KS [Fe/H]: D=0.0133  p=9.994e-01
+  shift (host - ctrl): -0.0131   effect: -0.06
+  MW one-sided (less): p = 9.523e-02  (FAIL Bonferroni)
+  held-out log-loss: [Fe/H] alone = -0.69359, +C_O = -0.69356
+  delta = +0.00003  (FAIL threshold 0.02)
+  within-[Fe/H]-bin sanity: 8/11 bins direction-consistent (0.73)  (PASS)
+    bin [Fe/H]=-0.6: n_h=  3  n_c=  28  shift=+0.2016  --
+    bin [Fe/H]=-0.5: n_h=  9  n_c=  95  shift=-0.0158  OK
+    bin [Fe/H]=-0.4: n_h= 32  n_c= 297  shift=-0.0608  OK
+    bin [Fe/H]=-0.3: n_h= 54  n_c= 536  shift=+0.0081  --
+    bin [Fe/H]=-0.2: n_h= 88  n_c= 872  shift=-0.0082  OK
+    bin [Fe/H]=-0.1: n_h=156  n_c=1518  shift=-0.0070  OK
+    bin [Fe/H]=-0.0: n_h=208  n_c=1951  shift=-0.0286  OK
+    bin [Fe/H]=+0.1: n_h=154  n_c=1433  shift=-0.0118  OK
+    bin [Fe/H]=+0.2: n_h= 66  n_c= 623  shift=-0.0265  OK
+    bin [Fe/H]=+0.3: n_h= 21  n_c= 209  shift=+0.0179  --
+    bin [Fe/H]=+0.4: n_h=  3  n_c=  26  shift=-0.1322  OK
+  >>> verdict: REJECTED
+
+==============================================================================
+CLAIM D: Suarez-Andres 2018 -- C/O > 0.8 fraction in rocky planet hosts
+==============================================================================
+  rocky planet hosts (R<1.6 R_E, FGK): N = 273, C/O > 0.8: 5
+  FGK field:                            N = 158516, C/O > 0.8: 7032
+  host fraction = 0.0183, field fraction = 0.0444
+  ratio: host/field = 0.413
+  Fisher exact (one-sided host < field): p = 1.719e-02
+  >>> verdict: PARTIAL
+
+==============================================================================
+PRE-REGISTERED FINAL AUDIT VERDICT (test #5)
+==============================================================================
+
+  Bonferroni alpha = 0.0125, held-out threshold = 0.02
+
+  A_Adibekyan_MgSi_HJ: REJECTED
+     shift=-0.0151  p_mw=1.597e-01  held-out delta=-0.00045  bin_frac=1.00
+  B_Adibekyan_MgFe_lowmet: REJECTED (direction)
+     shift=-0.0052  p_mw=5.254e-01  held-out delta=-0.00193  bin_frac=0.50
+  C_BrewerFischer_CO_any: REJECTED
+     shift=-0.0131  p_mw=9.523e-02  held-out delta=+0.00003  bin_frac=0.73
+  D_SuarezAndres_CO_high: PARTIAL
+
+cct_test5_results.json saved
+DONE
