@@ -87,10 +87,11 @@ cl_plx = 1.0 / cl_dist if cl_dist > 0 else 0.67  # ~1.5 kpc
 info(f"  PM: ({cl_pmra:.3f}, {cl_pmdec:.3f}) mas/yr")
 info(f"  Distance: {cl_dist:.3f} kpc (parallax: {cl_plx:.3f} mas)")
 
-# Matching tolerances — tight, using cluster scatter
-TOL = {}
-for d in dims:
-    TOL[d] = max(2.5 * scatter[d], 0.06)  # 2.5σ or minimum 0.06
+# Matching tolerances — fixed thresholds (paper T20c method).
+# NGC 6253's GALAH members are contamination-broadened, so adaptive 2.5-sigma
+# tolerances inflate to ~0.32 dex; the fixed thresholds below are the method
+# stated in the paper and keep the chemical filter meaningful.
+TOL = {"C_O": 0.08, "mg_fe": 0.05, "si_fe": 0.05, "fe_h": 0.08, "al_fe": 0.06}
 info(f"\nMatching tolerances:")
 for d in dims:
     info(f"  {d}: ±{TOL[d]:.4f}")
@@ -176,11 +177,17 @@ if n_chem > 0 and n_chem < 10000:
                 FROM gaiadr3.gaia_source g
                 LEFT JOIN gaiadr3.astrophysical_parameters a ON g.source_id = a.source_id
                 WHERE g.source_id IN ({id_list})"""
-        try:
-            job = Gaia.launch_job(q)
-            all_gaia.append(job.get_results().to_pandas())
-        except Exception as e:
-            info(f"  Batch {i} failed: {e}")
+        import time as _t
+        for attempt in range(4):
+            try:
+                job = Gaia.launch_job(q)
+                all_gaia.append(job.get_results().to_pandas())
+                break
+            except Exception as e:
+                if attempt == 3:
+                    info(f"  Batch {i} failed after 4 attempts: {e}")
+                else:
+                    _t.sleep(2 ** attempt)
 
     if all_gaia:
         gaia = pd.concat(all_gaia, ignore_index=True)

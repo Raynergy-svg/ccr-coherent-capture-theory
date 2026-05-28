@@ -94,6 +94,42 @@ conventions**; if reproducibility matters across all three, standardize them on
 the fixed-threshold convention the paper describes and re-verify each funnel
 (Praesepe 22,327; NGC 6791 768 → 18; NGC 6253 → above).
 
+---
+
+## UPDATE — fixing t20c surfaced a dist_cl-bug artifact in the paper's NGC 6253 narrative
+
+Applying the fix (fixed tolerances + Gaia batch-retry for determinism) gives a
+reproducible funnel: **3,598 chem → 1,908 plx → 361 +PM → 120 +RV → 7 +age**,
+against **~7.0 expected false positives** — i.e. recovery consistent with chance.
+
+But the paper's *named* best candidate, **HD 163560 (Gaia DR3
+5953941329394191360)**, is absent from the funnel. Investigation:
+- HD 163560 **passes all 5 chemical dimensions** (it is a genuine chemical match).
+- It is rejected on **parallax**: HD 163560 has plx **1.828 mas (547 pc)**, while
+  NGC 6253 is at **0.605 mas (1.65 kpc)** — a ~3× distance mismatch.
+- The paper (Sec. NGC 6253) states NGC 6253 is at **"0.56 kpc"** and that HD 163560
+  **"matches the cluster in parallax to 1.2 per cent."** Both are **dist_cl-bug
+  artifacts**: 0.56 ≈ the cluster *parallax* (0.605 mas) mislabeled as kpc; the
+  buggy pipeline then used cl_plx = 1/0.56 ≈ 1.79 mas, which spuriously matched
+  HD 163560's real 1.83 mas. The asteroseismic elimination (Hon2021 method,
+  $1.69\,M_\odot$ → 1.7 Gyr) was therefore eliminating a **foreground star that
+  the corrected pipeline rejects on parallax alone**.
+
+**Conclusion unchanged** (no confident NGC 6253 recovery; 7 candidates ≈ 7 random),
+but the **NGC 6253 subsection needs substantive revision**, not just number swaps:
+1. Distance 0.56 → **1.65 kpc** (text + pipeline table).
+2. Funnel → 3,598 → 1,908 → 361 → 120 → 7 (or paper's chosen stages); FP ~7.
+3. The HD 163560 paragraph: it is now rejected at the parallax stage; the
+   asteroseismic-elimination narrative (and the Hon2021 citation's role here)
+   becomes moot. Recommend reframing to "no candidate survives kinematics;
+   the count matches the random expectation," and either drop HD 163560 or
+   mention it as a chemical match excluded by parallax.
+
+This is a published-narrative change touching a specific claim + a citation, so
+it is left for author decision rather than auto-applied. The **t20c code fix
+(fixed tolerances + Gaia retry) is applied and committed**; the paper edits are
+pending your call.
+
 ### Artifacts from this investigation
 - `t20c_fixedtol.py` — t20c with the paper's fixed tolerances (validated: 31-member
   template, correct tolerances, reproducible 3,598-match funnel).
