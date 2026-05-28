@@ -35,8 +35,8 @@ print("PRE-REGISTERED TEST #5: outward falsification audit")
 print(f"Bonferroni alpha = {ALPHA_BONF:.4f}, held-out threshold = +{HELD_OUT_THRESHOLD}")
 print("="*78)
 
-hosts = pd.read_csv("cct_test_hosts.csv")
-field = pd.read_csv("cct_test_field.csv")
+hosts = pd.read_csv("cct_test_hosts_scored.csv")  # has C_O, Mg_Si already computed
+field = pd.read_csv("cct_test_field_scored.csv")  # has C_O, Mg_Si already computed
 fgk_hosts = hosts[(hosts.ap_TEFF.between(4500, 7000)) & (hosts.ap_LOGG > 3.8)].copy()
 fgk_field = field[(field.TEFF.between(4500, 7000)) & (field.LOGG > 3.8) &
                   (field.SNR > 70) & field.FE_H.between(-2, 1)].copy().reset_index(drop=True)
