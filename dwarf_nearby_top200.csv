@@ -1,0 +1,1 @@
+ra,dec,sobject_id,gaiadr3_source_id,tmass_id,snr_px_ccd3,flag_sp,flag_fe_h,c_fe,e_c_fe,flag_c_fe,o_fe,e_o_fe,flag_o_fe,mg_fe,e_mg_fe,flag_mg_fe,si_fe,e_si_fe,flag_si_fe,fe_h,e_fe_h,al_fe,e_al_fe,flag_al_fe,ca_fe,e_ca_fe,flag_ca_fe,ba_fe,e_ba_fe,flag_ba_fe,teff,logg,age,mass,rv_gaia_dr3,rv_comp_1,e_rv_comp_1,parallax,parallax_error,phot_g_mean_mag,C_O_raw,Mg_Si,C_O,hab_score,dist
