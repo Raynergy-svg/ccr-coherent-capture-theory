@@ -1,0 +1,133 @@
+==============================================================================
+PRE-REGISTERED TEST #4: dimensional decomposition + out-of-sample CV
+==============================================================================
+  Bonferroni alpha (step 1) = 0.00625
+
+Loaded 877 hosts, 159277 field stars
+FGK hosts: 796, FGK field pool: 159277
+
+==============================================================================
+CATEGORY: non_HZ_rocky
+==============================================================================
+  N hosts (FGK, non_HZ_rocky): 271
+  N matched control (deduplicated): 2662
+
+  Match-quality gate (KS p > 0.95 required on all 3 axes):
+    KS Teff: D=0.0149  p=1.000e+00  PASS
+    KS logg: D=0.0149  p=1.000e+00  PASS
+    KS [Fe/H]: D=0.0132  p=1.000e+00  PASS
+
+  STEP 1: per-dimension MW (one-sided greater, Bonferroni alpha=0.00625)
+  dim          host_med   ctrl_med     shift  effect       p_MW pass
+  age            1.0000     0.7000   +0.3000    +nan  0.000e+00 PASS
+  [Al/Fe]        0.9111     0.8923   +0.0188   +0.10  2.358e-01 ----
+  [Ca/Fe]        0.9926     0.9903   +0.0024   +0.10  1.128e-01 ----
+  C/O            1.0000     1.0000   +0.0000   +0.00  3.687e-01 ----
+  [Mg/Fe]        0.9599     0.9634   -0.0035   -0.05  6.882e-01 ----
+  Mg/Si          0.9614     0.9586   +0.0028   +0.04  5.397e-01 ----
+  [Si/Fe]        0.9141     0.9235   -0.0093   -0.09  7.731e-01 ----
+  volatile       0.7000     0.7000   +0.0000    +nan  3.139e-01 ----
+
+  Surviving dimensions (step 1): ['age']
+
+  STEP 4: within-[Fe/H]-bin sanity check (0.1 dex bins)
+    age       : 7/7 bins positive  frac=1.00  PASS
+      bin [Fe/H]=-0.4: n_h= 11  n_c= 107  shift=+0.3000
+      bin [Fe/H]=-0.3: n_h= 22  n_c= 208  shift=+0.3000
+      bin [Fe/H]=-0.2: n_h= 30  n_c= 320  shift=+0.3000
+      bin [Fe/H]=-0.1: n_h= 53  n_c= 523  shift=+0.3000
+      bin [Fe/H]=-0.0: n_h= 74  n_c= 722  shift=+0.3000
+      bin [Fe/H]=+0.1: n_h= 46  n_c= 438  shift=+0.3000
+      bin [Fe/H]=+0.2: n_h= 26  n_c= 243  shift=+0.3000
+
+  STEP 3: held-out 30% log-loss comparison
+    raw matrix shape: (2933, 9)  (col order: ['FeH', 'MgFe', 'SiFe', 'CaFe', 'AlFe', 'CeFe', 'C_O', 'Mg_Si', 'age'])
+    train n=2053 (190 hosts), test n=880 (81 hosts)
+    surviving raw cols: ['age']
+    (a) [Fe/H] alone                   : train=-0.69312  held-out=-0.69285
+    (b) [Fe/H] + step-1 survivors      : train=-0.67093  held-out=-0.67125
+    (c) full 9-dim linear              : train=-0.66652  held-out=-0.67009
+
+    held-out delta (b - a): +0.02160  (need >+0.02 for confirmation)
+    held-out delta (c - a): +0.02276  (descriptive)
+
+  PRE-REGISTERED VERDICT for non_HZ_rocky:
+    surviving step 1: 1
+    surviving step 4: 1
+    delta (b-a) held-out: +0.02160
+    >>> VERDICT: CONFIRMED
+
+==============================================================================
+CATEGORY: sub_Neptune
+==============================================================================
+  N hosts (FGK, sub_Neptune): 417
+  N matched control (deduplicated): 4062
+
+  Match-quality gate (KS p > 0.95 required on all 3 axes):
+    KS Teff: D=0.0113  p=1.000e+00  PASS
+    KS logg: D=0.0207  p=9.959e-01  PASS
+    KS [Fe/H]: D=0.0133  p=1.000e+00  PASS
+
+  STEP 1: per-dimension MW (one-sided greater, Bonferroni alpha=0.00625)
+  dim          host_med   ctrl_med     shift  effect       p_MW pass
+  age            1.0000     0.7000   +0.3000    +nan  0.000e+00 PASS
+  [Al/Fe]        0.8986     0.9068   -0.0083   -0.05  6.447e-01 ----
+  [Ca/Fe]        0.9912     0.9911   +0.0001   +0.00  7.875e-01 ----
+  C/O            1.0000     1.0000   +0.0000   +0.00  6.854e-01 ----
+  [Mg/Fe]        0.9618     0.9625   -0.0007   -0.01  3.923e-01 ----
+  Mg/Si          0.9566     0.9600   -0.0033   -0.04  9.632e-01 ----
+  [Si/Fe]        0.9291     0.9263   +0.0029   +0.03  5.534e-01 ----
+  volatile       0.7000     0.7000   +0.0000    +nan  7.611e-02 ----
+
+  Surviving dimensions (step 1): ['age']
+
+  STEP 4: within-[Fe/H]-bin sanity check (0.1 dex bins)
+    age       : 9/9 bins positive  frac=1.00  PASS
+      bin [Fe/H]=-0.5: n_h=  5  n_c=  53  shift=+0.3000
+      bin [Fe/H]=-0.4: n_h= 17  n_c= 150  shift=+0.3000
+      bin [Fe/H]=-0.3: n_h= 30  n_c= 316  shift=+0.3000
+      bin [Fe/H]=-0.2: n_h= 54  n_c= 525  shift=+0.3000
+      bin [Fe/H]=-0.1: n_h= 87  n_c= 864  shift=+0.3000
+      bin [Fe/H]=-0.0: n_h=117  n_c=1096  shift=+0.3000
+      bin [Fe/H]=+0.1: n_h= 73  n_c= 728  shift=+0.3000
+      bin [Fe/H]=+0.2: n_h= 24  n_c= 236  shift=+0.3000
+      bin [Fe/H]=+0.3: n_h=  9  n_c=  83  shift=+0.3000
+
+  STEP 3: held-out 30% log-loss comparison
+    raw matrix shape: (4479, 9)  (col order: ['FeH', 'MgFe', 'SiFe', 'CaFe', 'AlFe', 'CeFe', 'C_O', 'Mg_Si', 'age'])
+    train n=3135 (292 hosts), test n=1344 (125 hosts)
+    surviving raw cols: ['age']
+    (a) [Fe/H] alone                   : train=-0.69282  held-out=-0.69497
+    (b) [Fe/H] + step-1 survivors      : train=-0.63572  held-out=-0.63623
+    (c) full 9-dim linear              : train=-0.63431  held-out=-0.63499
+
+    held-out delta (b - a): +0.05873  (need >+0.02 for confirmation)
+    held-out delta (c - a): +0.05998  (descriptive)
+
+  PRE-REGISTERED VERDICT for sub_Neptune:
+    surviving step 1: 1
+    surviving step 4: 1
+    delta (b-a) held-out: +0.05873
+    >>> VERDICT: CONFIRMED
+
+==============================================================================
+STEP 2: cross-category consistency
+==============================================================================
+  non_HZ_rocky: surviving = ['s_age']
+  sub_Neptune: surviving = ['s_age']
+
+  shared (both):   ['s_age']
+  only non_HZ_rocky:   []
+  only sub_Neptune:   []
+  Jaccard:         1.000
+
+==============================================================================
+FINAL PRE-REGISTERED VERDICT (test #4)
+==============================================================================
+  non_HZ_rocky: CONFIRMED
+    held-out delta (b-a): +0.02160  surviving=['s_age']
+  sub_Neptune: CONFIRMED
+    held-out delta (b-a): +0.05873  surviving=['s_age']
+
+cct_test4_results.json saved
+DONE

@@ -1,0 +1,52 @@
+==============================================================================
+SUPPLEMENT: Test #4 with s_age REMOVED (8 -> 7 chemistry-only dims)
+Bonferroni alpha = 0.05/7 = 0.00714
+==============================================================================
+
+--- non_HZ_rocky (N_host=271, N_match=2662) ---
+
+Step 1: per-dimension MW (chemistry only)
+  [Al/Fe]   : shift=+0.0188  p=2.358e-01  ----
+  [Ca/Fe]   : shift=+0.0024  p=1.128e-01  ----
+  C/O       : shift=+0.0000  p=3.687e-01  ----
+  [Mg/Fe]   : shift=-0.0035  p=6.882e-01  ----
+  Mg/Si     : shift=+0.0028  p=5.397e-01  ----
+  [Si/Fe]   : shift=-0.0093  p=7.731e-01  ----
+  volatile  : shift=+0.0000  p=3.139e-01  ----
+
+  Surviving chemistry dimensions: []
+
+Step 3 held-out CV (age column REMOVED):
+  (a) [Fe/H] alone                   : held-out log-loss = -0.69285
+  (b) [Fe/H] + chem survivors        : no survivors -> skip
+  (c) all 8 chemistry linear         : held-out log-loss = -0.69030
+
+  delta (b - a): +nan  (need > +0.02 for confirmation)
+  delta (c - a): +0.00255  (full chemistry linear vs [Fe/H])
+
+  >>> non_HZ_rocky chemistry-only verdict: REJECTED (no step-1 dims)
+
+--- sub_Neptune (N_host=417, N_match=4062) ---
+
+Step 1: per-dimension MW (chemistry only)
+  [Al/Fe]   : shift=-0.0083  p=6.447e-01  ----
+  [Ca/Fe]   : shift=+0.0001  p=7.875e-01  ----
+  C/O       : shift=+0.0000  p=6.854e-01  ----
+  [Mg/Fe]   : shift=-0.0007  p=3.923e-01  ----
+  Mg/Si     : shift=-0.0033  p=9.632e-01  ----
+  [Si/Fe]   : shift=+0.0029  p=5.534e-01  ----
+  volatile  : shift=+0.0000  p=7.611e-02  ----
+
+  Surviving chemistry dimensions: []
+
+Step 3 held-out CV (age column REMOVED):
+  (a) [Fe/H] alone                   : held-out log-loss = -0.69497
+  (b) [Fe/H] + chem survivors        : no survivors -> skip
+  (c) all 8 chemistry linear         : held-out log-loss = -0.69366
+
+  delta (b - a): +nan  (need > +0.02 for confirmation)
+  delta (c - a): +0.00131  (full chemistry linear vs [Fe/H])
+
+  >>> sub_Neptune chemistry-only verdict: REJECTED (no step-1 dims)
+
+DONE
