@@ -32,6 +32,12 @@ Nearby slice (parallax > 5 mas, ~within 200 pc):
 - **But "41 % of FGK dwarfs" is technically inaccurate.** The 41 % figure is for turnoff/subgiants (44 % under 8D); true dwarfs are 35 % overall, 40 % for solar-twin dwarfs, and 21 % among *nearby* dwarfs.
 - **Nearby dwarfs are scarcer in the excellent bin** (21 % vs 44 % for subgiants). This is partly because GALAH's nearby dwarf sample spans a wider [Fe/H] range than the (more uniform) distant subgiant sample, which pulls the [Fe/H] sub-score down.
 
+> **Side note — the 0.6 % vs 9 % `cct_cluster` rate is a geometric artifact, not a signal.** A separate test
+> (`solar_twin_clustering_artifact.md`) confirmed that subgiant solar-twin-like stars look "always assigned to
+> a cluster template" only because the 593 templates themselves all sit within 4σ of solar — i.e. solar-twin
+> stars are close to many templates by construction. Permutation null returns the same 0.6 % within noise
+> (z = −1.63, p = 0.09 one-sided). No "Sun not ordinary" signal can be extracted from this column.
+
 ## Recommended rephrasings
 
 Drop the unqualified "FGK dwarfs" wording. Pick whichever fits the paper's emphasis:
