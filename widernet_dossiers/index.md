@@ -1,0 +1,23 @@
+# Widernet candidate index
+_Auto-generated. 16 candidates surviving full pipeline (SDE>=7 + ON_TARGET/INCONCLUSIVE centroid + EB screen)._
+
+## Candidates
+
+| name | verdict | n_sec | P (d) | R⊕ | T_eq | centroid | known TOI? |
+|---|---|---:|---:|---:|---:|---|:-:|
+| [CPD-63   349](CPD_63_349/dossier.md) | SURVIVED | 39 | 190.487 | 2.11 | 328 | ON_TARGET | no |
+| [HD 271308](HD_271308/dossier.md) | SURVIVED | 9 | 34.269 | 2.83 | 800 | ON_TARGET | no |
+| [BD-02  3362](BD_02_3362/dossier.md) | FLAG_REVIEW | 3 | 72.049 | 3.10 | 515 | ON_TARGET | no |
+| [2M16513518+5934383](2M16513518_5934383/dossier.md) | FLAG_REVIEW | 16 | 233.043 | 4.83 | 396 | INCONCLUSIVE | no |
+| [2M16570811+5941317](2M16570811_5941317/dossier.md) | SURVIVED | 6 | 15.800 | 3.75 | 862 | ON_TARGET | no |
+| [2M18464473+5923422](2M18464473_5923422/dossier.md) | SURVIVED | 39 | 246.008 | 4.12 | 381 | ON_TARGET | no |
+| [2M16271320+6258050](2M16271320_6258050/dossier.md) | SURVIVED | 27 | 177.592 | 3.71 | 249 | INCONCLUSIVE | no |
+| [2M19381719+6608049](2M19381719_6608049/dossier.md) | SURVIVED | 27 | 233.183 | 3.22 | 233 | ON_TARGET | no |
+| [2M17025603+5914217](2M17025603_5914217/dossier.md) | FLAG_REVIEW | 32 | 246.307 | 3.82 | 241 | INCONCLUSIVE | no |
+| [2M17004013+6026044](2M17004013_6026044/dossier.md) | SURVIVED | 32 | 178.221 | 6.23 | 348 | ON_TARGET | no |
+| [2M17035291+5721555](2M17035291_5721555/dossier.md) | SURVIVED | 42 | 196.365 | 3.12 | 416 | ON_TARGET | no |
+| [2M19502464+7101117](2M19502464_7101117/dossier.md) | SURVIVED | 8 | 3.809 | 1.48 | 1655 | ON_TARGET | no |
+| [2M19330779+7006422](2M19330779_7006422/dossier.md) | SURVIVED | 31 | 226.137 | 1.92 | 332 | ON_TARGET | no |
+| [2M19321727+7026274](2M19321727_7026274/dossier.md) | SURVIVED | 27 | 3.903 | 1.66 | 1492 | INCONCLUSIVE | no |
+| [2M19510829+6545443](2M19510829_6545443/dossier.md) | FLAG_REVIEW | 16 | 213.532 | 3.63 | 346 | INCONCLUSIVE | no |
+| [2M19515616+7029139](2M19515616_7029139/dossier.md) | SURVIVED | 32 | 233.003 | 2.85 | 348 | ON_TARGET | no |
