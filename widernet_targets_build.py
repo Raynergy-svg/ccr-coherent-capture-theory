@@ -54,21 +54,32 @@ bright = field[(field.SNR > 150) &
                field.DEC.between(-90, 90)].copy().reset_index(drop=True)
 print(f"  bright FGK pool: {len(bright)}")
 
-# 3. tess-point predict sector coverage -- CHUNKED to avoid memory scaling issues
-print(f"\n[3] tess-point predict sector coverage for {len(bright)} stars (chunked)...")
+# 3. tess-point predict sector coverage -- CHUNKED with disk checkpointing
+print(f"\n[3] tess-point predict sector coverage for {len(bright)} stars (chunked + resumable)...")
 t0 = time.time()
 CHUNK = 2000
+CKPT_DIR = "/tmp/tesspoint_chunks"
+os.makedirs(CKPT_DIR, exist_ok=True)
+
 all_sids = []; all_secs = []
 for i in range(0, len(bright), CHUNK):
     j = min(i + CHUNK, len(bright))
-    out_ids, _, _, out_sectors, _, _, _, _, _ = t2p(
-        np.arange(i, j), bright.RA.values[i:j], bright.DEC.values[i:j])
-    all_sids.extend(out_ids.tolist())
-    all_secs.extend(out_sectors.tolist())
+    ckpt = f"{CKPT_DIR}/chunk_{i:06d}_{j:06d}.npz"
+    if os.path.exists(ckpt):
+        d = np.load(ckpt)
+        out_ids = d["sids"]; out_sectors = d["secs"]
+        loaded = " (loaded from checkpoint)"
+    else:
+        out_ids, _, _, out_sectors, _, _, _, _, _ = t2p(
+            np.arange(i, j), bright.RA.values[i:j], bright.DEC.values[i:j])
+        np.savez_compressed(ckpt, sids=np.array(out_ids), secs=np.array(out_sectors))
+        loaded = ""
+    all_sids.extend(np.array(out_ids).tolist())
+    all_secs.extend(np.array(out_sectors).tolist())
     dt = time.time() - t0
     rate = j / dt if dt > 0 else 0
     eta = (len(bright) - j) / rate if rate > 0 else 0
-    print(f"  chunk {i:>6}-{j:>6}  ({j*100//len(bright):>3}%)  rate={rate:.0f} stars/s  ETA={eta:.0f}s")
+    print(f"  chunk {i:>6}-{j:>6}  ({j*100//len(bright):>3}%)  rate={rate:.0f} stars/s  ETA={eta:.0f}s{loaded}")
 print(f"  done in {time.time()-t0:.0f}s total")
 
 # Aggregate sectors per star
