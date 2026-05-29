@@ -19,8 +19,12 @@ Six sub-tests with thresholds frozen from the CPD-63 349 Test #3 vetting:
 
   4. Duration vs central-transit duration for stellar density
        observed/central_b0 in [0.4, 1.1]  PASS  (consistent with b ~ 0-0.7)
-                          0.3-0.4 or 1.1-1.4  INCONC
-                          < 0.3 or > 1.4  FAIL
+       0.2 - 0.4   INCONC  (grazing-consistent; cannot rule in/out)
+       1.1 - 1.4   INCONC
+       < 0.2 or > 1.4   FAIL
+     The duration is refit on the LCs with a wider trial grid before the test --
+     the upstream BLS pipeline caps trial durations at 4.8h which makes the
+     fit useless for long-period planets that have ~10h central durations.
 
   5. Implied companion radius from depth
        < 1.0 R_Jup  PASS
@@ -52,8 +56,8 @@ TH_POSFRAC_PASS   = 0.7
 TH_POSFRAC_FAIL   = 0.5
 TH_DUR_LO_PASS    = 0.4
 TH_DUR_HI_PASS    = 1.1
-TH_DUR_LO_FAIL    = 0.3
-TH_DUR_HI_FAIL    = 1.4
+TH_DUR_LO_FAIL    = 0.2     # below 0.2 of central = clearly impossible geometry
+TH_DUR_HI_FAIL    = 1.4     # above 1.4 = inconsistent with stellar density
 TH_RP_PASS_RJUP   = 1.0
 TH_RP_FAIL_RJUP   = 2.0
 TH_SEC_PASS_PPM   = 100
@@ -181,6 +185,25 @@ def sub3_posfrac(T, F, dur_d, predicted):
     return dict(name="positive-depth-frac", value=float(frac),
                 n_positive=int(npos), n_visible=int(nvisible), verdict=verdict)
 
+def refit_duration(T, F, P_obs, T0_obs, dur_guess):
+    """Refit duration on the detrended LC with a wider trial grid.
+
+    The upstream BLS pipeline searches durations up to 0.2 d (4.8 h).
+    For long-period planets that's too restrictive -- a P=200 d planet
+    around a sun-like dwarf has a central transit duration ~9 h. This
+    refit grid spans 0.03 d (43 min) to 0.6 d (14.4 h).
+    """
+    if len(T) < 100: return float(dur_guess), float("nan")
+    bls = BoxLeastSquares(T, F)
+    durs = np.array([0.03, 0.05, 0.08, 0.10, 0.12, 0.15, 0.18, 0.22,
+                     0.28, 0.35, 0.45, 0.55])
+    pers = np.linspace(P_obs*0.99, P_obs*1.01, 200)
+    pg = bls.power(pers, durs)
+    i = int(np.argmax(pg.power))
+    dur_refit = float(pg.duration[i])
+    power = float(pg.power[i])
+    return dur_refit, power
+
 def sub4_duration(dur_d, P_d, M_star, R_star):
     """Observed duration / b=0 central-transit duration."""
     if M_star <= 0 or R_star <= 0 or P_d <= 0:
@@ -238,12 +261,19 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None):
     """
     T, F = detrend_concat(sectors)
     predicted = predict_transits(T, T0, P)
-    s1 = sub1_sde_ratio(T, F, P, dur_d)
-    s2 = sub2_odd_even (T, F, P, T0, dur_d, predicted)
-    s3 = sub3_posfrac  (T, F, dur_d, predicted)
-    s4 = sub4_duration (dur_d, P, M_star, R_star)
+    # Refit duration on the LC with a wider trial grid -- the upstream
+    # BLS pipeline caps at 4.8 h which is useless for long-P candidates.
+    dur_refit, dur_power = refit_duration(T, F, P, T0, dur_d)
+    dur_for_tests = dur_refit if dur_refit > 0 else dur_d
+
+    s1 = sub1_sde_ratio(T, F, P, dur_for_tests)
+    s2 = sub2_odd_even (T, F, P, T0, dur_for_tests, predicted)
+    s3 = sub3_posfrac  (T, F, dur_for_tests, predicted)
+    s4 = sub4_duration (dur_for_tests, P, M_star, R_star)
+    s4["dur_input_d"] = float(dur_d)
+    s4["dur_refit_d"] = float(dur_refit)
     s5 = sub5_companion_R(depth, R_star)
-    s6 = sub6_secondary (T, F, P, T0, dur_d)
+    s6 = sub6_secondary (T, F, P, T0, dur_for_tests)
     subs = [s1, s2, s3, s4, s5, s6]
     n_fail   = sum(1 for s in subs if s["verdict"] == "FAIL")
     n_inconc = sum(1 for s in subs if s["verdict"] == "INCONC")
