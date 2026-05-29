@@ -126,15 +126,26 @@ print(f"  candidates after exclusion: {len(ms)}")
 
 # 6. Rank by predicted sector count and select top N for actual MAST confirmation + BLS
 ms = ms.sort_values("n_sectors_predicted", ascending=False).reset_index(drop=True)
-N_TOP = min(len(ms), 1500)
+N_TOP = min(len(ms), 500)   # reduced from 1500: keep wall time tractable
 top = ms.head(N_TOP).copy()
 print(f"\n[6] Top {N_TOP} candidates by predicted sector count -- confirm with MAST...")
 
-# Query MAST for actual SPOC LC sector counts + TIC params
-print(f"  (this loop hits MAST 2x per target -- pacing ~1 star/s)")
+# Resume from existing widernet_targets_full.csv if present
+RES_CSV = "widernet_targets_full.csv"
+done_idx = set()
 results = []
+if os.path.exists(RES_CSV):
+    prev = pd.read_csv(RES_CSV)
+    results = prev.to_dict("records")
+    done_idx = set(prev["apogee_id"].astype(str).tolist())
+    print(f"  resuming -- {len(done_idx)} already done")
+
+# Query MAST for actual SPOC LC sector counts + TIC params
+print(f"  (this loop hits MAST 2x per target -- pacing ~3-10 s/star)")
 t_start = time.time()
 for i, r in top.iterrows():
+    if str(r.APOGEE_ID) in done_idx:
+        continue
     ra, dec = float(r.RA), float(r.DEC)
     try:
         obs = Observations.query_region(f"{ra} {dec}", radius="20 arcsec")
@@ -179,12 +190,14 @@ for i, r in top.iterrows():
         tic_id=tic_id, Tmag=Tmag, R_star=R_star, M_star=M_star, Teff_tic=Teff_tic,
         tic_sep_arcsec=sep_arcsec,
     ))
-    if (i+1) % 50 == 0 or (i+1) == N_TOP:
+    # Checkpoint every 25 stars so a restart can resume cheaply
+    if (i+1) % 25 == 0 or (i+1) == N_TOP:
+        pd.DataFrame(results).to_csv(RES_CSV, index=False)
         dt = time.time() - t_start
-        rate = (i+1) / dt
+        rate = len(results) / dt if dt > 0 else 0
         eta = (N_TOP - (i+1)) / rate if rate > 0 else 0
-        n_multi = sum(1 for x in results if x["n_lc_sectors_actual"] >= 3)
-        print(f"  [{i+1:>5}/{N_TOP}]  multi_actual={n_multi}  rate={rate:.2f}/s  ETA={eta/60:.1f}m")
+        n_multi = sum(1 for x in results if x.get("n_lc_sectors_actual", 0) >= 3)
+        print(f"  [{i+1:>5}/{N_TOP}]  multi_actual={n_multi}  rate={rate:.2f}/s  ETA={eta/60:.1f}m", flush=True)
 
 R = pd.DataFrame(results)
 
