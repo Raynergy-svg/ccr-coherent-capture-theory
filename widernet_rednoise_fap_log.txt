@@ -1,6 +1,3 @@
 Red-noise FAP test on 16 candidates (N_boot=100, bin=30.0min)
 
-  BD-02  3362  P=72.049d  SDE_pipeline=7.03  eb=FLAG_REVIEW
-INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2019058134432-s0009-0000000173108636-0139-s/tess2019058134432-s0009-0000000173108636-0139-s_lc.fits with expected size 1848960. [astroquery.query]
-INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021310001228-s0045-0000000173108636-0216-s/tess2021310001228-s0045-0000000173108636-0216-s_lc.fits with expected size 1840320. [astroquery.query]
-INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2021336043614-s0046-0000000173108636-0217-s/tess2021336043614-s0046-0000000173108636-0217-s_lc.fits with expected size 1984320. [astroquery.query]
+  BD-02  3362  TIC=173108636  P=72.049d  SDE_pipeline=7.03  eb=FLAG_REVIEW
