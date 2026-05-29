@@ -16,3 +16,6 @@ Red-noise FAP test on 16 candidates (N_boot=100, bin=30.0min)
     SDE_obs(binned)=6.95  null_median=6.43  null_95=8.53  FAP=0.290  -> LIKELY_RED_NOISE  (231s)
 
   HD 271308  TIC=287298304  P=34.269d  SDE_pipeline=7.47  eb=SURVIVED
+    SDE_obs(binned)=8.06  null_median=3.86  null_95=5.35  FAP=0.000  -> SURVIVES_REDNOISE  (90s)
+
+  2M16570811+5941317  TIC=199716540  P=15.800d  SDE_pipeline=10.20  eb=SURVIVED
