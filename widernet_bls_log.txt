@@ -447,3 +447,16 @@ INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024274222008-s0084-0
 INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024300212641-s0085-0000000459968655-0282-s/tess2024300212641-s0085-0000000459968655-0282-s_lc.fits with expected size 1866240. [astroquery.query]
 INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024326142117-s0086-0000000459968655-0283-s/tess2024326142117-s0086-0000000459968655-0283-s_lc.fits with expected size 1944000. [astroquery.query]
   [  63/125] 2M16590373+6108498  n_sec= 43  SDE=8.042992727996543  P=187.94187767510698  R_p=5.026760613328775  -> SDE_OK_ON_TARGET_EB_REJECT *** SDE>=7
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2023341045131-s0073-0000000229452949-0268-s/tess2023341045131-s0073-0000000229452949-0268-s_lc.fits with expected size 1964160. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024003055635-s0074-0000000229452949-0269-s/tess2024003055635-s0074-0000000229452949-0269-s_lc.fits with expected size 1952640. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024030031500-s0075-0000000229452949-0270-s/tess2024030031500-s0075-0000000229452949-0270-s_lc.fits with expected size 2024640. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024058030222-s0076-0000000229452949-0271-s/tess2024058030222-s0076-0000000229452949-0271-s_lc.fits with expected size 1981440. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024085201119-s0077-0000000229452949-0272-s/tess2024085201119-s0077-0000000229452949-0272-s_lc.fits with expected size 2050560. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024114025118-s0078-0000000229452949-0273-s/tess2024114025118-s0078-0000000229452949-0273-s_lc.fits with expected size 1330560. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024142205832-s0079-0000000229452949-0274-s/tess2024142205832-s0079-0000000229452949-0274-s_lc.fits with expected size 1984320. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024170053053-s0080-0000000229452949-0275-s/tess2024170053053-s0080-0000000229452949-0275-s_lc.fits with expected size 1935360. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024196212429-s0081-0000000229452949-0276-s/tess2024196212429-s0081-0000000229452949-0276-s_lc.fits with expected size 1946880. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024223182411-s0082-0000000229452949-0278-s/tess2024223182411-s0082-0000000229452949-0278-s_lc.fits with expected size 1892160. [astroquery.query]
+INFO: Found cached file /tmp/tess_dl/mastDownload/TESS/tess2024249191853-s0083-0000000229452949-0280-s/tess2024249191853-s0083-0000000229452949-0280-s_lc.fits with expected size 1825920. [astroquery.query]
+  [  64/125] 2M19373633+6351220  n_sec= 11  SDE=60.96824994155759  P=6.142295437597636  R_p=12.056237137313694  -> SDE_OK_INCONCLUSIVE_EB_REJECT *** SDE>=7
+  [  65/125] 2M19374791+6610463  n_sec= 16  SDE=5.894320183723161  P=236.64622584903395  R_p=3.8709064971843907  -> no_signal_SDE_5.9
