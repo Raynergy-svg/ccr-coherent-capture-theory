@@ -1,0 +1,69 @@
+==============================================================================
+BUILDING WIDER-NET TARGET LIST (fast tess-point predict + MAST confirm)
+==============================================================================
+
+[1] Loading APOGEE FGK field pool (159k)...
+  rows: 159277
+
+[2] Pre-filter to bright candidates (APOGEE SNR > 150, FGK params)...
+  bright FGK pool: 76007
+
+[3] tess-point predict sector coverage for 76007 stars (chunked + resumable)...
+  chunk      0-  2000  (  2%)  rate=1211526 stars/s  ETA=0s (loaded from checkpoint)
+  chunk   2000-  4000  (  5%)  rate=1457874 stars/s  ETA=0s (loaded from checkpoint)
+  chunk   4000-  6000  (  7%)  rate=1616510 stars/s  ETA=0s (loaded from checkpoint)
+  chunk   6000-  8000  ( 10%)  rate=1715900 stars/s  ETA=0s (loaded from checkpoint)
+  chunk   8000- 10000  ( 13%)  rate=1710983 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  10000- 12000  ( 15%)  rate=1375069 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  12000- 14000  ( 18%)  rate=1114808 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  14000- 16000  ( 21%)  rate=1012276 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  16000- 18000  ( 23%)  rate=881444 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  18000- 20000  ( 26%)  rate=809688 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  20000- 22000  ( 28%)  rate=833692 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  22000- 24000  ( 31%)  rate=879163 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  24000- 26000  ( 34%)  rate=925078 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  26000- 28000  ( 36%)  rate=968637 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  28000- 30000  ( 39%)  rate=1015029 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  30000- 32000  ( 42%)  rate=1058274 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  32000- 34000  ( 44%)  rate=1100188 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  34000- 36000  ( 47%)  rate=1135616 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  36000- 38000  ( 49%)  rate=1168707 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  38000- 40000  ( 52%)  rate=1198946 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  40000- 42000  ( 55%)  rate=1221905 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  42000- 44000  ( 57%)  rate=1088183 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  44000- 46000  ( 60%)  rate=1111913 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  46000- 48000  ( 63%)  rate=1129620 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  48000- 50000  ( 65%)  rate=1150631 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  50000- 52000  ( 68%)  rate=1171222 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  52000- 54000  ( 71%)  rate=1192116 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  54000- 56000  ( 73%)  rate=1207795 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  56000- 58000  ( 76%)  rate=1200306 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  58000- 60000  ( 78%)  rate=1197489 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  60000- 62000  ( 81%)  rate=1168897 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  62000- 64000  ( 84%)  rate=1070022 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  64000- 66000  ( 86%)  rate=1008683 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  66000- 68000  ( 89%)  rate=885792 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  68000- 70000  ( 92%)  rate=869173 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  70000- 72000  ( 94%)  rate=883657 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  72000- 74000  ( 97%)  rate=900196 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  74000- 76000  ( 99%)  rate=913559 stars/s  ETA=0s (loaded from checkpoint)
+  chunk  76000- 76007  (100%)  rate=908037 stars/s  ETA=0s (loaded from checkpoint)
+  done in 0s total
+  predicted sector distribution:
+    0 sectors: 316
+    1-2:       17256
+    3-5:       29741
+    6-10:      13942
+    11-20:     2733
+    21+:       12019
+
+[4] Filter to predicted >= 3 sectors...
+  candidates: 58435
+
+[5] Excluding known NEA TOIs and confirmed planet hosts...
+  TOI rows: 7931, confirmed planet rows: 6291
+  known TOI/host matches within 10'' of 58435: 191
+  candidates after exclusion: 58244
+
+[6] Top 500 candidates by predicted sector count -- confirm with MAST...
+  (this loop hits MAST 2x per target -- pacing ~3-10 s/star)
