@@ -40,12 +40,27 @@ from astropy.io import fits
 from astropy.timeseries import BoxLeastSquares
 from astroquery.mast import Observations
 from scipy.signal import medfilt
+import multiprocessing as mp
 
 N_BOOT      = 100
 BIN_MINUTES = 30.0
 RNG_SEED    = 20260528
+N_WORKERS   = 4
+GRID_CAP    = 5000          # trimmed from 15000: ample for a max-SDE FAP measure
 RESULTS_IN  = "widernet_bls_results.csv"
 RESULTS_OUT = "widernet_rednoise_fap.csv"
+
+# module globals populated per-candidate before the worker pool is forked
+_G = {}
+
+def _boot_worker(k):
+    """One bootstrap iteration: block-permute the binned LC, full-grid BLS,
+    return max SDE. Reads the candidate arrays from module globals (inherited
+    by fork on Linux)."""
+    rng = np.random.default_rng(RNG_SEED + 1 + k)
+    _, Fp = block_permute(_G["Tb"], _G["Fb"], _G["block_days"], rng)
+    s, _ = bls_max_sde(_G["Tb"], Fp, _G["periods"], _G["durations"])
+    return s
 
 def load_lcs(ra, dec):
     obs = Observations.query_region(f"{ra} {dec}", radius="20 arcsec")
@@ -142,18 +157,17 @@ def run_fap(name, ra, dec, P, dur_d, baseline_hint, n_boot=N_BOOT):
     # scope check: need P >> block to destroy coherence
     scope_ok = P > 10.0*block_days
     pmax = min(baseline/2.5, 300.0)
-    n_grid = int(np.clip(6000*(pmax/15), 3000, 15000))
+    n_grid = int(np.clip(6000*(pmax/15), 3000, GRID_CAP))
     periods = np.linspace(0.5, pmax, n_grid)
     durations = np.array([0.05, 0.08, 0.10, 0.15, 0.20, 0.30])
     sde_obs = sde_at_period(Tb, Fb, P, durations)
-    rng = np.random.default_rng(RNG_SEED)
-    null_max = []
     t0 = time.time()
-    for k in range(n_boot):
-        _, Fp = block_permute(Tb, Fb, block_days, rng)
-        s, _ = bls_max_sde(Tb, Fp, periods, durations)
-        null_max.append(s)
-    null_max = np.array(null_max)
+    # populate globals for forked workers, then run bootstraps in parallel
+    _G["Tb"], _G["Fb"] = Tb, Fb
+    _G["periods"], _G["durations"] = periods, durations
+    _G["block_days"] = block_days
+    with mp.Pool(N_WORKERS) as pool:
+        null_max = np.array(pool.map(_boot_worker, range(n_boot)))
     fap = float((null_max >= sde_obs).mean())
     null_med = float(np.median(null_max)); null_95 = float(np.percentile(null_max, 95))
     if not scope_ok:
