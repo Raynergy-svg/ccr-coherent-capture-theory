@@ -1,3 +1,6 @@
 Red-noise FAP test on 16 candidates (N_boot=100, bin=30.0min)
 
   BD-02  3362  TIC=173108636  P=72.049d  SDE_pipeline=7.03  eb=FLAG_REVIEW
+    SDE_obs(binned)=8.91  null_median=8.72  null_95=12.66  FAP=0.470  -> LIKELY_RED_NOISE  (100s)
+
+  2M16513518+5934383  TIC=199685988  P=233.043d  SDE_pipeline=7.05  eb=FLAG_REVIEW
