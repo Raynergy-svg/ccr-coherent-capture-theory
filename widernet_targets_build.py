@@ -54,16 +54,25 @@ bright = field[(field.SNR > 150) &
                field.DEC.between(-90, 90)].copy().reset_index(drop=True)
 print(f"  bright FGK pool: {len(bright)}")
 
-# 3. tess-point predict sector coverage
-print(f"\n[3] tess-point predict sector coverage for {len(bright)} stars...")
+# 3. tess-point predict sector coverage -- CHUNKED to avoid memory scaling issues
+print(f"\n[3] tess-point predict sector coverage for {len(bright)} stars (chunked)...")
 t0 = time.time()
-out_ids, out_ras, out_decs, out_sectors, out_camera, out_ccd, out_col, out_row, _ = t2p(
-    np.arange(len(bright)), bright.RA.values, bright.DEC.values)
-dt = time.time() - t0
-print(f"  done in {dt:.0f}s = {len(bright)/dt:.0f} stars/s")
+CHUNK = 2000
+all_sids = []; all_secs = []
+for i in range(0, len(bright), CHUNK):
+    j = min(i + CHUNK, len(bright))
+    out_ids, _, _, out_sectors, _, _, _, _, _ = t2p(
+        np.arange(i, j), bright.RA.values[i:j], bright.DEC.values[i:j])
+    all_sids.extend(out_ids.tolist())
+    all_secs.extend(out_sectors.tolist())
+    dt = time.time() - t0
+    rate = j / dt if dt > 0 else 0
+    eta = (len(bright) - j) / rate if rate > 0 else 0
+    print(f"  chunk {i:>6}-{j:>6}  ({j*100//len(bright):>3}%)  rate={rate:.0f} stars/s  ETA={eta:.0f}s")
+print(f"  done in {time.time()-t0:.0f}s total")
 
 # Aggregate sectors per star
-df_pred = pd.DataFrame(dict(star_idx=out_ids, sector=out_sectors))
+df_pred = pd.DataFrame(dict(star_idx=all_sids, sector=all_secs))
 sec_count = df_pred.groupby("star_idx").sector.nunique().reindex(np.arange(len(bright)), fill_value=0)
 sec_list = df_pred.groupby("star_idx").sector.apply(lambda s: sorted(set(s)))
 bright["n_sectors_predicted"] = sec_count.values
