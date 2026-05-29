@@ -54,6 +54,16 @@ def triage(df):
     s = s[on_target | marginal_high_sde].copy()
     print(f"  after centroid filter:     {len(s)}")
 
+    # EB screen verdict -- only keep SURVIVED; FLAG_REVIEW goes into a separate
+    # bucket for manual review; EB_REJECT and SCREEN_ERR are dropped.
+    if "eb_screen_verdict" in s.columns:
+        n_before = len(s)
+        survived = s.eb_screen_verdict.fillna("").str.contains("SURVIVED")
+        flagged  = s.eb_screen_verdict.fillna("").str.contains("FLAG_REVIEW")
+        s_flagged = s[flagged].copy()
+        s = s[survived].copy()
+        print(f"  after EB-screen filter:    {len(s)} survived, {len(s_flagged)} flagged_review (of {n_before})")
+
     # Depth filter: 50 - 5000 ppm (planet-like; <50 is noise, >5000 is likely EB)
     s = s[s.depth_ppm.between(50, 5000)].copy()
     print(f"  after depth filter (50-5000 ppm): {len(s)}")

@@ -35,6 +35,7 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from centroid_psf_test import per_sector_centroid_test, combine_sector_results, verdict as centroid_verdict, get_spoc_lcs
+from eb_screen import run_eb_screen
 
 SDE_THRESHOLD = 7.0
 DOWNLOAD_DIR = "/tmp/tess_dl"
@@ -202,11 +203,35 @@ def run_target(row):
         combined = dict(status=f"centroid_err:{e}")
         verdict_centroid = "CENTROID_ERR"
 
-    out["status"] = f"SDE_OK_{verdict_centroid.split()[0]}"
     out["centroid_offset_arcsec"] = combined.get("combined_offset_arcsec", float("nan"))
     out["centroid_sigma"] = combined.get("combined_significance_sigma", float("nan"))
     out["centroid_direction_R"] = combined.get("direction_circular_R", float("nan"))
     out["centroid_verdict"] = verdict_centroid
+
+    # Run EB screen on the same LCs we used for BLS. Skip if centroid is OFF_TARGET
+    # (no point screening a clearly blended signal).
+    if not verdict_centroid.startswith("OFF_TARGET"):
+        try:
+            eb = run_eb_screen(
+                sectors=sectors, P=res["P"], T0=res["T0"], dur_d=res["dur"],
+                depth=res["depth"], R_star=Rs, M_star=Ms, Teff=Teff,
+            )
+            out["eb_screen_verdict"] = eb["verdict"]
+            out["eb_n_pass"] = eb["n_pass"]
+            out["eb_n_inconc"] = eb["n_inconc"]
+            out["eb_n_fail"] = eb["n_fail"]
+            out["eb_sde_ratio_2P_1P"] = eb["sub_tests"][0].get("value")
+            out["eb_oddeven_sigma"]   = eb["sub_tests"][1].get("value")
+            out["eb_posfrac"]         = eb["sub_tests"][2].get("value")
+            out["eb_duration_ratio"]  = eb["sub_tests"][3].get("value")
+            out["eb_companion_RJup"]  = eb["sub_tests"][4].get("value")
+            out["eb_secondary_ppm"]   = eb["sub_tests"][5].get("value")
+        except Exception as e:
+            out["eb_screen_verdict"] = f"SCREEN_ERR:{type(e).__name__}"
+    else:
+        out["eb_screen_verdict"] = "SKIPPED_OFF_TARGET"
+
+    out["status"] = f"SDE_OK_{verdict_centroid.split()[0]}_{out['eb_screen_verdict']}"
 
     # save per-candidate JSON
     cand_json = os.path.join(plot_dir, "candidate.json")
