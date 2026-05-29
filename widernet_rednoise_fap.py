@@ -62,25 +62,40 @@ def _boot_worker(k):
     s, _ = bls_max_sde(_G["Tb"], Fp, _G["periods"], _G["durations"])
     return s
 
+import glob as _glob
+CACHE_ROOT = "/tmp/tess_dl/mastDownload/TESS"
+
 def load_lcs(ra, dec):
-    obs = Observations.query_region(f"{ra} {dec}", radius="20 arcsec")
-    ts = obs[(obs["obs_collection"]=="TESS") & (obs["dataproduct_type"]=="timeseries")]
-    if len(ts) == 0: return []
-    prods = Observations.get_product_list(ts)
-    lc = prods[prods["productSubGroupDescription"]=="LC"]
-    if len(lc) == 0: return []
-    dl = Observations.download_products(lc, download_dir="/tmp/tess_dl", verbose=False)
-    out = []
-    for fp in dl["Local Path"]:
+    """Cache-direct loader. The container clock is skewed so the S3 SSL
+    handshake in Observations.download_products fails even for cached files
+    (it does a HEAD request to stpubdata.s3.amazonaws.com). The MAST query
+    endpoint (different host) still works, so we get the product list and
+    then read the FITS straight off disk, skipping any that aren't cached."""
+    try:
+        obs = Observations.query_region(f"{ra} {dec}", radius="20 arcsec")
+        ts = obs[(obs["obs_collection"]=="TESS") & (obs["dataproduct_type"]=="timeseries")]
+        if len(ts) == 0: return [], "no_ts"
+        prods = Observations.get_product_list(ts)
+        lc = prods[prods["productSubGroupDescription"]=="LC"]
+        if len(lc) == 0: return [], "no_lc_products"
+        filenames = [str(x) for x in lc["productFilename"]]
+    except Exception as e:
+        return [], f"query_fail:{type(e).__name__}"
+    out = []; n_cached = 0; n_missing = 0
+    for fn in filenames:
+        hits = _glob.glob(f"{CACHE_ROOT}/**/{fn}", recursive=True)
+        if not hits:
+            n_missing += 1; continue
+        n_cached += 1
         try:
-            with fits.open(fp) as h:
+            with fits.open(hits[0]) as h:
                 d = h["LIGHTCURVE"].data
                 t = d["TIME"]; f = d["PDCSAP_FLUX"]; q = d["QUALITY"]
                 m = np.isfinite(t)&np.isfinite(f)&(q==0)
                 if m.sum() < 100: continue
                 out.append((t[m], f[m]/np.nanmedian(f[m])))
         except Exception: continue
-    return out
+    return out, f"cached={n_cached}/{len(filenames)} missing={n_missing}"
 
 def detrend_concat(lcs):
     allt, allf = [], []
@@ -145,9 +160,9 @@ def block_permute(T, F, block_days, rng):
     return T, F_perm
 
 def run_fap(name, ra, dec, P, dur_d, baseline_hint, n_boot=N_BOOT):
-    lcs = load_lcs(ra, dec)
+    lcs, lc_msg = load_lcs(ra, dec)
     if not lcs:
-        return dict(name=name, status="no_lc")
+        return dict(name=name, status=f"no_lc ({lc_msg})")
     T, F = detrend_concat(lcs)
     Tb, Fb = bin_lc(T, F, BIN_MINUTES)
     if len(Tb) < 200:
@@ -203,7 +218,10 @@ def main():
         if nm in done: continue
         dur_d = float(r["dur_h"])/24.0
         print(f"\n  {nm}  P={r['P_d']:.3f}d  SDE_pipeline={r['sde']:.2f}  eb={r['eb_screen_verdict']}", flush=True)
-        res = run_fap(nm, float(r["ra"]), float(r["dec"]), float(r["P_d"]), dur_d, float(r.get("baseline_d", 0)))
+        try:
+            res = run_fap(nm, float(r["ra"]), float(r["dec"]), float(r["P_d"]), dur_d, float(r.get("baseline_d", 0)))
+        except Exception as e:
+            res = dict(name=nm, status=f"error:{type(e).__name__}:{str(e)[:80]}")
         if res.get("status")=="ok":
             print(f"    SDE_obs(binned)={res['sde_obs_binned']:.2f}  null_median={res['null_median']:.2f}  "
                   f"null_95={res['null_95pct']:.2f}  FAP={res['fap']:.3f}  -> {res['verdict']}  ({res['proc_s']:.0f}s)", flush=True)
