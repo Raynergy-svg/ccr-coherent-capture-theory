@@ -65,37 +65,24 @@ def _boot_worker(k):
 import glob as _glob
 CACHE_ROOT = "/tmp/tess_dl/mastDownload/TESS"
 
-def load_lcs(ra, dec):
-    """Cache-direct loader. The container clock is skewed so the S3 SSL
-    handshake in Observations.download_products fails even for cached files
-    (it does a HEAD request to stpubdata.s3.amazonaws.com). The MAST query
-    endpoint (different host) still works, so we get the product list and
-    then read the FITS straight off disk, skipping any that aren't cached."""
-    try:
-        obs = Observations.query_region(f"{ra} {dec}", radius="20 arcsec")
-        ts = obs[(obs["obs_collection"]=="TESS") & (obs["dataproduct_type"]=="timeseries")]
-        if len(ts) == 0: return [], "no_ts"
-        prods = Observations.get_product_list(ts)
-        lc = prods[prods["productSubGroupDescription"]=="LC"]
-        if len(lc) == 0: return [], "no_lc_products"
-        filenames = [str(x) for x in lc["productFilename"]]
-    except Exception as e:
-        return [], f"query_fail:{type(e).__name__}"
-    out = []; n_cached = 0; n_missing = 0
-    for fn in filenames:
-        hits = _glob.glob(f"{CACHE_ROOT}/**/{fn}", recursive=True)
-        if not hits:
-            n_missing += 1; continue
-        n_cached += 1
+def load_lcs_by_tic(tic):
+    """Load all cached SPOC LC sectors for a TIC straight off disk, by glob.
+    No MAST/network calls -- the container clock is skewed and every SSL
+    handshake to both the MAST API and the S3 data bucket fails. All target
+    LCs were cached during the BLS batch, named by zero-padded 16-digit TIC."""
+    pad = str(tic).split(".")[0].zfill(16)
+    files = sorted(_glob.glob(f"{CACHE_ROOT}/**/*-{pad}-*_lc.fits", recursive=True))
+    out = []
+    for fp in files:
         try:
-            with fits.open(hits[0]) as h:
+            with fits.open(fp) as h:
                 d = h["LIGHTCURVE"].data
                 t = d["TIME"]; f = d["PDCSAP_FLUX"]; q = d["QUALITY"]
                 m = np.isfinite(t)&np.isfinite(f)&(q==0)
                 if m.sum() < 100: continue
                 out.append((t[m], f[m]/np.nanmedian(f[m])))
         except Exception: continue
-    return out, f"cached={n_cached}/{len(filenames)} missing={n_missing}"
+    return out, f"cached_sectors={len(out)}/{len(files)}"
 
 def detrend_concat(lcs):
     allt, allf = [], []
@@ -159,8 +146,8 @@ def block_permute(T, F, block_days, rng):
     # lengths match -> assign onto original time array
     return T, F_perm
 
-def run_fap(name, ra, dec, P, dur_d, baseline_hint, n_boot=N_BOOT):
-    lcs, lc_msg = load_lcs(ra, dec)
+def run_fap(name, tic, P, dur_d, baseline_hint, n_boot=N_BOOT):
+    lcs, lc_msg = load_lcs_by_tic(tic)
     if not lcs:
         return dict(name=name, status=f"no_lc ({lc_msg})")
     T, F = detrend_concat(lcs)
@@ -201,10 +188,22 @@ def run_fap(name, ra, dec, P, dur_d, baseline_hint, n_boot=N_BOOT):
                 fap=fap, n_boot=n_boot, verdict=verdict,
                 proc_s=float(time.time()-t0))
 
+def tic_for_name(name):
+    """Recover the TIC from the dossier written during dossier generation."""
+    import re
+    safe = re.sub(r"\W+", "_", str(name).strip())
+    path = f"widernet_dossiers/{safe}/dossier.md"
+    if not os.path.exists(path): return None
+    for line in open(path):
+        if "TIC ID:" in line:
+            m = re.search(r"TIC ID:\s*([0-9]+)", line)
+            if m: return m.group(1)
+    return None
+
 def main():
     df = pd.read_csv(RESULTS_IN)
     keep = df[df.eb_screen_verdict.fillna("").isin(["SURVIVED","FLAG_REVIEW"])].copy()
-    keep = keep.sort_values("eb_screen_verdict")  # SURVIVED first alpha? just iterate
+    keep = keep.sort_values("eb_screen_verdict")
     print(f"Red-noise FAP test on {len(keep)} candidates (N_boot={N_BOOT}, bin={BIN_MINUTES}min)")
     rows = []
     # resume support
@@ -217,11 +216,15 @@ def main():
         nm = str(r["name"]).strip()
         if nm in done: continue
         dur_d = float(r["dur_h"])/24.0
-        print(f"\n  {nm}  P={r['P_d']:.3f}d  SDE_pipeline={r['sde']:.2f}  eb={r['eb_screen_verdict']}", flush=True)
-        try:
-            res = run_fap(nm, float(r["ra"]), float(r["dec"]), float(r["P_d"]), dur_d, float(r.get("baseline_d", 0)))
-        except Exception as e:
-            res = dict(name=nm, status=f"error:{type(e).__name__}:{str(e)[:80]}")
+        tic = tic_for_name(nm)
+        print(f"\n  {nm}  TIC={tic}  P={r['P_d']:.3f}d  SDE_pipeline={r['sde']:.2f}  eb={r['eb_screen_verdict']}", flush=True)
+        if tic is None:
+            res = dict(name=nm, status="no_tic")
+        else:
+            try:
+                res = run_fap(nm, tic, float(r["P_d"]), dur_d, float(r.get("baseline_d", 0)))
+            except Exception as e:
+                res = dict(name=nm, status=f"error:{type(e).__name__}:{str(e)[:80]}")
         if res.get("status")=="ok":
             print(f"    SDE_obs(binned)={res['sde_obs_binned']:.2f}  null_median={res['null_median']:.2f}  "
                   f"null_95={res['null_95pct']:.2f}  FAP={res['fap']:.3f}  -> {res['verdict']}  ({res['proc_s']:.0f}s)", flush=True)
