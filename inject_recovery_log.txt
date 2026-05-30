@@ -1,3 +1,12 @@
 Injection-recovery targets: ['CPD-63   349', '2M19381719+6608049', '2M19515616+7029139']
 
   CPD-63   349  TIC=38877496  P=190.487d  depth=444ppm  inject N=100
+    injected-real SDE@P: median=7.24 5pct=6.74 | obs=6.95 null95=8.53  -> DATA_LIMITED (real planet of these params buried in noise)
+
+  2M19381719+6608049  TIC=264170576  P=233.183d  depth=1416ppm  inject N=100
+    injected-real SDE@P: median=6.24 5pct=4.40 | obs=5.86 null95=7.70  -> DATA_LIMITED (real planet of these params buried in noise)
+
+  2M19515616+7029139  TIC=280071089  P=233.003d  depth=544ppm  inject N=100
+    injected-real SDE@P: median=7.64 5pct=5.68 | obs=6.68 null95=7.01  -> DATA_LIMITED (real planet of these params buried in noise)
+
+saved inject_recovery_results.csv
