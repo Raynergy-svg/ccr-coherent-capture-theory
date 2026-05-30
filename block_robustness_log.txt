@@ -1,2 +1,5 @@
 
   HD 271308  TIC=287298304  P=34.269d  | 1d-block: FAP=0.00 null95=5.35
+    7d-block: SDE_obs=8.06  null95=5.55  FAP=0.000  -> N/A_period_too_short_for_7d_blocks  (89s)
+
+  2M18464473+5923422  TIC=232646723  P=246.008d  | 1d-block: FAP=0.00 null95=8.07
