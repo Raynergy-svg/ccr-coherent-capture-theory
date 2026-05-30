@@ -1,0 +1,3 @@
+Injection-recovery targets: ['CPD-63   349', '2M19381719+6608049', '2M19515616+7029139']
+
+  CPD-63   349  TIC=38877496  P=190.487d  depth=444ppm  inject N=100
