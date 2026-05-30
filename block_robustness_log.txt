@@ -12,3 +12,6 @@
     7d-block: SDE_obs=6.57  null95=5.93  FAP=0.000  -> ROBUST  (194s)
 
   2M19510829+6545443  TIC=256321781  P=213.532d  | 1d-block: FAP=0.00 null95=5.34
+    7d-block: SDE_obs=6.13  null95=5.25  FAP=0.000  -> ROBUST  (197s)
+
+  2M19515616+7029139  TIC=280071089  P=233.003d  | 1d-block: FAP=0.09 null95=7.01
