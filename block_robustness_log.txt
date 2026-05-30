@@ -15,3 +15,6 @@
     7d-block: SDE_obs=6.13  null95=5.25  FAP=0.000  -> ROBUST  (197s)
 
   2M19515616+7029139  TIC=280071089  P=233.003d  | 1d-block: FAP=0.09 null95=7.01
+    7d-block: SDE_obs=6.68  null95=7.52  FAP=0.120  -> WEAKENED  (225s)
+
+saved block_robustness_results.csv
