@@ -61,6 +61,7 @@ for _, r in hits.iterrows():
         P=float(r.P_d), T0=float(r.T0_BTJD), dur_d=float(r.dur_h)/24.0,
         depth=float(r.depth_ppm)*1e-6,
         R_star=R_star, M_star=M_star, Teff=Teff,
+        ra=float(r.ra), dec=float(r.dec),
     )
     print(f"  n_predicted_transits={res['n_predicted_transits']}  n_pts={res['n_pts']}")
     for s in res["sub_tests"]:
@@ -83,6 +84,7 @@ for _, r in hits.iterrows():
         sub4_duration=res["sub_tests"][3].get("value"), sub4_verdict=res["sub_tests"][3]["verdict"],
         sub5_companionR=res["sub_tests"][4].get("value"),sub5_verdict=res["sub_tests"][4]["verdict"],
         sub6_secondary=res["sub_tests"][5].get("value"),sub6_verdict=res["sub_tests"][5]["verdict"],
+        sub7_gaia_ruwe=res["sub_tests"][6].get("value"),sub7_verdict=res["sub_tests"][6]["verdict"],
     ))
 
 if screen_rows:

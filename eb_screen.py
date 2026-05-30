@@ -1,6 +1,9 @@
 """EB-screen module for SDE>=7 + on-target hits.
 
-Six sub-tests with thresholds frozen from the CPD-63 349 Test #3 vetting:
+Seven sub-tests with thresholds frozen from the CPD-63 349 Test #3 vetting
+plus the Gaia RUWE binarity check added 2026-05-30 after the
+2M19321727 / 2M16513518 catches (Gaia-flagged binaries that passed all six
+photometric tests):
 
   1. SDE(2P) / SDE(1P) -- is the detected period the harmonic of an EB at 2P?
         < 0.7  PASS  (1P is the real period; EB at 2P disfavoured)
@@ -36,10 +39,18 @@ Six sub-tests with thresholds frozen from the CPD-63 349 Test #3 vetting:
        100-300 ppm                     INCONC
        > 300 ppm                       FAIL (likely EB)
 
-Combined verdict:
-   any FAIL                  -> EB_REJECT
-   else >=3 PASS, <=2 INCONC -> SURVIVED
-   else                      -> FLAG_REVIEW
+  7. Gaia DR3 RUWE (unresolved-binary signature; Belokurov et al. 2020)
+       < 1.4    PASS  (consistent with single star)
+       1.4-2.0  INCONC (suspected binary)
+       >= 2.0   FAIL  (Gaia astrometric fit fails as single star -- binary;
+                       EB-blend is the dominant remaining FP mode)
+     RUWE = NaN (query failure) -> INCONC, never FAIL, so a flaky network
+     can't kill a real candidate.
+
+Combined verdict (now scaled to 7 sub-tests):
+   any FAIL                   -> EB_REJECT
+   else >=4 PASS, <=2 INCONC  -> SURVIVED
+   else                       -> FLAG_REVIEW
 """
 import warnings
 warnings.filterwarnings("ignore")
@@ -62,6 +73,8 @@ TH_RP_PASS_RJUP   = 1.0
 TH_RP_FAIL_RJUP   = 2.0
 TH_SEC_PASS_PPM   = 100
 TH_SEC_FAIL_PPM   = 300
+TH_RUWE_PASS      = 1.4     # Belokurov+2020: single-star fit OK below this
+TH_RUWE_FAIL      = 2.0     # >=2 = unambiguous unresolved binary
 
 R_JUP_EARTH = 11.21
 R_SUN_AU    = 0.00465047
@@ -232,6 +245,22 @@ def sub5_companion_R(depth, R_star):
     return dict(name="companion-R", value=float(R_p_Rjup), R_p_Rearth=float(R_p_Rjup*R_JUP_EARTH),
                 verdict=verdict)
 
+def sub7_gaia_ruwe(ruwe):
+    """Gaia DR3 RUWE binarity check. ruwe is float or NaN."""
+    import math
+    if ruwe is None or (isinstance(ruwe, float) and math.isnan(ruwe)):
+        return dict(name="gaia-ruwe", value=float("nan"), verdict="INCONC",
+                    note="RUWE unavailable (no Gaia match or query failed)")
+    try:
+        ruwe = float(ruwe)
+    except Exception:
+        return dict(name="gaia-ruwe", value=float("nan"), verdict="INCONC",
+                    note="RUWE not numeric")
+    if ruwe < TH_RUWE_PASS:   verdict = "PASS"
+    elif ruwe >= TH_RUWE_FAIL: verdict = "FAIL"
+    else:                     verdict = "INCONC"
+    return dict(name="gaia-ruwe", value=float(ruwe), verdict=verdict)
+
 def sub6_secondary(T, F, P, T0, dur_d):
     """Depth at phase 0.5 (a secondary eclipse would be there for EBs)."""
     phase = ((T - T0)/P) % 1.0
@@ -251,11 +280,19 @@ def sub6_secondary(T, F, P, T0, dur_d):
     else:                               verdict = "INCONC"
     return dict(name="secondary", value=float(d_sec_ppm), verdict=verdict)
 
-def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None):
-    """Run all six EB sub-tests. sectors is the list returned by the BLS pipeline.
+def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None,
+                  ra=None, dec=None, ruwe=None):
+    """Run all seven EB sub-tests. sectors is the list returned by the BLS pipeline.
+
+    For the new 7th test (Gaia RUWE) pass either:
+      ruwe=<float>     -- precomputed RUWE (preferred; avoids a live query)
+      ra=..., dec=...  -- queried live from Gaia DR3 via gaia_lookup.get_gaia_ruwe
+                          (returns NaN -> INCONC on network failure)
+    If neither is supplied, sub7 returns INCONC (not FAIL) so a missing query
+    can't kill a real candidate.
 
     Returns dict with per-sub-test results and an overall verdict:
-      SURVIVED      -- 0 FAIL, <=2 INCONC, >=3 PASS
+      SURVIVED      -- 0 FAIL, <=2 INCONC, >=4 PASS (out of 7)
       FLAG_REVIEW   -- 0 FAIL but too many INCONC
       EB_REJECT     -- any FAIL
     """
@@ -266,6 +303,14 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None):
     dur_refit, dur_power = refit_duration(T, F, P, T0, dur_d)
     dur_for_tests = dur_refit if dur_refit > 0 else dur_d
 
+    # Resolve RUWE: prefer explicit value, else live Gaia query, else NaN.
+    if ruwe is None and ra is not None and dec is not None:
+        try:
+            from gaia_lookup import get_gaia_ruwe
+            ruwe, _, _ = get_gaia_ruwe(ra, dec)
+        except Exception:
+            ruwe = float("nan")
+
     s1 = sub1_sde_ratio(T, F, P, dur_for_tests)
     s2 = sub2_odd_even (T, F, P, T0, dur_for_tests, predicted)
     s3 = sub3_posfrac  (T, F, dur_for_tests, predicted)
@@ -274,12 +319,13 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None):
     s4["dur_refit_d"] = float(dur_refit)
     s5 = sub5_companion_R(depth, R_star)
     s6 = sub6_secondary (T, F, P, T0, dur_for_tests)
-    subs = [s1, s2, s3, s4, s5, s6]
+    s7 = sub7_gaia_ruwe (ruwe)
+    subs = [s1, s2, s3, s4, s5, s6, s7]
     n_fail   = sum(1 for s in subs if s["verdict"] == "FAIL")
     n_inconc = sum(1 for s in subs if s["verdict"] == "INCONC")
     n_pass   = sum(1 for s in subs if s["verdict"] == "PASS")
     if n_fail >= 1:                    overall = "EB_REJECT"
-    elif n_pass >= 3 and n_inconc <= 2: overall = "SURVIVED"
+    elif n_pass >= 4 and n_inconc <= 2: overall = "SURVIVED"
     else:                              overall = "FLAG_REVIEW"
     return dict(verdict=overall, n_pass=n_pass, n_inconc=n_inconc, n_fail=n_fail,
                 n_predicted_transits=len(predicted), n_pts=len(T),

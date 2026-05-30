@@ -17,6 +17,10 @@ eb["_name_k"]  = eb["name"].astype(str).str.strip()
 cols = ["_name_k","verdict","n_pass","n_inconc","n_fail",
         "sub1_sderatio","sub2_oddeven","sub3_posfrac",
         "sub4_duration","sub5_companionR","sub6_secondary"]
+# sub7 (Gaia RUWE) is optional -- only present in screens run after the
+# 2026-05-30 RUWE addition. Pull it in if the column exists.
+if "sub7_gaia_ruwe" in eb.columns:
+    cols.append("sub7_gaia_ruwe")
 eb_keep = eb[cols].rename(columns={
     "verdict":"eb_screen_verdict",
     "n_pass":"eb_n_pass", "n_inconc":"eb_n_inconc", "n_fail":"eb_n_fail",
@@ -26,6 +30,7 @@ eb_keep = eb[cols].rename(columns={
     "sub4_duration":"eb_duration_ratio",
     "sub5_companionR":"eb_companion_RJup",
     "sub6_secondary":"eb_secondary_ppm",
+    "sub7_gaia_ruwe":"eb_gaia_ruwe",
 })
 
 merged = bls.merge(eb_keep, on="_name_k", how="left").drop(columns=["_name_k"])
