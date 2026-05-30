@@ -1,0 +1,29 @@
+# Python deps to run the full TESS BLS + vetting pipeline.
+#
+# Install with:
+#   pip install --break-system-packages -r requirements.txt
+#   pip install --break-system-packages -U pytransit  # MUST be >=2.7 for numpy 2 (triceratops pins 2.2 which is broken)
+#
+# Numeric / data
+numpy>=2.0
+pandas>=2.3
+scipy>=1.15
+matplotlib>=3.10
+scikit-learn>=1.6
+
+# Astronomy stack
+astropy>=7.0
+astroquery>=0.4.7
+lightkurve>=2.5
+tess-point         # tess_stars2px sector prediction
+transitleastsquares  # TLS modeling for survivor refit
+
+# Statistical validation
+triceratops>=1.0.20
+# triceratops pins pytransit==2.2 which imports `from numpy import int`
+# (removed in numpy 1.20+). Upgrade pytransit AFTER installing triceratops.
+# pytransit>=2.7
+
+# Misc
+requests>=2.30
+mechanicalsoup    # used by triceratops to query TRILEGAL
