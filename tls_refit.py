@@ -36,11 +36,11 @@ def run_one(name, tic, P_bls, R_star, M_star):
     t0 = time.time()
     try:
         model = transitleastsquares(T, Fl)
-        # Period window around BLS peak: +/-5%. Tight enough for a focused
-        # refit, wide enough that TLS has room to find an actual fit when
-        # BLS' period is slightly off.
-        pmin = max(0.5, P_bls * 0.95)
-        pmax = P_bls * 1.05
+        # Period window around BLS peak: +/-10%. Wide enough that TLS has
+        # room to find an actual transit-shaped fit even when BLS' period
+        # is several percent off OR when the BLS-period harmonic is the real one.
+        pmin = max(0.5, P_bls * 0.90)
+        pmax = P_bls * 1.10
         Rs = R_star if R_star > 0 else 1.0
         Ms = M_star if M_star > 0 else 1.0
         r = model.power(
