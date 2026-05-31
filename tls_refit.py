@@ -36,11 +36,11 @@ def run_one(name, tic, P_bls, R_star, M_star):
     t0 = time.time()
     try:
         model = transitleastsquares(T, Fl)
-        # Narrow period window around BLS peak: +/-3%. TLS is expensive at
-        # full grid; we already know P from BLS to <1%, so a focused refit
-        # is the right move.
-        pmin = max(0.5, P_bls * 0.97)
-        pmax = P_bls * 1.03
+        # Period window around BLS peak: +/-5%. Tight enough for a focused
+        # refit, wide enough that TLS has room to find an actual fit when
+        # BLS' period is slightly off.
+        pmin = max(0.5, P_bls * 0.95)
+        pmax = P_bls * 1.05
         Rs = R_star if R_star > 0 else 1.0
         Ms = M_star if M_star > 0 else 1.0
         r = model.power(
@@ -74,12 +74,15 @@ def run_one(name, tic, P_bls, R_star, M_star):
         if tt is not None:
             try: n_transits = int(len(tt))
             except Exception: n_transits = 0
+        sde_val = float(getattr(r, "SDE", 0.0) or 0.0)
+        no_fit = (sde_val < 1.0) or (n_transits == 0) or (not np.isfinite(dm))
         out = dict(
-            name=name, status="ok",
-            P_TLS=float(r.period),
-            T0_TLS=float(r.T0),
-            duration_TLS_h=float(r.duration * 24.0),
-            depth_TLS=float(r.depth),
+            name=name,
+            status="tls_no_fit_in_window" if no_fit else "ok",
+            P_TLS=float(r.period) if not no_fit else float("nan"),
+            T0_TLS=float(r.T0) if not no_fit else float("nan"),
+            duration_TLS_h=float(r.duration * 24.0) if not no_fit else float("nan"),
+            depth_TLS=float(r.depth) if not no_fit else float("nan"),
             depth_mean=dm,
             depth_mean_err=dme,
             SDE_TLS=float(r.SDE),
