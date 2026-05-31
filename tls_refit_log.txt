@@ -1,0 +1,14 @@
+TLS refit on 2 candidates
+
+  HD 271308               TIC=287298304  P_BLS=34.2690d  R*=1.54
+Transit Least Squares TLS 1.32 (5 Apr 2024)
+Creating model cache for 29 durations
+Searching 135061 data points, 279 periods from 32.562 to 35.979 days
+Using all 4 CPU threads
+    status: tls_no_fit_in_window
+
+  2M18464473+5923422      TIC=232646723  P_BLS=246.0078d  R*=1.48
+Transit Least Squares TLS 1.32 (5 Apr 2024)
+Creating model cache for 29 durations
+Searching 592287 data points, 843 periods from 233.718 to 258.299 days
+Using all 4 CPU threads
