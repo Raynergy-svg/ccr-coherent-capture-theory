@@ -1,2 +1,3 @@
 name,status,P_TLS,T0_TLS,duration_TLS_h,depth_TLS,depth_mean,depth_mean_err,SDE_TLS,SNR_TLS,odd_even_mismatch,rp_rs,R_p_Earth_TLS,P_bls,P_delta_pct,n_transits,proc_s
 HD 271308,tls_no_fit_in_window,,,,,,,0.0,,,0.0,0.0,34.2689733097235,,0,7.050497055053711
+2M18464473+5923422,tls_no_fit_in_window,,,,,,,0.0,,,0.0,0.0,246.0078403136125,,0,62.42677617073059

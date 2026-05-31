@@ -12,3 +12,6 @@ Transit Least Squares TLS 1.32 (5 Apr 2024)
 Creating model cache for 30 durations
 Searching 592287 data points, 1692 periods from 221.418 to 270.592 days
 Using all 4 CPU threads
+    status: tls_no_fit_in_window
+
+saved tls_refit_results.csv
