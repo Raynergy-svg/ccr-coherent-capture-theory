@@ -1,4 +1,12 @@
-Traceback (most recent call last):
-  File "/tmp/sweep_args.py", line 7, in <module>
-    import fap_block_sweep as m
-ModuleNotFoundError: No module named 'fap_block_sweep'
+FAP block-size sweep on 3 candidates (blocks=[1.0, 3.0, 7.0, 14.0], N_boot=100)
+
+  HD 271308               TIC=287298304  P=34.269d
+    SDE=8.06  FAPs:  1d:0.000   3d:0.000   7d:nan  14d:nan  -> ROBUST_ACROSS_BLOCKS  (140s)
+
+  2M18464473+5923422      TIC=232646723  P=246.008d
+    SDE=9.73  FAPs:  1d:0.000   3d:0.020   7d:0.000  14d:0.000  -> ROBUST_ACROSS_BLOCKS  (745s)
+
+  2M17004013+6026044      TIC=424731749  P=178.221d
+    SDE=7.99  FAPs:  1d:0.020   3d:0.020   7d:0.020  14d:0.000  -> ROBUST_ACROSS_BLOCKS  (673s)
+
+saved fap_block_sweep_results.csv
