@@ -41,9 +41,11 @@ def run_one(name, tic, P_bls, R_star, M_star):
         # is the right move.
         pmin = max(0.5, P_bls * 0.97)
         pmax = P_bls * 1.03
+        Rs = R_star if R_star > 0 else 1.0
+        Ms = M_star if M_star > 0 else 1.0
         r = model.power(
-            R_star=R_star if R_star > 0 else 1.0,
-            M_star=M_star if M_star > 0 else 1.0,
+            R_star=Rs, R_star_min=Rs*0.9, R_star_max=Rs*1.1,
+            M_star=Ms, M_star_min=Ms*0.9, M_star_max=Ms*1.1,
             period_min=pmin, period_max=pmax,
             n_transits_min=2,
             show_progress_bar=False,
