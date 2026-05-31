@@ -47,9 +47,19 @@ photometric tests):
      RUWE = NaN (query failure) -> INCONC, never FAIL, so a flaky network
      can't kill a real candidate.
 
-Combined verdict (now scaled to 7 sub-tests):
+  8. Gaia DR3 binary catalog membership (NSS + vari_eclipsing_binary)
+     A direct hit in nss_two_body_orbit or vari_eclipsing_binary means
+     Gaia has already cataloged this source as a binary system or EB.
+       n_nss = 0  AND n_vari_eb = 0   PASS
+       n_nss > 0  OR  n_vari_eb > 0   FAIL  (Gaia says it's binary; the
+                                              transit signal we found is
+                                              almost certainly the EB or a
+                                              blend within the binary)
+     Query failure -> INCONC.
+
+Combined verdict (now scaled to 8 sub-tests):
    any FAIL                   -> EB_REJECT
-   else >=4 PASS, <=2 INCONC  -> SURVIVED
+   else >=5 PASS, <=2 INCONC  -> SURVIVED
    else                       -> FLAG_REVIEW
 """
 import warnings
@@ -261,6 +271,22 @@ def sub7_gaia_ruwe(ruwe):
     else:                     verdict = "INCONC"
     return dict(name="gaia-ruwe", value=float(ruwe), verdict=verdict)
 
+def sub8_gaia_binary_catalog(n_nss, n_vari_eb, gaia_available=True):
+    """Direct Gaia DR3 binary catalog membership: NSS orbits + vari_eb."""
+    if not gaia_available or n_nss is None or n_vari_eb is None:
+        return dict(name="gaia-binary-cat", value=float("nan"),
+                    n_nss_orbit=None, n_vari_eb=None, verdict="INCONC",
+                    note="Gaia catalog query unavailable")
+    n_nss = int(n_nss); n_vari_eb = int(n_vari_eb)
+    if n_nss == 0 and n_vari_eb == 0:
+        return dict(name="gaia-binary-cat", value=0.0,
+                    n_nss_orbit=n_nss, n_vari_eb=n_vari_eb, verdict="PASS")
+    # >0 in either = Gaia has cataloged the source as a binary or EB
+    return dict(name="gaia-binary-cat", value=float(n_nss + n_vari_eb),
+                n_nss_orbit=n_nss, n_vari_eb=n_vari_eb, verdict="FAIL",
+                note=("NSS orbit entries: " + str(n_nss) +
+                      "; vari_eb entries: " + str(n_vari_eb)))
+
 def sub6_secondary(T, F, P, T0, dur_d):
     """Depth at phase 0.5 (a secondary eclipse would be there for EBs)."""
     phase = ((T - T0)/P) % 1.0
@@ -281,18 +307,19 @@ def sub6_secondary(T, F, P, T0, dur_d):
     return dict(name="secondary", value=float(d_sec_ppm), verdict=verdict)
 
 def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None,
-                  ra=None, dec=None, ruwe=None):
-    """Run all seven EB sub-tests. sectors is the list returned by the BLS pipeline.
+                  ra=None, dec=None, ruwe=None,
+                  n_nss=None, n_vari_eb=None):
+    """Run all eight EB sub-tests. sectors is the list returned by the BLS pipeline.
 
-    For the new 7th test (Gaia RUWE) pass either:
-      ruwe=<float>     -- precomputed RUWE (preferred; avoids a live query)
-      ra=..., dec=...  -- queried live from Gaia DR3 via gaia_lookup.get_gaia_ruwe
-                          (returns NaN -> INCONC on network failure)
-    If neither is supplied, sub7 returns INCONC (not FAIL) so a missing query
-    can't kill a real candidate.
+    For the new Gaia tests (7+8) pass either:
+      ruwe=, n_nss=, n_vari_eb= : precomputed Gaia values (preferred)
+      ra=..., dec=...           : queried live via gaia_lookup.get_gaia_full_check
+                                   (one TAP round-trip covers both sub-tests).
+    If neither supplied, both Gaia sub-tests return INCONC (not FAIL) so a
+    flaky network cannot kill a real candidate.
 
     Returns dict with per-sub-test results and an overall verdict:
-      SURVIVED      -- 0 FAIL, <=2 INCONC, >=4 PASS (out of 7)
+      SURVIVED      -- 0 FAIL, <=2 INCONC, >=5 PASS (out of 8)
       FLAG_REVIEW   -- 0 FAIL but too many INCONC
       EB_REJECT     -- any FAIL
     """
@@ -303,13 +330,15 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None,
     dur_refit, dur_power = refit_duration(T, F, P, T0, dur_d)
     dur_for_tests = dur_refit if dur_refit > 0 else dur_d
 
-    # Resolve RUWE: prefer explicit value, else live Gaia query, else NaN.
+    # Resolve Gaia values: prefer explicit, else single live query covering 7+8.
+    gaia_ok = True
     if ruwe is None and ra is not None and dec is not None:
         try:
-            from gaia_lookup import get_gaia_ruwe
-            ruwe, _, _ = get_gaia_ruwe(ra, dec)
+            from gaia_lookup import get_gaia_full_check
+            ruwe, _sid, _ncone, n_nss, n_vari_eb = get_gaia_full_check(ra, dec)
         except Exception:
-            ruwe = float("nan")
+            ruwe = float("nan"); n_nss = None; n_vari_eb = None
+            gaia_ok = False
 
     s1 = sub1_sde_ratio(T, F, P, dur_for_tests)
     s2 = sub2_odd_even (T, F, P, T0, dur_for_tests, predicted)
@@ -320,12 +349,13 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None,
     s5 = sub5_companion_R(depth, R_star)
     s6 = sub6_secondary (T, F, P, T0, dur_for_tests)
     s7 = sub7_gaia_ruwe (ruwe)
-    subs = [s1, s2, s3, s4, s5, s6, s7]
+    s8 = sub8_gaia_binary_catalog(n_nss, n_vari_eb, gaia_available=gaia_ok)
+    subs = [s1, s2, s3, s4, s5, s6, s7, s8]
     n_fail   = sum(1 for s in subs if s["verdict"] == "FAIL")
     n_inconc = sum(1 for s in subs if s["verdict"] == "INCONC")
     n_pass   = sum(1 for s in subs if s["verdict"] == "PASS")
     if n_fail >= 1:                    overall = "EB_REJECT"
-    elif n_pass >= 4 and n_inconc <= 2: overall = "SURVIVED"
+    elif n_pass >= 5 and n_inconc <= 2: overall = "SURVIVED"
     else:                              overall = "FLAG_REVIEW"
     return dict(verdict=overall, n_pass=n_pass, n_inconc=n_inconc, n_fail=n_fail,
                 n_predicted_transits=len(predicted), n_pts=len(T),

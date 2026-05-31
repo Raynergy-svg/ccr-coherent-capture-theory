@@ -54,3 +54,25 @@ def get_gaia_ruwe(ra, dec, radius_arcsec=5.0):
     except Exception:
         ruwe = float("nan")
     return ruwe, int(r.source_id), len(df)
+
+def get_gaia_binary_flags(source_id):
+    """Return (n_nss_orbit, n_vari_eb) for a given Gaia DR3 source_id.
+    Both are direct catalog entries from Gaia DR3:
+      - nss_two_body_orbit: published two-body orbital solutions
+      - vari_eclipsing_binary: Gaia's own EB classifier
+    Any non-zero count is a binary detection by Gaia. Returns (0, 0) on
+    network failure (degrade-not-fail)."""
+    if source_id is None:
+        return 0, 0
+    nss = _tap(f"SELECT COUNT(*) AS n FROM gaiadr3.nss_two_body_orbit WHERE source_id = {source_id}")
+    vari = _tap(f"SELECT COUNT(*) AS n FROM gaiadr3.vari_eclipsing_binary WHERE source_id = {source_id}")
+    n_nss  = int(nss.iloc[0]["n"])  if len(nss)  else 0
+    n_vari = int(vari.iloc[0]["n"]) if len(vari) else 0
+    return n_nss, n_vari
+
+def get_gaia_full_check(ra, dec, radius_arcsec=5.0):
+    """One-call wrapper returning (ruwe, source_id, n_cone, n_nss, n_vari_eb).
+    Used by the EB screen so a single Gaia round-trip covers sub-tests 7+8."""
+    ruwe, sid, n_cone = get_gaia_ruwe(ra, dec, radius_arcsec)
+    n_nss, n_vari = get_gaia_binary_flags(sid)
+    return ruwe, sid, n_cone, n_nss, n_vari

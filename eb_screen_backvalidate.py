@@ -85,6 +85,7 @@ for _, r in hits.iterrows():
         sub5_companionR=res["sub_tests"][4].get("value"),sub5_verdict=res["sub_tests"][4]["verdict"],
         sub6_secondary=res["sub_tests"][5].get("value"),sub6_verdict=res["sub_tests"][5]["verdict"],
         sub7_gaia_ruwe=res["sub_tests"][6].get("value"),sub7_verdict=res["sub_tests"][6]["verdict"],
+        sub8_gaia_bin_cat=res["sub_tests"][7].get("value"),sub8_verdict=res["sub_tests"][7]["verdict"],
     ))
 
 if screen_rows:

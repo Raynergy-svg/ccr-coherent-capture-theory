@@ -228,6 +228,7 @@ def run_target(row):
             out["eb_companion_RJup"]  = eb["sub_tests"][4].get("value")
             out["eb_secondary_ppm"]   = eb["sub_tests"][5].get("value")
             out["eb_gaia_ruwe"]       = eb["sub_tests"][6].get("value")
+            out["eb_gaia_bin_cat"]    = eb["sub_tests"][7].get("value")
         except Exception as e:
             out["eb_screen_verdict"] = f"SCREEN_ERR:{type(e).__name__}"
     else:
