@@ -99,10 +99,14 @@ def run_one(name, tic, P, dur_d):
         out[f"scope_{int(bd):02d}d"]    = sweep[bd]["scope"]
     return out
 
-def main():
+def main(target_names=None):
     bls = pd.read_csv("widernet_bls_results.csv")
-    survived = bls[bls.eb_screen_verdict.fillna("").str.contains("SURVIVED")]
-    print(f"FAP block-size sweep on {len(survived)} SURVIVED candidates "
+    if target_names:
+        names_norm = [n.strip() for n in target_names]
+        survived = bls[bls.name.astype(str).str.strip().isin(names_norm)]
+    else:
+        survived = bls[bls.eb_screen_verdict.fillna("").str.contains("SURVIVED")]
+    print(f"FAP block-size sweep on {len(survived)} candidates "
           f"(blocks={BLOCK_SWEEP_DAYS}, N_boot={N_BOOT})")
     rows = []
     done = set()
@@ -129,4 +133,5 @@ def main():
     print(f"\nsaved {OUT_CSV}")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(sys.argv[1:] if len(sys.argv) > 1 else None)
