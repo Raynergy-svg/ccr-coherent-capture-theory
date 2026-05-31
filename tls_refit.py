@@ -51,26 +51,45 @@ def run_one(name, tic, P_bls, R_star, M_star):
             show_progress_bar=False,
             use_threads=4,
         )
-        # transit_depths_uncertainties may be None if only 1 transit
-        rp_over_rs = float(np.sqrt(max(r.depth_mean[0] - r.depth_mean[1], 0.0))) if r.depth_mean else float("nan")
-        # planet radius in R_Earth from R_p/R_star * R_star
-        R_p_earth = float(rp_over_rs * (R_star if R_star > 0 else 1.0) * 109.2)
+        # r.depth_mean may be a 2-element tuple/array (mean, err) OR a scalar,
+        # depending on whether enough transits were found. Be defensive.
+        def _pair(v, idx):
+            if v is None: return float("nan")
+            try:
+                if hasattr(v, "__len__") and len(v) >= 2:
+                    return float(v[idx])
+                return float(v) if idx == 0 else float("nan")
+            except Exception:
+                return float("nan")
+        dm  = _pair(getattr(r, "depth_mean", None), 0)
+        dme = _pair(getattr(r, "depth_mean", None), 1)
+        # rp/rs from the model: prefer r.rp_rs if present, else sqrt(depth_mean)
+        rprs = getattr(r, "rp_rs", None)
+        if rprs is None or not np.isfinite(rprs):
+            rprs = float(np.sqrt(max(dm if np.isfinite(dm) else 0.0, 0.0)))
+        rprs = float(rprs)
+        R_p_earth = float(rprs * (R_star if R_star > 0 else 1.0) * 109.2)
+        n_transits = 0
+        tt = getattr(r, "transit_times", None)
+        if tt is not None:
+            try: n_transits = int(len(tt))
+            except Exception: n_transits = 0
         out = dict(
             name=name, status="ok",
             P_TLS=float(r.period),
             T0_TLS=float(r.T0),
             duration_TLS_h=float(r.duration * 24.0),
             depth_TLS=float(r.depth),
-            depth_mean=float(r.depth_mean[0]) if r.depth_mean else float("nan"),
-            depth_mean_err=float(r.depth_mean[1]) if r.depth_mean else float("nan"),
+            depth_mean=dm,
+            depth_mean_err=dme,
             SDE_TLS=float(r.SDE),
             SNR_TLS=float(r.snr),
-            odd_even_mismatch=float(r.odd_even_mismatch),
-            rp_rs=float(r.rp_rs),
+            odd_even_mismatch=float(getattr(r, "odd_even_mismatch", float("nan"))),
+            rp_rs=rprs,
             R_p_Earth_TLS=R_p_earth,
             P_bls=float(P_bls),
             P_delta_pct=float((r.period - P_bls) / P_bls * 100.0),
-            n_transits=int(len(r.transit_times)),
+            n_transits=n_transits,
             proc_s=float(time.time() - t0),
         )
         return out
