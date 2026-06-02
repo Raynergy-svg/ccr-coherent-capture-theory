@@ -51,13 +51,24 @@ photometric tests):
      A direct hit in nss_two_body_orbit or vari_eclipsing_binary means
      Gaia has already cataloged this source as a binary system or EB.
        n_nss = 0  AND n_vari_eb = 0   PASS
-       n_nss > 0  OR  n_vari_eb > 0   FAIL  (Gaia says it's binary; the
-                                              transit signal we found is
-                                              almost certainly the EB or a
-                                              blend within the binary)
-     Query failure -> INCONC.
+       n_nss > 0  OR  n_vari_eb > 0   FAIL
 
-Combined verdict (now scaled to 8 sub-tests):
+  9. TESS half-orbital harmonic systematic (added 2026-05-30 after the
+     empirical finding that 8/11 SURVIVED-pre-TLS candidates clustered within
+     0.5% of n*6.83d; null 18.3%, binomial p = 1.2e-4).
+     The TESS spacecraft passes through Earth's outer radiation belts twice
+     per orbit (every 6.83d), causing scattered-light and momentum-dump
+     residuals at the orbital and half-orbital cadence. PDC removes most of
+     it, but the residual integrates coherently across many orbital cycles
+     and shows up as a "real, on-target, period-stable" BLS signal that
+     passes every other vetting test EXCEPT TLS' transit-shape constraint.
+       |P/6.83d - round(P/6.83d)| / round(...) < 0.005   FAIL
+                                          0.005-0.010    INCONC
+                                                > 0.010  PASS
+     Skip the test entirely (PASS) for P < 30d where the systematic doesn't
+     have enough leverage to dominate over a real short-period transit.
+
+Combined verdict (now scaled to 9 sub-tests):
    any FAIL                   -> EB_REJECT
    else >=5 PASS, <=2 INCONC  -> SURVIVED
    else                       -> FLAG_REVIEW
@@ -85,6 +96,10 @@ TH_SEC_PASS_PPM   = 100
 TH_SEC_FAIL_PPM   = 300
 TH_RUWE_PASS      = 1.4     # Belokurov+2020: single-star fit OK below this
 TH_RUWE_FAIL      = 2.0     # >=2 = unambiguous unresolved binary
+TESS_HALF_ORBIT_D = 6.83    # TESS spacecraft half-orbital period (Earth-belt crossings)
+TH_TESS_HARM_FAIL = 0.005   # 0.5% offset from integer multiple
+TH_TESS_HARM_PASS = 0.010   # >1% off is safe
+TH_TESS_HARM_MIN_P = 30.0   # skip the test for short-P (real USP planets are at integer 6.83d by coincidence)
 
 R_JUP_EARTH = 11.21
 R_SUN_AU    = 0.00465047
@@ -271,6 +286,30 @@ def sub7_gaia_ruwe(ruwe):
     else:                     verdict = "INCONC"
     return dict(name="gaia-ruwe", value=float(ruwe), verdict=verdict)
 
+def sub9_tess_orbit_harmonic(P_d):
+    """Flag periods that lie within 0.5% of n * TESS_HALF_ORBIT_D = n * 6.83d.
+
+    Empirical: 8/11 SURVIVED-pre-TLS long-period candidates in the wider-net
+    BLS sample landed within 0.5% of n*6.83d (null 18.3%, binomial p=1.2e-4).
+    These passed centroid + EB-screen + FAP + block-sweep but failed TLS
+    shape, consistent with PDC-residual scattered-light at the spacecraft
+    half-orbital cadence integrating coherently across many cycles."""
+    import math
+    if P_d < TH_TESS_HARM_MIN_P:
+        return dict(name="tess-orbit-harm", value=float("nan"), verdict="PASS",
+                    note=f"P<{TH_TESS_HARM_MIN_P}d, test n/a (USP regime)")
+    n = max(1, round(P_d / TESS_HALF_ORBIT_D))
+    nearest = n * TESS_HALF_ORBIT_D
+    frac_off = abs(P_d - nearest) / nearest
+    if frac_off < TH_TESS_HARM_FAIL:
+        verdict = "FAIL"
+    elif frac_off < TH_TESS_HARM_PASS:
+        verdict = "INCONC"
+    else:
+        verdict = "PASS"
+    return dict(name="tess-orbit-harm", value=float(frac_off),
+                n_harmonic=int(n), nearest_d=float(nearest), verdict=verdict)
+
 def sub8_gaia_binary_catalog(n_nss, n_vari_eb, gaia_available=True):
     """Direct Gaia DR3 binary catalog membership: NSS orbits + vari_eb."""
     if not gaia_available or n_nss is None or n_vari_eb is None:
@@ -350,7 +389,8 @@ def run_eb_screen(sectors, P, T0, dur_d, depth, R_star, M_star, Teff=None,
     s6 = sub6_secondary (T, F, P, T0, dur_for_tests)
     s7 = sub7_gaia_ruwe (ruwe)
     s8 = sub8_gaia_binary_catalog(n_nss, n_vari_eb, gaia_available=gaia_ok)
-    subs = [s1, s2, s3, s4, s5, s6, s7, s8]
+    s9 = sub9_tess_orbit_harmonic(P)
+    subs = [s1, s2, s3, s4, s5, s6, s7, s8, s9]
     n_fail   = sum(1 for s in subs if s["verdict"] == "FAIL")
     n_inconc = sum(1 for s in subs if s["verdict"] == "INCONC")
     n_pass   = sum(1 for s in subs if s["verdict"] == "PASS")
