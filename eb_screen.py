@@ -53,22 +53,20 @@ photometric tests):
        n_nss = 0  AND n_vari_eb = 0   PASS
        n_nss > 0  OR  n_vari_eb > 0   FAIL
 
-  9. TESS half-orbital harmonic systematic (added 2026-05-30 after the
-     empirical finding that 8/11 SURVIVED-pre-TLS candidates clustered within
-     0.5% of n*6.83d; null 18.3%, binomial p = 1.2e-4).
-     The TESS spacecraft passes through Earth's outer radiation belts twice
-     per orbit (every 6.83d), causing scattered-light and momentum-dump
-     residuals at the orbital and half-orbital cadence. PDC removes most of
-     it, but the residual integrates coherently across many orbital cycles
-     and shows up as a "real, on-target, period-stable" BLS signal that
-     passes every other vetting test EXCEPT TLS' transit-shape constraint.
-       |P/6.83d - round(P/6.83d)| / round(...) < 0.005   FAIL
-                                          0.005-0.010    INCONC
-                                                > 0.010  PASS
-     Skip the test entirely (PASS) for P < 30d where the systematic doesn't
-     have enough leverage to dominate over a real short-period transit.
+  9. TESS half-orbital harmonic systematic — WITHDRAWN 2026-05-30.
+     Initial finding (8/11 wider-net candidates within 0.5% of n*6.83d,
+     binomial p=1.2e-4) failed pre-registered replication on the NEA TOI
+     catalog (n=92 dispositioned TOIs at 30 < P < 300d): the FP group
+     (FP+FA, n=30) clustered at 3.3%, the CP group (CP+KP, n=62) at 12.9%,
+     Delta = -0.096, two-sided permutation p = 0.27. Direction opposite
+     to predicted; magnitude not significant. Test logged in
+     toi_harmonic_test_preregistration.py / toi_harmonic_test.py /
+     toi_harmonic_test_results.json. The sub-test is kept here as PASS-
+     always (i.e., disabled) for traceability of the failed claim; do not
+     re-enable without a new pre-registration. The original n=11 result
+     was a small-sample / selection-bias artifact.
 
-Combined verdict (now scaled to 9 sub-tests):
+Combined verdict (8 ACTIVE sub-tests; sub9 disabled):
    any FAIL                   -> EB_REJECT
    else >=5 PASS, <=2 INCONC  -> SURVIVED
    else                       -> FLAG_REVIEW
@@ -287,28 +285,21 @@ def sub7_gaia_ruwe(ruwe):
     return dict(name="gaia-ruwe", value=float(ruwe), verdict=verdict)
 
 def sub9_tess_orbit_harmonic(P_d):
-    """Flag periods that lie within 0.5% of n * TESS_HALF_ORBIT_D = n * 6.83d.
-
-    Empirical: 8/11 SURVIVED-pre-TLS long-period candidates in the wider-net
-    BLS sample landed within 0.5% of n*6.83d (null 18.3%, binomial p=1.2e-4).
-    These passed centroid + EB-screen + FAP + block-sweep but failed TLS
-    shape, consistent with PDC-residual scattered-light at the spacecraft
-    half-orbital cadence integrating coherently across many cycles."""
-    import math
-    if P_d < TH_TESS_HARM_MIN_P:
-        return dict(name="tess-orbit-harm", value=float("nan"), verdict="PASS",
-                    note=f"P<{TH_TESS_HARM_MIN_P}d, test n/a (USP regime)")
-    n = max(1, round(P_d / TESS_HALF_ORBIT_D))
-    nearest = n * TESS_HALF_ORBIT_D
-    frac_off = abs(P_d - nearest) / nearest
-    if frac_off < TH_TESS_HARM_FAIL:
-        verdict = "FAIL"
-    elif frac_off < TH_TESS_HARM_PASS:
-        verdict = "INCONC"
+    """DISABLED 2026-05-30 after the n=11 finding failed pre-registered
+    replication on the NEA TOI catalog (see toi_harmonic_test_results.json).
+    Always returns PASS so the screen verdict logic is unchanged. The
+    function is retained for traceability and so the sub-test count stays
+    at 9 in the per-row CSV output. Do NOT re-enable without a new
+    pre-registration -- the original claim does not generalize."""
+    if P_d >= TH_TESS_HARM_MIN_P:
+        n = max(1, round(P_d / TESS_HALF_ORBIT_D))
+        nearest = n * TESS_HALF_ORBIT_D
+        frac_off = abs(P_d - nearest) / nearest
     else:
-        verdict = "PASS"
-    return dict(name="tess-orbit-harm", value=float(frac_off),
-                n_harmonic=int(n), nearest_d=float(nearest), verdict=verdict)
+        n = 0; nearest = float("nan"); frac_off = float("nan")
+    return dict(name="tess-orbit-harm(disabled)", value=float(frac_off),
+                n_harmonic=int(n), nearest_d=float(nearest), verdict="PASS",
+                note="sub-test disabled after failed replication on NEA TOI catalog")
 
 def sub8_gaia_binary_catalog(n_nss, n_vari_eb, gaia_available=True):
     """Direct Gaia DR3 binary catalog membership: NSS orbits + vari_eb."""
