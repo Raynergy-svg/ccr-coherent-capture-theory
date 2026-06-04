@@ -1,0 +1,11 @@
+{
+  "n_total": 11,
+  "n_satisfies_derived_joint": 0,
+  "decision": "DERIVATION_HAS_ZERO_CANDIDATES",
+  "criteria": {
+    "c1_obliquity": "|lambda| > 15 deg at 2 sigma",
+    "c2_eccentricity": "e >= 0.3 for at least one planet",
+    "c3_resonance": "not in known resonance chain"
+  },
+  "preregistration_file": "phase_a_derivation.md"
+}
