@@ -1,0 +1,12 @@
+pl_name,hostname,pl_orbper,pl_bmassj,pl_projobliq,pl_projobliqerr1,pl_projobliqerr2,pl_orbeccen,sy_pnum,lambda_abs,lambda_sigma,misaligned_2sig,misaligned_nominal
+HIP 41378 f,HIP 41378,542.0797,,21.0,8.0,-8.0,,6,21.0,8.0,False,True
+pi Men c,HD 39091,6.2678399,,-24.0,4.1,-4.1,0.0,3,24.0,4.1,True,True
+TOI-942 b,TOI-942,4.32421,,1.0,41.0,-33.0,0.34,2,1.0,41.0,False,False
+TOI-2202 b,TOI-2202,11.9126075,0.904,26.0,12.0,-15.0,0.022,2,26.0,15.0,False,True
+TOI-880 c,TOI-880,6.3872703,,-7.4,6.8,-7.2,,2,7.4,7.2,False,False
+TOI-4495 c,TOI-4495,5.18553,0.07299536,-2.3,8.3,-7.8,0.023,2,2.3,8.3,False,False
+TOI-4504 c,TOI-4504,82.97213,3.7672,83.97,0.12,-0.15,0.032,3,83.97,0.15,True,True
+TOI-4504 d,TOI-4504,40.5634,1.4166,9.89,3.45,-2.43,0.0445,3,9.89,3.45,False,False
+Kepler-30 b,Kepler-30,29.33434,0.036,4.0,10.0,-10.0,0.042,3,4.0,10.0,False,False
+Kepler-30 d,Kepler-30,143.34394,0.073,4.0,10.0,-10.0,0.022,3,4.0,10.0,False,False
+Kepler-30 c,Kepler-30,60.323105,2.01,4.0,10.0,-10.0,0.0111,3,4.0,10.0,False,False

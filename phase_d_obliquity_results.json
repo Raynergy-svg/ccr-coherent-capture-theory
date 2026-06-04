@@ -1,0 +1,20 @@
+{
+  "test_date_utc": "2026-06-04T23:49:52.053494+00:00",
+  "preregistration_file": "phase_d_obliquity_test_preregistration.py",
+  "lambda_threshold_deg": 15.0,
+  "sigma_requirement": 2.0,
+  "hot_jupiter_cut_P_days": 10.0,
+  "hot_jupiter_cut_M_Mjup": 0.3,
+  "min_planets_per_host": 2,
+  "f_supported_range": [
+    0.03,
+    0.15
+  ],
+  "min_n_for_decision": 10,
+  "n_total": 11,
+  "n_misaligned_2sig": 2,
+  "n_misaligned_nominal": 4,
+  "f_misaligned_2sig": 0.18181818181818182,
+  "f_misaligned_nominal": 0.36363636363636365,
+  "decision": "EXCESS"
+}
