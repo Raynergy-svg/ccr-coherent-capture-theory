@@ -13,11 +13,12 @@ import rebound
 import multiprocessing as mp
 from itertools import product
 
-# ===== Pre-registered constants (LOCKED) =====
+# ===== Pre-registered constants (LOCKED, Phase C v2: close-encounter grid) =====
+# v2 changes ONLY the r_p grid; see PHASE_C_v2_PREREGISTRATION.md
 KAPPA_GRID    = [0.1, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 100.0, 500.0]
-RP_GRID_AU    = [100.0, 200.0, 500.0, 1000.0]
+RP_GRID_AU    = [10.0, 20.0, 30.0, 50.0, 75.0]   # CLOSE-ENCOUNTER REGIME
 VINF_GRID_KMS = [0.5, 2.0]
-N_TRIALS_PER_CELL = 100   # main run; pilot uses smaller
+N_TRIALS_PER_CELL = 100
 SEED_BASE     = 20260605
 
 # Planetary system: J/S/U/N analogs (Li, Mustill & Davies 2019 convention)
@@ -34,8 +35,8 @@ KMS_PER_AU_PER_YR = 4.7404   # 1 km/s = 0.211 AU/(yr/2pi) ... let's use yr (Eart
 # Actually use rebound's units API to be safe:
 # We will set units to ("AU", "yr2pi", "Msun") and G=1.
 
-OUTPUT_CSV = "phase_c_results.csv"
-OUTPUT_PILOT_CSV = "phase_c_pilot_results.csv"
+OUTPUT_CSV = "phase_c_v2_results.csv"
+OUTPUT_PILOT_CSV = "phase_c_v2_pilot_results.csv"
 
 # ===== vMF sampling =====
 def sample_vmf(kappa, mu, rng):

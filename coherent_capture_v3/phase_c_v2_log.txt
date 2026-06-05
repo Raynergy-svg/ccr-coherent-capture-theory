@@ -1,0 +1,4 @@
+MAIN RUN: 10000 simulations
+  to do: 10000 simulations across 4 workers
+    25/10000  elapsed=7s  rate=3.52/s  ETA=2837s
+    50/10000  elapsed=13s  rate=3.74/s  ETA=2662s
