@@ -1,0 +1,16 @@
+MAIN RUN: 8000 simulations
+  to do: 8000 simulations across 4 workers
+    25/8000  elapsed=4s  rate=5.90/s  ETA=1351s
+    50/8000  elapsed=8s  rate=6.05/s  ETA=1313s
+    75/8000  elapsed=11s  rate=7.03/s  ETA=1127s
+    100/8000  elapsed=15s  rate=6.81/s  ETA=1160s
+    125/8000  elapsed=17s  rate=7.22/s  ETA=1091s
+    150/8000  elapsed=22s  rate=6.96/s  ETA=1128s
+    175/8000  elapsed=24s  rate=7.30/s  ETA=1073s
+    200/8000  elapsed=28s  rate=7.14/s  ETA=1092s
+    225/8000  elapsed=32s  rate=7.02/s  ETA=1108s
+    250/8000  elapsed=34s  rate=7.29/s  ETA=1063s
+    275/8000  elapsed=38s  rate=7.17/s  ETA=1077s
+    300/8000  elapsed=41s  rate=7.35/s  ETA=1048s
+    325/8000  elapsed=45s  rate=7.25/s  ETA=1058s
+    350/8000  elapsed=48s  rate=7.33/s  ETA=1044s
