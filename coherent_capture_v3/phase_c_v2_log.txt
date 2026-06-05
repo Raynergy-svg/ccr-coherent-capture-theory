@@ -2,3 +2,22 @@ MAIN RUN: 10000 simulations
   to do: 10000 simulations across 4 workers
     25/10000  elapsed=7s  rate=3.52/s  ETA=2837s
     50/10000  elapsed=13s  rate=3.74/s  ETA=2662s
+    75/10000  elapsed=17s  rate=4.35/s  ETA=2281s
+    100/10000  elapsed=24s  rate=4.23/s  ETA=2339s
+    125/10000  elapsed=29s  rate=4.36/s  ETA=2265s
+    150/10000  elapsed=35s  rate=4.26/s  ETA=2313s
+    175/10000  elapsed=40s  rate=4.33/s  ETA=2269s
+    200/10000  elapsed=46s  rate=4.31/s  ETA=2273s
+    225/10000  elapsed=52s  rate=4.33/s  ETA=2256s
+    250/10000  elapsed=56s  rate=4.44/s  ETA=2197s
+    275/10000  elapsed=62s  rate=4.45/s  ETA=2186s
+    300/10000  elapsed=67s  rate=4.50/s  ETA=2153s
+    325/10000  elapsed=74s  rate=4.41/s  ETA=2192s
+    350/10000  elapsed=78s  rate=4.49/s  ETA=2151s
+    375/10000  elapsed=84s  rate=4.44/s  ETA=2166s
+    400/10000  elapsed=89s  rate=4.50/s  ETA=2135s
+    425/10000  elapsed=95s  rate=4.48/s  ETA=2138s
+    450/10000  elapsed=100s  rate=4.52/s  ETA=2112s
+    475/10000  elapsed=105s  rate=4.52/s  ETA=2110s
+    500/10000  elapsed=109s  rate=4.57/s  ETA=2080s
+    525/10000  elapsed=116s  rate=4.51/s  ETA=2101s
