@@ -54,3 +54,12 @@ When Daniel says "continue," "proceed," "go," or doesn't redirect after a result
 4. Move to the next step
 
 Don't pause to ask which of three obvious paths to take. Pick the one most aligned with the discipline rules above and execute. Explain the choice in the commit message.
+
+## Long-running background tasks
+
+Daniel does NOT get push notifications when background tasks complete. The Monitor tool wakes the assistant up, but on Daniel's end nothing happens until he opens the chat. Therefore:
+
+- **Do not promise "I'll notify you when it finishes."** Daniel won't see the notification.
+- When Daniel sends any message during a long-running task, **check the log/process state first thing** and lead with the status (how many done, ETA, or final result).
+- If a scan is going to take >30 minutes, say so explicitly when launching it so Daniel knows the wait shape.
+- Commit intermediate state periodically so if Daniel closes the session and re-opens later, the work is recoverable from git.
