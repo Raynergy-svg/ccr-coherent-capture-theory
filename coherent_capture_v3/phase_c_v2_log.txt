@@ -342,3 +342,63 @@ MAIN RUN: 10000 simulations
     8500/10000  elapsed=1815s  rate=4.68/s  ETA=320s
     8525/10000  elapsed=1822s  rate=4.68/s  ETA=315s
     8550/10000  elapsed=1827s  rate=4.68/s  ETA=310s
+    8575/10000  elapsed=1832s  rate=4.68/s  ETA=305s
+    8600/10000  elapsed=1837s  rate=4.68/s  ETA=299s
+    8625/10000  elapsed=1843s  rate=4.68/s  ETA=294s
+    8650/10000  elapsed=1848s  rate=4.68/s  ETA=288s
+    8675/10000  elapsed=1853s  rate=4.68/s  ETA=283s
+    8700/10000  elapsed=1857s  rate=4.68/s  ETA=278s
+    8725/10000  elapsed=1863s  rate=4.68/s  ETA=272s
+    8750/10000  elapsed=1868s  rate=4.68/s  ETA=267s
+    8775/10000  elapsed=1873s  rate=4.68/s  ETA=261s
+    8800/10000  elapsed=1879s  rate=4.68/s  ETA=256s
+    8825/10000  elapsed=1884s  rate=4.68/s  ETA=251s
+    8850/10000  elapsed=1889s  rate=4.69/s  ETA=245s
+    8875/10000  elapsed=1894s  rate=4.68/s  ETA=240s
+    8900/10000  elapsed=1899s  rate=4.69/s  ETA=235s
+    8925/10000  elapsed=1905s  rate=4.68/s  ETA=229s
+    8950/10000  elapsed=1909s  rate=4.69/s  ETA=224s
+    8975/10000  elapsed=1915s  rate=4.69/s  ETA=219s
+    9000/10000  elapsed=1919s  rate=4.69/s  ETA=213s
+    9025/10000  elapsed=1926s  rate=4.69/s  ETA=208s
+    9050/10000  elapsed=1931s  rate=4.69/s  ETA=203s
+    9075/10000  elapsed=1936s  rate=4.69/s  ETA=197s
+    9100/10000  elapsed=1940s  rate=4.69/s  ETA=192s
+    9125/10000  elapsed=1946s  rate=4.69/s  ETA=187s
+    9150/10000  elapsed=1954s  rate=4.68/s  ETA=181s
+    9175/10000  elapsed=1958s  rate=4.68/s  ETA=176s
+    9200/10000  elapsed=1964s  rate=4.68/s  ETA=171s
+    9225/10000  elapsed=1969s  rate=4.68/s  ETA=165s
+    9250/10000  elapsed=1974s  rate=4.69/s  ETA=160s
+    9275/10000  elapsed=1979s  rate=4.69/s  ETA=155s
+    9300/10000  elapsed=1984s  rate=4.69/s  ETA=149s
+    9325/10000  elapsed=1991s  rate=4.68/s  ETA=144s
+    9350/10000  elapsed=1996s  rate=4.69/s  ETA=139s
+    9375/10000  elapsed=2001s  rate=4.69/s  ETA=133s
+    9400/10000  elapsed=2006s  rate=4.69/s  ETA=128s
+    9425/10000  elapsed=2012s  rate=4.69/s  ETA=123s
+    9450/10000  elapsed=2016s  rate=4.69/s  ETA=117s
+    9475/10000  elapsed=2021s  rate=4.69/s  ETA=112s
+    9500/10000  elapsed=2026s  rate=4.69/s  ETA=107s
+    9525/10000  elapsed=2032s  rate=4.69/s  ETA=101s
+    9550/10000  elapsed=2037s  rate=4.69/s  ETA=96s
+    9575/10000  elapsed=2042s  rate=4.69/s  ETA=91s
+    9600/10000  elapsed=2047s  rate=4.69/s  ETA=85s
+    9625/10000  elapsed=2052s  rate=4.69/s  ETA=80s
+    9650/10000  elapsed=2058s  rate=4.69/s  ETA=75s
+    9675/10000  elapsed=2062s  rate=4.69/s  ETA=69s
+    9700/10000  elapsed=2067s  rate=4.69/s  ETA=64s
+    9725/10000  elapsed=2073s  rate=4.69/s  ETA=59s
+    9750/10000  elapsed=2078s  rate=4.69/s  ETA=53s
+    9775/10000  elapsed=2083s  rate=4.69/s  ETA=48s
+    9800/10000  elapsed=2088s  rate=4.69/s  ETA=43s
+    9825/10000  elapsed=2093s  rate=4.69/s  ETA=37s
+    9850/10000  elapsed=2098s  rate=4.70/s  ETA=32s
+    9875/10000  elapsed=2103s  rate=4.69/s  ETA=27s
+    9900/10000  elapsed=2107s  rate=4.70/s  ETA=21s
+    9925/10000  elapsed=2114s  rate=4.70/s  ETA=16s
+    9950/10000  elapsed=2119s  rate=4.69/s  ETA=11s
+    9975/10000  elapsed=2124s  rate=4.70/s  ETA=5s
+    10000/10000  elapsed=2129s  rate=4.70/s  ETA=0s
+
+saved phase_c_v2_results.csv
