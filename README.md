@@ -106,9 +106,28 @@ Three clusters tested through 6D+age pipeline. Three honest eliminations:
 
 44 exoplanet atmospheric compositions (LExACoM) classified by planet-star C/O mismatch. Wide-orbit planets match their host star's C/O (ρ = -0.37, p = 0.014) — opposite to disk chemistry predictions. Direct imaging planets 7× more likely to be CAPTURE class (Fisher p = 0.009). Metallicity confound partially present (partial ρ = -0.28, p = 0.075 after control).
 
+## Coherent Capture (Dynamical) — v3 Test Series
+
+A separate line tested whether **gravitational exchange capture** in stellar clusters, with angular-momentum *coherence* (κ, the von Mises–Fisher concentration of a multi-planet group's angular momentum vectors) as a controlled parameter, is a viable multi-planet formation pathway. Every test was pre-registered (sealed git commit defining hypothesis, statistic, and decision rule) *before* data was touched. Results are reported whatever direction they point.
+
+| Phase | Test | Result |
+|-------|------|--------|
+| **A** | First-principles derivation from three-body dynamics (Heggie & Hut, Hut & Bahcall) | Capture is rare (~10⁻³–10⁻⁵/star); post-capture e is thermal (mode 0.5–0.8), obliquity isotropic (median ~60°). The Nov-2025 "Laws of Coherency" assertions (e = 0.05–0.10, σ < 10°) are **not derivable** — several point the wrong way. |
+| **D** | Obliquity test on public multi-planet non-HJ sample (NEA) | Derived joint criterion (\|λ\|>15° AND e≥0.3) has **0/11** candidates. Consistent with rare capture; no positive evidence. |
+| **C v1** | 8,000 REBOUND N-body flybys, wide encounters (r_p 100–1000 AU) | **0 exchanges.** FLAT. κ-dependence refuted at wide regime (exchange dynamically suppressed there). |
+| **C v2** | 10,000 REBOUND N-body flybys, close encounters (r_p 10–75 AU) | Exchange occurs (~10% at 10 AU) but is **κ-independent** across the full grid. **FLAT_BOTH** — the distinctive "coherence-as-parameter / 70–75% sweet spot" claim is refuted by 18,000 sealed simulations. |
+
+**Outcome:** the standard exchange-capture mechanism (Heggie–Hut, 1980s) is real but κ is not a meaningful parameter for its cross-section. The original "sweet spot" was an N=5-per-level statistical fluctuation. The distinctive contribution did not survive its own pre-registered test. Literature surveys (sealed) confirmed no prior N-body study had scanned κ as an input — the question was novel; the answer was null.
+
+## TESS Planet-Hunting Pipeline
+
+Built and hardened over the session; reusable independent of the theory that motivated it. Stages: TESS BLS periodogram → per-cadence centroid (MOM_CENTR − POS_CORR) → 8-test EB screen (SDE 2P/1P, odd-even, positive-depth fraction, duration, companion radius, secondary eclipse, **Gaia RUWE**, **Gaia NSS/vari_eb catalog**) → block-bootstrap red-noise FAP → block-size robustness sweep → injection-recovery → TLS modeled-transit refit → TRICERATOPS FPP wrapper. Cache-direct FITS loading bypasses MAST SSL failures. Key scripts under repo root (`widernet_*.py`, `eb_screen.py`, `gaia_lookup.py`, `tls_refit.py`, `triceratops_fpp.py`). The pipeline demonstrated its discipline by collapsing its own tier-1 candidate list under TLS shape constraints and withdrawing a false "TESS half-orbital harmonic" breakthrough after pre-registered replication failed.
+
 ## Retracted
 
 **GENESIS catalog** — audit found 95% from single cluster (UBC_545), organic cloud filter anti-correlated with habitability (OR = 0.49). Removed from repo. The failure is documented in the git history.
+
+**Coherent Capture "Laws of Coherency" (Nov 2025) and the 4.2% frequency / Solar-System-uniqueness / velocity-clustering framework** — did not survive first-principles derivation (Phase A) or pre-registered N-body test (Phase C, 18,000 sims). Withdrawn. The `coherent_capture_v3/` directory contains the sealed derivations, pre-registrations, and results; the earlier framework and its theological framing are superseded. The full falsification trail is in git history.
 
 ## Data Requirements
 
