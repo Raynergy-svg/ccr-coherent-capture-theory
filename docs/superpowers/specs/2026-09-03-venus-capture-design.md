@@ -91,9 +91,7 @@ Use REBOUND IAS15 for star-star-planet integrations. Each run begins with a Venu
 
 The start radius is
 
-$
-R_0 = \max(100\,\mathrm{AU}, 100a_D, 20q).
-$
+`R₀ = max(100 AU, 100 a_D, 20 q)`.
 
 The integration stops only after the stellar perturber has passed periapsis and is outbound beyond $R_0$. Candidate classifications are verified by extending to $2R_0$. A bound classification must remain stable for 100 new heliocentric orbital periods.
 
@@ -145,9 +143,7 @@ Candidates are propagated for $10^5$ years. Survivors continue for 10 Myr. The f
 
 This route asks whether a residual young solar nebula can circularize and align a captured orbit. The disk model is
 
-$
-\Sigma(r,t)=f_\Sigma\,1700\,(r/\mathrm{AU})^{-p}\exp(-t/\tau_d)\ \mathrm{g\,cm^{-2}}.
-$
+`Σ(r,t) = f_Σ × 1700 × (r/AU)^(-p) × exp(-t/τ_d) g cm⁻²`.
 
 Locked sensitivity grid:
 
@@ -185,8 +181,8 @@ Locked sensitivity ranges:
 
 | Parameter | Values/range |
 |---|---|
-| Moment coefficient $C/MR^2$ | 0.31–0.35 |
-| $k_2$ | 0.20–0.40 |
+| Moment coefficient `C/(MR²)` | 0.31–0.35 |
+| Love number `k₂` | 0.20–0.40 |
 | Andrade exponent | 0.15–0.35 |
 | Maxwell time | $10^2$–$10^4$ yr |
 | Triaxiality | $10^{-6}$–$10^{-4}$ |
@@ -202,7 +198,7 @@ The integration runs to 4.567 Gyr and evaluates both endpoint agreement and the 
 Three tests sit beside the main funnel because they may be more decisive than the spin endpoint:
 
 1. **Disk-age contradiction:** quantify whether encounters close enough for exchange leave enough disk, for long enough, to circularize Venus while allowing the terrestrial system to exist.
-2. **Thermal budget:** calculate $\Delta E = GM_\odot M_V e_i^2/(2a_V)$ as a first-order circularization scale and compare it with planetary binding energy, disk capacity, and permitted thermal histories.
+2. **Thermal budget:** calculate `ΔE = G M☉ M_V e_i² / (2 a_V)` as a first-order circularization scale and compare it with planetary binding energy, disk capacity, and permitted thermal histories.
 3. **Compositional birth certificate:** define future sample-return observables in oxygen, titanium, chromium, calcium, molybdenum/ruthenium, and tungsten isotope space. This is a prediction framework, not a current simulation gate.
 
 Moonlessness and present atmospheric isotopes are reported only as weak contextual evidence, not standalone confirmation.
@@ -229,17 +225,11 @@ Outputs use append-only Parquet tables plus compact JSON summaries. Checkpoints 
 
 Report the complete funnel:
 
-[
-f_{m joint}=f_{m capture}
-f_{m orbitmid capture}
-f_{m survivalmid orbit}
-f_{m diskmid survival}
-f_{m spinmid orbit,disk}.
-]
+`f_joint = f_capture × f_orbit|capture × f_survival|orbit × f_disk|survival × f_spin|orbit,disk`.
 
 The factors will also be reported separately to expose bottlenecks. Binomial intervals use a declared 95% method. Weighted estimates include effective sample size. Zero-event cells report upper bounds rather than zero probability. Fixed grid cells are not averaged as though equally common in nature; astrophysical weighting is a separate sensitivity calculation.
 
-A simple isotropic benchmark will accompany the simulations. For example, a thermal eccentricity distribution gives approximately (P(e<0.00677)=e^2approx4.6	imes10^{-5}), illustrating why endpoint-targeted importance sampling is needed.
+A simple isotropic benchmark will accompany the simulations. For example, a thermal eccentricity distribution gives approximately `P(e < 0.00677) = e² ≈ 4.6 × 10⁻⁵`, illustrating why endpoint-targeted importance sampling is needed.
 
 ## 9. Verdict rules
 
