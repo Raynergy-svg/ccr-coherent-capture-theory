@@ -152,7 +152,7 @@ Locked sensitivity grid:
 - aspect ratio at 1 AU $h_0 = 0.025, 0.035, 0.050$;
 - flaring index = 0 or 0.25;
 - remaining disk lifetime = 0.1, 0.3, 1.0, or 3.0 Myr;
-- flyby truncation factor (r_{m out}/q = 0.2, 0.3, 0.5);
+- flyby truncation factor `r_out/q = 0.2, 0.3, 0.5`;
 - disk tilt = 0, 5, 15, or 30 degrees.
 
 Cresswell-Nelson and Ida-style eccentricity/inclination damping are independent model families. Relevant high-eccentricity, high-inclination, or retrograde states outside their calibration domain are labeled `OUTSIDE_CALIBRATED_REGIME`, not extrapolated as ordinary successes. A high-inclination prescription may be used only as a bracket.
