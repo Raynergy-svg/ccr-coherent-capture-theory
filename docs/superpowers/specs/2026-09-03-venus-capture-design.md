@@ -91,17 +91,17 @@ Use REBOUND IAS15 for star-star-planet integrations. Each run begins with a Venu
 
 The start radius is
 
-[
-R_0 = max(100 mathrm{AU}, 100a_D, 20q).
-]
+$
+R_0 = \max(100\,\mathrm{AU}, 100a_D, 20q).
+$
 
-The integration stops only after the stellar perturber has passed periapsis and is outbound beyond (R_0). Candidate classifications are verified by extending to (2R_0). A bound classification must remain stable for 100 new heliocentric orbital periods.
+The integration stops only after the stellar perturber has passed periapsis and is outbound beyond $R_0$. Candidate classifications are verified by extending to $2R_0$. A bound classification must remain stable for 100 new heliocentric orbital periods.
 
 Numerical requirements:
 
-- IAS15 tolerance: (10^{-12});
-- scaled energy and angular-momentum error: at most (10^{-10});
-- linear-momentum error: at most (10^{-12});
+- IAS15 tolerance: $10^{-12}$;
+- scaled energy and angular-momentum error: at most $10^{-10}$;
+- linear-momentum error: at most $10^{-12}$;
 - failed cases are rerun at tighter tolerance;
 - accepted rare candidates receive a forward-reverse replay.
 
@@ -139,21 +139,21 @@ Immediate gates:
 - bounded total energy and angular-momentum errors;
 - post-encounter angular-momentum deficit no larger than the locked threshold derived from the present terrestrial system.
 
-Candidates are propagated for (10^5) years. Survivors continue for 10 Myr. The final production plan will specify the integrator handoff and timestep before execution; no outcome may be inspected to choose them.
+Candidates are propagated for $10^5$ years. Survivors continue for 10 Myr. The final production plan will specify the integrator handoff and timestep before execution; no outcome may be inspected to choose them.
 
 ### 5.6 Gas-damping module
 
 This route asks whether a residual young solar nebula can circularize and align a captured orbit. The disk model is
 
-[
-Sigma(r,t)=f_Sigma,1700,(r/mathrm{AU})^{-p}exp(-t/	au_d) mathrm{g,cm^{-2}}.
-]
+$
+\Sigma(r,t)=f_\Sigma\,1700\,(r/\mathrm{AU})^{-p}\exp(-t/\tau_d)\ \mathrm{g\,cm^{-2}}.
+$
 
 Locked sensitivity grid:
 
-- (f_Sigma = 0.01, 0.03, 0.10, 0.30, 1.00);
-- (p = 0.5, 1.0, 1.5);
-- aspect ratio at 1 AU (h_0 = 0.025, 0.035, 0.050);
+- $f_\Sigma = 0.01, 0.03, 0.10, 0.30, 1.00$;
+- $p = 0.5, 1.0, 1.5$;
+- aspect ratio at 1 AU $h_0 = 0.025, 0.035, 0.050$;
 - flaring index = 0 or 0.25;
 - remaining disk lifetime = 0.1, 0.3, 1.0, or 3.0 Myr;
 - flyby truncation factor (r_{m out}/q = 0.2, 0.3, 0.5);
@@ -185,11 +185,11 @@ Locked sensitivity ranges:
 
 | Parameter | Values/range |
 |---|---|
-| Moment coefficient (C/MR^2) | 0.31–0.35 |
-| (k_2) | 0.20–0.40 |
+| Moment coefficient $C/MR^2$ | 0.31–0.35 |
+| $k_2$ | 0.20–0.40 |
 | Andrade exponent | 0.15–0.35 |
-| Maxwell time | (10^2)–(10^4) yr |
-| Triaxiality | (10^{-6})–(10^{-4}) |
+| Maxwell time | $10^2$–$10^4$ yr |
+| Triaxiality | $10^{-6}$–$10^{-4}$ |
 | Core-mantle coupling | two-decade bracket |
 | Atmosphere pressure | 0, 1, 10, 92 bar |
 | Thermal-tide amplitude | 0.5, 1.0, 2.0 × Venus calibration |
@@ -202,7 +202,7 @@ The integration runs to 4.567 Gyr and evaluates both endpoint agreement and the 
 Three tests sit beside the main funnel because they may be more decisive than the spin endpoint:
 
 1. **Disk-age contradiction:** quantify whether encounters close enough for exchange leave enough disk, for long enough, to circularize Venus while allowing the terrestrial system to exist.
-2. **Thermal budget:** calculate (Delta E = GM_odot M_V e_i^2/(2a_V)) as a first-order circularization scale and compare it with planetary binding energy, disk capacity, and permitted thermal histories.
+2. **Thermal budget:** calculate $\Delta E = GM_\odot M_V e_i^2/(2a_V)$ as a first-order circularization scale and compare it with planetary binding energy, disk capacity, and permitted thermal histories.
 3. **Compositional birth certificate:** define future sample-return observables in oxygen, titanium, chromium, calcium, molybdenum/ruthenium, and tungsten isotope space. This is a prediction framework, not a current simulation gate.
 
 Moonlessness and present atmospheric isotopes are reported only as weak contextual evidence, not standalone confirmation.
@@ -216,7 +216,7 @@ Every run records:
 - complete initial state;
 - encounter diagnostics and closest approach;
 - numerical conservation diagnostics;
-- classification at (R_0), (2R_0), and after the stability window;
+- classification at $R_0$, $2R_0$, and after the stability window;
 - orbital elements and physical spin vector;
 - every gate result and failure reason;
 - proposal weight for reverse samples;
