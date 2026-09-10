@@ -1,0 +1,28 @@
+{
+  "attempted": 6144,
+  "numerically_valid": 6144,
+  "numerical_failures": 0,
+  "persistent_exchanges": 145,
+  "exchange_wilson95": [0.020091740272418, 0.027704134229046468],
+  "cold_exchanges": 0,
+  "cold_exchange_wilson95": [0.0, 0.000624846760676065],
+  "venus_orbit_near": 40,
+  "cold_near": 0,
+  "verdict": "EXCHANGE_ONLY_HOT",
+  "cells": [
+    {"q_over_aD": 2.0, "v_inf_kms": 0.1, "n": 512, "exchange": 37, "cold_exchange": 0},
+    {"q_over_aD": 2.0, "v_inf_kms": 0.3, "n": 512, "exchange": 35, "cold_exchange": 0},
+    {"q_over_aD": 2.0, "v_inf_kms": 0.5, "n": 512, "exchange": 33, "cold_exchange": 0},
+    {"q_over_aD": 2.0, "v_inf_kms": 1.0, "n": 512, "exchange": 40, "cold_exchange": 0},
+    {"q_over_aD": 3.0, "v_inf_kms": 0.1, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 3.0, "v_inf_kms": 0.3, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 3.0, "v_inf_kms": 0.5, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 3.0, "v_inf_kms": 1.0, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 4.0, "v_inf_kms": 0.1, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 4.0, "v_inf_kms": 0.3, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 4.0, "v_inf_kms": 0.5, "n": 512, "exchange": 0, "cold_exchange": 0},
+    {"q_over_aD": 4.0, "v_inf_kms": 1.0, "n": 512, "exchange": 0, "cold_exchange": 0}
+  ],
+  "config_sha256": "40a129c479f544b006d936d0315227a984d36511906d2de48a3bbc62d7da8c9d",
+  "workflow_run": 34536790421
+}
