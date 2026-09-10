@@ -22,7 +22,16 @@ This is a focused forward N-body tranche, not the full Venus production survey.
 - 512 trials per `(q/a_D, v_inf)` cell
 - total denominator: `6144` encounters
 
-Each Sobol point samples donor-planet mean anomaly plus an isotropic encounter-plane normal and periapsis orientation. The grid and denominator cannot be changed after outcomes are inspected.
+### Reference-plane amendment sealed before outcomes
+
+The Solar disk/ecliptic reference plane is fixed to the simulation `xy` plane. The donor planetary plane is **not** assumed aligned with it. Each Sobol point therefore samples six dimensions:
+
+1. donor-planet angular-momentum direction, isotropic relative to the Solar reference plane (`cos i_D` uniform in `[-1,1]`, node uniform in `[0,2pi)`);
+2. donor-planet mean anomaly uniform in `[0,2pi)`;
+3. stellar-encounter angular-momentum direction isotropic relative to the same Solar reference plane;
+4. stellar hyperbola argument of periapsis uniform in `[0,2pi)`.
+
+This prevents an artificial low-inclination advantage from silently aligning the donor disk with the Solar disk. The grid and denominator cannot be changed after outcomes are inspected.
 
 ## Integrator and encounter construction
 
@@ -30,11 +39,11 @@ Use REBOUND IAS15 in `AU, yr, Msun`. The donor planet begins bound to the donor 
 
 A candidate is a **genuine exchange** only when the planet is bound to the Sun analogue and unbound from the donor at the classification epoch. Double-bound states are not counted as exchanges. Candidate exchanges are integrated for 100 heliocentric orbital periods and must retain the same classification.
 
-Numerical gate: relative total-energy error and relative total-angular-momentum error must each be `<= 1e-10`; failed cases are retried once with tighter IAS15 epsilon. Cases still failing are reported as numerical failures and excluded from success numerators but retained in the full attempted denominator.
+Numerical gate: relative total-energy error and relative total-angular-momentum-vector error must each be `<= 1e-10`; failed cases are retried once with tighter IAS15 epsilon. Cases still failing are reported as numerical failures and excluded from success numerators but retained in the full attempted denominator.
 
 ## Recorded outcomes
 
-Every trial records input cell/batch/Sobol index, seed/scramble provenance, capture class, heliocentric `a,e,i`, donor-relative energy sign, Sun-relative energy sign, persistence result, energy error and angular-momentum error.
+Every trial records input cell/batch/Sobol index, scramble provenance, capture class, heliocentric `a,e,i` relative to the Solar reference plane, donor-relative energy sign, Sun-relative energy sign, persistence result, energy error and angular-momentum error.
 
 Primary counts per cell and globally:
 
