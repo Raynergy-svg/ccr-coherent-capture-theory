@@ -1,0 +1,39 @@
+name: Venus overlap exchange N-body
+
+on:
+  push:
+    branches: [venus-overlap-rebound-20260910]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install numpy scipy pandas rebound pytest
+      - name: Tests
+        run: |
+          if [ -f coherent_capture_v3/test_venus_overlap_exchange.py ]; then
+            pytest -q coherent_capture_v3/test_venus_overlap_exchange.py
+          else
+            echo 'No Venus overlap tests yet.'
+          fi
+      - name: Run sealed 6144-encounter survey
+        if: ${{ hashFiles('coherent_capture_v3/venus_overlap_exchange.py') != '' }}
+        run: |
+          python coherent_capture_v3/venus_overlap_exchange.py \
+            --trials-per-cell 512 \
+            --workers 2 \
+            --output-dir venus_overlap_results
+      - name: Upload results
+        if: ${{ always() && hashFiles('venus_overlap_results/**') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: venus-overlap-results
+          path: venus_overlap_results/
