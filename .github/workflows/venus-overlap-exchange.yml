@@ -18,6 +18,8 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip && pip install numpy scipy pandas rebound pytest
       - name: Tests
+        env:
+          PYTHONPATH: .
         run: |
           if [ -f coherent_capture_v3/test_venus_overlap_exchange.py ]; then
             pytest -q coherent_capture_v3/test_venus_overlap_exchange.py
@@ -26,6 +28,8 @@ jobs:
           fi
       - name: Run sealed 6144-encounter survey
         if: ${{ hashFiles('coherent_capture_v3/venus_overlap_exchange.py') != '' }}
+        env:
+          PYTHONPATH: .
         run: |
           python coherent_capture_v3/venus_overlap_exchange.py \
             --trials-per-cell 512 \
