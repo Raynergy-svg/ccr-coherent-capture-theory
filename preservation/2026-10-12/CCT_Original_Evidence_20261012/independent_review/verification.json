@@ -1,0 +1,52 @@
+{
+  "independent_check_scope": "source selection, identity and position uniqueness, training-only fits, predictions, weights, 5 deterministic null draws, complete stored-null exceedance count, fixed-prediction cluster resampling; not full null regeneration or raw catalog/spectra audit",
+  "selected_stars": 382,
+  "clusters": 26,
+  "unique_ids": 382,
+  "unique_coordinates": 382,
+  "minimum_cluster_n": 5,
+  "first_run_sentinel_stars": 35,
+  "fold_sizes": {
+    "0": 86,
+    "1": 81,
+    "2": 74,
+    "3": 71,
+    "4": 70
+  },
+  "balanced_baseline_mse": 0.007256931658483078,
+  "balanced_cluster_mse": 0.006615025120300895,
+  "balanced_mse_gain": 0.0006419065381821834,
+  "fraction_mse_improvement": 0.08845426254384234,
+  "baseline_rmse": 0.0851876262052364,
+  "cluster_rmse": 0.08133280469958537,
+  "stored_null_n": 1999,
+  "stored_null_exceedances": 12,
+  "permutation_p": 0.0065,
+  "bin_fold_strata": 206,
+  "mixed_strata_stars": 212,
+  "fixed_strata_stars": 170,
+  "first_5_nulls_verified": [
+    1.9660436777053664e-05,
+    -0.0003807170018398088,
+    0.0006232913551328551,
+    -0.0002887298729224485,
+    -0.0002205984549017727
+  ],
+  "clusters_positive_gain": 15,
+  "descriptive_cluster_bootstrap_95_interval": [
+    -0.0006081558091872275,
+    0.0020430823879323853
+  ],
+  "source_hashes": {
+    "TEST_SPEC.md": "0b0221471ad6a0d85f7884371300006aca6ef72d1a21ff8cee7307e29b04d964",
+    "VALIDITY_ADDENDUM.md": "88d27f0100422fb104103fc06d795289cb64bbe8f5a0af675b9b9ec6f5a5a9e1",
+    "reanalysis.py": "2243545dad5e8a56db8253a60611a8780182bc80c70c80302215809e8caef522",
+    "repo/tapogee_matched_stars.csv": "bccbcc32a184651abb29d26460e8fbceac5f89ac109cc8ad518c3a33ebc1c200",
+    "repo/t9_matched_stars.csv": "28d818754c1d302fcb8fe8a4dc722890941325b892319dffbc2e72b9a529aa77",
+    "repo/apogee_occam_abundances.csv": "7c8ed0ef1ece06b9a9aba15eee9ad5dc886dd51f6ea38edbaa84009694cacc09",
+    "strict_probability_fold_preserved/results.json": "c6f15339251698f5e5c51e59b3edfe69ebc3dd01f97a88ef93c5ff660980b28b",
+    "strict_probability_fold_preserved/qualified_apogee_heldout_predictions.csv": "1c1d963e64cf7d41bb3e30d91b35b7ca6afe73d882dd270aa305a1bc58e456b3",
+    "strict_probability_fold_preserved/permutation_null.csv": "05234961f48e3ebfbc90ff86a0aed212bb3e4425a1d70793ada7d304cd0d6c1d",
+    "strict_probability_fold_preserved/cluster_gains.csv": "17806ca9939aef5f803c1240ecbdc8f6c37576a130848a0897bf4d0db7aa227a"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "CCT_Discriminating_Prediction_Gap_20261012.md": {
+    "bytes": 6890,
+    "sha256": "8cbb6feaf5c144c879302277e0e1d780f6e8e58665fdaeddfeeca3cceab8c318"
+  },
+  "CCT_Membership_Verification_20261012.md": {
+    "bytes": 7008,
+    "sha256": "22264cd7ba29169a0b50a24c3d6743ae46d41489f20f2b59c0d2763be8075ce1"
+  },
+  "MEMBERSHIP_PROTOCOL.md": {
+    "bytes": 5438,
+    "sha256": "0a28d6415d41e95d1a2dd1b6d9ae5b917b607fb40403715dcc131491b17bd04c"
+  },
+  "candidate_identity_only.csv": {
+    "bytes": 18677,
+    "sha256": "65c827f91de23fafb77789f8961273dcecd677be5af3caff852d1748c78df762"
+  },
+  "classify_membership.py": {
+    "bytes": 5824,
+    "sha256": "ce528326b8eb94e1bb0943ebacb4c895d069c11daf89e9ce90134ab08b917dd2"
+  },
+  "fetch_membership.py": {
+    "bytes": 3716,
+    "sha256": "357abfa145bbe1ee5892ca4f8394d8999144eddfa53a07789b04523f010ededd"
+  },
+  "gaia_astrometry_0.adql": {
+    "bytes": 4168,
+    "sha256": "2fcf15cb2be8113b5e142a8ebc4941a0d7311a0e1982808937835af89c15acb1"
+  },
+  "gaia_astrometry_0.csv": {
+    "bytes": 38963,
+    "sha256": "38dca2960d36f99b5fe0618fc1c632ffa450f77772968518865d467c4b35c2f7"
+  },
+  "gaia_astrometry_1.adql": {
+    "bytes": 3775,
+    "sha256": "cfc6ad3afb29efca8c8efa3fd54e4d9276602b41571ed05dc1efc388d9ec355e"
+  },
+  "gaia_astrometry_1.csv": {
+    "bytes": 35660,
+    "sha256": "b73603809cb7f69ede7e87b2c069ec2fc554a14e2b79ef58c58a1d0e44318877"
+  },
+  "gaia_bridge_0.adql": {
+    "bytes": 2085,
+    "sha256": "18409ad5cbb381ac40f8e745993e8d5c1675e3e1a28660c5e495cebfefa48b40"
+  },
+  "gaia_bridge_0.csv": {
+    "bytes": 5550,
+    "sha256": "c8579c50b1aed8bf761b492110155011243f3d8ae5fd7111ebddfcd01c59daff"
+  },
+  "gaia_bridge_1.adql": {
+    "bytes": 2085,
+    "sha256": "5be31104349d9b91f6f5d81c57790c2a9272f01514df36f78631b4213fb16117"
+  },
+  "gaia_bridge_1.csv": {
+    "bytes": 5536,
+    "sha256": "0867caba3b5a44cdd3f73d033c8f23b8441e40f7808a848eae078cc89878561e"
+  },
+  "gaia_bridge_2.adql": {
+    "bytes": 2085,
+    "sha256": "404211014c462746163f4b713b6bb04079fdd68f2f7962bfb9dd5d79ee7dbd63"
+  },
+  "gaia_bridge_2.csv": {
+    "bytes": 5524,
+    "sha256": "868c996cb13172c2f1794f0ddac5377823f35ca4f25491c23429a6de5f64e221"
+  },
+  "gaia_bridge_3.adql": {
+    "bytes": 1743,
+    "sha256": "387c1d0739d802e50d3beae16aebb93c8138fb84f472643f8f9ebfa1446bf461"
+  },
+  "gaia_bridge_3.csv": {
+    "bytes": 4549,
+    "sha256": "db7df50c854c45d2e177b087429899d61be90e89d8ebd4f067bfb571a96d96d0"
+  },
+  "gaia_bridge_all.csv": {
+    "bytes": 20874,
+    "sha256": "6aa8205d4cdc5839ac1ae64775233a187ae6fd479eef94e437272a308dcc403a"
+  },
+  "gaia_schema.csv": {
+    "bytes": 177,
+    "sha256": "72803a829f89c52b486f6b80905705c909727d42b401ae558148b2679a4278bb"
+  },
+  "hr2024_schema.csv": {
+    "bytes": 5879,
+    "sha256": "9e86a6c7eca1d83877677af94a01d222f767f81b57ae166f3d3dd821e128beea"
+  },
+  "hr_cluster_identity_quality.adql": {
+    "bytes": 98,
+    "sha256": "0f5e5d110f02e20a97f51661cd5d0ba36be681a6dacfe7139ed78827770bc93c"
+  },
+  "hr_cluster_identity_quality.csv": {
+    "bytes": 464009,
+    "sha256": "a41aae7a491a36b9a36535bf8a2a222de44c567005d0f0ed2281021ed69ddd30"
+  },
+  "hr_clusters_schema.csv": {
+    "bytes": 7569,
+    "sha256": "410a2122453ea0961f01355887e2dc8221c535f91922114787d86c695da145b0"
+  },
+  "hr_members_0.adql": {
+    "bytes": 2143,
+    "sha256": "434ee8e5176b6d0d4813d83b97656a4e077b5c7378efa60ad16443f8232ec668"
+  },
+  "hr_members_0.csv": {
+    "bytes": 14293,
+    "sha256": "06de0c10d72352ead12766b9ae4e014e274c71b1283fccc0be20c898a4b4b25f"
+  },
+  "hr_members_1.adql": {
+    "bytes": 2135,
+    "sha256": "bedb0442267043cee1df44204a61c23685cc576eb3fa0bfa242fd38188d061a5"
+  },
+  "hr_members_1.csv": {
+    "bytes": 9004,
+    "sha256": "ad60e13e16fe4a2ba3de7d9458ad0195e4431700ea9d9aea1ae6c10316d29cb6"
+  },
+  "hr_members_2.adql": {
+    "bytes": 2108,
+    "sha256": "81dd07b227f173f014a88e06c2a499900ab185273e2a499cab597f15c2ea977a"
+  },
+  "hr_members_2.csv": {
+    "bytes": 13834,
+    "sha256": "3f8f37bbe3841a382e71b536a402c3079ebea49caa6984fdf941c9cbdb9ee05d"
+  },
+  "hr_members_3.adql": {
+    "bytes": 1777,
+    "sha256": "f2c836b35e7e0ad097828c412ecf1ca1d5934a98e6b7bf80814cf45e1f0b5139"
+  },
+  "hr_members_3.csv": {
+    "bytes": 11906,
+    "sha256": "66accf440f5879cef8351a644a12a109e53295b29c3d639a37798f1479aa8b11"
+  },
+  "hr_members_all.csv": {
+    "bytes": 48085,
+    "sha256": "f839f4d8131c792370b53f077627bd9589eb67d483ae162279cb33d75d039efd"
+  },
+  "membership_assignments.csv": {
+    "bytes": 127264,
+    "sha256": "786593ab7dad94d4bc5ebc6d95052a1b554d0cda81c10648f5197a1292af4b8b"
+  },
+  "membership_by_cluster.csv": {
+    "bytes": 573,
+    "sha256": "ebe8d93f0b8cd7ba1b5c15f061596ed9cf7a4465b52e877b13cd2ea32007ab0b"
+  },
+  "membership_result_log.txt": {
+    "bytes": 4437,
+    "sha256": "52d62e0314a87388bd0e907bae3b75bd884422488985200acdc327731250c007"
+  },
+  "membership_summary.json": {
+    "bytes": 1412,
+    "sha256": "299959d764e248d9fb2feb61f088cc69468412ae031553d1ff2902dc60423f20"
+  },
+  "membership_verification_checks.json": {
+    "bytes": 421,
+    "sha256": "06bed161bddf469463230b4d8203c7c79b68d7513f82fd66af246e2b60957dbd"
+  },
+  "original_source_passages.json": {
+    "bytes": 8043,
+    "sha256": "de80f1710a77c267d5b9676a430624381b6a510ef4278dc31a77a4ab70c30030"
+  },
+  "retrieval_log.txt": {
+    "bytes": 414,
+    "sha256": "65212b5fd5e15d934174037ad93f99c6902af7fb600416435aede9eadc9f52a0"
+  },
+  "retrieval_receipts.json": {
+    "bytes": 3435,
+    "sha256": "217c3b7e56f3953e14618fe4fedf487263d228ec69ef05eb15d6e19132a45191"
+  }
+}

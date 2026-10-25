@@ -1,0 +1,10 @@
+{
+  "t9_rows": 10479,
+  "t9_apertures": 655,
+  "t9_unique_positions": 8749,
+  "t9_reused_positions": 1324,
+  "t9_max_position_reuse": 7,
+  "t9_kw_h": 1170.8140709361214,
+  "t9_kw_p": 8.29676294677595e-32,
+  "apogee_to_galah_positions_within_1arcsec": 31
+}

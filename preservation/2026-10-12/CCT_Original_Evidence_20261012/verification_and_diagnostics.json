@@ -1,0 +1,66 @@
+{
+  "verification": {
+    "original": {
+      "unique_ids": true,
+      "mse_identity": true,
+      "permutation_p_identity": true,
+      "n": 420
+    },
+    "strict_probability": {
+      "unique_ids": true,
+      "mse_identity": true,
+      "permutation_p_identity": true,
+      "n": 382
+    },
+    "strict_probability_fold_preserved": {
+      "unique_ids": true,
+      "mse_identity": true,
+      "permutation_p_identity": true,
+      "n": 382
+    }
+  },
+  "descriptive_uncertainty": {
+    "not_preregistered": "fixed-prediction cluster bootstrap; does not refit selection or nuisance models and is not a formal generalization interval",
+    "n_resamples": 10000,
+    "mean_mse_gain_dex2": 0.0006419065381821841,
+    "percentile_95_interval_dex2": [
+      -0.0006081558091872078,
+      0.002043082387932381
+    ],
+    "positive_clusters": 15,
+    "clusters": 26,
+    "leave_one_cluster_fixed_prediction_mean_range_dex2": [
+      0.00014882446752629148,
+      0.0010126817855325395
+    ]
+  },
+  "k2_138_arithmetic": {
+    "source": "https://arxiv.org/abs/1801.03874",
+    "periods_days": [
+      2.35,
+      3.56,
+      5.4,
+      8.26,
+      12.76
+    ],
+    "adjacent_ratios": [
+      1.5148936170212766,
+      1.5168539325842698,
+      1.5296296296296295,
+      1.5447941888619854
+    ],
+    "relative_offset_from_3_to_2": [
+      0.0099290780141843,
+      0.011235955056179803,
+      0.01975308641975304,
+      0.02986279257465685
+    ],
+    "interpretation": "The historical report lists K2-138 as a low-resonance capture candidate, but its inner five planets were already described as a near-3:2 chain in the discovery paper. Near commensurability is not by itself dynamical resonance proof."
+  },
+  "t16c_age_coverage": {
+    "rows": 253,
+    "finite_ages": 231,
+    "max_age_gyr": 6.309576215861531,
+    "under1_gyr": 202
+  }
+}

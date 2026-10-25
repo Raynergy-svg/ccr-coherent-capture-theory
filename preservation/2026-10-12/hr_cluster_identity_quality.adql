@@ -1,0 +1,1 @@
+SELECT TOP 7200 Name,ID,AllNames,Type,CST,CMDCl50,isMerged,isGMMMemb FROM "J/A+A/686/A42/clusters"

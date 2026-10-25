@@ -1,0 +1,113 @@
+{
+  "scope": "retained-data reanalysis, not new observations",
+  "spec_sha256": "0b0221471ad6a0d85f7884371300006aca6ef72d1a21ff8cee7307e29b04d964",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "inputs": {
+    "t9_matched_stars.csv": "28d818754c1d302fcb8fe8a4dc722890941325b892319dffbc2e72b9a529aa77",
+    "tapogee_matched_stars.csv": "bccbcc32a184651abb29d26460e8fbceac5f89ac109cc8ad518c3a33ebc1c200",
+    "tapogee.py": "c29314bedc20d2f9af6503577707d9c6b46676889bd355bcab9f507210af06ba",
+    "t9_cluster_coherence.py": "71d6cbd12264dde01ad376839bf99cd78bdf6bc45731453bc630e6f1166ba0b6"
+  },
+  "t9_current": {
+    "rows": 10479,
+    "clusters": 655,
+    "unique_coordinates": 8749,
+    "coordinates_reused": 1324,
+    "extra_rows_due_reuse": 1730,
+    "max_apertures_per_coordinate": 7,
+    "kw_H": 1170.8140709361214,
+    "kw_p": 8.29676294677595e-32,
+    "feh_residual_kw_H": 887.1403287430763,
+    "feh_residual_kw_p": 2.8314250132240753e-09,
+    "median_aperture_rv_sd_kms": 26.559864107478212,
+    "apertures_rv_sd_gt10": 648,
+    "identical_coordinate_groups": [
+      [
+        "Gulliver_7",
+        "Ruprecht_77"
+      ],
+      [
+        "Hogg_15",
+        "NGC_4609"
+      ],
+      [
+        "UBC_637",
+        "UBC_638"
+      ]
+    ]
+  },
+  "t9_root": {
+    "rows": 10479,
+    "clusters": 655,
+    "unique_coordinates": 8749,
+    "coordinates_reused": 1324,
+    "extra_rows_due_reuse": 1730,
+    "max_apertures_per_coordinate": 7,
+    "kw_H": 1170.8138656543981,
+    "kw_p": 8.297142110126752e-32,
+    "feh_residual_kw_H": 887.1407084007463,
+    "feh_residual_kw_p": 2.8312793839188594e-09,
+    "median_aperture_rv_sd_kms": 26.559864107478205,
+    "apertures_rv_sd_gt10": 648,
+    "identical_coordinate_groups": [
+      [
+        "Gulliver_7",
+        "Ruprecht_77"
+      ],
+      [
+        "Hogg_15",
+        "NGC_4609"
+      ],
+      [
+        "UBC_637",
+        "UBC_638"
+      ]
+    ]
+  },
+  "apogee_original": {
+    "rows": 2515,
+    "unique_ids": 1994,
+    "clusters_all": 151,
+    "clusters_ge3": 85,
+    "kw_H": 730.6169538175641,
+    "kw_p": 8.804373543990757e-104,
+    "same_id_multi_cluster": 73,
+    "rows_without_both_kinematic_probabilities": 1140
+  },
+  "selection": {
+    "rv_and_pm_rows": 1375,
+    "deduplicated_id_cluster": 1163,
+    "ambiguous_ids_removed": 26,
+    "parameter_selected_stars": 561,
+    "final_stars": 420,
+    "final_clusters": 27
+  },
+  "test": {
+    "balanced_mse_baseline": 0.007123487753660091,
+    "balanced_mse_cluster": 0.0063193119648365555,
+    "mse_gain": 0.000804175788823534,
+    "fraction_mse_improvement": 0.1128907378847312,
+    "balanced_rmse_baseline_dex": 0.08440075683108589,
+    "balanced_rmse_cluster_dex": 0.07949410018886027,
+    "p_permutation": 0.0005,
+    "null_median": -0.000639527520805568,
+    "null_95": -6.60595099082141e-05,
+    "null_99": 0.0001854124197088102,
+    "n_permutations": 1999,
+    "bins": 88,
+    "mixed_cluster_bins": 47,
+    "stars_in_mixed_bins": 335,
+    "fraction_stars_permutable_across_clusters": 0.7976190476190477,
+    "clusters_with_positive_gain": 15,
+    "interpretation": "membership-probability-selected retained APOGEE giants; approximate conditional inference, not independent new observations"
+  },
+  "decision": "SURVIVES_SELECTED_CONDITIONAL_CHECK",
+  "cross_survey_overlap": {
+    "qualified_apogee_stars_with_galah_aperture_position_within_1arcsec": 32,
+    "caveat": "positions at their retained catalog epochs; not a full-ID matched or zero-point-calibrated replication"
+  }
+}

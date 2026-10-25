@@ -1,0 +1,14 @@
+{
+  "identity_only_columns": [
+    "CLUSTER",
+    "APOGEE_ID",
+    "RA",
+    "DEC"
+  ],
+  "per_star_result_rows": 382,
+  "unique_candidate_ids": true,
+  "independent_direct_join_checks_supported_rows": 291,
+  "all_supported_exact_id_same_cluster_and_score_checks_passed": true,
+  "frozen_protocol_sha256": "0a28d6415d41e95d1a2dd1b6d9ae5b917b607fb40403715dcc131491b17bd04c",
+  "chemical_results_read_in_this_step": false
+}

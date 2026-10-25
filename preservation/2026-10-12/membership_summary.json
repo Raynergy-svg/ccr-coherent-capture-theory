@@ -1,0 +1,31 @@
+{
+  "protocol_sha256": "0a28d6415d41e95d1a2dd1b6d9ae5b917b607fb40403715dcc131491b17bd04c",
+  "input_sha256": "65c827f91de23fafb77789f8961273dcecd677be5af3caff852d1748c78df762",
+  "input_rows": 382,
+  "input_clusters": 26,
+  "bridge_rows": 384,
+  "bridge_unique_input_ids": 382,
+  "bridge_unique_gaia_ids": 384,
+  "retrieved_member_rows": 341,
+  "catalog_cluster_identity_rows": 7167,
+  "counts": {
+    "SAME_CLUSTER_HIGH_SCORE": 291,
+    "UNRESOLVED_IDENTITY_OR_ALIAS": 54,
+    "NOT_LISTED": 31,
+    "SAME_CLUSTER_LOW_SCORE": 6
+  },
+  "same_cluster_high_score_and_highquality_bound": 253,
+  "same_cluster_high_score_inside_jacobi_radius": 291,
+  "same_cluster_high_score_and_highquality_bound_inside_jacobi": 253,
+  "supported_with_special_crossmatch_warning": 0,
+  "same_cluster_highscore_clusters": 21,
+  "clusters_with_ge5_same_cluster_highscore": 21,
+  "limitations": [
+    "No chemistry evaluated; existing chemically inspected sample, not independent chemical validation.",
+    "Alternative Gaia astrometric method shares measurement ancestry with OCCAM.",
+    "HDBSCAN membership scores are not calibrated membership posteriors.",
+    "Absence is not non-membership; distant/low-density/tail members may be missed.",
+    "Cluster alias ambiguity remains unresolved; no spatial or fuzzy-name substitutions.",
+    "Identity-bridge special-treatment flags and astrometric quality retained, not hidden."
+  ]
+}
